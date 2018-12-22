@@ -16,23 +16,23 @@ namespace TrialGame
             String finish = Console.ReadLine();
         }
 
-        public static int ChooseSkill(String S, int wholeAmount)
+        public static int ChooseStat(String S, int wholeAmount)
         {
-            int sprint;
+            int stat;
 
             Console.WriteLine("Choose your {0} stat now", S);
-            sprint = Convert.ToInt32(Console.ReadKey().KeyChar);
-            int distributionsp1 = wholeAmount + 48 - sprint;
-            if ((sprint < 48) || (sprint > 57))
+            stat = Convert.ToInt32(Console.ReadKey().KeyChar);
+            int distributionsp1 = wholeAmount + 48 - stat;
+            if ((stat < 48) || (stat > 57))
             {
                 ConsoleKeyInfo readKeysp1;
                 do
                 {
                     Console.WriteLine("Please insert appropriate number");
                     readKeysp1 = Console.ReadKey();
-                    sprint = Convert.ToInt32(readKeysp1.KeyChar);
+                    stat = Convert.ToInt32(readKeysp1.KeyChar);
                 }
-                while ((sprint < 48) || (sprint > 57));
+                while ((stat < 48) || (stat > 57));
 
             }
             else if (distributionsp1 < 0)
@@ -42,14 +42,15 @@ namespace TrialGame
                 {
                     Console.WriteLine("Please insert appropriate number");
                     readKeysp2 = Console.ReadKey();
-                    sprint = Convert.ToInt32(readKeysp2.KeyChar);
+                    stat = Convert.ToInt32(readKeysp2.KeyChar);
                 }
                 while (distributionsp1 < 0);
             }
-            else sprint -= 48;
+            else stat -= 48;
             Console.WriteLine(" ");
-            Console.WriteLine("Your sprint  equals {0}", sprint);
-            return sprint;
+            int statOut = stat;
+            Console.WriteLine("Your sprint  equals {0}", ++statOut);
+            return stat;
         }
         public static string givingNameToCharacter()
         {
@@ -78,7 +79,7 @@ namespace TrialGame
             Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", character.name);
             character.SetDefault(0, 100, 0);
             Console.WriteLine("Your level is {0}. Your health is {1}. You have {2} experience", character.level, character.health, character.exp);
-            Console.WriteLine("Choose your master skills. You have 30 points to delegate into the following parameters, with minimum of 0 and maximum of 9: sprinter, stayer, intelligence, progressivity, perception, luck. To go to choosing stats press 1, to exit game press 2. Stat info is depicted while choosing");
+            Console.WriteLine("Choose your master stats. You have 30 points to delegate into the following parameters, with minimum of 0 and maximum of 9: sprinter, stayer, intelligence, progressivity, perception, luck. To go to choosing stats press 1, to exit game press 2. Stat info is depicted while choosing");
             ConsoleKeyInfo readKey;
             readKey = Console.ReadKey();
             int decision;
@@ -99,7 +100,7 @@ namespace TrialGame
 
             else if (decision == 49)
             {
-                Console.WriteLine("To choose your skills, press 1");
+                Console.WriteLine("To choose your stats, press any key");
                 readKey = Console.ReadKey();
                 Console.WriteLine(" ");
                 decision = Convert.ToInt32(readKey.KeyChar);
@@ -111,28 +112,34 @@ namespace TrialGame
                     
 
                     statCharge = 30;
-                    character.sprint = ChooseSkill("sprint", statCharge);
+                    character.sprint += ChooseStat("sprint", statCharge);
                     statCharge = statCharge - character.sprint;
+                    statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
-                    character.stayer = ChooseSkill("stayer", statCharge);
+                    character.stayer += ChooseStat("stayer", statCharge);
                     statCharge = statCharge - character.stayer;
+                    statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
-                    character.intelligence = ChooseSkill("intelligence", statCharge);
+                    character.intelligence += ChooseStat("intelligence", statCharge);
                     statCharge = statCharge - character.intelligence;
+                    statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
-                    character.progressivity = ChooseSkill("progressivity", statCharge);
+                    character.progressivity += ChooseStat("progressivity", statCharge);
                     statCharge = statCharge - character.progressivity;
+                    statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
-                    character.perception = ChooseSkill("perception", statCharge);
+                    character.perception += ChooseStat("perception", statCharge);
                     statCharge = statCharge - character.perception;
+                    statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
-                    character.luck = ChooseSkill("luck", statCharge);
+                    character.luck += ChooseStat("luck", statCharge);
                     statCharge = statCharge - character.luck;
+                    statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
                     Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
