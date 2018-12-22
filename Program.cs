@@ -16,11 +16,11 @@ namespace TrialGame
             String finish = Console.ReadLine();
         }
 
-        public static int ChooseSprint(int wholeAmount)
+        public static int ChooseSkill(String S, int wholeAmount)
         {
             int sprint;
 
-            Console.WriteLine("Choose your sprint stat now");
+            Console.WriteLine("Choose your {0} stat now", S);
             sprint = Convert.ToInt32(Console.ReadKey().KeyChar);
             int distributionsp1 = wholeAmount + 48 - sprint;
             if ((sprint < 48) || (sprint > 57))
@@ -79,7 +79,6 @@ namespace TrialGame
             character.SetDefault(0, 100, 0);
             Console.WriteLine("Your level is {0}. Your health is {1}. You have {2} experience", character.level, character.health, character.exp);
             Console.WriteLine("Choose your master skills. You have 30 points to delegate into the following parameters, with minimum of 0 and maximum of 9: sprinter, stayer, intelligence, progressivity, perception, luck. To go to choosing stats press 1, to exit game press 2. Stat info is depicted while choosing");
-            int statCharge = 30;
             ConsoleKeyInfo readKey;
             readKey = Console.ReadKey();
             int decision;
@@ -100,9 +99,74 @@ namespace TrialGame
 
             else if (decision == 49)
             {
-                character.sprint = ChooseSprint(statCharge);
-                statCharge = statCharge - character.sprint;
-                Console.WriteLine("You have {0} point to distribute", statCharge);
+                Console.WriteLine("To choose your skills, press 1");
+                readKey = Console.ReadKey();
+                Console.WriteLine(" ");
+                decision = Convert.ToInt32(readKey.KeyChar);
+                decision -= 48;
+                int statCharge;
+
+                do
+                {
+                    
+
+                    statCharge = 30;
+                    character.sprint = ChooseSkill("sprint", statCharge);
+                    statCharge = statCharge - character.sprint;
+                    Console.WriteLine("You have {0} point to distribute", statCharge);
+
+                    character.stayer = ChooseSkill("stayer", statCharge);
+                    statCharge = statCharge - character.stayer;
+                    Console.WriteLine("You have {0} point to distribute", statCharge);
+
+                    character.intelligence = ChooseSkill("intelligence", statCharge);
+                    statCharge = statCharge - character.intelligence;
+                    Console.WriteLine("You have {0} point to distribute", statCharge);
+
+                    character.progressivity = ChooseSkill("progressivity", statCharge);
+                    statCharge = statCharge - character.progressivity;
+                    Console.WriteLine("You have {0} point to distribute", statCharge);
+
+                    character.perception = ChooseSkill("perception", statCharge);
+                    statCharge = statCharge - character.perception;
+                    Console.WriteLine("You have {0} point to distribute", statCharge);
+
+                    character.luck = ChooseSkill("luck", statCharge);
+                    statCharge = statCharge - character.luck;
+                    Console.WriteLine("You have {0} point to distribute", statCharge);
+
+                    Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
+                    readKey = Console.ReadKey();
+                    Console.WriteLine(" ");
+                    decision = Convert.ToInt32(readKey.KeyChar);
+                    decision -= 48;
+                   
+                    
+                    if ((decision < 1) || (decision >2))
+                    { 
+                        Console.WriteLine("Press the correct key, please. Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
+                        readKey = Console.ReadKey();
+                        Console.WriteLine(" ");
+                        decision = Convert.ToInt32(readKey.KeyChar);
+                        decision -= 48;
+                        
+                    }
+                    
+                    
+                    else if (decision != 1) {
+                        decision = 0; statCharge = 30;
+                    }
+                    
+                    else if (statCharge > 0)
+                    {
+                        Console.WriteLine("You should distribute all the stats. You have {0} stats left, redistribute your stats once again", statCharge);
+                        decision = 0;
+                    }
+                    
+                }
+                while ((decision != 2) & (statCharge > 0));
+
+
             }
             else
             {
