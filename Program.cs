@@ -10,17 +10,45 @@ namespace TrialGame
 {
     class Program
     {
-        public static void StatInfo (int option)
+        public static void Exit_Game ()
         {
-            Console.WriteLine("Info about stats shallst be here");
+            Console.WriteLine("For End press Enter");
+            String finish = Console.ReadLine();
         }
 
-        public static int ChooseSprint (int option)
+        public static int ChooseSprint(int wholeAmount)
         {
             int sprint;
-            Console.WriteLine("Choose your sprinter now");
+
+            Console.WriteLine("Choose your sprint stat now");
             sprint = Convert.ToInt32(Console.ReadKey().KeyChar);
-            Console.WriteLine();
+            int distributionsp1 = wholeAmount + 48 - sprint;
+            if ((sprint < 48) || (sprint > 57))
+            {
+                ConsoleKeyInfo readKeysp1;
+                do
+                {
+                    Console.WriteLine("Please insert appropriate number");
+                    readKeysp1 = Console.ReadKey();
+                    sprint = Convert.ToInt32(readKeysp1.KeyChar);
+                }
+                while ((sprint < 48) || (sprint > 57));
+
+            }
+            else if (distributionsp1 < 0)
+            {
+                ConsoleKeyInfo readKeysp2;
+                do
+                {
+                    Console.WriteLine("Please insert appropriate number");
+                    readKeysp2 = Console.ReadKey();
+                    sprint = Convert.ToInt32(readKeysp2.KeyChar);
+                }
+                while (distributionsp1 < 0);
+            }
+            else sprint -= 48;
+            Console.WriteLine(" ");
+            Console.WriteLine("Your sprint  equals {0}", sprint);
             return sprint;
         }
         public static string givingNameToCharacter()
@@ -40,55 +68,50 @@ namespace TrialGame
         {
             YourCreature character = new YourCreature();
             character.name = "персонаж";
-            
-                do 
-                    {
-                    character.name = preGiving();
-                }
-                        while (Console.ReadLine() != "1");
-            
+
+            do
+            {
+                character.name = preGiving();
+            }
+            while (Console.ReadLine() != "1");
+
             Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", character.name);
-            character.SetDefault(0,100, 0);
+            character.SetDefault(0, 100, 0);
             Console.WriteLine("Your level is {0}. Your health is {1}. You have {2} experience", character.level, character.health, character.exp);
-            Console.WriteLine("Choose your master skills. You have 30 points to delegate into the following parameters, with minimum of 1 and maximum of 10: sprinter, stayer, intelligence, progressivity, perception, luck. To see more information press 1, to go to choosing stats press 2");
+            Console.WriteLine("Choose your master skills. You have 30 points to delegate into the following parameters, with minimum of 0 and maximum of 9: sprinter, stayer, intelligence, progressivity, perception, luck. To go to choosing stats press 1, to exit game press 2. Stat info is depicted while choosing");
+            int statCharge = 30;
             ConsoleKeyInfo readKey;
             readKey = Console.ReadKey();
             int decision;
             decision = Convert.ToInt32(readKey.KeyChar);
-            Console.WriteLine();
+            Console.WriteLine(" ");
             if (decision >= 51)
             {
-                int errorNumber;
-                try
+                do
                 {
-                    errorNumber = decision;
+                    Console.WriteLine("You have to type 1 or 2");
+                    readKey = Console.ReadKey();
+                    Console.WriteLine(" ");
+                    decision = Convert.ToInt32(readKey.KeyChar);
                 }
-                catch (Exception e)
-                {
-                    do {
-                        Console.WriteLine("You have to type 1 or 2");
-                        readKey = Console.ReadKey();
-                        decision = Convert.ToInt32(readKey.KeyChar);
-                    }
-                    while (decision > 51);
-                }
-            }
-                else if (decision == 49)
-                    {
-                    StatInfo(decision);
-                    }
-                else if (decision == 50)
-                {
-                character.sprint = ChooseSprint(decision);
-                }
-        
+                while (decision > 51);
 
-            
-            Console.WriteLine("For End press Enter");
-            String finish = Console.ReadLine();
+            }
+
+            else if (decision == 49)
+            {
+                character.sprint = ChooseSprint(statCharge);
+                statCharge = statCharge - character.sprint;
+                Console.WriteLine("You have {0} point to distribute", statCharge);
+            }
+            else
+            {
+                Exit_Game();
+                System.Environment.Exit(0);
+            }
+            Exit_Game();
         }
-    }
-    
+
 
         public class YourCreature
         {
@@ -96,25 +119,31 @@ namespace TrialGame
             public int health;
             public int level;
             public int exp;
-            public int sprint;
+            public int sprint = 1;
+            public int stayer = 1;
+            public int intelligence = 1;
+            public int progressivity = 1;
+            public int perception = 1;
+            public int luck = 1;
 
             public YourCreature()
             {
 
-            } 
+            }
 
             public YourCreature(String givenName)
             {
                 name = givenName;
             }
 
-            public void SetDefault (int level, int health, int exp)
-        {
-            this.level = level;
-            this.health = health;
-            this.exp = exp;
-        }
+            public void SetDefault(int level, int health, int exp)
+            {
+                this.level = level;
+                this.health = health;
+                this.exp = exp;
+            }
 
         }
-    
+
+    }
 }
