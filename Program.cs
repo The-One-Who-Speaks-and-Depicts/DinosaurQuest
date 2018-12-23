@@ -109,34 +109,39 @@ namespace TrialGame
 
                 do
                 {
-                    
-
                     statCharge = 30;
+
+                    Console.WriteLine("Sprint makes you more fast and strong. It helps you attack bigger herbivore creatures and subjugate ones of your kind. Also it strengthen your bones, so they are not as likely to be damaged.");
                     character.sprint += ChooseStat("sprint", statCharge);
                     statCharge = statCharge - character.sprint;
                     statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
+                    Console.WriteLine("Stayer makes you more agile and flexible. It helps you attack smaller creatures and sneak away of bigger predators. Your bones are recovering faster as well.");
                     character.stayer += ChooseStat("stayer", statCharge);
                     statCharge = statCharge - character.stayer;
                     statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
+                    Console.WriteLine("Intelligence makes you more clever and able to solving tasks. It helps you solve harder tasks and outsmart your rivals.");
                     character.intelligence += ChooseStat("intelligence", statCharge);
                     statCharge = statCharge - character.intelligence;
                     statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
+                    Console.WriteLine("Progressivity improves your biodiversity. It enables you to acquire some important physical features that move your kind further. Also it helps you finding completely new solutions.");
                     character.progressivity += ChooseStat("progressivity", statCharge);
                     statCharge = statCharge - character.progressivity;
                     statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
+                    Console.WriteLine("Perception improves your senses.  You are able to find other creatures in a more effective way and scavenge better.");
                     character.perception += ChooseStat("perception", statCharge);
                     statCharge = statCharge - character.perception;
                     statCharge++;
                     Console.WriteLine("You have {0} point to distribute", statCharge);
 
+                    Console.WriteLine("Luck gives you better chances to make the best out of situation. It enables you scavenge more things, especially rare, and get away of bad encounters");
                     character.luck += ChooseStat("luck", statCharge);
                     statCharge = statCharge - character.luck;
                     statCharge++;
@@ -161,7 +166,14 @@ namespace TrialGame
                     
                     
                     else if (decision != 1) {
-                        decision = 0; statCharge = 30;
+                        decision = 0;
+                        character.sprint = 1;
+                        character.stayer = 1;
+                        character.intelligence = 1;
+                        character.progressivity = 1;
+                        character.luck = 1;
+                        character.perception = 1;
+                        statCharge += 30;
                     }
                     
                     else if (statCharge > 0)
