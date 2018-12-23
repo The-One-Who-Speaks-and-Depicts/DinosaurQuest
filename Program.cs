@@ -180,6 +180,46 @@ namespace TrialGame
                 Exit_Game();
                 System.Environment.Exit(0);
             }
+
+            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
+            readKey = Console.ReadKey();
+            Console.WriteLine(" ");
+            decision = Convert.ToInt32(readKey.KeyChar);
+            decision -= 48;
+
+            do
+            {
+                if ((decision != 1) && (decision != 2))
+                {
+                    Console.WriteLine("Press 1 for feminine, 2 for masculine");
+                    readKey = Console.ReadKey();
+                    Console.WriteLine(" ");
+                    decision = Convert.ToInt32(readKey.KeyChar);
+                    decision -= 48;
+                }
+                else if (decision == 1)
+                {
+                    Console.WriteLine("You are female now");
+                    character.sprint++;
+                    character.sex = 0;
+                }
+                else
+                {
+                    Console.WriteLine("You are male now");
+                    character.stayer++;
+                    character.sex = 1;
+                }
+
+                Console.WriteLine("If you are sure about your choice, press 1, in the other case, press any other key");
+                readKey = Console.ReadKey();
+                Console.WriteLine(" ");
+                decision = Convert.ToInt32(readKey.KeyChar);
+                decision -= 48;
+
+            }
+            while (decision != 1);
+            
+            
             Exit_Game();
         }
 
@@ -196,6 +236,7 @@ namespace TrialGame
             public int progressivity = 1;
             public int perception = 1;
             public int luck = 1;
+            public int sex;
 
             public YourCreature()
             {
