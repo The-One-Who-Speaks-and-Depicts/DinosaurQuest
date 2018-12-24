@@ -10,6 +10,7 @@ namespace TrialGame
 {
     class Program
     {
+        
         public static void Exit_Game ()
         {
             Console.WriteLine("For End press Enter");
@@ -109,48 +110,29 @@ namespace TrialGame
                 decision = ChoosingRightKey();
                 decision -= 48;
                 int statCharge;
-
+                string[] StatInfo = new string[] {
+                    "Sprint makes you more fast and strong. It helps you attack bigger herbivore creatures and subjugate ones of your kind. Also it strengthen your bones, so they are not as likely to be damaged.",
+                    "Stayer makes you more agile and flexible. It helps you attack smaller creatures and sneak away of bigger predators. Your bones are recovering faster as well.",
+                    "Intelligence makes you more clever and able to solving tasks. It helps you solve harder tasks and outsmart your rivals.",
+                    "Progressivity improves your biodiversity. It enables you to acquire some important physical features that move your kind further. Also it helps you finding completely new solutions.",
+                    "Perception improves your senses.  You are able to find other creatures in a more effective way and scavenge better.",
+                    "Luck gives you better chances to make the best out of situation. It enables you scavenge more things, especially rare, and get away of bad encounters"
+            };
                 do
                 {
                     statCharge = 30;
+                    character.DoStats();
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Console.WriteLine(StatInfo[i]);
+                        character.Stats[i] += ChooseStat(character.characterStats[i],statCharge);
+                        statCharge = statCharge - character.Stats[i];
+                        statCharge++;
+                        Console.WriteLine("You have {0} points to distribute", statCharge);
+                    }
+                    
 
-                    Console.WriteLine("Sprint makes you more fast and strong. It helps you attack bigger herbivore creatures and subjugate ones of your kind. Also it strengthen your bones, so they are not as likely to be damaged.");
-                    character.sprint += ChooseStat("sprint", statCharge);
-                    statCharge = statCharge - character.sprint;
-                    statCharge++;
-                    Console.WriteLine("You have {0} point to distribute", statCharge);
-
-                    Console.WriteLine("Stayer makes you more agile and flexible. It helps you attack smaller creatures and sneak away of bigger predators. Your bones are recovering faster as well.");
-                    character.stayer += ChooseStat("stayer", statCharge);
-                    statCharge = statCharge - character.stayer;
-                    statCharge++;
-                    Console.WriteLine("You have {0} point to distribute", statCharge);
-
-                    Console.WriteLine("Intelligence makes you more clever and able to solving tasks. It helps you solve harder tasks and outsmart your rivals.");
-                    character.intelligence += ChooseStat("intelligence", statCharge);
-                    statCharge = statCharge - character.intelligence;
-                    statCharge++;
-                    Console.WriteLine("You have {0} point to distribute", statCharge);
-
-                    Console.WriteLine("Progressivity improves your biodiversity. It enables you to acquire some important physical features that move your kind further. Also it helps you finding completely new solutions.");
-                    character.progressivity += ChooseStat("progressivity", statCharge);
-                    statCharge = statCharge - character.progressivity;
-                    statCharge++;
-                    Console.WriteLine("You have {0} point to distribute", statCharge);
-
-                    Console.WriteLine("Perception improves your senses.  You are able to find other creatures in a more effective way and scavenge better.");
-                    character.perception += ChooseStat("perception", statCharge);
-                    statCharge = statCharge - character.perception;
-                    statCharge++;
-                    Console.WriteLine("You have {0} point to distribute", statCharge);
-
-                    Console.WriteLine("Luck gives you better chances to make the best out of situation. It enables you scavenge more things, especially rare, and get away of bad encounters");
-                    character.luck += ChooseStat("luck", statCharge);
-                    statCharge = statCharge - character.luck;
-                    statCharge++;
-                    Console.WriteLine("You have {0} point to distribute", statCharge);
-
-                    Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
+                    Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
                     decision = ChoosingRightKey();
                     decision -= 48;
                    
@@ -158,7 +140,7 @@ namespace TrialGame
                     if ((decision < 1) || (decision >2))
                     {
                         Console.WriteLine("Please press appropriate key");
-                        Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
+                        Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
                         decision = ChoosingRightKey();
                         decision -= 48;
                         
@@ -167,13 +149,8 @@ namespace TrialGame
                     
                     else if (decision != 1) {
                         decision = 0;
-                        character.sprint = 1;
-                        character.stayer = 1;
-                        character.intelligence = 1;
-                        character.progressivity = 1;
-                        character.luck = 1;
-                        character.perception = 1;
-                        statCharge += 30;
+                        character.ResetStats();
+                        statCharge = 30;
                     }
                     
                     else if (statCharge > 0)
@@ -208,13 +185,13 @@ namespace TrialGame
                 else if (decision == 1)
                 {
                     Console.WriteLine("You are female now");
-                    character.sprint++;
+                    character.Stats[0]++;
                     character.sex = 0;
                 }
                 else
                 {
                     Console.WriteLine("You are male now");
-                    character.stayer++;
+                    character.Stats[1]++;
                     character.sex = 1;
                 }
 
@@ -225,7 +202,7 @@ namespace TrialGame
             }
             while (decision != 1);
             String bioSex = character.PrintSex();
-            Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
+            Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
             Console.WriteLine("You are going to the tutorial level. Press any key");
             Console.ReadKey();
             Exit_Game();
@@ -238,13 +215,27 @@ namespace TrialGame
             public int health;
             public int level;
             public int exp;
-            public int sprint = 1;
-            public int stayer = 1;
-            public int intelligence = 1;
-            public int progressivity = 1;
-            public int perception = 1;
-            public int luck = 1;
             public int sex;
+            public List<int> Stats = new List<int>();
+            
+
+            public string[] characterStats = new string[] { "sprint", "stayer", "intelligence", "progressivity", "perception", "luck" };
+            
+            public void DoStats ()
+            {
+                Stats.Add(1);
+                Stats.Add(1);
+                Stats.Add(1);
+                Stats.Add(1);
+                Stats.Add(1);
+                Stats.Add(1);
+            }
+            
+            public void ResetStats()
+            {
+                Stats.Clear();
+            }
+           
 
             public string PrintSex()
             {
