@@ -67,6 +67,7 @@ namespace TrialGame
         }
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the game of prehistory. It is a story of a predator dinosaur, little cryolophosaurus, who is growing in the Antarctica of Early Jurassic. The aim of a game is to guide your creature through the childhood, teenagehood, adolescence and adult life. The world around you is going to be harsh and cruel. Primary objective is survival by any cost. Secondary objective is to keep being the character you truly want to be.");
             YourCreature character = new YourCreature();
             character.name = "персонаж";
 
@@ -230,8 +231,10 @@ namespace TrialGame
 
             }
             while (decision != 1);
-            
-            
+            String bioSex = character.PrintSex();
+            Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
+            Console.WriteLine("You are going to the tutorial level. Press any key");
+            Console.ReadKey();
             Exit_Game();
         }
 
@@ -249,6 +252,12 @@ namespace TrialGame
             public int perception = 1;
             public int luck = 1;
             public int sex;
+
+            public string PrintSex()
+            {
+                if (this.sex == 0) return "feminine";
+                else return "masculine";
+            }
 
             public YourCreature()
             {
