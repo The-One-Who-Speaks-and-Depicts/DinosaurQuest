@@ -10,8 +10,8 @@ namespace TrialGame
 {
     class Program
     {
-        
-        public static void Exit_Game ()
+
+        public static void Exit_Game()
         {
             Console.WriteLine("For End press Enter");
             String finish = Console.ReadLine();
@@ -94,15 +94,17 @@ namespace TrialGame
             Console.WriteLine("Choose your master stats. You have 30 points to delegate into the following parameters, with minimum of 0 and maximum of 9: sprinter, stayer, intelligence, progressivity, perception, luck. To go to choosing stats press 1, to exit game press 2. Stat info is depicted while choosing");
             int decision = ChoosingRightKey();
             decision -= 48;
+
+            if (decision > 2) Console.WriteLine("Please press appropriate key");
+
             do
-                {
-                    Console.WriteLine("Please press appropriate key");
-                    decision = ChoosingRightKey();
-                    decision -= 48;
-                }
+            {
+                decision = ChoosingRightKey();
+                decision -= 48;
+            }
             while (decision > 2);
 
-            
+
 
             if (decision == 1)
             {
@@ -125,40 +127,41 @@ namespace TrialGame
                     for (int i = 0; i < 6; i++)
                     {
                         Console.WriteLine(StatInfo[i]);
-                        character.Stats[i] += ChooseStat(character.characterStats[i],statCharge);
+                        character.Stats[i] += ChooseStat(character.characterStats[i], statCharge);
                         statCharge = statCharge - character.Stats[i];
                         statCharge++;
                         Console.WriteLine("You have {0} points to distribute", statCharge);
                     }
-                    
+
 
                     Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
                     decision = ChoosingRightKey();
                     decision -= 48;
-                   
-                    
-                    if ((decision < 1) || (decision >2))
+
+
+                    if ((decision < 1) || (decision > 2))
                     {
                         Console.WriteLine("Please press appropriate key");
                         Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
                         decision = ChoosingRightKey();
                         decision -= 48;
-                        
+
                     }
-                    
-                    
-                    else if (decision != 1) {
+
+
+                    else if (decision != 1)
+                    {
                         decision = 0;
                         character.ResetStats();
                         statCharge = 30;
                     }
-                    
+
                     else if (statCharge > 0)
                     {
                         Console.WriteLine("You should distribute all the stats. You have {0} stats left, redistribute your stats once again", statCharge);
                         decision = 0;
                     }
-                    
+
                 }
                 while ((decision != 2) & (statCharge > 0));
 
@@ -173,12 +176,12 @@ namespace TrialGame
             Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
             decision = ChoosingRightKey();
             decision -= 48;
-            
+
 
             do
             {
-                if  (decision == 2) 
-                 {
+                if (decision == 2)
+                {
                     Console.WriteLine("You are male now");
                     character.Stats[1]++;
                     character.sex = 1;
@@ -189,12 +192,13 @@ namespace TrialGame
                     character.Stats[0]++;
                     character.sex = 0;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("Press 1 for feminine, 2 for masculine");
                     decision = ChoosingRightKey();
                     decision -= 48;
                 }
-               
+
                 Console.WriteLine("If you are sure about your choice, press 1, in the other case, press any other key");
                 decision = ChoosingRightKey();
                 decision -= 48;
@@ -217,11 +221,11 @@ namespace TrialGame
             public int exp;
             public int sex;
             public List<int> Stats = new List<int>();
-            
+
 
             public string[] characterStats = new string[] { "sprint", "stayer", "intelligence", "progressivity", "perception", "luck" };
-            
-            public void DoStats ()
+
+            public void DoStats()
             {
                 Stats.Add(1);
                 Stats.Add(1);
@@ -230,12 +234,12 @@ namespace TrialGame
                 Stats.Add(1);
                 Stats.Add(1);
             }
-            
+
             public void ResetStats()
             {
                 Stats.Clear();
             }
-           
+
 
             public string PrintSex()
             {
