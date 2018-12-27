@@ -147,7 +147,6 @@ namespace TrialGame
                             Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
                             decision = ChoosingRightKey();
                             decision -= 48;
-                            Console.WriteLine("decision in cycle equals {0}", decision);
                     }
                         
                     
@@ -163,7 +162,6 @@ namespace TrialGame
                         Console.WriteLine("You should distribute all the stats. You have {0} stats left, redistribute your stats once again", statCharge);
                         decision = 0;
                     }
-                    Console.WriteLine("decision in cycle equals {0}", decision);
                 }
                 while ((decision != 2) && (statCharge > 0));
 
