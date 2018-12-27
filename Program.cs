@@ -138,18 +138,17 @@ namespace TrialGame
                     decision = ChoosingRightKey();
                     decision -= 48;
 
-
-                    if ((decision < 1) || (decision > 2))
+                    while((decision < 1) || (decision > 2))
                     {
-                        Console.WriteLine("Please press appropriate key");
-                        Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
-                        decision = ChoosingRightKey();
-                        decision -= 48;
-
+                            Console.WriteLine("Please press appropriate key");
+                            Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
+                            decision = ChoosingRightKey();
+                            decision -= 48;
+                            Console.WriteLine("decision in cycle equals {0}", decision);
                     }
-
-
-                    else if (decision != 1)
+                        
+                    
+                    if (decision != 1)
                     {
                         decision = 0;
                         character.ResetStats();
@@ -161,9 +160,9 @@ namespace TrialGame
                         Console.WriteLine("You should distribute all the stats. You have {0} stats left, redistribute your stats once again", statCharge);
                         decision = 0;
                     }
-
+                    Console.WriteLine("decision in cycle equals {0}", decision);
                 }
-                while ((decision != 2) & (statCharge > 0));
+                while ((decision != 2) && (statCharge > 0));
 
 
             }
@@ -209,6 +208,8 @@ namespace TrialGame
             Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
             Console.WriteLine("You are going to the tutorial level. Press any key");
             Console.ReadKey();
+
+
             Exit_Game();
         }
 
