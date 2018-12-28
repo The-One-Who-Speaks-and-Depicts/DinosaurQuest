@@ -70,6 +70,26 @@ namespace TrialGame
             Console.WriteLine("Your name is {0}. If OK, enter 1, if not, enter anything else", player.name);
             return player.name;
         }
+
+        public static void Save_Game()
+        {
+            
+        }
+
+        public static void MenuCall (YourCreature a)
+        {
+            int click = -1;
+            do
+            {
+                Console.WriteLine("Press 7 to quit main menu, 8 to save, press 9 to get stats, press 0 to exit");
+                click = ChoosingRightKey();
+                if (click == 0) Exit_Game();
+                else if (click == 9) Console.WriteLine("{0} has {1} level, {2} health, {3} experience, {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck", a.name, a.level, a.health, a.exp, a.Stats[0], a.Stats[1], a.Stats[2], a.Stats[3], a.Stats[4], a.Stats[5]);
+                else if (click == 8) Save_Game();
+            }
+            while (click != 7);
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the game of prehistory. It is a story of a predator dinosaur, little cryolophosaurus, who is growing in the Antarctica of Early Jurassic. The aim of a game is to guide your creature through the childhood, teenagehood, adolescence and adult life. The world around you is going to be harsh and cruel. Primary objective is survival by any cost. Secondary objective is to keep being the character you truly want to be.");
