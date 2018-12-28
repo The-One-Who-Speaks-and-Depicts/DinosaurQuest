@@ -26,12 +26,10 @@ namespace TrialGame
             Console.WriteLine("{0} has {1} level, {2} health, {3} experience, {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck", mother.name, mother.level, mother.health, mother.exp, mother.Stats[0], mother.Stats[1], mother.Stats[2], mother.Stats[3], mother.Stats[4], mother.Stats[5]);
             Console.WriteLine("Mother is starving and thirsty. She is desperate of satisfying her needs, because she was warming her unborn children for weeks, or even months now. But she still needs to guard them. That is going to be a very hard choice for her. Does she want to go away for hunting or is she going to stay here (1) and protect her children until her last dying breath(2)");
             int decision = Program.ChoosingRightKey();
-            decision -= 48;
             while ((decision < 1) || (decision > 2)) 
                 {
                 Console.WriteLine("Please press appropriate key");
                 decision = Program.ChoosingRightKey();
-                decision -= 48;
             }
             if (decision == 1)
             {

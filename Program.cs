@@ -22,49 +22,40 @@ namespace TrialGame
 
         public static int ChoosingRightKey()
         {
-            int decision;
-            ConsoleKeyInfo readKey;
-            readKey = Console.ReadKey();
+            int m_decision;
+            ConsoleKeyInfo m_readKey;
+            m_readKey = Console.ReadKey();
             Console.WriteLine(" ");
-            decision = Convert.ToInt32(readKey.KeyChar);
-            return decision;
+            m_decision = Convert.ToInt32(m_readKey.KeyChar);
+            m_decision -= 48;
+            return m_decision;
         }
 
         public static int ChooseStat(String S, int wholeAmount)
         {
-            int stat;
+            int decision;
 
             Console.WriteLine("Choose your {0} stat now", S);
-            stat = Convert.ToInt32(Console.ReadKey().KeyChar);
-            int distributionsp1 = wholeAmount + 48 - stat;
-            if ((stat < 48) || (stat > 57))
-            {
-                ConsoleKeyInfo readKeysp1;
-                do
-                {
-                    Console.WriteLine("Please insert appropriate number");
-                    readKeysp1 = Console.ReadKey();
-                    stat = Convert.ToInt32(readKeysp1.KeyChar);
-                }
-                while ((stat < 48) || (stat > 57));
+            decision = ChoosingRightKey();
+            int legallyDistributedPoints = wholeAmount - decision;
 
-            }
-            else if (distributionsp1 < 0)
-            {
-                ConsoleKeyInfo readKeysp2;
-                do
+            while ((decision < 0) || (decision > 9)) 
                 {
                     Console.WriteLine("Please insert appropriate number");
-                    readKeysp2 = Console.ReadKey();
-                    stat = Convert.ToInt32(readKeysp2.KeyChar);
-                }
-                while (distributionsp1 < 0);
-            }
-            else stat -= 48;
+                    decision = ChoosingRightKey();
+                }          
+                   
+            
+            while (legallyDistributedPoints < 0) 
+                {
+                Console.WriteLine("Please insert appropriate number");
+                decision = ChoosingRightKey();
+                }               
+            
             Console.WriteLine(" ");
-            int statOut = stat;
+            int statOut = decision;
             Console.WriteLine("Your sprint  equals {0}", ++statOut);
-            return stat;
+            return decision;
         }
         public static string givingNameToCharacter()
         {
@@ -96,24 +87,20 @@ namespace TrialGame
             Console.WriteLine("Your level is {0}. Your health is {1}. You have {2} experience", character.level, character.health, character.exp);
             Console.WriteLine("Choose your master stats. You have 30 points to delegate into the following parameters, with minimum of 0 and maximum of 9: sprinter, stayer, intelligence, progressivity, perception, luck. To go to choosing stats press 1, to exit game press 2. Stat info is depicted while choosing");
             int decision = ChoosingRightKey();
-            decision -= 48;
 
-            if (decision > 2) Console.WriteLine("Please press appropriate key");
-
-            do
+            while (decision > 2) 
             {
-                decision = ChoosingRightKey();
-                decision -= 48;
+                    Console.WriteLine("Please press appropriate key");
+                    decision = ChoosingRightKey();                
             }
-            while (decision > 2);
+            
 
 
 
             if (decision == 1)
             {
                 Console.WriteLine("To choose your stats, press any key");
-                decision = ChoosingRightKey();
-                decision -= 48;
+                decision = ChoosingRightKey();                
                 int statCharge;
                 string[] StatInfo = new string[] {
                     "Sprint makes you more fast and strong. It helps you attack bigger herbivore creatures and subjugate ones of your kind. Also it strengthen your bones, so they are not as likely to be damaged.",
@@ -139,14 +126,12 @@ namespace TrialGame
 
                     Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
                     decision = ChoosingRightKey();
-                    decision -= 48;
-
+                    
                     while((decision < 1) || (decision > 2))
                     {
                             Console.WriteLine("Please press appropriate key");
                             Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
                             decision = ChoosingRightKey();
-                            decision -= 48;
                     }
                         
                     
@@ -173,8 +158,7 @@ namespace TrialGame
             }
 
             Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
-            decision = ChoosingRightKey();
-            decision -= 48;
+            decision = ChoosingRightKey();            
 
 
             do
@@ -195,20 +179,16 @@ namespace TrialGame
                 {
                     Console.WriteLine("Press 1 for feminine, 2 for masculine");
                     decision = ChoosingRightKey();
-                    decision -= 48;
                 }
 
                 Console.WriteLine("If you are sure about your choice, press 1, in the other case, press any other key");
                 decision = ChoosingRightKey();
-                decision -= 48;
-
             }
             while (decision != 1);
             String bioSex = character.PrintSex();
             Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
             Console.WriteLine("You are going to the tutorial level. Press 1  to do that, press any key to exit the game");
             decision = ChoosingRightKey();
-            decision -= 48;
 
             if (decision != 1)  Exit_Game();
             else Tutorial.Tutorial_Entrance();
