@@ -35,11 +35,13 @@ namespace TrialGame
             {
                 Console.WriteLine("Putting mother's needs over child's ones is clever, but, at this point of history, not so progressive step. Mother is going into the woods.");
                 mother.Stats[2]++;
+                Tile next = new Tile("southEast", "Fall", "Mountainside");
             }
             else if (decision == 2)
             {
                 Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest.");
                 mother.Stats[3]++;
+                Tile next = new Tile("noDir", "Fall", "Cloud_forest");
             }
             
             Program.Exit_Game();

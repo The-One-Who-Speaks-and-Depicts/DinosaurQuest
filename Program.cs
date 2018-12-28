@@ -248,6 +248,11 @@ namespace TrialGame
                 this.exp = exp;
             }
 
+            public static void Spawn()
+            {
+                Console.WriteLine("Here there will be tigers");
+            }
+
         }
 
     }
