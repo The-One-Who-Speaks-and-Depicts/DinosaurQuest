@@ -158,11 +158,17 @@ namespace TrialGame
             }
 
             Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
-            decision = ChoosingRightKey();            
+            decision = ChoosingRightKey();
 
 
             do
             {
+                while ((decision < 1) || (decision > 2))                
+                {
+                    Console.WriteLine("Press 1 for feminine, 2 for masculine");
+                    decision = ChoosingRightKey();
+                }
+
                 if (decision == 2)
                 {
                     Console.WriteLine("You are male now");
@@ -174,17 +180,13 @@ namespace TrialGame
                     Console.WriteLine("You are female now");
                     character.Stats[0]++;
                     character.sex = 0;
-                }
-                else
-                {
-                    Console.WriteLine("Press 1 for feminine, 2 for masculine");
-                    decision = ChoosingRightKey();
-                }
-
+                }                          
+                 
                 Console.WriteLine("If you are sure about your choice, press 1, in the other case, press any other key");
                 decision = ChoosingRightKey();
             }
             while (decision != 1);
+
             String bioSex = character.PrintSex();
             Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
             Console.WriteLine("You are going to the tutorial level. Press 1  to do that, press any key to exit the game");
