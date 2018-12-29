@@ -36,18 +36,26 @@ namespace TrialGame
                 Console.WriteLine("Putting mother's needs over child's ones is clever, but, at this point of history, not so progressive step. Mother is going into the woods.");
                 mother.Stats[2]++;
                 Tile next = new Tile("southEast", "Fall", "Mountainside");
-                Console.WriteLine("To do something, press any key, to see main menu, press 1");
-                decision = Program.ChoosingRightKey();
-                if (decision == 1) Program.MenuCall(mother);
+                do
+                {
+                    Console.WriteLine("To do something, press any key, to see main menu, press 1");
+                    decision = Program.ChoosingRightKey();
+                    if (decision == 1) Program.MenuCall(mother);
+                }
+                while (decision != 2);
             }
             else if (decision == 2)
             {
                 Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest.");
                 mother.Stats[3]++;
                 Tile next = new Tile("noDir", "Fall", "Cloud_forest");
-                Console.WriteLine("To do something, press any key, to see main menu, press 1");
-                decision = Program.ChoosingRightKey();
-                if (decision == 1) Program.MenuCall(mother);
+                do
+                {
+                    Console.WriteLine("To do something, press any key, to see main menu, press 1");
+                    decision = Program.ChoosingRightKey();
+                    if (decision == 1) Program.MenuCall(mother);
+                }
+                while (decision != 2);
             }
             
             Program.Exit_Game();

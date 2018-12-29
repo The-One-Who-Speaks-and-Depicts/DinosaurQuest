@@ -37,24 +37,26 @@ namespace TrialGame
 
             Console.WriteLine("Choose your {0} stat now", S);
             decision = ChoosingRightKey();
-            int legallyDistributedPoints = wholeAmount - decision;
+           
 
+            
             while ((decision < 0) || (decision > 9)) 
                 {
-                    Console.WriteLine("Please insert appropriate number");
+                    Console.WriteLine("Please insert appropriate number, it should be more than 0 and less than 9");
                     decision = ChoosingRightKey();
-                }          
-                   
-            
-            while (legallyDistributedPoints < 0) 
+                    
+            }
+                       
+            while (wholeAmount < decision)
                 {
-                Console.WriteLine("Please insert appropriate number");
+                Console.WriteLine("Please insert appropriate number, you have only {0} points to distribute", wholeAmount);
                 decision = ChoosingRightKey();
-                }               
+                
+            }
             
             Console.WriteLine(" ");
             int statOut = decision;
-            Console.WriteLine("Your sprint  equals {0}", ++statOut);
+            Console.WriteLine("Your {0}  equals {1}", S, ++statOut);
             return decision;
         }
         public static string givingNameToCharacter()
