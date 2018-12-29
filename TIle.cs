@@ -143,7 +143,7 @@ namespace TrialGame
             int creatures = CreatureAmount();
             for (int creatureScore = 0; creatureScore < creatures; creatureScore++)
             {
-                Program.YourCreature.Spawn();
+                YourCreature.Spawn();
             }
             Console.WriteLine("Your coordinates are {0}, {1}", m_coordX, m_coordY);
         }

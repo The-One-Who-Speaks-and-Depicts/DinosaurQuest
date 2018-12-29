@@ -12,7 +12,7 @@ namespace TrialGame
         public static void Tutorial_Entrance ()
         {
             Console.WriteLine("You are now an egg, so, everything you can do is exist, while other creatures decide, what your fate is going to be like. However, some divine bodyless sentient creature that governs you, is able to help you by telling your mother what is going to be the best for you. And she will help this divine creature as well, by showing how this cruel world works. It is not too long before your birth, however, for your mother these are going to be the truly hardest hours of her parenthood. And now they are to begin. Let the desperate Diviner brace themselves, Early Jurassic of Antarctica begins!");
-            Program.YourCreature mother = new Program.YourCreature();
+            YourCreature mother = new YourCreature();
             mother.name = "Mother Cryolophosaurus";
             mother.sex = 1;
             mother.SetDefault(35, 450, 350001);
