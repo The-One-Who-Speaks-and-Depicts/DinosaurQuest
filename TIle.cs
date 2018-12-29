@@ -143,10 +143,24 @@ namespace TrialGame
             int creatures = CreatureAmount();
             for (int creatureScore = 0; creatureScore < creatures; creatureScore++)
             {
-                YourCreature.Spawn();
+                YourCreature.EnemyCreature.Spawn();
             }
             Console.WriteLine("Your coordinates are {0}, {1}", m_coordX, m_coordY);
         }
+
+        public Tile (string direction, string yeartime, string landscapetype, int creatureAmount, int spawnedCreature)
+        {
+            Console.WriteLine("Your coordinates are {0}, {1}", m_coordX, m_coordY);
+            choosingDirection(direction);
+            choosingYearTime(yeartime);
+            choosingLandscape(landscapetype);
+            int creatures = CreatureAmount();
+            YourCreature.EnemyCreature.TutorialSpawn(spawnedCreature);
+        }
+
+        
+            
+        
 
         
     }
