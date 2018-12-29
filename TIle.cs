@@ -45,7 +45,13 @@ namespace TrialGame
             noDir
         }
 
-        string[] m_yeartimeDesc = new string[] { "WinterDesc", "SpringDesc", "SummerDesc", "FallDesc"};
+        string[] m_yeartimeDesc = new string[] 
+        {
+            "winter. The night of the existence, the night eternal. It is cold, and sometimes water in the skies freezes, unleashing a phenomenon of blue stars, which have not been there for years. Leaves and pins fall, and only little amount of trees does stand green and bold in this kingdom of nothingness. Life, however, still makes it through.",
+            "spring. The great renewal, when the first rays of still weak sun shine over the domain of darkness, which Antarctica used to be for months and months. Every single being awakens from the state of sleepness and apathy, and the vegetation is again green and flourishing. For the single moment hope is again in this land.",
+            "summer. Warm, sometimes even hot. The period of mating and big hunt for all and for each in this place. Sun shines throughout all the summer, which is good for both predators and prey, but for different reasons. Occasional rains does not spoil the overall great impression, and for some make it even better.",
+            "fall. The time of beautiful sunsets and yellow leaves, when the new life begins its harsh journey through the very being in this region. It is time of nesting for ones and going out of eggs for others. And the end of year is coming, so nights are longer and colder, until sun is no more."
+        };
         string[] m_landscapeDesc = new string[] { "PeakDesc", "MountainsideDesc", "WaterfallDesc", "Cloud_forestDesc", "ForestDesc", "SteppeDesc", "RiversideDesc", "NestDesc" };
 
         void choosingDirection(string direction)
