@@ -54,9 +54,9 @@ namespace TrialGame
                 
             }
             
-            Console.WriteLine(" ");
             int statOut = decision;
             Console.WriteLine("Your {0}  equals {1}", S, ++statOut);
+            Console.WriteLine(" ");
             return decision;
         }
         public static string givingNameToCharacter()
@@ -194,13 +194,11 @@ namespace TrialGame
                 if (decision == 2)
                 {
                     Console.WriteLine("You are male now");
-                    character.Stats[1]++;
                     character.sex = 1;
                 }
                 else if (decision == 1)
                 {
-                    Console.WriteLine("You are female now");
-                    character.Stats[0]++;
+                    Console.WriteLine("You are female now");                    
                     character.sex = 0;
                 }                          
                  
@@ -208,8 +206,9 @@ namespace TrialGame
                 decision = ChoosingRightKey();
             }
             while (decision != 1);
-
             String bioSex = character.PrintSex();
+            if (character.sex == 1) character.Stats[1]++;
+            else character.Stats[0]++;
             Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
             Console.WriteLine("You are going to the tutorial level. Press 1  to do that, press any key to exit the game");
             decision = ChoosingRightKey();
