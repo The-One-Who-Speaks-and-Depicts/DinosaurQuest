@@ -86,7 +86,7 @@ namespace TrialGame
                 Console.WriteLine("Press 7 to quit main menu, 8 to save, press 9 to get stats, press 0 to exit");
                 click = ChoosingRightKey();
                 if (click == 0) Exit_Game();
-                else if (click == 9) Console.WriteLine("{0} has {1} level, {2} health, {3} experience, {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck", a.name, a.level, a.health, a.exp, a.Stats[0], a.Stats[1], a.Stats[2], a.Stats[3], a.Stats[4], a.Stats[5]);
+                else if (click == 9) a.PrintCharacterStats();
                 else if (click == 8) Save_Game();
             }
             while (click != 7);

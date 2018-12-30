@@ -58,6 +58,10 @@ namespace TrialGame
             this.exp = exp;
         }
 
+        public void PrintCharacterStats()
+        {
+            Console.WriteLine("{0} has {1} level, {2} health, {3} experience, {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck", this.name, this.level, this.health, this.exp, this.Stats[0], this.Stats[1], this.Stats[2], this.Stats[3], this.Stats[4], this.Stats[5]);
+        }
           
         abstract public class EnemyCreature : YourCreature
         {
@@ -94,7 +98,7 @@ namespace TrialGame
                     default:
                         Trytilodontis m_trytilodontis = new Trytilodontis();
                         return m_trytilodontis;
-                }
+                }                
 
             }
 
