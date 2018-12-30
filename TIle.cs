@@ -12,6 +12,29 @@ namespace TrialGame
         int m_coordX = 0;
         int m_coordY = 0;
 
+        public static void MenuCall(YourCreature a)
+        {
+            int click = -1;
+            int m_decision = -1;
+            do
+            {
+                Console.WriteLine("To look around, press 2, to see main menu, press 1");
+                m_decision = Program.ChoosingRightKey();
+                if (m_decision == 1)
+                    do
+                    {
+                        Console.WriteLine("Press 7 to quit main menu, 8 to save, press 9 to get stats, press 0 to exit");
+                        click = Program.ChoosingRightKey();
+                        if (click == 0) Program.Exit_Game();
+                        else if (click == 9) a.PrintCharacterStats();
+                        else if (click == 8) Program.Save_Game();
+                    }
+                    while (click != 7);
+            }
+            while (m_decision != 2);
+            
+        }
+
         enum ELandscape
         {
             Peak,
@@ -151,7 +174,7 @@ namespace TrialGame
             return returnablecreatureQuantity;
         }
        
-        public Tile (string direction, string yeartime, string landscapetype)
+        public Tile (string direction, string yeartime, string landscapetype, YourCreature a)
         {
             choosingDirection(direction);
             choosingYearTime(yeartime);
@@ -162,9 +185,10 @@ namespace TrialGame
                 YourCreature.EnemyCreature.Spawn();
             }
             Console.WriteLine("Your coordinates are {0}, {1}", m_coordX, m_coordY);
+            MenuCall(a);
         }
 
-        public Tile(string direction, string yeartime, string landscapetype, int creatureAmount, int spawnedCreature)
+        public Tile(string direction, string yeartime, string landscapetype, YourCreature a, int creatureAmount, int spawnedCreature)
         {
             Console.WriteLine("Your coordinates are {0}, {1}", m_coordX, m_coordY);
             choosingDirection(direction);
@@ -172,6 +196,7 @@ namespace TrialGame
             choosingLandscape(landscapetype);
             int creatures = CreatureAmount();
             YourCreature.EnemyCreature.TutorialSpawn(spawnedCreature);
+            MenuCall(a);
         }
         
         

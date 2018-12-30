@@ -78,19 +78,7 @@ namespace TrialGame
             
         }
 
-        public static void MenuCall (YourCreature a)
-        {
-            int click = -1;
-            do
-            {
-                Console.WriteLine("Press 7 to quit main menu, 8 to save, press 9 to get stats, press 0 to exit");
-                click = ChoosingRightKey();
-                if (click == 0) Exit_Game();
-                else if (click == 9) a.PrintCharacterStats();
-                else if (click == 8) Save_Game();
-            }
-            while (click != 7);
-        }
+       
 
         static void Main(string[] args)
         {
