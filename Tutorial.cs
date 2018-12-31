@@ -31,17 +31,35 @@ namespace TrialGame
                 Console.WriteLine("Please press appropriate key");
                 decision = Program.ChoosingRightKey();
             }
+            bool IsNestAbandoned = false;
             if (decision == 1)
             {
                 Console.WriteLine("Putting mother's needs over child's ones is clever, but, at this point of history, not so progressive step. Mother is going into the woods.");
                 mother.Stats[2]++;
-                Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);
-                
+                Console.WriteLine("You hear strange background noises. Maybe, after all, the more clever choice would be staying near the nest? Press 1 to do that, else press any other key");
+                decision = Program.ChoosingRightKey();
+                if (decision == 1)
+                {
+                    mother.Stats[0]--;
+                    mother.Stats[5]++;
+                    Console.WriteLine("You are not so fast in decisions, but luck is strong in you, because you have arrived back just in time.");
+                    Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
+                }
+                else
+                {
+                    IsNestAbandoned = true;
+                    mother.Stats[0]--;
+                    mother.Stats[5]++;
+                    Console.WriteLine("You are fast in decisions, but that may do you the bad luck in the future.");
+                    Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);
+                }
             }
             else if (decision == 2)
             {
-                Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest.");
+                Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest and soon discovers that it was her lucky choice to stay.");
                 mother.Stats[3]++;
+                mother.Stats[1]--;
+                mother.Stats[5]++;
                 Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
                 
             }
