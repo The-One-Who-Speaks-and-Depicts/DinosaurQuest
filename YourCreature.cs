@@ -7,16 +7,144 @@ using static System.Int32;
 
 namespace TrialGame
 {
-    
+
     public class YourCreature
     {
         public string name;
-        public int health;
-        public int level;
+        public int m_level;
+        public int m_health;
         public double exp;
         public int sex;
         public List<int> Stats = new List<int>();
 
+        public int CheckSprint
+        {
+            get { return this.Stats[0]; }
+            set
+            {
+                if (this.Stats[0] != value)
+                {
+                    int temp = this.Stats[0];
+                    this.Stats[0] = value;
+                    if (StatChange != null) StatChange(this, EventArgs.Empty);
+                    Console.WriteLine("{0} is how sprint changed", this.Stats[0] - temp);
+                    temp = 0;
+                }
+            }
+        }
+
+        public int CheckStayer
+        {
+            get { return this.Stats[1]; }
+            set
+            {
+                if (this.Stats[1] != value)
+                {
+                    int temp = this.Stats[1];
+                    this.Stats[1] = value;
+                    if (StatChange != null) StatChange(this, EventArgs.Empty);
+                    Console.WriteLine("{0} is how stayer changed", this.Stats[1] - temp);
+                    temp = 0;
+                }
+            }
+        }
+
+        public int CheckIntelligence
+        {
+            get { return this.Stats[2]; }
+            set
+            {
+                if (this.Stats[2] != value)
+                {
+                    int temp = this.Stats[2];
+                    this.Stats[2] = value;
+                    if (StatChange != null) StatChange(this, EventArgs.Empty);
+                    Console.WriteLine("{0} is how intelligence changed", this.Stats[2] - temp);
+                    temp = 0;
+                }
+            }
+        }
+
+        public int CheckProgressivity
+        {
+            get { return this.Stats[3]; }
+            set
+            {
+                if (this.Stats[3] != value)
+                {
+                    int temp = Stats[3];
+                    this.Stats[3] = value;
+                    if (StatChange != null) StatChange(this, EventArgs.Empty);
+                    Console.WriteLine("{0} is how progressivity changed", this.Stats[3] - temp);
+                    temp = 0;
+                }
+            }
+        }
+
+        public int CheckPerception
+        {
+            get { return this.Stats[4]; }
+            set
+            {
+                if (this.Stats[4] != value)
+                {
+                    int temp = this.Stats[4];
+                    this.Stats[4] = value;
+                    if (StatChange != null) StatChange(this, EventArgs.Empty);
+                    Console.WriteLine("{0} is how perception changed", this.Stats[4] - temp);
+                    temp = 0;
+                }
+            }
+        }
+
+        public int CheckLuck
+        {
+            get { return this.Stats[5]; }
+            set
+            {
+                CheckLuck = this.Stats[5];
+                if (CheckLuck != value)
+                {
+                    this.Stats[5] = value;
+                    StatChange?.Invoke(this, EventArgs.Empty);
+                    Console.WriteLine("{0} is how level changed", this.Stats[5] - CheckLuck);
+                }
+            }
+        }
+
+        public int level 
+        {
+            get { return m_level; }
+            set
+            {
+                int t_level = level;
+                if (level != value)
+                {
+                    m_level = value;
+                    StatChange?.Invoke(this, EventArgs.Empty);
+                    Console.WriteLine("{0} is how level changed", level - t_level);
+                }
+            }
+        }
+
+        public int health
+        {
+            get { return m_health; }
+            set
+            {
+                int t_health = health;
+                if (health != value)
+                {
+                    m_health = value;
+                    StatChange?.Invoke(this, EventArgs.Empty);
+                    Console.WriteLine("{0} is how health changed", health - t_health);
+                    
+                }
+            }
+        }
+        public  event EventHandler StatChange;
+    
+        
 
         public string[] characterStats = new string[] { "sprint", "stayer", "intelligence", "progressivity", "perception", "luck" };
 

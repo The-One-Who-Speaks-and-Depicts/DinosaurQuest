@@ -10,7 +10,7 @@ namespace TrialGame
 {
     class Program
     {
-
+        
         public static void Exit_Game()
         {
             Console.WriteLine("For End press Enter");
