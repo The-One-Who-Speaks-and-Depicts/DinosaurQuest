@@ -72,7 +72,7 @@ namespace TrialGame
                 double attack_coefficient = (a.Stats[0] * a.Stats[3]) / 2;
                 double defence_coefficient = (b.Stats[1] * a.Stats[2]) / 2;
                 double result_of_attack = attack_coefficient / defence_coefficient;
-                Console.WriteLine("{0}, {1}, {2}", attack_coefficient, defence_coefficient, result_of_attack);
+                
                 if (result_of_attack < 1)
                 {
                     Console.WriteLine("Attack failed");
@@ -83,8 +83,10 @@ namespace TrialGame
                 }
                 else if (result_of_attack > 1)
                 {
-                    while ((a.health/10 <= b.health) || (b.health/10 <= a.health))
+                    
+                    while ((a.health/10 <= b.health) || (b.health/10 >= a.health))
                     {
+                        
                         if (a.level > b.level)
                         {
                             b.health -= a.Stats[1] * (a.level/b.level);
@@ -96,11 +98,12 @@ namespace TrialGame
                             a.health -= b.Stats[0] * b.Stats[2];
                         }                                                
                     }
+                    
                     if (a.health/10 > b.health) { 
                     Console.WriteLine("Attack is successful");
                     double m_receivedexp = 0;
                     m_receivedexp = (b.health * 2);
-                    a.exp += m_receivedexp;
+                    a.exp += m_receivedexp;                        
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
                     }
                     else if (b.health/10 > a.health)
