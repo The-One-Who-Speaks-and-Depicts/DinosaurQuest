@@ -14,11 +14,6 @@ namespace TrialGame
 
        
 
-        public static void CreatureCall(YourCreature a, YourCreature.EnemyCreature b, int key)
-        {
-            
-        }
-
         enum ELandscape
         {
             Peak,
