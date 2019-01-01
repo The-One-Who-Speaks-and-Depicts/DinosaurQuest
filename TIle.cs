@@ -16,20 +16,7 @@ namespace TrialGame
 
         public static void CreatureCall(YourCreature a, YourCreature.EnemyCreature b, int key)
         {
-            Console.WriteLine("To attack {0}, press 1, to stealth attack {0}, press 2", b.name);
-            int m_decision = Program.ChoosingRightKey();
-            switch (m_decision)
-            {
-                case 1:
-                    YourCreature.EnemyCreature.Attack(a, b);
-                    break;
-                case 2:
-                    YourCreature.EnemyCreature.StealthAttack(a, b);
-                    break;
-                default:
-                    Console.WriteLine("");
-                    break;
-            }
+            
         }
 
         enum ELandscape
@@ -209,27 +196,45 @@ namespace TrialGame
             choosingYearTime(yeartime);
             choosingLandscape(landscapetype);
             int creatures = CreatureAmount();
-            YourCreature.EnemyCreature b = YourCreature.EnemyCreature.TutorialSpawn(spawnedCreature);
-            
-            int click = -1;
+
+
+          
             int m_decision = -1;
-            do
-            {
-                Console.WriteLine("To see main menu, press 1");
-                m_decision = Program.ChoosingRightKey();
-                if (m_decision == 1)
+            bool IsAttackPerformed = false;
                     do
                     {
-                        CreatureCall(a, b, 1);
-                        Console.WriteLine("Press 7 to quit main menu, 8 to save, press 9 to get stats, press 0 to exit");
-                        click = Program.ChoosingRightKey();
-                        if (click == 0) Program.Exit_Game();
-                        else if (click == 9) a.PrintCharacterStats();
-                        else if (click == 8) Program.Save_Game();
+                        YourCreature.EnemyCreature b = YourCreature.EnemyCreature.TutorialSpawn(spawnedCreature);
+                        Console.Write("To attack {0}, press 1, to stealth attack {0}, press 2. ", b.name);
+                        Console.WriteLine("Press 8 to save, press 9 to get stats, press 0 to exit");
+                        m_decision = Program.ChoosingRightKey();
+                        switch (m_decision)
+                        {
+                            case 1:
+                                YourCreature.EnemyCreature.Attack(a, b);
+                                IsAttackPerformed = true;
+                                break;
+                            case 2:
+                                YourCreature.EnemyCreature.StealthAttack(a, b);
+                                IsAttackPerformed = true;
+                                break;
+                            case 0:
+                                Program.Exit_Game();
+                                break;
+                            case 8:
+                                Program.Save_Game();
+                                break;
+                            case 9:
+                                a.PrintCharacterStats();
+                                break;
+                            default:
+                                Console.WriteLine("");
+                                break;
+                        }
+                        
                     }
-                    while (click != 7);
-            }
-            while (m_decision != 2); 
+                    while (IsAttackPerformed == false);
+                    
+            
         }
         
         
