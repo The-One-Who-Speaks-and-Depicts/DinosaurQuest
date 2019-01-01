@@ -42,7 +42,7 @@ namespace TrialGame
                 {
                     mother.Stats[0]--;
                     mother.Stats[5]++;
-                    Console.WriteLine("You are not so fast in decisions, but luck is strong in you, because you have arrived back just in time.");
+                    Console.WriteLine("You are not so fast in decisions, but luck is strong in you, because you have arrived back just in time. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, either way her children are going to be killed.");
                     Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
                 }
                 else
@@ -50,13 +50,13 @@ namespace TrialGame
                     IsNestAbandoned = true;
                     mother.Stats[0]--;
                     mother.Stats[5]++;
-                    Console.WriteLine("You are fast in decisions, but that may do you the bad luck in the future.");
-                    Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);
+                    Console.WriteLine("You are fast in decisions, but that may do you the bad luck in the future. However, now you are lucky, because soon you are to discover a prey. A small dicynodontus is heard somewhere close. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, or she will die because of starvation.");
+                    Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);                    
                 }
             }
             else if (decision == 2)
             {
-                Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest and soon discovers that it was her lucky choice to stay.");
+                Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest and soon discovers that it was her lucky choice to stay. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, otherwise her children are going to be killed.");
                 mother.Stats[3]++;
                 mother.Stats[1]--;
                 mother.Stats[5]++;
