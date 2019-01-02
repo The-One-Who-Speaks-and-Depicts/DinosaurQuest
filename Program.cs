@@ -126,22 +126,57 @@ namespace TrialGame
                     character.DoStats();
                     for (int i = 0; i < 6; i++)
                     {
+                        int number = i;
                         Console.WriteLine(StatInfo[i]);
-                        character.Stats[i] += ChooseStat(character.characterStats[i], statCharge);
-                        statCharge = statCharge - character.Stats[i];
-                        statCharge++;
+                        switch (number)
+                        {
+                            case 0:
+                                character.sprint += ChooseStat(character.characterStats[i], statCharge);
+                                statCharge = statCharge - character.sprint;
+                                statCharge++;
+                                break;
+                            case 1:
+                                character.stayer += ChooseStat(character.characterStats[i], statCharge);
+                                statCharge = statCharge - character.stayer;
+                                statCharge++;
+                                break;
+                            case 2:
+                                character.intelligence += ChooseStat(character.characterStats[i], statCharge);
+                                statCharge = statCharge - character.intelligence;
+                                statCharge++;
+                                break;
+                            case 3:
+                                character.progressivity += ChooseStat(character.characterStats[i], statCharge);
+                                statCharge = statCharge - character.progressivity;
+                                statCharge++;
+                                break;
+                            case 4:
+                                character.perception += ChooseStat(character.characterStats[i], statCharge);
+                                statCharge = statCharge - character.perception;
+                                statCharge++;
+                                break;
+                            case 5:
+                                character.luck += ChooseStat(character.characterStats[i], statCharge);
+                                statCharge = statCharge - character.luck;
+                                statCharge++;
+                                break;
+
+                        }
+                        
+                       
                         Console.WriteLine("You have {0} points to distribute", statCharge);
+                         
                     }
 
 
-                    Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
+                    Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
                     decision = ChoosingRightKey();
                     
                     while((decision < 1) || (decision > 2))
                     {
                             Console.WriteLine("Please press appropriate key");
-                            Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
-                            decision = ChoosingRightKey();
+                            Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
+                        decision = ChoosingRightKey();
                     }
                         
                     
@@ -155,6 +190,7 @@ namespace TrialGame
                     else if (statCharge > 0)
                     {
                         Console.WriteLine("You should distribute all the stats. You have {0} stats left, redistribute your stats once again", statCharge);
+                        character.ResetStats();
                         decision = 0;
                     }
                 }
@@ -195,9 +231,9 @@ namespace TrialGame
             }
             while (decision != 1);
             String bioSex = character.PrintSex();
-            if (character.sex == 1) character.Stats[1]++;
-            else character.Stats[0]++;
-            Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.Stats[0], character.Stats[1], character.Stats[2], character.Stats[3], character.Stats[4], character.Stats[5]);
+            if (character.sex == 1) character.stayer++;
+            else character.sprint++;
+            Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
             Console.WriteLine("You are going to the tutorial level. Press 1  to do that, press any key to exit the game");
             decision = ChoosingRightKey();
 

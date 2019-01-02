@@ -14,7 +14,7 @@ namespace TrialGame
             Console.WriteLine(".");
         }
 
-        public static void Tutorial_Entrance ()
+       public static void Tutorial_Entrance ()
         {
             Console.WriteLine("You are now an egg, so, everything you can do is exist, while other creatures decide, what your fate is going to be like. However, some divine bodyless sentient creature that governs you, is able to help you by telling your mother what is going to be the best for you. And she will help this divine creature as well, by showing how this cruel world works. It is not too long before your birth, however, for your mother these are going to be the truly hardest hours of her parenthood. And now they are to begin. Let the desperate Diviner brace themselves, Early Jurassic of Antarctica begins!");
             YourCreature mother = new YourCreature();
@@ -22,12 +22,12 @@ namespace TrialGame
             mother.sex = 1;
             mother.SetDefault(35, 450, 350001);
             mother.DoStats();
-            mother.Stats[0] += 7;
-            mother.Stats[1] += 4;
-            mother.Stats[2] += 5;
-            mother.Stats[3] += 8;
-            mother.Stats[4] += 4;
-            mother.Stats[5] += 3;
+            mother.sprint += 7;
+            mother.stayer += 4;
+            mother.intelligence += 5;
+            mother.progressivity += 8;
+            mother.perception += 4;
+            mother.luck += 3;
             mother.PrintCharacterStats();
             mother.StatChange += OnStatChange;
             Console.WriteLine("Mother is starving and thirsty. She is desperate of satisfying her needs, because she was warming her unborn children for weeks, or even months now. But she still needs to guard them. That is going to be a very hard choice for her. Does she want to go away for hunting (1) or is she going to stay here  and protect her children until her last dying breath(2)");
@@ -42,14 +42,14 @@ namespace TrialGame
             {
                 mother.StatChange += OnStatChange;
                 Console.WriteLine("Putting mother's needs over child's ones is clever, but, at this point of history, not so progressive step. Mother is going into the woods.");
-                mother.Stats[2]++;
+                mother.intelligence++;
                 Console.WriteLine("You hear strange background noises. Maybe, after all, the more clever choice would be staying near the nest? Press 1 to do that, else press any other key");
                 decision = Program.ChoosingRightKey();
                 if (decision == 1)
                 {
                     mother.StatChange += OnStatChange;
-                    mother.Stats[0]--;
-                    mother.Stats[5]++;
+                    mother.sprint--;
+                    mother.luck++;
                     Console.WriteLine("You are not so fast in decisions, but luck is strong in you, because you have arrived back just in time. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, either way her children are going to be killed.");
                     Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
                 }
@@ -57,8 +57,8 @@ namespace TrialGame
                 {
                     mother.StatChange += OnStatChange;
                     IsNestAbandoned = true;
-                    mother.Stats[0]--;
-                    mother.Stats[5]++;
+                    mother.sprint--;
+                    mother.luck++;
                     Console.WriteLine("You are fast in decisions, but that may do you the bad luck in the future. However, now you are lucky, because soon you are to discover a prey. A small dicynodontus is heard somewhere close. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, or she will die because of starvation.");
                     Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);                    
                 }
@@ -67,9 +67,9 @@ namespace TrialGame
             {
                 mother.StatChange += OnStatChange;
                 Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest and soon discovers that it was her lucky choice to stay. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, otherwise her children are going to be killed.");
-                mother.Stats[3]++;
-                mother.Stats[1]--;
-                mother.Stats[5]++;
+                mother.progressivity++;
+                mother.stayer--;
+                mother.luck++;
                 Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
                 
             }
