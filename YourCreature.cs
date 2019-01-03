@@ -8,8 +8,7 @@ using static System.Int32;
 
 namespace TrialGame
 {
-
-    public class YourCreature
+    public abstract class Creature
     {
         public string name;
         public int m_level;
@@ -20,6 +19,20 @@ namespace TrialGame
         public int m_progressivity;
         public int m_perception;
         public int m_luck;
+
+        public virtual void DoStats()
+        {
+            this.m_sprint = 1;
+            this.m_stayer = 1;
+            this.m_intelligence = 1;
+            this.m_progressivity = 1;
+            this.m_perception = 1;
+            this.m_luck = 1;
+        }
+    }
+    public class YourCreature : Creature
+    {
+        
         public double exp;
         public int sex;
        
@@ -157,7 +170,7 @@ namespace TrialGame
 
         public string[] characterStats = new string[] { "sprint", "stayer", "intelligence", "progressivity", "perception", "luck" };
 
-        public void DoStats()
+        public override void DoStats()
         {
             this.sprint = 1;
             this.stayer = 1;
@@ -206,7 +219,7 @@ namespace TrialGame
             Console.WriteLine("{0} has {1} level, {2} health, {3} experience, {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck", this.name, this.level, this.health, this.exp, sprint, stayer, intelligence, progressivity, perception, luck);
         }
           
-        abstract public class EnemyCreature : YourCreature
+        abstract public class EnemyCreature : Creature
         {
             public static void Attack (YourCreature a, EnemyCreature b)
             {
@@ -219,36 +232,36 @@ namespace TrialGame
                 {
                     Console.WriteLine("Attack failed");
                     double m_receivedexp = 0;
-                    m_receivedexp = (b.health * 0.25);
+                    m_receivedexp = (b.m_health * 0.25);
                     a.exp += m_receivedexp;
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
                 }
                 else if (result_of_attack > 1)
                 {
                     
-                    while ((a.health/10 <= b.health) || (b.health/10 >= a.health))
+                    while ((a.health/10 <= b.m_health) || (b.m_health/10 >= a.health))
                     {
                         
-                        if (a.level > b.level)
+                        if (a.level > b.m_level)
                         {
-                            b.health -= a.stayer * (a.level/b.level);
-                            a.health -= b.sprint;
+                            b.m_health -= a.stayer * (a.level/b.m_level);
+                            a.health -= b.m_sprint;
                         }
                         else
                         {
-                            b.health -= a.sprint * a.intelligence;
-                            a.health -= b.sprint * b.intelligence;
+                            b.m_health -= a.sprint * a.intelligence;
+                            a.health -= b.m_sprint * b.m_intelligence;
                         }                                                
                     }
                     
-                    if (a.health/10 > b.health) { 
+                    if (a.health/10 > b.m_health) { 
                     Console.WriteLine("Attack is successful");
                     double m_receivedexp = 0;
-                    m_receivedexp = (b.health * 2);
+                    m_receivedexp = (b.m_health * 2);
                     a.exp += m_receivedexp;                        
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
                     }
-                    else if (b.health/10 > a.health)
+                    else if (b.m_health/10 > a.health)
                     {
                         Console.WriteLine("You died");
                         Program.Exit_Game();
@@ -263,32 +276,32 @@ namespace TrialGame
                     {
                         case 0:
                             Console.WriteLine("Attack failed");
-                            m_receivedexp = (b.health * 0.25);
+                            m_receivedexp = (b.m_health * 0.25);
                             a.exp += m_receivedexp;
                             Console.WriteLine("You gained {0} experience", m_receivedexp);
                             break;
                         case 1:
-                            while ((a.health / 10 <= b.health) || (b.health / 10 <= a.health))
+                            while ((a.health / 10 <= b.m_health) || (b.m_health / 10 <= a.health))
                             {
-                                if (a.level > b.level)
+                                if (a.level > b.m_level)
                                 {
-                                    b.health -= a.stayer * (a.level / b.level);
-                                    a.health -= b.sprint;
+                                    b.m_health -= a.stayer * (a.level / b.m_level);
+                                    a.health -= b.m_sprint;
                                 }
                                 else
                                 {
-                                    b.health -= a.sprint * a.intelligence;
-                                    a.health -= b.sprint * b.intelligence;
+                                    b.m_health -= a.sprint * a.intelligence;
+                                    a.health -= b.m_sprint * b.m_intelligence;
                                 }
                             }
-                            if (a.health / 10 > b.health)
+                            if (a.health / 10 > b.m_health)
                             {
                                 Console.WriteLine("Attack is successful");
-                                m_receivedexp = (b.health * 2);
+                                m_receivedexp = (b.m_health * 2);
                                 a.exp += m_receivedexp;
                                 Console.WriteLine("You gained {0} experience", m_receivedexp);
                             }
-                            else if (b.health / 10 > a.health)
+                            else if (b.m_health / 10 > a.health)
                             {
                                 Console.WriteLine("You died");
                                 Program.Exit_Game();
@@ -301,21 +314,21 @@ namespace TrialGame
 
             public static void StealthAttack (YourCreature a, EnemyCreature b)
             {
-                if (a.luck > b.perception)
+                if (a.luck > b.m_perception)
                 {
                     Console.WriteLine("Stealth attack is successful");
-                    double m_receivedexp = (b.health * 1.5);
+                    double m_receivedexp = (b.m_health * 1.5);
                     a.exp += m_receivedexp;
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
                 }
-                else if (a.luck == b.perception)
+                else if (a.luck == b.m_perception)
                 {
                     Console.WriteLine("You have been spotted!");
                     Attack(a, b);
                 }
-                else if (a.luck < b.perception)
+                else if (a.luck < b.m_perception)
                 {
-                    if (a.level > b.level)
+                    if (a.level > b.m_level)
                     {
                         Console.WriteLine("{0} sneaks away", b.name);
                     }
@@ -328,7 +341,7 @@ namespace TrialGame
 
            public static void printStats (EnemyCreature a)
             {
-                Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", a.name, a.health, a.sprint, a.stayer, a.intelligence, a.progressivity, a.perception, a.luck);
+                Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", a.name, a.m_health, a.m_sprint, a.m_stayer, a.m_intelligence, a.m_progressivity, a.m_perception, a.m_luck);
             }
             public static EnemyCreature Spawn()
             {
@@ -368,15 +381,15 @@ namespace TrialGame
                 public Trytilodontis ()
                 {
                     this.name = "Trytilodontis";
-                    this.health = 10;
-                    this.level = 1;
+                    this.m_health = 10;
+                    this.m_level = 1;
                     this.DoStats();
-                    this.sprint += 0;
-                    this.stayer += 5;
-                    this.intelligence += 6;
-                    this.progressivity += 4;
-                    this.perception += 2;
-                    this.luck+= 0;
+                    this.m_sprint += 0;
+                    this.m_stayer += 5;
+                    this.m_intelligence += 6;
+                    this.m_progressivity += 4;
+                    this.m_perception += 2;
+                    this.m_luck+= 0;
                     printStats(this);
                 }
                 
@@ -390,15 +403,15 @@ namespace TrialGame
                 public Adelobasileus ()
                 {
                     this.name = "Adelobasileus";
-                    this.health = 10;
-                    this.level = 1;
+                    this.m_health = 10;
+                    this.m_level = 1;
                     this.DoStats();
-                    this.sprint += 0;
-                    this.stayer += 5;
-                    this.intelligence += 6;
-                    this.progressivity += 6;
-                    this.perception += 3;
-                    this.luck += 2;
+                    this.m_sprint += 0;
+                    this.m_stayer += 5;
+                    this.m_intelligence += 6;
+                    this.m_progressivity += 6;
+                    this.m_perception += 3;
+                    this.m_luck += 2;
                     printStats(this);
                 }
             }
