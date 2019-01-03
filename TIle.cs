@@ -199,33 +199,42 @@ namespace TrialGame
                     do
                     {
                         YourCreature.EnemyCreature b = YourCreature.EnemyCreature.TutorialSpawn(spawnedCreature);
-                        Console.Write("To attack {0}, press 1, to stealth attack {0}, press 2. ", b.name);
-                        Console.WriteLine("Press 8 to save, press 9 to get stats, press 0 to exit");
-                        m_decision = Program.ChoosingRightKey();
-                        switch (m_decision)
-                        {
-                            case 1:
-                                YourCreature.EnemyCreature.Attack(a, b);
-                                IsAttackPerformed = true;
-                                break;
-                            case 2:
-                                YourCreature.EnemyCreature.StealthAttack(a, b);
-                                IsAttackPerformed = true;
-                                break;
-                            case 0:
-                                Program.Exit_Game();
-                                break;
-                            case 8:
-                                Program.Save_Game();
-                                break;
-                            case 9:
-                                a.PrintCharacterStats();
-                                break;
-                            default:
-                                Console.WriteLine("");
-                                break;
-                        }
-                        
+                        if (b == null)
+                            {
+                            IsAttackPerformed = true;
+                            }
+                        else
+                            {
+
+                
+                            Console.Write("To attack {0}, press 1, to stealth attack {0}, press 2. ", b.name);
+                            Console.WriteLine("Press 8 to save, press 9 to get stats, press 0 to exit");
+                            m_decision = Program.ChoosingRightKey();
+                            switch (m_decision)
+                            {
+                                case 1:
+                                    YourCreature.EnemyCreature.Attack(a, b);
+                                    IsAttackPerformed = true;
+                                    break;
+                                case 2:
+                                    YourCreature.EnemyCreature.StealthAttack(a, b);
+                                    IsAttackPerformed = true;
+                                    break;
+                                case 0:
+                                    Program.Exit_Game();
+                                    break;
+                                case 8:
+                                    Program.Save_Game();
+                                    break;
+                                case 9:
+                                    a.PrintCharacterStats();
+                                    break;
+                                default:
+                                    Console.WriteLine("");
+                                    break;
+                            }
+                            }
+
                     }
                     while (IsAttackPerformed == false);
                     

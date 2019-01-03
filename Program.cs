@@ -78,7 +78,10 @@ namespace TrialGame
             
         }
 
-       
+        public static void Load_Game()
+        {
+
+        }
 
         static void Main(string[] args)
         {

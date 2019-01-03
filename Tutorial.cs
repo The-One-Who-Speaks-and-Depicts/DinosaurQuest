@@ -52,6 +52,7 @@ namespace TrialGame
                     mother.luck++;
                     Console.WriteLine("You are not so fast in decisions, but luck is strong in you, because you have arrived back just in time. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, either way her children are going to be killed.");
                     Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
+                    Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear a strange noise.");
                 }
                 else
                 {
@@ -60,7 +61,21 @@ namespace TrialGame
                     mother.sprint--;
                     mother.luck++;
                     Console.WriteLine("You are fast in decisions, but that may do you the bad luck in the future. However, now you are lucky, because soon you are to discover a prey. A small dicynodontus is heard somewhere close. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, or she will die because of starvation.");
-                    Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);                    
+                    Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);
+                    Console.WriteLine("You have satisfied your needs. Now it is time to come back");
+                    Tile next1 = new Tile ("northWest", "Fall", "Nest", mother, 0, 9);
+                    Console.WriteLine("You sense that going away was, probably, not such a good decision. Your nest is now being destroyed by somebody. Would you protect the last of your children (1), or, maybe, bring in to life next year(any key)?");
+                    decision = Program.ChoosingRightKey();
+                    if (decision == 1)
+                    {
+                        Console.WriteLine("It seens that you found the one who is guilty");
+                        Tile current = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
+                        Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear a strange noise.");
+                    }
+                    else {
+                        Console.WriteLine("Well, young cryolophosaurus. Your life is ended by Adelobasileus. Maybe, in the next universe?");
+                            Program.Load_Game();
+                    }
                 }
             }
             else if (decision == 2)
@@ -71,7 +86,7 @@ namespace TrialGame
                 mother.stayer--;
                 mother.luck++;
                 Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
-                
+                Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear a strange noise.");
             }
            
             Program.Exit_Game();

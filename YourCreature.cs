@@ -29,6 +29,8 @@ namespace TrialGame
             this.m_perception = 1;
             this.m_luck = 1;
         }
+
+       
     }
     public class YourCreature : Creature
     {
@@ -260,6 +262,7 @@ namespace TrialGame
                     m_receivedexp = (b.m_health * 2);
                     a.exp += m_receivedexp;                        
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
+                    Scavenge(a, b);
                     }
                     else if (b.m_health/10 > a.health)
                     {
@@ -300,6 +303,7 @@ namespace TrialGame
                                 m_receivedexp = (b.m_health * 2);
                                 a.exp += m_receivedexp;
                                 Console.WriteLine("You gained {0} experience", m_receivedexp);
+                                Scavenge(a, b);
                             }
                             else if (b.m_health / 10 > a.health)
                             {
@@ -320,6 +324,7 @@ namespace TrialGame
                     double m_receivedexp = (b.m_health * 1.5);
                     a.exp += m_receivedexp;
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
+                    Scavenge(a, b);
                 }
                 else if (a.luck == b.m_perception)
                 {
@@ -353,9 +358,11 @@ namespace TrialGame
                         Adelobasileus m_adelobasileus = new Adelobasileus();
                         return m_adelobasileus;
                     case 2:
-                    default:
                         Trytilodontis m_trytilodontis = new Trytilodontis();
                         return m_trytilodontis;
+                    default:
+                        Console.WriteLine("There is nobody here");
+                        return null;
                 }
                 
             }
@@ -369,11 +376,28 @@ namespace TrialGame
                         Adelobasileus m_adelobasileus = new Adelobasileus();
                         return m_adelobasileus;
                     case 2:
-                    default:
                         Trytilodontis m_trytilodontis = new Trytilodontis();
                         return m_trytilodontis;
+                    default:
+                        Console.WriteLine("There is nobody here");
+                        return null;
                 }                
 
+            }
+
+            public static void Scavenge(YourCreature a, EnemyCreature b)
+            {
+                Console.WriteLine("You restore your life strength, eating the corpse of {0}", b.name);
+                int full_health = 100 + a.health * a.level;
+                int scavengeable_meat = b.m_health/4;
+                if (a.health < full_health)
+                {
+                    if (scavengeable_meat > (full_health - scavengeable_meat))
+                    {
+                        a.health = full_health;
+                    }
+                    else a.health += scavengeable_meat;
+                }
             }
 
             class Trytilodontis : EnemyCreature
