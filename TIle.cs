@@ -173,13 +173,13 @@ namespace TrialGame
                 if (m_decision == 1)
                     do
                     {
-                        Console.WriteLine("Press 7 to quit main menu, 8 to save, press 9 to get stats, press 0 to exit");
+                        Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exit");
                         click = Program.ChoosingRightKey();
                         if (click == 0) Program.Exit_Game();
                         else if (click == 9) a.PrintCharacterStats();
-                        else if (click == 8) Program.Save_Game();
+                        
                     }
-                    while (click != 7);
+                    while (click != 8);
             }
             while (m_decision != 2); 
         }
@@ -208,7 +208,7 @@ namespace TrialGame
 
                 
                             Console.Write("To attack {0}, press 1, to stealth attack {0}, press 2. ", b.name);
-                            Console.WriteLine("Press 8 to save, press 9 to get stats, press 0 to exit");
+                            Console.WriteLine("press 9 to get stats, press 0 to exit");
                             m_decision = Program.ChoosingRightKey();
                             switch (m_decision)
                             {
@@ -223,9 +223,7 @@ namespace TrialGame
                                 case 0:
                                     Program.Exit_Game();
                                     break;
-                                case 8:
-                                    Program.Save_Game();
-                                    break;
+                                
                                 case 9:
                                     a.PrintCharacterStats();
                                     break;

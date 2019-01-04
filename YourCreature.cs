@@ -388,7 +388,7 @@ namespace TrialGame
             public static void Scavenge(YourCreature a, EnemyCreature b)
             {
                 Console.WriteLine("You restore your life strength, eating the corpse of {0}", b.name);
-                int full_health = 100 + a.health * a.level;
+                int full_health = 100 + 10 * a.level;
                 int scavengeable_meat = b.m_health/4;
                 if (a.health < full_health)
                 {
