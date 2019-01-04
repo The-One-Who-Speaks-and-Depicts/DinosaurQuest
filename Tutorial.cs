@@ -74,8 +74,13 @@ namespace TrialGame
                         Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear a strange noise.");
                     }
                     else {
-                        Console.WriteLine("Well, young cryolophosaurus. Your life is ended by Adelobasileus. Maybe, in the next universe?");
+                        Console.WriteLine("Well, young cryolophosaurus. Your life is ended by Adelobasileus. Maybe, in the next universe? Press 1 to try, press any key to go away.");
+                        decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                        {
                             RecordedSaves.Load_Game();
+                        }
+                        else Program.Exit_Game();
                     }
                 }
             }
