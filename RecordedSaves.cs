@@ -47,7 +47,40 @@ namespace TrialGame
 
         public static void Load_Game()
         {
+            string FolderName = @"c:\DinosaurGame\";
+            List<string> filesnames = Directory.GetFiles(FolderName).ToList<string>();
+            string[] filesnames2 = filesnames.ToArray();
+            for (int fileCounter = 0; fileCounter < filesnames2.Length; fileCounter++)
+            {
+                filesnames2[fileCounter].Remove(0, 16);
 
+            }
+            Array.Sort(filesnames2);
+            int LastSaveFileNumber = filesnames2.Length;
+            string NewSaveName = FolderName + LastSaveFileNumber + ".dns";
+            StreamReader SaveGetting = new StreamReader(NewSaveName);
+            YourCreature gettableCharacter = new YourCreature();
+            int stage = 0;
+            stage = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.name = SaveGetting.ReadLine();
+            gettableCharacter.sex = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.m_level = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.health = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.exp = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.sprint = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.stayer = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.intelligence = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.progressivity = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.perception = Convert.ToInt32(SaveGetting.ReadLine());
+            gettableCharacter.luck = Convert.ToInt32(SaveGetting.ReadLine());
+            SaveGetting.Close();
+            switch(stage)
+            {
+                case 0:
+                case 1:
+                    Tutorial.Tutorial_Entrance(gettableCharacter);
+                    break;
+            }
         }
         
     }
