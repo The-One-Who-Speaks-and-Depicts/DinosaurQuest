@@ -53,7 +53,8 @@ namespace TrialGame
                     mother.luck++;
                     Console.WriteLine("You are not so fast in decisions, but luck is strong in you, because you have arrived back just in time. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, either way her children are going to be killed.");
                     Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
-                    Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear a strange noise.");
+                    Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise.");
+                    YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();
                 }
                 else
                 {
@@ -71,7 +72,8 @@ namespace TrialGame
                     {
                         Console.WriteLine("It seens that you found the one who is guilty");
                         Tile current = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
-                        Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear a strange noise.");
+                        Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise.");
+                        YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();
                     }
                     else {
                         Console.WriteLine("Well, young cryolophosaurus. Your life is ended by Adelobasileus. Maybe, in the next universe? Press 1 to try, press any key to go away.");
@@ -92,7 +94,8 @@ namespace TrialGame
                 mother.stayer--;
                 mother.luck++;
                 Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
-                Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear a strange noise.");
+                Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise.");
+                YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus ();
             }
            
             Program.Exit_Game();
