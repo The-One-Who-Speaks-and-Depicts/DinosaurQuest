@@ -63,7 +63,7 @@ namespace TrialGame
                         decision = Program.ChoosingRightKey();
                         if (decision == 1)
                         {
-                            Console.WriteLine("Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                            Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
                             mother.m_luck++;
                             Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
                             YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
@@ -80,11 +80,21 @@ namespace TrialGame
                         else
                         {
                             Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                            Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                            Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
+                            YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
+                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                            //fight sequence
                         }
                     }
                     else
                     {
                         Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                        Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                        Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
+                        YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
+                        Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                        //fight sequence
                     }
                 }
                 else
@@ -101,7 +111,7 @@ namespace TrialGame
                     decision = Program.ChoosingRightKey();
                     if (decision == 1)
                     {
-                        Console.WriteLine("It seens that you found the one who is guilty");
+                        Console.WriteLine("It seems that you found the one who is guilty");
                         Tile current = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
                         Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise.");
                         YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();                       
@@ -110,10 +120,20 @@ namespace TrialGame
                         if (decision == 1)
                         {
                             Console.WriteLine("You do not have enough time. You have the only choice, which is waiting for predator to come.");
+                            Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                            Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
+                            YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
+                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                            //fight sequence
                         }
                         else
                         {
                             Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                            Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                            Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
+                            YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
+                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                            //fight sequence
                         }
                     }
                     else {
@@ -145,7 +165,7 @@ namespace TrialGame
                     decision = Program.ChoosingRightKey();
                     if (decision == 1)
                     {
-                        Console.WriteLine("Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                        Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
                         mother.m_luck++;
                         Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
                         YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
@@ -162,11 +182,21 @@ namespace TrialGame
                     else
                     {
                         Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                        Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                        Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
+                        YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
+                        Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                        //fight sequence
                     }
                 }
                 else
                 {
                     Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                    Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                    Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
+                    YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
+                    Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                    //fight sequence
                 }
             }
            
