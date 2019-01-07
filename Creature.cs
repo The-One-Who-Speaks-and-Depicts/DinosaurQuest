@@ -37,16 +37,16 @@ namespace TrialGame
             this.m_luck = 1;
         }
 
-       
+
     }
     public class YourCreature : Creature
     {
-        
-        public double exp;
-        
-       
 
-        public int level 
+        public double exp;
+
+
+
+        public int level
         {
             get { return m_level; }
             set
@@ -72,7 +72,7 @@ namespace TrialGame
                     m_health = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
                     Console.WriteLine("{0} is how health changed", health - t_health);
-                    
+
                 }
             }
         }
@@ -174,8 +174,8 @@ namespace TrialGame
             }
         }
         public event EventHandler StatChange;
-    
-        
+
+
 
         public string[] characterStats = new string[] { "sprint", "stayer", "intelligence", "progressivity", "perception", "luck" };
 
@@ -186,7 +186,7 @@ namespace TrialGame
             this.intelligence = 1;
             this.progressivity = 1;
             this.perception = 1;
-            this.luck = 1;        
+            this.luck = 1;
         }
 
         public void ResetStats()
@@ -197,11 +197,11 @@ namespace TrialGame
             this.progressivity = 1;
             this.perception = luck;
             this.luck = 1;
-        }                   
+        }
 
         public YourCreature()
         {
-            
+
         }
 
         public YourCreature(String givenName)
@@ -220,16 +220,16 @@ namespace TrialGame
         {
             Console.WriteLine("{0} has {1} level, {2} health, {3} experience, {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck", this.name, this.level, this.health, this.exp, sprint, stayer, intelligence, progressivity, perception, luck);
         }
-          
+
         abstract public class EnemyCreature : Creature
         {
-            public static void Attack (YourCreature a, EnemyCreature b)
+            public static void Attack(YourCreature a, EnemyCreature b)
             {
                 Console.WriteLine("{0} attacks {1}", a.name, b.name);
                 double attack_coefficient = (a.sprint * a.progressivity) / 2;
                 double defence_coefficient = (a.stayer * a.intelligence) / 2;
                 double result_of_attack = attack_coefficient / defence_coefficient;
-                
+
                 if (result_of_attack < 1)
                 {
                     Console.WriteLine("Attack failed");
@@ -240,31 +240,32 @@ namespace TrialGame
                 }
                 else if (result_of_attack > 1)
                 {
-                    
-                    while ((a.health/10 <= b.m_health) || (b.m_health/10 >= a.health))
+
+                    while ((a.health / 10 <= b.m_health) || (b.m_health / 10 >= a.health))
                     {
-                        
+
                         if (a.level > b.m_level)
                         {
-                            b.m_health -= a.stayer * (a.level/b.m_level);
+                            b.m_health -= a.stayer * (a.level / b.m_level);
                             a.health -= b.m_sprint;
                         }
                         else
                         {
                             b.m_health -= a.sprint * a.intelligence;
                             a.health -= b.m_sprint * b.m_intelligence;
-                        }                                                
+                        }
                     }
-                    
-                    if (a.health/10 > b.m_health) { 
-                    Console.WriteLine("Attack is successful");
-                    double m_receivedexp = 0;
-                    m_receivedexp = (b.m_health * 2);
-                    a.exp += m_receivedexp;                        
-                    Console.WriteLine("You gained {0} experience", m_receivedexp);
-                    Scavenge(a, b);
+
+                    if (a.health / 10 > b.m_health)
+                    {
+                        Console.WriteLine("Attack is successful");
+                        double m_receivedexp = 0;
+                        m_receivedexp = (b.m_health * 2);
+                        a.exp += m_receivedexp;
+                        Console.WriteLine("You gained {0} experience", m_receivedexp);
+                        Scavenge(a, b);
                     }
-                    else if (b.m_health/10 > a.health)
+                    else if (b.m_health / 10 > a.health)
                     {
                         Console.WriteLine("You died");
                         Program.Exit_Game();
@@ -316,7 +317,7 @@ namespace TrialGame
 
             }
 
-            public static void StealthAttack (YourCreature a, EnemyCreature b)
+            public static void StealthAttack(YourCreature a, EnemyCreature b)
             {
                 if (a.luck > b.m_perception)
                 {
@@ -344,7 +345,7 @@ namespace TrialGame
                 }
             }
 
-           public static void printStats (EnemyCreature a)
+            public static void printStats(EnemyCreature a)
             {
                 Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", a.name, a.m_health, a.m_sprint, a.m_stayer, a.m_intelligence, a.m_progressivity, a.m_perception, a.m_luck);
             }
@@ -364,12 +365,12 @@ namespace TrialGame
                         Console.WriteLine("There is nobody here");
                         return null;
                 }
-                
+
             }
 
             public static EnemyCreature TutorialSpawn(int returnableCreature)
             {
-                
+
                 switch (returnableCreature)
                 {
                     case 1:
@@ -381,7 +382,7 @@ namespace TrialGame
                     default:
                         Console.WriteLine("There is nobody here");
                         return null;
-                }                
+                }
 
             }
 
@@ -389,7 +390,7 @@ namespace TrialGame
             {
                 Console.WriteLine("You restore your life strength, eating the corpse of {0}", b.name);
                 int full_health = 100 + 10 * a.level;
-                int scavengeable_meat = b.m_health/4;
+                int scavengeable_meat = b.m_health / 4;
                 if (a.health < full_health)
                 {
                     if (scavengeable_meat > (full_health - scavengeable_meat))
@@ -402,7 +403,7 @@ namespace TrialGame
 
             class Trytilodontis : EnemyCreature
             {
-                public Trytilodontis ()
+                public Trytilodontis()
                 {
                     this.name = "Trytilodontis";
                     this.m_health = 10;
@@ -413,18 +414,18 @@ namespace TrialGame
                     this.m_intelligence += 6;
                     this.m_progressivity += 4;
                     this.m_perception += 2;
-                    this.m_luck+= 0;
+                    this.m_luck += 0;
                     printStats(this);
                 }
-                
-                
+
+
 
 
             }
 
             class Adelobasileus : EnemyCreature
             {
-                public Adelobasileus ()
+                public Adelobasileus()
                 {
                     this.name = "Adelobasileus";
                     this.m_health = 10;
@@ -442,7 +443,7 @@ namespace TrialGame
 
             public class Cryolophosaurus : EnemyCreature
             {
-                public Cryolophosaurus ()
+                public Cryolophosaurus()
                 {
                     this.DoStats();
                     this.name = "Cryolophosaurus";
@@ -452,7 +453,7 @@ namespace TrialGame
                     this.m_sprint += 6;
                     this.m_stayer += 5;
                     this.m_intelligence += 3;
-                    this.m_progressivity +=4;
+                    this.m_progressivity += 4;
                     this.m_perception += 3;
                     this.m_luck += 9;
                     this.sex = 1;
@@ -460,7 +461,7 @@ namespace TrialGame
                     Console.WriteLine("Sex is {0}", this.PrintSex());
                 }
 
-               
+
 
             }
         }

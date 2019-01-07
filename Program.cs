@@ -11,7 +11,6 @@ namespace TrialGame
 {
     class Program
     {
-
         
         public static void Exit_Game()
         {
