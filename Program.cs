@@ -109,8 +109,7 @@ namespace TrialGame
 
             if (decision == 1)
             {
-                Console.WriteLine("To choose your stats, press any key");
-                decision = ChoosingRightKey();                
+                             
                 int statCharge;
                 string[] StatInfo = new string[] {
                     "Sprint makes you more fast and strong. It helps you attack bigger herbivore creatures and subjugate ones of your kind. Also it strengthen your bones, so they are not as likely to be damaged.",
