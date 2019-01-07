@@ -63,7 +63,19 @@ namespace TrialGame
                         decision = Program.ChoosingRightKey();
                         if (decision == 1)
                         {
-                            // Stealth attack sequence
+                            Console.WriteLine("Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                            mother.m_luck++;
+                            Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
+                            YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
+                            Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                            mother.m_luck--;
+                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                                Level1.Level1_Entrance(character);
+                            else if (decision == 2)
+                                RecordedSaves.Load_Game();
+                            else Program.Exit_Game();
                         }
                         else
                         {
@@ -79,8 +91,8 @@ namespace TrialGame
                 {
                     mother.StatChange += OnStatChange;
                     IsNestAbandoned = true;
-                    mother.sprint--;
-                    mother.luck++;
+                    mother.sprint++;
+                    mother.luck--;
                     Console.WriteLine("You are fast in decisions, but that may do you the bad luck in the future. However, now you are lucky, because soon you are to discover a prey. A small dicynodontus is heard somewhere close. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, or she will die because of starvation.");
                     Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);
                     Console.WriteLine("You have satisfied your needs. Now it is time to come back");
@@ -133,7 +145,19 @@ namespace TrialGame
                     decision = Program.ChoosingRightKey();
                     if (decision == 1)
                     {
-                        // Stealth attack sequence
+                        Console.WriteLine("Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
+                        mother.m_luck++;
+                        Console.WriteLine("{0} attacks {1}, trying to make {1} run away", mother.name, Enemy_Cryolophosaurus.name);
+                        YourCreature.EnemyCreature.ShowingUp(mother, Enemy_Cryolophosaurus, mother.name, Enemy_Cryolophosaurus.name);
+                        Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                        mother.m_luck--;
+                        Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                        decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                            Level1.Level1_Entrance(character);
+                        else if (decision == 2)
+                            RecordedSaves.Load_Game();
+                        else Program.Exit_Game();
                     }
                     else
                     {

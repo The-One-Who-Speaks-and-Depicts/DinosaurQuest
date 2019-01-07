@@ -80,6 +80,10 @@ namespace TrialGame
                 case 1:
                     Tutorial.Tutorial_Entrance(gettableCharacter);
                     break;
+                case 2:
+                    Level1.Level1_Entrance(gettableCharacter);
+                    break;
+
             }
         }
         

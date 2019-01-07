@@ -401,6 +401,20 @@ namespace TrialGame
                 }
             }
 
+            public static bool ShowingUp(YourCreature a, EnemyCreature b, string a1, string b1)
+            {
+                if ((a.m_progressivity * a.m_luck) > (b.m_progressivity * b.m_luck))
+                {
+                    Console.WriteLine("{0} has successfully demonstrated its supremacy on {1}", a1, b1);
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("{0} has failed to demonstrate its supremacy on {1}", a1, b1);
+                    return false;
+                }
+            }
+
             class Trytilodontis : EnemyCreature
             {
                 public Trytilodontis()
