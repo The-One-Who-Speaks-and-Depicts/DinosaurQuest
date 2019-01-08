@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Int32;
+using System.IO;
 
 namespace TrialGame
 {
@@ -44,7 +45,23 @@ namespace TrialGame
 
         public double exp;
 
+        public static void StatDifferenceInput(int statDifference)
+        {
+            string FileOfInput = @"C:\DinosaurGame\hereliesstats.txt";
+            if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+            StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+            ChangeableStat.WriteLine(statDifference.ToString());
+            ChangeableStat.Close();
+        }
 
+        public static int StatDifferenceOutput()
+        {
+            string FileofOutput = @"C:\DinosaurGame\hereliesstats.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+        }
 
         public int level
         {
@@ -56,11 +73,13 @@ namespace TrialGame
                 {
                     m_level = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    Console.WriteLine("{0} is how level changed", level - t_level);
+                    StatDifferenceInput(t_level - level);
                 }
             }
+            
+            
         }
-
+        
         public int health
         {
             get { return m_health; }
@@ -71,11 +90,13 @@ namespace TrialGame
                 {
                     m_health = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    Console.WriteLine("{0} is how health changed", health - t_health);
+                    StatDifferenceInput(t_health - health);
 
                 }
             }
         }
+
+        
 
         public int sprint
         {
@@ -168,7 +189,7 @@ namespace TrialGame
                 {
                     m_luck = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    Console.WriteLine("{0} is how luck changed", luck - t_luck);
+                    StatDifferenceInput(t_luck - luck);
 
                 }
             }
