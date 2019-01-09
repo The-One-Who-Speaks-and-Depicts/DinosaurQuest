@@ -21,6 +21,8 @@ namespace TrialGame
         public int m_perception;
         public int m_luck;
         public int sex;
+        
+
 
         public string PrintSex()
         {
@@ -63,6 +65,19 @@ namespace TrialGame
             return DifferenceNumerical;
         }
 
+        public int full_health
+        {
+            get { return 100 + m_level * 10; }
+            set
+            {
+                full_health = (100 + m_level * 10);
+                if (health < (full_health / 10));
+                    CriticalHealth?.Invoke(this, EventArgs.Empty);                
+            }
+        }
+
+        public event EventHandler CriticalHealth;
+
         public int level
         {
             get { return m_level; }
@@ -91,7 +106,7 @@ namespace TrialGame
                     m_health = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
                     StatDifferenceInput(t_health - health);
-
+                   
                 }
             }
         }

@@ -15,6 +15,11 @@ namespace TrialGame
             Console.WriteLine("{0} is how health changed", YourCreature.StatDifferenceOutput());
         }
 
+        public static void OnCriticalHealth(object sender, EventArgs e)
+        {
+            Console.WriteLine("Critical danger!");
+        }
+
         public static void ShowingUpTutorial (YourCreature playerCreature, YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus )
         {
             Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
@@ -41,6 +46,7 @@ namespace TrialGame
             mother.PrintCharacterStats();
             mother.StatChange += OnStatChange; 
             Console.WriteLine("Mother is starving and thirsty. She is desperate of satisfying her needs, because she was warming her unborn children for weeks, or even months now. But she still needs to guard them. That is going to be a very hard choice for her. Does she want to go away for hunting (1) or is she going to stay here  and protect her children until her last dying breath(2)");
+            mother.CriticalHealth += OnCriticalHealth;           
             int decision = Program.ChoosingRightKey();
             while ((decision < 1) || (decision > 2)) 
                 {
@@ -71,10 +77,11 @@ namespace TrialGame
                         decision = Program.ChoosingRightKey();
                         if (decision == 1)
                         {
-                            mother.m_luck++;
-                            
+                            mother.StatChange -= OnStatChange;
+                            mother.m_luck++;                            
                             Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
                             mother.m_luck--;
+                            mother.StatChange += OnStatChange;
                             Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
                             decision = Program.ChoosingRightKey();
                             if (decision == 1)
@@ -88,7 +95,7 @@ namespace TrialGame
                             Console.WriteLine("You are waiting. Steps are coming closer in closer.");
                             ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                             Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                            //fight sequence
+                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
                         }
                     }
                     else
@@ -96,7 +103,7 @@ namespace TrialGame
                         Console.WriteLine("You are waiting. Steps are coming closer in closer.");
                         ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                         Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                        //fight sequence
+                        YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
                     }
                 }
                 else
@@ -122,16 +129,16 @@ namespace TrialGame
                         if (decision == 1)
                         {
                             Console.WriteLine("You do not have enough time. You have the only choice, which is waiting for predator to come.");
-                            
+                            ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                             Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                            //fight sequence
+                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
                         }
                         else
                         {
                             Console.WriteLine("You are waiting. Steps are coming closer in closer.");
                             ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                             Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                            //fight sequence
+                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
                         }
                     }
                     else {
@@ -163,9 +170,11 @@ namespace TrialGame
                     decision = Program.ChoosingRightKey();
                     if (decision == 1)
                     {
+                        mother.StatChange -= OnStatChange;
                         mother.m_luck++;
                         ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                         mother.m_luck--;
+                        mother.StatChange += OnStatChange;
                         Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
                         Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
                         decision = Program.ChoosingRightKey();
@@ -180,7 +189,7 @@ namespace TrialGame
                         Console.WriteLine("You are waiting. Steps are coming closer in closer.");
                         ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                         Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                        //fight sequence
+                        YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
                     }
                 }
                 else
@@ -188,7 +197,7 @@ namespace TrialGame
                     Console.WriteLine("You are waiting. Steps are coming closer in closer.");
                     ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                     Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                    //fight sequence
+                    YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
                 }
             }
            
