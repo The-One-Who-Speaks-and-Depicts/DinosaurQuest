@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using static System.Int32;
 using System.IO;
+using System.Diagnostics;
 
 namespace TrialGame
 {
@@ -21,9 +23,19 @@ namespace TrialGame
         public int m_perception;
         public int m_luck;
         public int sex;
-        
 
+        public int full_health
+        {
+            get { return 100 + m_level * 10; }
+            set
+            {
+                full_health = (100 + m_level * 10);
+                if (m_health < (full_health / 10))
+                    CriticalHealth?.Invoke(this, EventArgs.Empty);
 
+            }
+        }
+        public event EventHandler CriticalHealth;
         public string PrintSex()
         {
             if (this.sex == 0) return "feminine";
@@ -47,36 +59,39 @@ namespace TrialGame
 
         public double exp;
 
-        public static void StatDifferenceInput(int statDifference)
+        public static void StatDifferenceInput(int statDifference, string stat)
         {
-            string FileOfInput = @"C:\DinosaurGame\hereliesstats.txt";
-            if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
-            StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
-            ChangeableStat.WriteLine(statDifference.ToString());
-            ChangeableStat.Close();
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\hereliesstats.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.WriteLine("Oops!");
+            }
         }
 
         public static int StatDifferenceOutput()
         {
+            Thread.Sleep(20);
             string FileofOutput = @"C:\DinosaurGame\hereliesstats.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();
             return DifferenceNumerical;
+            
         }
 
-        public int full_health
-        {
-            get { return 100 + m_level * 10; }
-            set
-            {
-                full_health = (100 + m_level * 10);
-                if (health < (full_health / 10));
-                    CriticalHealth?.Invoke(this, EventArgs.Empty);                
-            }
-        }
+        
 
-        public event EventHandler CriticalHealth;
+        
 
         public int level
         {
@@ -88,7 +103,7 @@ namespace TrialGame
                 {
                     m_level = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_level - level);
+                    StatDifferenceInput(t_level - level, "level");
                 }
             }
             
@@ -103,10 +118,15 @@ namespace TrialGame
                 int t_health = health;
                 if (health != value)
                 {
+                    if (health >= (full_health / 10))
+                    {
+
                     m_health = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_health - health);
-                   
+                    StatDifferenceInput(t_health - health, "health");
+
+                    }
+
                 }
             }
         }
@@ -123,7 +143,7 @@ namespace TrialGame
                 {
                     m_sprint = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    Console.WriteLine("{0} is how sprint changed", sprint - t_sprint);
+                    StatDifferenceInput(t_sprint - sprint, "sprint");
 
                 }
             }
@@ -139,7 +159,7 @@ namespace TrialGame
                 {
                     m_stayer = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    Console.WriteLine("{0} is how stayer changed", stayer - t_stayer);
+                    StatDifferenceInput(t_stayer - stayer, "stayer");
 
                 }
             }
@@ -155,7 +175,7 @@ namespace TrialGame
                 {
                     m_intelligence = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    Console.WriteLine("{0} is how intelligence changed", intelligence - t_intelligence);
+                    StatDifferenceInput(t_intelligence - intelligence, "intelligence");
 
                 }
             }
@@ -171,7 +191,7 @@ namespace TrialGame
                 {
                     m_progressivity = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    Console.WriteLine("{0} is how progressivity changed", progressivity - t_progressivity);
+                    StatDifferenceInput(t_progressivity - progressivity, "progressivity");
 
                 }
             }
@@ -187,7 +207,7 @@ namespace TrialGame
                 {
                     m_perception = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    Console.WriteLine("{0} is how perception changed", perception - t_perception);
+                    StatDifferenceInput(t_perception - perception, "perception");
 
                 }
             }
@@ -204,7 +224,7 @@ namespace TrialGame
                 {
                     m_luck = value;
                     StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_luck - luck);
+                    StatDifferenceInput(t_luck - luck, "luck");
 
                 }
             }
@@ -270,7 +290,7 @@ namespace TrialGame
                 {
                     Console.WriteLine("Attack failed");
                     double m_receivedexp = 0;
-                    m_receivedexp = (b.m_health * 0.25);
+                    m_receivedexp = (b.full_health * 0.25);
                     a.exp += m_receivedexp;
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
                 }
@@ -284,6 +304,7 @@ namespace TrialGame
                         {
                             b.m_health -= a.stayer * (a.level / b.m_level);
                             a.health -= b.m_sprint;
+                           
                         }
                         else
                         {
@@ -296,7 +317,7 @@ namespace TrialGame
                     {
                         Console.WriteLine("Attack is successful");
                         double m_receivedexp = 0;
-                        m_receivedexp = (b.m_health * 2);
+                        m_receivedexp = (b.full_health * 2);
                         a.exp += m_receivedexp;
                         Console.WriteLine("You gained {0} experience", m_receivedexp);
                         Scavenge(a, b);
@@ -337,7 +358,7 @@ namespace TrialGame
                             if (a.health / 10 > b.m_health)
                             {
                                 Console.WriteLine("Attack is successful");
-                                m_receivedexp = (b.m_health * 2);
+                                m_receivedexp = (b.full_health * 2);
                                 a.exp += m_receivedexp;
                                 Console.WriteLine("You gained {0} experience", m_receivedexp);
                                 Scavenge(a, b);
@@ -358,7 +379,7 @@ namespace TrialGame
                 if (a.luck > b.m_perception)
                 {
                     Console.WriteLine("Stealth attack is successful");
-                    double m_receivedexp = (b.m_health * 1.5);
+                    double m_receivedexp = (b.full_health * 1.5);
                     a.exp += m_receivedexp;
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
                     Scavenge(a, b);
@@ -426,7 +447,7 @@ namespace TrialGame
             {
                 Console.WriteLine("You restore your life strength, eating the corpse of {0}", b.name);
                 int full_health = 100 + 10 * a.level;
-                int scavengeable_meat = b.m_health / 4;
+                int scavengeable_meat = b.full_health / 4;
                 if (a.health < full_health)
                 {
                     if (scavengeable_meat > (full_health - scavengeable_meat))
@@ -435,6 +456,7 @@ namespace TrialGame
                     }
                     else a.health += scavengeable_meat;
                 }
+               
             }
 
             public static bool ShowingUp(YourCreature a, EnemyCreature b, string a1, string b1)
