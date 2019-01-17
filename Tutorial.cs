@@ -9,10 +9,52 @@ namespace TrialGame
 {
     class Tutorial
     {
-        public static void OnStatChange(object sender, EventArgs e)
+        public static void OnLevelChange(object sender, EventArgs e)
         {
             
-            Console.WriteLine("{0} is how health changed", YourCreature.StatDifferenceOutput());
+            Console.WriteLine("{0} is how level changed", YourCreature.LevelDifferenceOutput());
+        }
+
+        public static void OnHealthChange(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("{0} is how health changed", YourCreature.HealthDifferenceOutput());
+        }
+
+        public static void OnSprintChange(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("{0} is how sprint changed", YourCreature.SprintDifferenceOutput());
+        }
+
+        public static void OnStayerChange(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("{0} is how stayer changed", YourCreature.StayerDifferenceOutput());
+        }
+
+        public static void OnIntelligenceChange(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("{0} is how stayer changed", YourCreature.IntelligenceDifferenceOutput());
+        }
+
+        public static void OnProgressivityChange(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("{0} is how progressivity changed", YourCreature.ProgressivityDifferenceOutput());
+        }
+
+        public static void OnPerceptionChange(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("{0} is how perception changed", YourCreature.PerceptionDifferenceOutput());
+        }
+
+        public static void OnLuckChange(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("{0} is how luck changed", YourCreature.LuckDifferenceOutput());
         }
 
         public static void OnCriticalHealth(object sender, EventArgs e)
@@ -44,7 +86,14 @@ namespace TrialGame
             mother.perception += 4;
             mother.luck += 3;
             mother.PrintCharacterStats();
-            mother.StatChange += OnStatChange; 
+            mother.LevelChange += OnLevelChange;
+            mother.HealthChange += OnHealthChange;
+            mother.SprintChange += OnSprintChange;
+            mother.StayerChange += OnStayerChange;
+            mother.IntelligenceChange += OnIntelligenceChange;
+            mother.ProgressivityChange += OnProgressivityChange;
+            mother.PerceptionChange += OnPerceptionChange;
+            mother.LuckChange += OnLuckChange;
             Console.WriteLine("Mother is starving and thirsty. She is desperate of satisfying her needs, because she was warming her unborn children for weeks, or even months now. But she still needs to guard them. That is going to be a very hard choice for her. Does she want to go away for hunting (1) or is she going to stay here  and protect her children until her last dying breath(2)");
             mother.CriticalHealth += OnCriticalHealth;           
             int decision = Program.ChoosingRightKey();
@@ -77,11 +126,11 @@ namespace TrialGame
                         decision = Program.ChoosingRightKey();
                         if (decision == 1)
                         {
-                            mother.StatChange -= OnStatChange;
+                            mother.LuckChange -= OnLuckChange;
                             mother.m_luck++;                            
                             Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
                             mother.m_luck--;
-                            mother.StatChange += OnStatChange;
+                            mother.LuckChange += OnLuckChange;
                             Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
                             decision = Program.ChoosingRightKey();
                             if (decision == 1)
@@ -170,11 +219,11 @@ namespace TrialGame
                     decision = Program.ChoosingRightKey();
                     if (decision == 1)
                     {
-                        mother.StatChange -= OnStatChange;
+                        mother.LuckChange -= OnLuckChange;
                         mother.m_luck++;
                         ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                         mother.m_luck--;
-                        mother.StatChange += OnStatChange;
+                        mother.LuckChange += OnLuckChange;
                         Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
                         Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
                         decision = Program.ChoosingRightKey();

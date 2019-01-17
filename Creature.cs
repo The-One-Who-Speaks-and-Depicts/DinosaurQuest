@@ -59,38 +59,10 @@ namespace TrialGame
 
         public double exp;
 
-        public static void StatDifferenceInput(int statDifference, string stat)
-        {
-            try
-            {
-                string FileOfInput = @"C:\DinosaurGame\hereliesstats.txt";
-                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
-                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
-                ChangeableStat.WriteLine(statDifference.ToString());
-                ChangeableStat.WriteLine(" is how changed {0}", stat);
-                ChangeableStat.Close();
-                ChangeableStat.Dispose();
-                Thread.Sleep(20);
-            }
-            catch
-            {
-                Console.WriteLine("Oops!");
-            }
-        }
-
-        public static int StatDifferenceOutput()
-        {
-            Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\hereliesstats.txt";
-            StreamReader ChangedStat = new StreamReader(FileofOutput);
-            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
-            ChangedStat.Close();
-            return DifferenceNumerical;
-            
-        }
-
         
 
+        
+        // уровень и его изменение
         
 
         public int level
@@ -102,14 +74,48 @@ namespace TrialGame
                 if (level != value)
                 {
                     m_level = value;
-                    StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_level - level, "level");
+                    LevelDifferenceInput(level - t_level, "level");
+                    LevelChange?.Invoke(this, EventArgs.Empty);                    
                 }
             }
             
             
         }
-        
+
+        public static void LevelDifferenceInput(int statDifference, string stat)
+        {
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\herelieslevel.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.Write("");
+            }
+        }
+
+        public static int LevelDifferenceOutput()
+        {
+            Thread.Sleep(20);
+            string FileofOutput = @"C:\DinosaurGame\herelieslevel.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+
+        }
+
+        public event EventHandler LevelChange;
+
+        // здоровье и его изменение
+
         public int health
         {
             get { return m_health; }
@@ -120,18 +126,48 @@ namespace TrialGame
                 {
                     if (health >= (full_health / 10))
                     {
-
-                    m_health = value;
-                    StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_health - health, "health");
-
+                    m_health = value;                    
+                    HealthDifferenceInput(health - t_health, "health");
+                    HealthChange?.Invoke(this, EventArgs.Empty);
                     }
 
                 }
             }
         }
 
-        
+        public static void HealthDifferenceInput(int statDifference, string stat)
+        {
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\herelieshealth.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.Write("");
+            }
+        }
+
+        public static int HealthDifferenceOutput()
+        {
+            Thread.Sleep(20);
+            string FileofOutput = @"C:\DinosaurGame\herelieshealth.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+
+        }
+
+        public event EventHandler HealthChange;
+
+        // sprint and its change
 
         public int sprint
         {
@@ -142,12 +178,46 @@ namespace TrialGame
                 if (sprint != value)
                 {
                     m_sprint = value;
-                    StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_sprint - sprint, "sprint");
+                    SprintDifferenceInput(sprint - t_sprint, "sprint");
+                    SprintChange?.Invoke(this, EventArgs.Empty);                   
 
                 }
             }
         }
+
+        public static void SprintDifferenceInput(int statDifference, string stat)
+        {
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\hereliessprint.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.Write("");
+            }
+        }
+
+        public static int SprintDifferenceOutput()
+        {
+            Thread.Sleep(20);
+            string FileofOutput = @"C:\DinosaurGame\hereliessprint.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+
+        }
+
+        public event EventHandler SprintChange;
+
+        // stayer and its change
 
         public int stayer
         {
@@ -158,12 +228,45 @@ namespace TrialGame
                 if (stayer != value)
                 {
                     m_stayer = value;
-                    StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_stayer - stayer, "stayer");
-
+                    StayerDifferenceInput(stayer - t_stayer, "stayer");
+                    StayerChange?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
+
+        public static void StayerDifferenceInput(int statDifference, string stat)
+        {
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\hereliesstayer.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.Write("");
+            }
+        }
+
+        public static int StayerDifferenceOutput()
+        {
+            Thread.Sleep(20);
+            string FileofOutput = @"C:\DinosaurGame\hereliesstayer.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+
+        }
+
+        public event EventHandler StayerChange;
+
+        //intelligence and its change
 
         public int intelligence
         {
@@ -174,12 +277,45 @@ namespace TrialGame
                 if (intelligence != value)
                 {
                     m_intelligence = value;
-                    StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_intelligence - intelligence, "intelligence");
-
+                    IntelligenceDifferenceInput(intelligence - t_intelligence, "intelligence");
+                    IntelligenceChange?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
+
+        public static void IntelligenceDifferenceInput(int statDifference, string stat)
+        {
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\hereliesintelligence.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.Write("");
+            }
+        }
+
+        public static int IntelligenceDifferenceOutput()
+        {
+            Thread.Sleep(20);
+            string FileofOutput = @"C:\DinosaurGame\hereliesintelligence.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+
+        }
+
+        public event EventHandler IntelligenceChange;
+
+        // progressivity and its change
 
         public int progressivity
         {
@@ -190,12 +326,45 @@ namespace TrialGame
                 if (progressivity != value)
                 {
                     m_progressivity = value;
-                    StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_progressivity - progressivity, "progressivity");
-
+                    ProgressivityDifferenceInput(progressivity - t_progressivity, "progressivity");
+                    ProgressivityChange?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
+
+        public static void ProgressivityDifferenceInput(int statDifference, string stat)
+        {
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\hereliesprogressivity.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.Write("");
+            }
+        }
+
+        public static int ProgressivityDifferenceOutput()
+        {
+            Thread.Sleep(20);
+            string FileofOutput = @"C:\DinosaurGame\hereliesprogressivity.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+
+        }
+
+        public event EventHandler ProgressivityChange;
+
+        //perception and its change
 
         public int perception
         {
@@ -206,14 +375,47 @@ namespace TrialGame
                 if (perception != value)
                 {
                     m_perception = value;
-                    StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_perception - perception, "perception");
+                    PerceptionDifferenceInput(perception - t_perception, "perception");
+                    PerceptionChange?.Invoke(this, EventArgs.Empty);
+                    
 
                 }
             }
         }
 
+        public static void PerceptionDifferenceInput(int statDifference, string stat)
+        {
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\hereliesperception.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.Write("");
+            }
+        }
 
+        public static int PerceptionDifferenceOutput()
+        {
+            Thread.Sleep(20);
+            string FileofOutput = @"C:\DinosaurGame\hereliesperception.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+
+        }
+
+        public event EventHandler PerceptionChange;
+
+        //luck and its change
         public int luck
         {
             get { return m_luck; }
@@ -223,13 +425,42 @@ namespace TrialGame
                 if (luck != value)
                 {
                     m_luck = value;
-                    StatChange?.Invoke(this, EventArgs.Empty);
-                    StatDifferenceInput(t_luck - luck, "luck");
-
+                    LuckDifferenceInput(luck - t_luck, "luck");
+                    LuckChange?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
-        public event EventHandler StatChange;
+        public static void LuckDifferenceInput(int statDifference, string stat)
+        {
+            try
+            {
+                string FileOfInput = @"C:\DinosaurGame\hereliesluck.txt";
+                if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
+                StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
+                ChangeableStat.WriteLine(statDifference.ToString());
+                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.Close();
+                ChangeableStat.Dispose();
+                Thread.Sleep(20);
+            }
+            catch
+            {
+                Console.Write("");
+            }
+        }
+
+        public static int LuckDifferenceOutput()
+        {
+            Thread.Sleep(20);
+            string FileofOutput = @"C:\DinosaurGame\hereliesluck.txt";
+            StreamReader ChangedStat = new StreamReader(FileofOutput);
+            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+            ChangedStat.Close();
+            return DifferenceNumerical;
+
+        }
+
+        public event EventHandler LuckChange;
 
 
 
