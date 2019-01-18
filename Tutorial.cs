@@ -145,6 +145,14 @@ namespace TrialGame
                             ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                             Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
                             YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                                Level1.Level1_Entrance(character);
+                            else if (decision == 2)
+                                RecordedSaves.Load_Game();
+                            else Program.Exit_Game();
                         }
                     }
                     else
@@ -153,6 +161,14 @@ namespace TrialGame
                         ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                         Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
                         YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                        Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                        Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                        decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                            Level1.Level1_Entrance(character);
+                        else if (decision == 2)
+                            RecordedSaves.Load_Game();
+                        else Program.Exit_Game();
                     }
                 }
                 else
@@ -181,6 +197,14 @@ namespace TrialGame
                             ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                             Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
                             YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                                Level1.Level1_Entrance(character);
+                            else if (decision == 2)
+                                RecordedSaves.Load_Game();
+                            else Program.Exit_Game();
                         }
                         else
                         {
@@ -188,6 +212,14 @@ namespace TrialGame
                             ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                             Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
                             YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                                Level1.Level1_Entrance(character);
+                            else if (decision == 2)
+                                RecordedSaves.Load_Game();
+                            else Program.Exit_Game();
                         }
                     }
                     else {
@@ -224,7 +256,7 @@ namespace TrialGame
                         ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                         mother.m_luck--;
                         mother.LuckChange += OnLuckChange;
-                        Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                        Console.WriteLine("{0} made bigger rival run away, standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
                         Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
                         decision = Program.ChoosingRightKey();
                         if (decision == 1)
@@ -239,6 +271,14 @@ namespace TrialGame
                         ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                         Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
                         YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                        Console.WriteLine("{0} is standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                        Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                        decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                            Level1.Level1_Entrance(character);
+                        else if (decision == 2)
+                            RecordedSaves.Load_Game();
+                        else Program.Exit_Game();
                     }
                 }
                 else
@@ -247,6 +287,14 @@ namespace TrialGame
                     ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                     Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
                     YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                    Console.WriteLine("{0} is standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                    Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                    decision = Program.ChoosingRightKey();
+                    if (decision == 1)
+                        Level1.Level1_Entrance(character);
+                    else if (decision == 2)
+                        RecordedSaves.Load_Game();
+                    else Program.Exit_Game();
                 }
             }
            
