@@ -124,12 +124,11 @@ namespace TrialGame
                 int t_health = health;
                 if (health != value)
                 {
-                    if (health >= (full_health / 10))
-                    {
+                    
                     m_health = value;                    
                     HealthDifferenceInput(health - t_health, "health");
                     HealthChange?.Invoke(this, EventArgs.Empty);
-                    }
+                    
 
                 }
             }
@@ -534,7 +533,7 @@ namespace TrialGame
                         if (a.level > b.m_level)
                         {
                             b.m_health -= a.stayer * (a.level / b.m_level);
-                            a.health -= b.m_sprint;
+                            a.health -= b.m_sprint;                            
                            
                         }
                         else
