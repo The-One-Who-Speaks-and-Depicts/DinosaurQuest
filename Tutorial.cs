@@ -69,6 +69,216 @@ namespace TrialGame
             YourCreature.EnemyCreature.ShowingUp(playerCreature, Enemy_Cryolophosaurus, playerCreature.name, Enemy_Cryolophosaurus.name);
         }
 
+        public static void Tutorial_Final (YourCreature character, YourCreature mother, int result)
+        {
+            switch (result)
+            {
+                case 0: // mother stayed
+                    { 
+                    Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest and soon discovers that it was her lucky choice to stay. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, otherwise her children are going to be killed.");
+                    mother.progressivity++;
+                    mother.stayer--;
+                    mother.luck++;
+                    Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
+                    Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise.");
+                    YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();
+                    Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
+                    int decision = Program.ChoosingRightKey();
+                    if (decision == 1)
+                    {
+                        Console.WriteLine("You have successfully sneaked in the trees. The male Cryolophosaurus is basically here. Would you like to stealth attack him (1), or suddenly appear before his eyes (other key)?");
+                        decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                        {
+                            mother.LuckChange -= OnLuckChange;
+                            mother.m_luck++;
+                            ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
+                            mother.m_luck--;
+                            mother.LuckChange += OnLuckChange;
+                            Console.WriteLine("{0} made bigger rival run away, standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                                Level1.Level1_Entrance(character);
+                            else if (decision == 2)
+                                RecordedSaves.Load_Game();
+                            else Program.Exit_Game();
+                        }
+                        else
+                        {
+                            Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                            ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("{0} is standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                                Level1.Level1_Entrance(character);
+                            else if (decision == 2)
+                                RecordedSaves.Load_Game();
+                            else Program.Exit_Game();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                        ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
+                        Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                        YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                        Console.WriteLine("{0} is standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                        Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                        decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                            Level1.Level1_Entrance(character);
+                        else if (decision == 2)
+                            RecordedSaves.Load_Game();
+                        else Program.Exit_Game();
+                    }
+                    }
+                    break;
+                case 1: // mother went away, but returned
+                    {
+                        Console.WriteLine("Putting mother's needs over child's ones is clever, but, at this point of history, not so progressive step. Mother is going into the woods.");
+                        mother.intelligence++;
+                        Console.WriteLine("You hear strange background noises. Maybe, after all, the more clever choice would be staying near the nest? Press 1 to do that, else press any other key");
+                        int decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                        {
+                            mother.sprint--;
+                            mother.luck++;
+                            Console.WriteLine("You are not so fast in decisions, but luck is strong in you, because you have arrived back just in time. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, either way her children are going to be killed.");
+                            Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
+                            Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise. Somebody is coming");
+                            YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();
+                            Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                            {
+                                Console.WriteLine("You have successfully sneaked in the trees. The male Cryolophosaurus is basically here. Would you like to stealth attack him (1), or suddenly appear before his eyes (other key)?");
+                                decision = Program.ChoosingRightKey();
+                                if (decision == 1)
+                                {
+                                    mother.LuckChange -= OnLuckChange;
+                                    mother.m_luck++;
+                                    Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                                    mother.m_luck--;
+                                    mother.LuckChange += OnLuckChange;
+                                    Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                                    decision = Program.ChoosingRightKey();
+                                    if (decision == 1)
+                                        Level1.Level1_Entrance(character);
+                                    else if (decision == 2)
+                                        RecordedSaves.Load_Game();
+                                    else Program.Exit_Game();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                                    ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
+                                    Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                                    YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                                    Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                                    Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                                    decision = Program.ChoosingRightKey();
+                                    if (decision == 1)
+                                        Level1.Level1_Entrance(character);
+                                    else if (decision == 2)
+                                        RecordedSaves.Load_Game();
+                                    else Program.Exit_Game();
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                                ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
+                                Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                                YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                                Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                                Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                                decision = Program.ChoosingRightKey();
+                                if (decision == 1)
+                                    Level1.Level1_Entrance(character);
+                                else if (decision == 2)
+                                    RecordedSaves.Load_Game();
+                                else Program.Exit_Game();
+                            }
+                        }
+                        else
+                        {
+                            Tutorial_Final(character, mother, 2);
+
+                        }
+                        break;
+                    }
+                case 2: // mother went away and not returned
+                    { 
+                    mother.sprint++;
+                    mother.luck--;
+                    Console.WriteLine("You are fast in decisions, but that may do you the bad luck in the future. However, now you are lucky, because soon you are to discover a prey. A small dicynodontus is heard somewhere close. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, or she will die because of starvation.");
+                    Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);
+                    Console.WriteLine("You have satisfied your needs. Now it is time to come back");
+                    Tile next1 = new Tile("northWest", "Fall", "Nest", mother, 0, 9);
+                    Console.WriteLine("You sense that going away was, probably, not such a good decision. Your nest is now being destroyed by somebody. Would you protect the last of your children (1), or, maybe, bring in to life next year(any key)?");
+                    int decision = Program.ChoosingRightKey();
+                    if (decision == 1)
+                    {
+                        Console.WriteLine("It seems that you found the one who is guilty");
+                        Tile current = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
+                        Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise.");
+                        YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();
+                        Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
+                        decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                        {
+                            Console.WriteLine("You do not have enough time. You have the only choice, which is waiting for predator to come.");
+                            ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                                Level1.Level1_Entrance(character);
+                            else if (decision == 2)
+                                RecordedSaves.Load_Game();
+                            else Program.Exit_Game();
+                        }
+                        else
+                        {
+                            Console.WriteLine("You are waiting. Steps are coming closer in closer.");
+                            ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
+                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
+                            Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
+                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
+                            decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                                Level1.Level1_Entrance(character);
+                            else if (decision == 2)
+                                RecordedSaves.Load_Game();
+                            else Program.Exit_Game();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Well, young cryolophosaurus. Your life is ended by Adelobasileus. Maybe, in the next universe? Press 1 to try, press any key to go away.");
+                        decision = Program.ChoosingRightKey();
+                        if (decision == 1)
+                        {
+                            RecordedSaves.Load_Game();
+                        }
+                        else Program.Exit_Game();
+                    }
+                    break;
+                    }
+                default:
+                    Console.WriteLine("Something went terribly wrong. Restarting level...");
+                    RecordedSaves.Load_Game();
+                    break;
+            }
+        }
+
        public static void Tutorial_Entrance (YourCreature character)
         {
             
@@ -105,197 +315,12 @@ namespace TrialGame
             
             if (decision == 1)
             {
+                Tutorial_Final(character,mother,1);
                 
-                Console.WriteLine("Putting mother's needs over child's ones is clever, but, at this point of history, not so progressive step. Mother is going into the woods.");
-                mother.intelligence++;
-                Console.WriteLine("You hear strange background noises. Maybe, after all, the more clever choice would be staying near the nest? Press 1 to do that, else press any other key");
-                decision = Program.ChoosingRightKey();
-                if (decision == 1)
-                {
-                    mother.sprint--;
-                    mother.luck++;
-                    Console.WriteLine("You are not so fast in decisions, but luck is strong in you, because you have arrived back just in time. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, either way her children are going to be killed.");
-                    Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
-                    Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise. Somebody is coming");
-                    YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();                 
-                    Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
-                    decision = Program.ChoosingRightKey();
-                    if (decision == 1)
-                    {
-                        Console.WriteLine("You have successfully sneaked in the trees. The male Cryolophosaurus is basically here. Would you like to stealth attack him (1), or suddenly appear before his eyes (other key)?");
-                        decision = Program.ChoosingRightKey();
-                        if (decision == 1)
-                        {
-                            mother.LuckChange -= OnLuckChange;
-                            mother.m_luck++;                            
-                            Console.WriteLine("{0} made bigger rival run away, standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
-                            mother.m_luck--;
-                            mother.LuckChange += OnLuckChange;
-                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-                            decision = Program.ChoosingRightKey();
-                            if (decision == 1)
-                                Level1.Level1_Entrance(character);
-                            else if (decision == 2)
-                                RecordedSaves.Load_Game();
-                            else Program.Exit_Game();
-                        }
-                        else
-                        {
-                            Console.WriteLine("You are waiting. Steps are coming closer in closer.");
-                            ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
-                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
-                            Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
-                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-                            decision = Program.ChoosingRightKey();
-                            if (decision == 1)
-                                Level1.Level1_Entrance(character);
-                            else if (decision == 2)
-                                RecordedSaves.Load_Game();
-                            else Program.Exit_Game();
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("You are waiting. Steps are coming closer in closer.");
-                        ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
-                        Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                        YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
-                        Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
-                        Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-                        decision = Program.ChoosingRightKey();
-                        if (decision == 1)
-                            Level1.Level1_Entrance(character);
-                        else if (decision == 2)
-                            RecordedSaves.Load_Game();
-                        else Program.Exit_Game();
-                    }
-                }
-                else
-                {
-                    
-                    
-                    mother.sprint++;
-                    mother.luck--;
-                    Console.WriteLine("You are fast in decisions, but that may do you the bad luck in the future. However, now you are lucky, because soon you are to discover a prey. A small dicynodontus is heard somewhere close. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, or she will die because of starvation.");
-                    Tile next = new Tile("southEast", "Fall", "Mountainside", mother, 1, 2);
-                    Console.WriteLine("You have satisfied your needs. Now it is time to come back");
-                    Tile next1 = new Tile ("northWest", "Fall", "Nest", mother, 0, 9);
-                    Console.WriteLine("You sense that going away was, probably, not such a good decision. Your nest is now being destroyed by somebody. Would you protect the last of your children (1), or, maybe, bring in to life next year(any key)?");
-                    decision = Program.ChoosingRightKey();
-                    if (decision == 1)
-                    {
-                        Console.WriteLine("It seems that you found the one who is guilty");
-                        Tile current = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
-                        Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise.");
-                        YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();                       
-                        Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
-                        decision = Program.ChoosingRightKey();
-                        if (decision == 1)
-                        {
-                            Console.WriteLine("You do not have enough time. You have the only choice, which is waiting for predator to come.");
-                            ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
-                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
-                            Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
-                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-                            decision = Program.ChoosingRightKey();
-                            if (decision == 1)
-                                Level1.Level1_Entrance(character);
-                            else if (decision == 2)
-                                RecordedSaves.Load_Game();
-                            else Program.Exit_Game();
-                        }
-                        else
-                        {
-                            Console.WriteLine("You are waiting. Steps are coming closer in closer.");
-                            ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
-                            Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                            YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
-                            Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);
-                            Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-                            decision = Program.ChoosingRightKey();
-                            if (decision == 1)
-                                Level1.Level1_Entrance(character);
-                            else if (decision == 2)
-                                RecordedSaves.Load_Game();
-                            else Program.Exit_Game();
-                        }
-                    }
-                    else {
-                        Console.WriteLine("Well, young cryolophosaurus. Your life is ended by Adelobasileus. Maybe, in the next universe? Press 1 to try, press any key to go away.");
-                        decision = Program.ChoosingRightKey();
-                        if (decision == 1)
-                        {
-                            RecordedSaves.Load_Game();
-                        }
-                        else Program.Exit_Game();
-                    }
-                }
             }
             else if (decision == 2)
             {
-                
-                Console.WriteLine("Putting child's needs over mother's ones for this creature is a true step forward, however, it is not so clever thing to do in that particular situation. Mother is staying near her nest and soon discovers that it was her lucky choice to stay. A small primitive mammal intends to scavenge the nest. In such kind of cases usually it is possible for one to have three options: sneak and attack from an ambush (testing your luck against enemy's perception), attack openly (testing your sprint and progressivity against enemy's stayer and intelligence) or wait. However, Mother does not have this choice. She has to attack, otherwise her children are going to be killed.");
-                mother.progressivity++;
-                mother.stayer--;
-                mother.luck++;
-                Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
-                Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise.");
-                YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus ();
-                Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
-                decision = Program.ChoosingRightKey();
-                if (decision == 1)
-                {
-                    Console.WriteLine("You have successfully sneaked in the trees. The male Cryolophosaurus is basically here. Would you like to stealth attack him (1), or suddenly appear before his eyes (other key)?");
-                    decision = Program.ChoosingRightKey();
-                    if (decision == 1)
-                    {
-                        mother.LuckChange -= OnLuckChange;
-                        mother.m_luck++;
-                        ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
-                        mother.m_luck--;
-                        mother.LuckChange += OnLuckChange;
-                        Console.WriteLine("{0} made bigger rival run away, standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
-                        Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-                        decision = Program.ChoosingRightKey();
-                        if (decision == 1)
-                            Level1.Level1_Entrance(character);
-                        else if (decision == 2)
-                            RecordedSaves.Load_Game();
-                        else Program.Exit_Game();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You are waiting. Steps are coming closer in closer.");
-                        ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
-                        Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                        YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
-                        Console.WriteLine("{0} is standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
-                        Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-                        decision = Program.ChoosingRightKey();
-                        if (decision == 1)
-                            Level1.Level1_Entrance(character);
-                        else if (decision == 2)
-                            RecordedSaves.Load_Game();
-                        else Program.Exit_Game();
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("You are waiting. Steps are coming closer in closer.");
-                    ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
-                    Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
-                    YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
-                    Console.WriteLine("{0} is standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
-                    Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-                    decision = Program.ChoosingRightKey();
-                    if (decision == 1)
-                        Level1.Level1_Entrance(character);
-                    else if (decision == 2)
-                        RecordedSaves.Load_Game();
-                    else Program.Exit_Game();
-                }
+                Tutorial_Final(character, mother, 0);                
             }
            
             Program.Exit_Game();
