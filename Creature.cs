@@ -86,7 +86,7 @@ namespace TrialGame
         {
             try
             {
-                string FileOfInput = @"C:\DinosaurGame\herelieslevel.txt";
+                string FileOfInput = @"C:\DinosaurGame\Tech\herelieslevel.txt";
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
@@ -104,7 +104,7 @@ namespace TrialGame
         public static int LevelDifferenceOutput()
         {
             Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\herelieslevel.txt";
+            string FileofOutput = @"C:\DinosaurGame\Tech\herelieslevel.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();
@@ -138,7 +138,7 @@ namespace TrialGame
         {
             try
             {
-                string FileOfInput = @"C:\DinosaurGame\herelieshealth.txt";
+                string FileOfInput = @"C:\DinosaurGame\Tech\herelieshealth.txt";
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
@@ -156,7 +156,7 @@ namespace TrialGame
         public static int HealthDifferenceOutput()
         {
             Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\herelieshealth.txt";
+            string FileofOutput = @"C:\DinosaurGame\Tech\herelieshealth.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();
@@ -188,7 +188,7 @@ namespace TrialGame
         {
             try
             {
-                string FileOfInput = @"C:\DinosaurGame\hereliessprint.txt";
+                string FileOfInput = @"C:\DinosaurGame\Tech\hereliessprint.txt";
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
@@ -199,14 +199,14 @@ namespace TrialGame
             }
             catch
             {
-                Console.Write("");
+                Console.WriteLine("Oh, hi, Mark!");
             }
         }
 
         public static int SprintDifferenceOutput()
         {
             Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\hereliessprint.txt";
+            string FileofOutput = @"C:\DinosaurGame\Tech\hereliessprint.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();
@@ -237,7 +237,7 @@ namespace TrialGame
         {
             try
             {
-                string FileOfInput = @"C:\DinosaurGame\hereliesstayer.txt";
+                string FileOfInput = @"C:\DinosaurGame\Tech\hereliesstayer.txt";
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
@@ -248,14 +248,14 @@ namespace TrialGame
             }
             catch
             {
-                Console.Write("");
+                Console.WriteLine("Oh, hi, Mark!");
             }
         }
 
         public static int StayerDifferenceOutput()
         {
             Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\hereliesstayer.txt";
+            string FileofOutput = @"C:\DinosaurGame\Tech\hereliesstayer.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();
@@ -286,7 +286,7 @@ namespace TrialGame
         {
             try
             {
-                string FileOfInput = @"C:\DinosaurGame\hereliesintelligence.txt";
+                string FileOfInput = @"C:\DinosaurGame\Tech\hereliesintelligence.txt";
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
@@ -297,14 +297,14 @@ namespace TrialGame
             }
             catch
             {
-                Console.Write("");
+                Console.WriteLine("Oh, hi, Mark!");
             }
         }
 
         public static int IntelligenceDifferenceOutput()
         {
             Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\hereliesintelligence.txt";
+            string FileofOutput = @"C:\DinosaurGame\Tech\hereliesintelligence.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();
@@ -335,7 +335,7 @@ namespace TrialGame
         {
             try
             {
-                string FileOfInput = @"C:\DinosaurGame\hereliesprogressivity.txt";
+                string FileOfInput = @"C:\DinosaurGame\Tech\hereliesprogressivity.txt";
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
@@ -346,14 +346,14 @@ namespace TrialGame
             }
             catch
             {
-                Console.Write("");
+                Console.WriteLine("Oh, hi, Mark!");
             }
         }
 
         public static int ProgressivityDifferenceOutput()
         {
             Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\hereliesprogressivity.txt";
+            string FileofOutput = @"C:\DinosaurGame\Tech\hereliesprogressivity.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();
@@ -386,7 +386,7 @@ namespace TrialGame
         {
             try
             {
-                string FileOfInput = @"C:\DinosaurGame\hereliesperception.txt";
+                string FileOfInput = @"C:\DinosaurGame\Tech\hereliesperception.txt";
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
@@ -397,14 +397,14 @@ namespace TrialGame
             }
             catch
             {
-                Console.Write("");
+                Console.WriteLine("Oh, hi, Mark!");
             }
         }
 
         public static int PerceptionDifferenceOutput()
         {
             Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\hereliesperception.txt";
+            string FileofOutput = @"C:\DinosaurGame\Tech\hereliesperception.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();
@@ -433,7 +433,7 @@ namespace TrialGame
         {
             try
             {
-                string FileOfInput = @"C:\DinosaurGame\hereliesluck.txt";
+                string FileOfInput = @"C:\DinosaurGame\Tech\hereliesluck.txt";
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
@@ -444,14 +444,14 @@ namespace TrialGame
             }
             catch
             {
-                Console.Write("");
+                Console.WriteLine("Oh, hi, Mark!");
             }
         }
 
         public static int LuckDifferenceOutput()
         {
             Thread.Sleep(20);
-            string FileofOutput = @"C:\DinosaurGame\hereliesluck.txt";
+            string FileofOutput = @"C:\DinosaurGame\Tech\hereliesluck.txt";
             StreamReader ChangedStat = new StreamReader(FileofOutput);
             int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
             ChangedStat.Close();

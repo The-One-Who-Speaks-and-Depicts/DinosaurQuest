@@ -101,7 +101,7 @@ namespace TrialGame
                             if (decision == 1)
                                 Level1.Level1_Entrance(character);
                             else if (decision == 2)
-                                RecordedSaves.Load_Game();
+                                RecordedSaves.Auto_Load_Game();
                             else Program.Exit_Game();
                         }
                         else
@@ -116,7 +116,7 @@ namespace TrialGame
                             if (decision == 1)
                                 Level1.Level1_Entrance(character);
                             else if (decision == 2)
-                                RecordedSaves.Load_Game();
+                                RecordedSaves.Auto_Load_Game();
                             else Program.Exit_Game();
                         }
                     }
@@ -132,7 +132,7 @@ namespace TrialGame
                         if (decision == 1)
                             Level1.Level1_Entrance(character);
                         else if (decision == 2)
-                            RecordedSaves.Load_Game();
+                            RecordedSaves.Auto_Load_Game();
                         else Program.Exit_Game();
                     }
                     }
@@ -169,7 +169,7 @@ namespace TrialGame
                                     if (decision == 1)
                                         Level1.Level1_Entrance(character);
                                     else if (decision == 2)
-                                        RecordedSaves.Load_Game();
+                                        RecordedSaves.Auto_Load_Game();
                                     else Program.Exit_Game();
                                 }
                                 else
@@ -184,7 +184,7 @@ namespace TrialGame
                                     if (decision == 1)
                                         Level1.Level1_Entrance(character);
                                     else if (decision == 2)
-                                        RecordedSaves.Load_Game();
+                                        RecordedSaves.Auto_Load_Game();
                                     else Program.Exit_Game();
                                 }
                             }
@@ -200,7 +200,7 @@ namespace TrialGame
                                 if (decision == 1)
                                     Level1.Level1_Entrance(character);
                                 else if (decision == 2)
-                                    RecordedSaves.Load_Game();
+                                    RecordedSaves.Auto_Load_Game();
                                 else Program.Exit_Game();
                             }
                         }
@@ -241,7 +241,7 @@ namespace TrialGame
                             if (decision == 1)
                                 Level1.Level1_Entrance(character);
                             else if (decision == 2)
-                                RecordedSaves.Load_Game();
+                                RecordedSaves.Auto_Load_Game();
                             else Program.Exit_Game();
                         }
                         else
@@ -256,7 +256,7 @@ namespace TrialGame
                             if (decision == 1)
                                 Level1.Level1_Entrance(character);
                             else if (decision == 2)
-                                RecordedSaves.Load_Game();
+                                RecordedSaves.Auto_Load_Game();
                             else Program.Exit_Game();
                         }
                     }
@@ -266,7 +266,7 @@ namespace TrialGame
                         decision = Program.ChoosingRightKey();
                         if (decision == 1)
                         {
-                            RecordedSaves.Load_Game();
+                            RecordedSaves.Auto_Load_Game();
                         }
                         else Program.Exit_Game();
                     }
@@ -274,7 +274,7 @@ namespace TrialGame
                     }
                 default:
                     Console.WriteLine("Something went terribly wrong. Restarting level...");
-                    RecordedSaves.Load_Game();
+                    RecordedSaves.Auto_Load_Game();
                     break;
             }
         }
