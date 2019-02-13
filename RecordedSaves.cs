@@ -11,7 +11,7 @@ namespace TrialGame
     abstract class RecordedSaves
     {
 
-
+        
 
         public static void Save_Game(YourCreature a, int stage)
         {
@@ -47,8 +47,10 @@ namespace TrialGame
 
         public static void Auto_Load_Game()
         {
+            try
+            {
             string FolderName = @"c:\DinosaurGame\";
-            List<string> filesnames = Directory.GetFiles(FolderName).ToList<string>();
+            List<string> filesnames = Directory.GetFiles(FolderName).ToList<string>();            
             string[] filesnames2 = filesnames.ToArray();
             for (int fileCounter = 0; fileCounter < filesnames2.Length; fileCounter++)
             {
@@ -85,10 +87,17 @@ namespace TrialGame
                     break;
 
             }
+            }
+            catch
+            {
+                Console.WriteLine("There are no saves in the directory");
+                Program.Start();
+            }
         }
         
         public static void Load_Game()
         {
+            
             string FolderName = @"c:\DinosaurGame\";
             List<string> filesnames = Directory.GetFiles(FolderName).ToList<string>();
             string[] filesnames2 = filesnames.ToArray();
@@ -98,7 +107,8 @@ namespace TrialGame
 
             }
             Array.Sort(filesnames2);
-            
+            if (filesnames2.Length != 0)
+            {
             foreach (string s in filesnames2) {             
             string NewSaveName = s;
             StreamReader SaveGetting = new StreamReader(NewSaveName);              
@@ -183,7 +193,15 @@ namespace TrialGame
                 }
             }
             Console.ReadKey();
-        }
-        
+            }
+            else
+            {
+                Console.WriteLine("There are no saves in the directory");
+                Program.Start();
+            } 
+            }
+
+
+
     }
 }

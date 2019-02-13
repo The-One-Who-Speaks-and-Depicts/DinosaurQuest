@@ -74,15 +74,11 @@ namespace TrialGame
             return player.name;
         }
 
-        
-
-        static void Main(string[] args)
+        public static void Start()
         {
-            System.IO.Directory.CreateDirectory(@"C:\DinosaurGame\");
-            System.IO.Directory.CreateDirectory(@"C:\DinosaurGame\Tech\");
             Console.WriteLine("Welcome to the Predators of the Antarctica: the Game! To start a new game, press 1, to continue, press 2, to load game, press 3, to exit game, press 0");
             int decision = Program.ChoosingRightKey();
-            switch(decision)
+            switch (decision)
             {
                 case 1:
                     CharacterCreation new_game = new CharacterCreation();
@@ -97,6 +93,13 @@ namespace TrialGame
                     Program.Exit_Game();
                     break;
             }
+        }
+
+        static void Main(string[] args)
+        {
+            System.IO.Directory.CreateDirectory(@"C:\DinosaurGame\");
+            System.IO.Directory.CreateDirectory(@"C:\DinosaurGame\Tech\");
+            Start();
         }
 
 
