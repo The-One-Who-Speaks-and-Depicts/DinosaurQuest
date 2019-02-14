@@ -11,7 +11,39 @@ namespace TrialGame
     abstract class RecordedSaves
     {
 
-        
+        public static int Save_File_Check(string [] array_of_file_names)
+        {
+            int saves_predicted_amount = array_of_file_names.Length;
+            int saves_real_amount = saves_predicted_amount;
+            String[] checking_massive = new string[saves_real_amount];
+            for (int save_number = 1; save_number <= saves_real_amount; save_number++)
+            {
+                int saves_number_for_cycle = save_number;
+                checking_massive[--saves_number_for_cycle] = save_number.ToString();
+            }
+            if (array_of_file_names == checking_massive)
+            {
+                return Convert.ToInt32(array_of_file_names[++saves_predicted_amount]);
+            }
+            else
+            {            
+            foreach (string s in array_of_file_names)
+            {
+                foreach (string s1 in checking_massive)
+                {
+                    if (s != s1)
+                    {
+                            return Convert.ToInt32(s1);
+                    }
+                    else
+                    {
+                            string returnable_string = s;                            
+                    }
+                }
+            }
+                return ++saves_predicted_amount;
+            }
+        }
 
         public static void Save_Game(YourCreature a, int stage)
         {
@@ -24,10 +56,14 @@ namespace TrialGame
                 filesnames2[fileCounter].Remove(0, 16);
 
             }
-            Array.Sort(filesnames2);
-            int LastSaveFileNumber = filesnames2.Length;
-            LastSaveFileNumber++;
+            Array.Sort(filesnames2);            
+            int LastSaveFileNumber = Save_File_Check(filesnames2);            
             string NewSaveName = FolderName + LastSaveFileNumber + ".dns";
+            while (File.Exists(NewSaveName))
+            {
+                LastSaveFileNumber++;
+                NewSaveName = FolderName + LastSaveFileNumber + ".dns";
+            }
             StreamWriter SaveRecording = new StreamWriter(NewSaveName);
             SaveRecording.WriteLine(stage.ToString());
             SaveRecording.WriteLine(a.name);
