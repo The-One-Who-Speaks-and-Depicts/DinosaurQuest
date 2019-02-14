@@ -194,16 +194,16 @@ namespace TrialGame
             YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();
             Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
             int decision = Program.ChoosingRightKey();
-            if (decision == 0)
+            if (decision == 1)
             {
-                Tutorial_Fight(character, mother, Enemy_Cryolophosaurus, 1);
+                Tutorial_Fight(character, mother, Enemy_Cryolophosaurus, 0);
             }
             else { 
             switch (mother_going_away)
             {
                 case 0: // mother stayed/returned                   
                     { 
-                        Tutorial_Fight(character, mother, Enemy_Cryolophosaurus, 0);
+                        Tutorial_Fight(character, mother, Enemy_Cryolophosaurus, 1);
                         break;
                     }                    
                     
