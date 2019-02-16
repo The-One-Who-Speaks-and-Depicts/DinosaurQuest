@@ -12,6 +12,7 @@ namespace TrialGame
         public static void Level1_Entrance(YourCreature character)
         {
             RecordedSaves.Save_Game(character, 2);
+            Tile nest = new Tile("noDir", "autumn", "nest", character);
             Program.Exit_Game();
         }
 
