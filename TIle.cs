@@ -11,7 +11,9 @@ namespace TrialGame
     {
         int m_coordX = 0;
         int m_coordY = 0;
-
+        public string m_direction;
+        public string m_landscape;
+        public string m_yeartime;
        
 
         enum ELandscape
@@ -155,7 +157,9 @@ namespace TrialGame
        
         public Tile (string direction, string yeartime, string landscapetype, YourCreature a)
         {
-            
+            this.m_direction = direction;
+            this.m_landscape = landscapetype;
+            this.m_yeartime = yeartime;
             choosingDirection(direction);
             choosingYearTime(yeartime);
             choosingLandscape(landscapetype);
@@ -165,22 +169,18 @@ namespace TrialGame
                 YourCreature.EnemyCreature.Spawn();
             }
             Console.WriteLine("Your coordinates are {0}, {1}", m_coordX, m_coordY);
-            int click = -1;
             int m_decision = -1;
             do
             {
                 Console.WriteLine("To see main menu, press 1");
                 m_decision = Program.ChoosingRightKey();
                 if (m_decision == 1)
-                    Program.MainMenu(a);                   
+                    Program.MainMenu(a, this);                   
             }
             while (m_decision != 2); 
         }
 
-        public Tile (string direction, string yeartime, string landscapetype, int enemy_amount)
-        {
-
-        }
+        
 
         public Tile(string direction, string yeartime, string landscapetype, YourCreature a, int creatureAmount, int spawnedCreature)
         {
@@ -188,6 +188,7 @@ namespace TrialGame
             choosingDirection(direction);
             choosingYearTime(yeartime);
             choosingLandscape(landscapetype);
+            
             int creatures = CreatureAmount();
 
 

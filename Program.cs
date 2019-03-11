@@ -11,17 +11,21 @@ namespace TrialGame
 {
     class Program
     {
-        public static void MainMenu(YourCreature character)
+        public static void MainMenu(YourCreature character, Tile thisTile)
         {
-            int click;
+            int click = -1;
             do
             {
                 Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exit");
                 click = Program.ChoosingRightKey();
                 if (click == 0) Program.Exit_Game();
                 else if (click == 9) character.PrintCharacterStats();
+                else if (click == 8)
+                {
+                    Tile newTile = new Tile(thisTile.m_direction, thisTile.m_yeartime, thisTile.m_landscape, character);
+                }
             }
-            while (click != 8);
+            while (click != 1);
         }
         
         public static void Exit_Game()
