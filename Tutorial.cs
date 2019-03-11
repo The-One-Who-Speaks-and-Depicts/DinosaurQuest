@@ -191,7 +191,7 @@ namespace TrialGame
         {
             Tile next = new Tile("noDir", "Fall", "Nest", mother, 0, 1);
             Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise. Somebody is coming");
-            YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus();
+            YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus(1);
             Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
             int decision = Program.ChoosingRightKey();
             if (decision == 1)

@@ -745,7 +745,7 @@ namespace TrialGame
 
             public class Cryolophosaurus : EnemyCreature
             {
-                public Cryolophosaurus()
+                public Cryolophosaurus(int sex)
                 {
                     this.DoStats();
                     this.name = "Cryolophosaurus";
@@ -758,13 +758,87 @@ namespace TrialGame
                     this.m_progressivity += 4;
                     this.m_perception += 3;
                     this.m_luck += 9;
-                    this.sex = 1;
+                    this.sex = sex;
                     Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", this.name, this.m_health, this.m_sprint, this.m_stayer, this.m_intelligence, this.m_progressivity, this.m_perception, this.m_luck);
                     Console.WriteLine("Sex is {0}", this.PrintSex());
                 }
+            }
 
+            
 
+            public class Dragonfly : EnemyCreature
+            {
+                
+                public Dragonfly()
+                {
+                    this.DoStats();
+                    this.name = "Dragonfly";
+                    this.m_health = 15;
+                    this.m_level = 1;
+                    this.m_sprint += 2;
+                    this.m_stayer += 0;
+                    this.m_intelligence -= 1;
+                    this.m_progressivity -= 1;
+                    this.m_perception += 3;
+                    this.m_luck += 0;                    
+                    Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", this.name, this.m_health, this.m_sprint, this.m_stayer, this.m_intelligence, this.m_progressivity, this.m_perception, this.m_luck);
+                }                
+            }
 
+            public class Cockroach : EnemyCreature
+            {
+
+                public Cockroach()
+                {
+                    this.DoStats();
+                    this.name = "Cockroach";
+                    this.m_health = 8;
+                    this.m_level = 1;
+                    this.m_sprint -= 1;
+                    this.m_stayer -= 1;
+                    this.m_intelligence -= 1;
+                    this.m_progressivity -= 1;
+                    this.m_perception -= 1;
+                    this.m_luck -= 1;
+                    Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", this.name, this.m_health, this.m_sprint, this.m_stayer, this.m_intelligence, this.m_progressivity, this.m_perception, this.m_luck);
+                }
+            }
+
+            public class Austropleuropholis : EnemyCreature
+            {
+
+                public Austropleuropholis()
+                {
+                    this.DoStats();
+                    this.name = "Austropleuropholis";
+                    this.m_health = 30;
+                    this.m_level = 2;
+                    this.m_sprint += 5;
+                    this.m_stayer += 0;
+                    this.m_progressivity -= 1;
+                    this.m_perception += 4;
+                    this.m_luck += 1;
+                    Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", this.name, this.m_health, this.m_sprint, this.m_stayer, this.m_intelligence, this.m_progressivity, this.m_perception, this.m_luck);
+                }
+            }
+
+            public class Zapatodon : EnemyCreature
+            {
+
+                public Zapatodon()
+                {
+                    this.DoStats();
+                    this.name = "Zapatodon";
+                    this.m_health = 50;
+                    this.m_level = 4;
+                    this.m_sprint += 3;
+                    this.m_stayer += 2;
+                    this.m_intelligence -= 1;
+                    this.m_progressivity += 1;
+                    this.m_perception += 3;
+                    this.m_luck += 1;
+                    Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", this.name, this.m_health, this.m_sprint, this.m_stayer, this.m_intelligence, this.m_progressivity, this.m_perception, this.m_luck);
+                }
             }
         }
 
