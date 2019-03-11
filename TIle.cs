@@ -155,6 +155,7 @@ namespace TrialGame
        
         public Tile (string direction, string yeartime, string landscapetype, YourCreature a)
         {
+            
             choosingDirection(direction);
             choosingYearTime(yeartime);
             choosingLandscape(landscapetype);
@@ -171,17 +172,14 @@ namespace TrialGame
                 Console.WriteLine("To see main menu, press 1");
                 m_decision = Program.ChoosingRightKey();
                 if (m_decision == 1)
-                    do
-                    {
-                        Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exit");
-                        click = Program.ChoosingRightKey();
-                        if (click == 0) Program.Exit_Game();
-                        else if (click == 9) a.PrintCharacterStats();
-                        
-                    }
-                    while (click != 8);
+                    Program.MainMenu(a);                   
             }
             while (m_decision != 2); 
+        }
+
+        public Tile (string direction, string yeartime, string landscapetype, int enemy_amount)
+        {
+
         }
 
         public Tile(string direction, string yeartime, string landscapetype, YourCreature a, int creatureAmount, int spawnedCreature)

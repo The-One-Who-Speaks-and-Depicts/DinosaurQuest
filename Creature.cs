@@ -741,6 +741,7 @@ namespace TrialGame
                     this.m_luck += 2;
                     printStats(this);
                 }
+                
             }
 
             public class Cryolophosaurus : EnemyCreature
@@ -764,11 +765,11 @@ namespace TrialGame
                 }
             }
 
-            
+
 
             public class Dragonfly : EnemyCreature
             {
-                
+
                 public Dragonfly()
                 {
                     this.DoStats();
@@ -780,9 +781,10 @@ namespace TrialGame
                     this.m_intelligence -= 1;
                     this.m_progressivity -= 1;
                     this.m_perception += 3;
-                    this.m_luck += 0;                    
+                    this.m_luck += 0;
                     Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", this.name, this.m_health, this.m_sprint, this.m_stayer, this.m_intelligence, this.m_progressivity, this.m_perception, this.m_luck);
-                }                
+                }
+
             }
 
             public class Cockroach : EnemyCreature

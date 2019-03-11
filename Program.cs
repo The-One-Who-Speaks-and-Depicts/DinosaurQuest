@@ -11,13 +11,25 @@ namespace TrialGame
 {
     class Program
     {
+        public static void MainMenu(YourCreature character)
+        {
+            int click;
+            do
+            {
+                Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exit");
+                click = Program.ChoosingRightKey();
+                if (click == 0) Program.Exit_Game();
+                else if (click == 9) character.PrintCharacterStats();
+            }
+            while (click != 8);
+        }
         
         public static void Exit_Game()
         {
             Console.WriteLine("For End press Enter");
-            String finish = Console.ReadLine();
+            string finish = Console.ReadLine();
             Console.WriteLine("Best luck!");
-            System.Environment.Exit(0);
+            Environment.Exit(0);
 
         }
 
