@@ -14,7 +14,10 @@ namespace TrialGame
         public string m_direction;
         public string m_landscape;
         public string m_yeartime;
-       
+        public YourCreature.EnemyCreature[] m_creaturesArray;
+        public List<YourCreature.EnemyCreature> m_creaturesList;
+
+
 
         enum ELandscape
         {
@@ -154,9 +157,62 @@ namespace TrialGame
             int returnablecreatureQuantity = creatureQuantity.Next(1, 5);
             return returnablecreatureQuantity;
         }
+
+        public static List<YourCreature.EnemyCreature> Attack_Interaction(Tile thisTile, YourCreature a)
+        {
+            int creatureCounter = 0;
+            bool goingOut = false;
+            while((goingOut == false) && (thisTile.m_creaturesList.Count > 0))
+            {
+                creatureCounter = 0;
+                foreach (YourCreature.EnemyCreature alpha in thisTile.m_creaturesList)
+                {
+                    creatureCounter++;
+                    Console.WriteLine("{0} creature's name is {1}", creatureCounter, alpha.name);
+                }
+                creatureCounter = 0;
+                Console.WriteLine("To interact with the creatures, press 1, else, press any key");
+                int decision = Program.ChoosingRightKey();
+                if (decision == 1)
+                {
+                    Console.WriteLine("Which one? Press key with appropriate number");
+                    decision = Program.ChoosingRightKey();
+                    foreach (YourCreature.EnemyCreature beta in thisTile.m_creaturesList)
+                    {
+                        creatureCounter++;
+                        if (decision == creatureCounter)
+                        {
+                            Console.WriteLine("How do you want to interact? Press 1 to attack, press 2 for stealth attack");
+                                decision = Program.ChoosingRightKey();
+                            if (decision == 1)
+                            {
+                                YourCreature.EnemyCreature.Attack(a, beta);
+                                if (beta.m_health <= 0)
+                                {
+                                    thisTile.m_creaturesList.Remove(beta);
+                                    break;
+                                }
+                            }
+                            else if (decision == 2)
+                            {
+                                YourCreature.EnemyCreature.StealthAttack(a, beta);
+                                if (beta.m_health <= 0)
+                                {
+                                    thisTile.m_creaturesList.Remove(beta);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                else goingOut = true;
+            }
+            return thisTile.m_creaturesList;
+        }
        
         public Tile (string direction, string yeartime, string landscapetype, YourCreature a)
         {
+            bool goingForward = false;
             this.m_direction = direction;
             this.m_landscape = landscapetype;
             this.m_yeartime = yeartime;
@@ -164,20 +220,27 @@ namespace TrialGame
             choosingYearTime(yeartime);
             choosingLandscape(landscapetype);
             int creatures = CreatureAmount();
+            var m_creaturesArray = new YourCreature.EnemyCreature[creatures];
             for (int creatureScore = 0; creatureScore < creatures; creatureScore++)
             {
-                YourCreature.EnemyCreature.Spawn();
+                m_creaturesArray[creatureScore] = YourCreature.EnemyCreature.Spawn();
             }
+            this.m_creaturesList = new List <YourCreature.EnemyCreature>();
+            foreach (var i in m_creaturesArray) this.m_creaturesList.Add(i);
             Console.WriteLine("Your coordinates are {0}, {1}", m_coordX, m_coordY);
             int m_decision = -1;
-            do
+            while (goingForward == false) 
             {
-                Console.WriteLine("To see main menu, press 1");
+                Console.WriteLine("To see main menu, press 1, to interact with environment, press 2, to move, press 3");
                 m_decision = Program.ChoosingRightKey();
                 if (m_decision == 1)
-                    Program.MainMenu(a, this);                   
+                    this.m_creaturesList = Program.MainMenu(a, this);
+                else if (m_decision == 2)
+                    this.m_creaturesList = Attack_Interaction(this, a);
+                else if (m_decision == 3)
+                    Console.WriteLine("Movement lie there");
             }
-            while (m_decision != 2); 
+            
         }
 
         

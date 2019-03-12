@@ -609,6 +609,7 @@ namespace TrialGame
                 if (a.luck > b.m_perception)
                 {
                     Console.WriteLine("Stealth attack is successful");
+                    b.m_health = 0;
                     double m_receivedexp = (b.full_health * 1.5);
                     a.exp += m_receivedexp;
                     Console.WriteLine("You gained {0} experience", m_receivedexp);
@@ -636,6 +637,7 @@ namespace TrialGame
             {
                 Console.WriteLine("You can see {0}. {0} has  {1} health,  {2} sprint, {3} stayer, {4} intelligence, {5} progressivity, {6} perception, {7} luck", a.name, a.m_health, a.m_sprint, a.m_stayer, a.m_intelligence, a.m_progressivity, a.m_perception, a.m_luck);
             }
+
             public static EnemyCreature Spawn()
             {
                 Random creatureSummoned = new Random();
