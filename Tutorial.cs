@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -275,6 +276,6 @@ namespace TrialGame
             else if (decision == 2)
                 RecordedSaves.Auto_Load_Game();
             else Program.Exit_Game();
-        }            
+        }
     }
 }
