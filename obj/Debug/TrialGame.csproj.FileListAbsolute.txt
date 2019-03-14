@@ -1,0 +1,7 @@
+c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\TrialGame.csproj.CoreCompileInputs.cache
+c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\TrialGame.csprojAssemblyReference.cache
