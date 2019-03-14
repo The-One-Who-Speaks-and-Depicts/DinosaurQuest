@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,48 +18,3 @@ namespace TrialGame
 
     }
 }
-=======
-<<<<<<< HEAD
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TrialGame
-{
-    class Level1
-    {
-
-        public static void Level1_Entrance(YourCreature character)
-        {
-            RecordedSaves.Save_Game(character, 2);
-            Tile nest = new Tile("noDir", "autumn", "nest", character);
-            Program.Exit_Game();
-        }
-
-    }
-}
-=======
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TrialGame
-{
-    class Level1
-    {
-
-        public static void Level1_Entrance(YourCreature character)
-        {
-            RecordedSaves.Save_Game(character, 2);
-            Tile nest = new Tile("noDir", "autumn", "nest", character);
-            Program.Exit_Game();
-        }
-
-    }
-}
->>>>>>> 6d4dc42806957ad45d53489287b85ef81032efd4
->>>>>>> ed0019fc18f1953f0e635c9d8cde6d7960c9f496
