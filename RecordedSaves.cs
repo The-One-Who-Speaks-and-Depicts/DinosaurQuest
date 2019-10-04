@@ -94,7 +94,7 @@ namespace TrialGame
 
             }
             Array.Sort(filesnames2);
-            int LastSaveFileNumber = filesnames2.Length;
+            int LastSaveFileNumber = filesnames2.Length - 1;
             string NewSaveName = FolderName + LastSaveFileNumber + ".dns";
             StreamReader SaveGetting = new StreamReader(NewSaveName);
             YourCreature gettableCharacter = new YourCreature();
