@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using static System.Int32;
 using System.IO;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace TrialGame
 {
@@ -124,11 +125,10 @@ namespace TrialGame
                 int t_health = health;
                 if (health != value)
                 {
-                    
+                    Console.WriteLine("Health is changed to {0}", value);
                     m_health = value;                    
                     HealthDifferenceInput(health - t_health, "health");
-                    HealthChange?.Invoke(this, EventArgs.Empty);
-                    
+                    HealthChange?.Invoke(this, EventArgs.Empty);                    
 
                 }
             }
@@ -142,7 +142,7 @@ namespace TrialGame
                 if (File.Exists(FileOfInput)) File.Delete(FileOfInput);
                 StreamWriter ChangeableStat = new StreamWriter(FileOfInput);
                 ChangeableStat.WriteLine(statDifference.ToString());
-                ChangeableStat.WriteLine(" is how changed {0}", stat);
+                ChangeableStat.WriteLine(" is how changed {0}, {1}", stat);
                 ChangeableStat.Close();
                 ChangeableStat.Dispose();
                 Thread.Sleep(20);
@@ -155,13 +155,21 @@ namespace TrialGame
 
         public static int HealthDifferenceOutput()
         {
-            Thread.Sleep(20);
+            try
+            { 
             string FileofOutput = @"C:\DinosaurGame\Tech\herelieshealth.txt";
-            StreamReader ChangedStat = new StreamReader(FileofOutput);
-            int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
-            ChangedStat.Close();
-            return DifferenceNumerical;
-
+                       
+                Thread.Sleep(20);
+                
+                StreamReader ChangedStat = new StreamReader(FileofOutput);
+                int DifferenceNumerical = Convert.ToInt32(ChangedStat.ReadLine());
+                ChangedStat.Close();
+                return DifferenceNumerical;
+            }
+            catch
+            {
+                return 1;
+            }
         }
 
         public event EventHandler HealthChange;
@@ -511,6 +519,7 @@ namespace TrialGame
         {
             public static void Attack(YourCreature a, EnemyCreature b)
             {
+                a.HealthChange += Tutorial.OnHealthChange;
                 Console.WriteLine("{0} attacks {1}", a.name, b.name);
                 double attack_coefficient = (a.sprint * a.progressivity) / 2;
                 double defence_coefficient = (a.stayer * a.intelligence) / 2;
@@ -552,7 +561,7 @@ namespace TrialGame
                         Console.WriteLine("You gained {0} experience", m_receivedexp);
                         Scavenge(a, b);
                     }
-                    else if (b.m_health / 10 > a.health)
+                    else if ((b.m_health / 10 > a.health) || (a.health < 0)) 
                     {
                         Console.WriteLine("You died");
                         Program.Exit_Game();
@@ -593,7 +602,7 @@ namespace TrialGame
                                 Console.WriteLine("You gained {0} experience", m_receivedexp);
                                 Scavenge(a, b);
                             }
-                            else if (b.m_health / 10 > a.health)
+                            else if ((b.m_health / 10 > a.health) || (a.health < 0))
                             {
                                 Console.WriteLine("You died");
                                 Program.Exit_Game();

@@ -60,7 +60,7 @@ namespace TrialGame
 
         public static void OnCriticalHealth(object sender, EventArgs e)
         {
-            Console.WriteLine("Critical danger!");
+            Console.WriteLine("Critical danger!");            
         }
 
         public static void ShowingUpTutorial (YourCreature playerCreature, YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus )

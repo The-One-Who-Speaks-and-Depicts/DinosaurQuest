@@ -213,6 +213,8 @@ namespace TrialGame
        
         public Tile (string direction, string yeartime, string landscapetype, YourCreature a)
         {
+            a.HealthChange += Tutorial.OnHealthChange;
+            a.HealthChange += Tutorial.OnCriticalHealth;
             bool goingForward = false;
             this.m_direction = direction;
             this.m_landscape = landscapetype;
