@@ -1,10 +1,7 @@
 
+
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Int32;
+
 
 
 namespace TrialGame
@@ -24,7 +21,7 @@ namespace TrialGame
             {
                 character.name = Program.preGiving();
             }
-            while (Console.ReadLine() != "1");
+            while (Program.ChoosingRightKey() != 1);
 
             Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", character.name);
             character.SetDefault(0, 100, 0);

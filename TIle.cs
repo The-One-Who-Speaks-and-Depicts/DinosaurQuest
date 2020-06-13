@@ -1,9 +1,6 @@
+
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Int32;
 
 namespace TrialGame
 {
@@ -212,6 +209,8 @@ namespace TrialGame
        
         public Tile (string direction, string yeartime, string landscapetype, YourCreature a)
         {
+            //a.HealthChange += Tutorial.OnHealthChange;
+            //a.HealthChange += Tutorial.OnCriticalHealth;
             bool goingForward = false;
             this.m_direction = direction;
             this.m_landscape = landscapetype;
@@ -301,8 +300,6 @@ namespace TrialGame
             
         }
         
-        
-
         
     }
 }

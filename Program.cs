@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Int32;
 
 
 
@@ -98,7 +94,7 @@ namespace TrialGame
             switch (decision)
             {
                 case 1:
-                    CharacterCreation new_game = new CharacterCreation();
+                    Character newCharacter = new Character();
                     break;
                 case 2:
                     RecordedSaves.Auto_Load_Game();
@@ -121,6 +117,5 @@ namespace TrialGame
 
 
         
-
     }
 }

@@ -1,14 +1,10 @@
+
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Int32;
 
 namespace TrialGame
 {
     class Tutorial
-    {
+    {/*
         public static void OnLevelChange(object sender, EventArgs e)
         {
             
@@ -19,7 +15,7 @@ namespace TrialGame
         {
 
             Console.WriteLine("{0} is how health changed", YourCreature.HealthDifferenceOutput());
-        }
+        }*/
 
         public static void OnSprintChange(object sender, EventArgs e)
         {
@@ -59,7 +55,7 @@ namespace TrialGame
 
         public static void OnCriticalHealth(object sender, EventArgs e)
         {
-            Console.WriteLine("Critical danger!");
+            Console.WriteLine("Critical danger!");            
         }
 
         public static void ShowingUpTutorial (YourCreature playerCreature, YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus )
@@ -86,8 +82,8 @@ namespace TrialGame
             mother.perception += 4;
             mother.luck += 3;
             mother.PrintCharacterStats();
-            mother.LevelChange += OnLevelChange;
-            mother.HealthChange += OnHealthChange;
+            //mother.LevelChange += OnLevelChange;
+            //mother.HealthChange += OnHealthChange;
             mother.SprintChange += OnSprintChange;
             mother.StayerChange += OnStayerChange;
             mother.IntelligenceChange += OnIntelligenceChange;
@@ -275,6 +271,6 @@ namespace TrialGame
             else if (decision == 2)
                 RecordedSaves.Auto_Load_Game();
             else Program.Exit_Game();
-        }            
+        }
     }
 }
