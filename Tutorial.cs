@@ -1,10 +1,22 @@
 
 ﻿using System;
+<<<<<<< HEAD
+=======
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Int32;
+>>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
 
 namespace TrialGame
 {
     class Tutorial
+<<<<<<< HEAD
     {/*
+=======
+    {
+>>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
         public static void OnLevelChange(object sender, EventArgs e)
         {
             
@@ -15,7 +27,11 @@ namespace TrialGame
         {
 
             Console.WriteLine("{0} is how health changed", YourCreature.HealthDifferenceOutput());
+<<<<<<< HEAD
         }*/
+=======
+        }
+>>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
 
         public static void OnSprintChange(object sender, EventArgs e)
         {
@@ -82,8 +98,13 @@ namespace TrialGame
             mother.perception += 4;
             mother.luck += 3;
             mother.PrintCharacterStats();
+<<<<<<< HEAD
             //mother.LevelChange += OnLevelChange;
             //mother.HealthChange += OnHealthChange;
+=======
+            mother.LevelChange += OnLevelChange;
+            mother.HealthChange += OnHealthChange;
+>>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
             mother.SprintChange += OnSprintChange;
             mother.StayerChange += OnStayerChange;
             mother.IntelligenceChange += OnIntelligenceChange;
