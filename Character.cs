@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrialGame
 {
-    class Character : Animal
+    class Character : ICreature
     {
     }
 }

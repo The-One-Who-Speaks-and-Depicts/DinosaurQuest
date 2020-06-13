@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Int32;
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
 
 
 
@@ -101,11 +98,8 @@ namespace TrialGame
             switch (decision)
             {
                 case 1:
-<<<<<<< HEAD
                     Character newCharacter = new Character();
-=======
                     CharacterCreation new_game = new CharacterCreation();
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
                     break;
                 case 2:
                     RecordedSaves.Auto_Load_Game();

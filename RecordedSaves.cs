@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-<<<<<<< HEAD
-=======
 using System.Text;
 using System.Threading.Tasks;
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
 using System.IO;
 
 namespace TrialGame

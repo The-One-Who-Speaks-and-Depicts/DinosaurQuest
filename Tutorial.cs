@@ -1,22 +1,16 @@
 
 ﻿using System;
-<<<<<<< HEAD
-=======
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Int32;
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
 
 namespace TrialGame
 {
     class Tutorial
-<<<<<<< HEAD
     {/*
-=======
     {
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
         public static void OnLevelChange(object sender, EventArgs e)
         {
             
@@ -27,60 +21,10 @@ namespace TrialGame
         {
 
             Console.WriteLine("{0} is how health changed", YourCreature.HealthDifferenceOutput());
-<<<<<<< HEAD
         }*/
-=======
-        }
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
+        
 
-        public static void OnSprintChange(object sender, EventArgs e)
-        {
-
-            Console.WriteLine("{0} is how sprint changed", YourCreature.SprintDifferenceOutput());
-        }
-
-        public static void OnStayerChange(object sender, EventArgs e)
-        {
-
-            Console.WriteLine("{0} is how stayer changed", YourCreature.StayerDifferenceOutput());
-        }
-
-        public static void OnIntelligenceChange(object sender, EventArgs e)
-        {
-
-            Console.WriteLine("{0} is how stayer changed", YourCreature.IntelligenceDifferenceOutput());
-        }
-
-        public static void OnProgressivityChange(object sender, EventArgs e)
-        {
-
-            Console.WriteLine("{0} is how progressivity changed", YourCreature.ProgressivityDifferenceOutput());
-        }
-
-        public static void OnPerceptionChange(object sender, EventArgs e)
-        {
-
-            Console.WriteLine("{0} is how perception changed", YourCreature.PerceptionDifferenceOutput());
-        }
-
-        public static void OnLuckChange(object sender, EventArgs e)
-        {
-
-            Console.WriteLine("{0} is how luck changed", YourCreature.LuckDifferenceOutput());
-        }
-
-        public static void OnCriticalHealth(object sender, EventArgs e)
-        {
-            Console.WriteLine("Critical danger!");            
-        }
-
-        public static void ShowingUpTutorial (YourCreature playerCreature, YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus )
-        {
-            Console.WriteLine("It's time for the aspect of showing up. Showing up is one of the main ways of interaction between the creature of one kind. It is not harmful, just the test of how progressive and lucky both creatures are. By this you can subjugate ones of your own kind, or make them go away. It is useful for creating your own pack or fighting with others");
-            Console.WriteLine("{0} attacks {1}, trying to make {1} run away", playerCreature.name, Enemy_Cryolophosaurus.name);
-            YourCreature.EnemyCreature.ShowingUp(playerCreature, Enemy_Cryolophosaurus, playerCreature.name, Enemy_Cryolophosaurus.name);
-        }
-
+        
         public static void Tutorial_Entrance(YourCreature character)
         {
 
@@ -98,21 +42,9 @@ namespace TrialGame
             mother.perception += 4;
             mother.luck += 3;
             mother.PrintCharacterStats();
-<<<<<<< HEAD
-            //mother.LevelChange += OnLevelChange;
-            //mother.HealthChange += OnHealthChange;
-=======
-            mother.LevelChange += OnLevelChange;
-            mother.HealthChange += OnHealthChange;
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
-            mother.SprintChange += OnSprintChange;
-            mother.StayerChange += OnStayerChange;
-            mother.IntelligenceChange += OnIntelligenceChange;
-            mother.ProgressivityChange += OnProgressivityChange;
-            mother.PerceptionChange += OnPerceptionChange;
-            mother.LuckChange += OnLuckChange;
+            
             Console.WriteLine("Mother is starving and thirsty. She is desperate of satisfying her needs, because she was warming her unborn children for weeks, or even months now. But she still needs to guard them. That is going to be a very hard choice for her. Does she want to go away for hunting (1) or is she going to stay here  and protect her children until her last dying breath(2)");
-            mother.CriticalHealth += OnCriticalHealth;
+            ;
             int decision = Program.ChoosingRightKey();
             while ((decision < 1) || (decision > 2))
             {
@@ -244,11 +176,9 @@ namespace TrialGame
                     int decision = Program.ChoosingRightKey();
                     if (decision == 1)
                     {
-                        mother.LuckChange -= OnLuckChange;
                         mother.m_luck++;
-                        ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
+                        //owingUpTutorial(mother, Enemy_Cryolophosaurus);
                         mother.m_luck--;
-                        mother.LuckChange += OnLuckChange;
                         Console.WriteLine("{0} made bigger rival run away, standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
                         Tutorial_Transfer(character, mother, Enemy_Cryolophosaurus);
 
@@ -263,7 +193,6 @@ namespace TrialGame
                 case 1: //staying
                     { 
                     Console.WriteLine("You are waiting. Steps are coming closer in closer.");
-                    ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                     Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
                     YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
                     Console.WriteLine("{0} is standing now near the nest with her children,one of them  is {1}. The day dawns.", mother.name, character.name);
@@ -273,7 +202,6 @@ namespace TrialGame
                 case 2: //trees of not-stayed-mother
                     { 
                     Console.WriteLine("You do not have enough time. You have the only choice, which is waiting for predator to come.");
-                    ShowingUpTutorial(mother, Enemy_Cryolophosaurus);
                     Console.WriteLine("Mother failed to fear the big male. Now it is time to fight for children.");
                     YourCreature.EnemyCreature.Attack(mother, Enemy_Cryolophosaurus);
                     Console.WriteLine("{0} is standing now near the nest with only two remaining children,one of them  is {1}. The day dawns.", mother.name, character.name);

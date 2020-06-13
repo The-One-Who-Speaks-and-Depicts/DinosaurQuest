@@ -1,15 +1,11 @@
 
 
 ﻿using System;
-<<<<<<< HEAD
-
-=======
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Int32;
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
 
 
 namespace TrialGame
@@ -29,11 +25,8 @@ namespace TrialGame
             {
                 character.name = Program.preGiving();
             }
-<<<<<<< HEAD
             while (Program.ChoosingRightKey() != 1);
-=======
             while (Console.ReadLine() != "1");
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
 
             Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", character.name);
             character.SetDefault(0, 100, 0);
@@ -141,7 +134,15 @@ namespace TrialGame
 
             }
             else
-<<<<<<< HEAD
+            {
+                Program.Exit_Game();
+            }
+
+            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
+            decision = Program.ChoosingRightKey();
+
+
+            
             {
                 Program.Exit_Game();
             }
@@ -152,18 +153,6 @@ namespace TrialGame
 
             do
             {
-=======
-            {
-                Program.Exit_Game();
-            }
-
-            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
-            decision = Program.ChoosingRightKey();
-
-
-            do
-            {
->>>>>>> 6952d5411cb7971f0656465aad19ef0474b87e4b
                 while ((decision < 1) || (decision > 2))
                 {
                     Console.WriteLine("Press 1 for feminine, 2 for masculine");
