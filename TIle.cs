@@ -210,7 +210,25 @@ namespace TrialGame
             }
             return thisTile.m_creaturesList;
         }
-       
+
+        public static List<YourCreature.EnemyCreature> PauseMenu(YourCreature character, Tile thisTile)
+        {
+            int click = -1;
+            do
+            {
+                Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exiWt");
+                click = ServiceFunctions.ChoosingRightKey();
+                if (click == 0) GameFunctions.Exit_Game();
+                else if (click == 9) character.PrintCharacterStats();
+                else if (click == 8)
+                {
+                    return thisTile.m_creaturesList;
+                }
+            }
+            while (click != 1);
+            return thisTile.m_creaturesList;
+        }
+
         public Tile (string direction, string yeartime, string landscapetype, YourCreature a)
         {
             bool goingForward = false;
@@ -235,7 +253,7 @@ namespace TrialGame
                 Console.WriteLine("To see main menu, press 1, to interact with environment, press 2, to move, press 3");
                 m_decision = ServiceFunctions.ChoosingRightKey();
                 if (m_decision == 1)
-                    this.m_creaturesList = Program.CharacterMenu(a, this);
+                    this.m_creaturesList = PauseMenu(a, this);
                 else if (m_decision == 2)
                     this.m_creaturesList = Attack_Interaction(this, a);
                 else if (m_decision == 3)
