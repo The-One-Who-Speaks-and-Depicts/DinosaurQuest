@@ -17,20 +17,12 @@ namespace TrialGame
         {
 
 
-            Console.WriteLine("Welcome to the game of prehistory. It is a story of a predator dinosaur, little cryolophosaurus, who is growing in the Antarctica of Early Jurassic. The aim of a game is to guide your creature through the childhood, teenagehood, adolescence and adult life. The world around you is going to be harsh and cruel. Primary objective is survival by any cost. Secondary objective is to keep being the character you truly want to be.");
-            YourCreature character = new YourCreature();
-            character.name = "персонаж";
+             YourCreature character = new YourCreature();
+            
 
-            do
-            {
-                character.name = preGiving();
-            }
-            while (ServiceFunctions.ChoosingRightKey() != 1);
-            while (Console.ReadLine() != "1");
-
-            Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", character.name);
-            character.SetDefault(0, 100, 0);
-            Console.WriteLine("Your level is {0}. Your health is {1}. You have {2} experience", character.level, character.health, character.exp);
+            
+            
+            
             Console.WriteLine("Choose your master stats. You have 30 points to delegate into the following parameters, with minimum of 0 and maximum of 9: sprinter, stayer, intelligence, progressivity, perception, luck. To go to choosing stats press 1, to exit game press 2. Stat info is depicted while choosing");
             int decision = ServiceFunctions.ChoosingRightKey();
 
@@ -213,18 +205,6 @@ namespace TrialGame
             Console.WriteLine(" ");
             return decision;
         }
-        public static string givingNameToCharacter()
-        {
-            Console.WriteLine("Type the name of your creature");
-            String str = Console.ReadLine();
-            return str;
-        }
-        public static string preGiving()
-        {
-            String result = givingNameToCharacter();
-            var player = new YourCreature(result);
-            Console.WriteLine("Your name is {0}. If OK, enter 1, if not, enter anything else", player.name);
-            return player.name;
-        }
+        
     }
 }

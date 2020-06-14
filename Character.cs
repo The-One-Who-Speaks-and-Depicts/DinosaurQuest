@@ -9,6 +9,7 @@ namespace TrialGame
     
     class Character : ICreature
     {
+        #region commonCharacteristics
         public string name { get; set; }
         private int Level { get; set; }
         public int level
@@ -57,31 +58,7 @@ namespace TrialGame
             {
                 Stamina = value;
             }
-        }
-        private int Attack { get; set; }
-        public int attack
-        {
-            get
-            {
-                return Attack;
-            }
-            set
-            {
-                Attack = value;
-            }
-        }
-        private int Defence { get; set; }
-        public int defence
-        {
-            get
-            {
-                return Defence;
-            }
-            set
-            {
-                Defence = value;
-            }
-        }
+        }        
         private int Strength { get; set; }
         public int strength
         {
@@ -153,8 +130,23 @@ namespace TrialGame
             {
                 Appearance = value;
             }
-        }        
-        
+        }
+        private int Intelligence { get; set; }
+        public int intelligence
+        {
+            get
+            {
+                return Intelligence;
+            }
+            set
+            {
+                Intelligence = value;
+            }
+        }
+
+        #endregion
+
+        #region Constructors
 
         public Character()
         {
@@ -163,5 +155,64 @@ namespace TrialGame
             health = 100;
             stamina = 100;
         }
+
+        #endregion
+
+        #region CharacterCreation
+        public static string preGiving()
+        {
+            string result;
+            do
+            {
+                Console.WriteLine("Type the name of your creature");
+                result = Console.ReadLine();
+                Console.WriteLine("Your name is {0}. If OK, enter 1, if not, enter anything else", result);
+            }
+            while (ServiceFunctions.ChoosingRightKey() != 1);
+            return result;
+        }
+        public virtual void DoStats()
+        {
+            this.strength = 1;
+            this.speed = 1;
+            this.agility = 1;
+            this.intelligence = 1;
+            this.appearance = 1;
+            this.perception = 1;
+            this.luck = 1;
+        }
+
+        public static int ChooseStat(string S, int wholeAmount)
+        {
+            int decision;
+
+            Console.WriteLine("Choose your {0} stat now", S);
+            decision = ServiceFunctions.ChoosingRightKey();
+
+
+
+            while ((decision < 0) || (decision > 9))
+            {
+                Console.WriteLine("Please insert appropriate number, it should be more than 0 and less than 9");
+                decision = ServiceFunctions.ChoosingRightKey();
+
+            }
+
+            while (wholeAmount < decision)
+            {
+                Console.WriteLine("Please insert appropriate number, you have only {0} points to distribute", wholeAmount);
+                decision = ServiceFunctions.ChoosingRightKey();
+
+            }
+
+            int statOut = decision;
+            Console.WriteLine("Your {0}  equals {1}", S, ++statOut);
+            Console.WriteLine(" ");
+            return decision;
+        }
+
+
+
+        #endregion
     }
 }
