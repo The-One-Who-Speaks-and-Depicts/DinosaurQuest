@@ -29,8 +29,7 @@ namespace TrialGame
         public static void Exit_Game()
         {
             Console.WriteLine("For End press Enter");
-            string finish = Console.ReadLine();
-            Console.WriteLine("Best luck!");
+            Console.ReadLine();
             Environment.Exit(0);
 
         }
