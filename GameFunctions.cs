@@ -18,7 +18,7 @@ namespace TrialGame
 
         public static void MainMenu()
         {
-            Console.WriteLine("Welcome to the Predators of the Antarctica: the Game! To start a new game, press 1, to continue, press 2, to load game, press 3, to exit game, press 0");
+            Console.WriteLine("Welcome to the game! To start a new game, press 1, to continue, press 2, to load game, press 3, to exit game, press any other key");
             int decision = ServiceFunctions.ChoosingRightKey();
             switch (decision)
             {
