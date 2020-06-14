@@ -11,12 +11,12 @@ namespace TrialGame
 {
     class Program
     {
-        public static List<YourCreature.EnemyCreature> MainMenu(YourCreature character, Tile thisTile)
+        public static List<YourCreature.EnemyCreature> CharacterMenu(YourCreature character, Tile thisTile)
         {
             int click = -1;
             do
             {                
-                Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exit");
+                Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exiWt");
                 click = Program.ChoosingRightKey();
                 if (click == 0) Program.Exit_Game();
                 else if (click == 9) character.PrintCharacterStats();
@@ -91,7 +91,7 @@ namespace TrialGame
             return player.name;
         }
 
-        public static void Start()
+        public static void MainMenu()
         {
             Console.WriteLine("Welcome to the Predators of the Antarctica: the Game! To start a new game, press 1, to continue, press 2, to load game, press 3, to exit game, press 0");
             int decision = Program.ChoosingRightKey();
@@ -117,7 +117,7 @@ namespace TrialGame
         {
             System.IO.Directory.CreateDirectory(@"C:\DinosaurGame\");
             System.IO.Directory.CreateDirectory(@"C:\DinosaurGame\Tech\");
-            Start();
+            MainMenu();
         }
 
 

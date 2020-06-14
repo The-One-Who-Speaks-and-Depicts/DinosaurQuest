@@ -127,7 +127,7 @@ namespace TrialGame
             catch
             {
                 Console.WriteLine("There are no saves in the directory");
-                Program.Start();
+                Program.MainMenu();
             }
         }
         
@@ -233,7 +233,7 @@ namespace TrialGame
             else
             {
                 Console.WriteLine("There are no saves in the directory");
-                Program.Start();
+                Program.MainMenu();
             } 
             }
 

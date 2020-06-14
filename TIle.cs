@@ -235,7 +235,7 @@ namespace TrialGame
                 Console.WriteLine("To see main menu, press 1, to interact with environment, press 2, to move, press 3");
                 m_decision = Program.ChoosingRightKey();
                 if (m_decision == 1)
-                    this.m_creaturesList = Program.MainMenu(a, this);
+                    this.m_creaturesList = Program.CharacterMenu(a, this);
                 else if (m_decision == 2)
                     this.m_creaturesList = Attack_Interaction(this, a);
                 else if (m_decision == 3)
