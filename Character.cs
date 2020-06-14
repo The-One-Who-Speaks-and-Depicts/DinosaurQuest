@@ -10,7 +10,30 @@ namespace TrialGame
     class Character : ICreature
     {
         #region commonCharacteristics
-        public string name { get; set; }
+        private string Name { get; set; }
+        public string name
+        {
+            get
+            {
+                return Name;
+            }
+            set
+            {
+                Name = value;
+            }
+        }
+        private string Sex { get; set; }
+        public string sex
+        {
+            get
+            {
+                return Sex;
+            }
+            set
+            {
+                Sex = value;
+            }
+        }
         private int Level { get; set; }
         public int level
         {

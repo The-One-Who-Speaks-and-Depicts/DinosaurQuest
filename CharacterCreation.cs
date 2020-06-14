@@ -139,7 +139,7 @@ namespace TrialGame
                 GameFunctions.Exit_Game();
             }
 
-            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
+            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 strength, as they are stronger. Males get +1 agility, as they are weaker, but more durable. Press 1 for choosing female, press 2 for choosing male");
             decision = ServiceFunctions.ChoosingRightKey();
 
 

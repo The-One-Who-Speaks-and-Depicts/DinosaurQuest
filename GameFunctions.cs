@@ -9,7 +9,7 @@ namespace TrialGame
 {
     static class GameFunctions
     {
-        public static void Start_Game()
+        public static Character Start_Game()
         {
             StreamReader intro = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "intro.txt"));
             using (intro)
@@ -119,13 +119,44 @@ namespace TrialGame
                         }
                     }
                 }
-                while ((decision != 2) && (statCharge > 0));
+                while ((decision != 2) && (statCharge > 0));                
             }
             else
             {
                 Exit_Game();
             }
-            
+            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 strength, as they are stronger. Males get +1 agility, as they are weaker, but more durable. Press 1 for choosing female, press 2 for choosing male");            
+            do
+            {
+                decision = 0;
+                while ((decision < 1) || (decision > 2))
+                {                    
+                    decision = ServiceFunctions.ChoosingRightKey();
+                }
+
+                if (decision == 2)
+                {
+                    Console.WriteLine("You are male now");
+                    newCharacter.sex = "masculine";
+                }
+                else if (decision == 1)
+                {
+                    Console.WriteLine("You are female now");
+                    newCharacter.sex = "feminine";
+                }
+
+                Console.WriteLine("If you are sure about your choice, press 1, in the other case, press any other key");
+                decision = ServiceFunctions.ChoosingRightKey();
+                if (decision != 1)
+                {
+                    Console.WriteLine("Press 1 for feminine, 2 for masculine");
+                }
+            }
+            while (decision != 1);
+            if (newCharacter.sex == "feminine") newCharacter.strength++;
+            else newCharacter.agility++;
+            Console.WriteLine("Your name is {0}, you are of {1} sex, you have {2} exp and thus are of level {3}, {4} health and {5} stamina, your stats are {6} strength, {7} speed, {8} agility, {9} perception, {10} luck, {11} appearance, {12} intelligence.", newCharacter.name, newCharacter.sex, newCharacter.exp, newCharacter.level, newCharacter.health, newCharacter.stamina, newCharacter.strength, newCharacter.speed, newCharacter.agility, newCharacter.perception, newCharacter.luck, newCharacter.appearance, newCharacter.intelligence);
+            return newCharacter;
 
         }
         public static void Exit_Game()
@@ -143,7 +174,13 @@ namespace TrialGame
             switch (decision)
             {
                 case 1:
-                    Start_Game();
+                    var currentCharacter = Start_Game();
+                    Console.WriteLine("You are going to the tutorial level. Press 1 to do that, Press 2 to skip tutorial, press any key to exit the game");
+                    /*decision = ServiceFunctions.ChoosingRightKey();
+                    RecordedSaves.Save_Game(currentCharacter, 0);
+                    if (decision != 1) GameFunctions.Exit_Game();
+                    else Tutorial.Tutorial_Entrance(character);
+                    */
                     Exit_Game();
                     break;
                 case 2:
