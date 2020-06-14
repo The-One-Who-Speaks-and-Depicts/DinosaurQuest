@@ -284,7 +284,7 @@ namespace TrialGame
                                     IsAttackPerformed = true;
                                     break;
                                 case 0:
-                                    Program.Exit_Game();
+                                    GameFunctions.Exit_Game();
                                     break;
                                 
                                 case 9:

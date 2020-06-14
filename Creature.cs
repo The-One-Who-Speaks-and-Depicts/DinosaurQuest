@@ -557,7 +557,7 @@ namespace TrialGame
                     else if ((b.m_health / 10 > a.health) || (a.health < 0))
                     {
                         Console.WriteLine("You died");
-                        Program.Exit_Game();
+                        GameFunctions.Exit_Game();
                     }
                 }
                 else if (result_of_attack == 1)
@@ -598,7 +598,7 @@ namespace TrialGame
                             else if ((b.m_health / 10 > a.health) || (a.health < 0))
                             {
                                 Console.WriteLine("You died");
-                                Program.Exit_Game();
+                                GameFunctions.Exit_Game();
                             }
                             break;
                     }

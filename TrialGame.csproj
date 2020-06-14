@@ -62,8 +62,8 @@
     <Compile Include="Character.cs" />
     <Compile Include="CharacterCreation.cs" />
     <Compile Include="Creature.cs" />
+    <Compile Include="GameFunctions.cs" />
     <Compile Include="Level1.cs" />
-    <Compile Include="MainMenu.cs" />
     <Compile Include="RecordedSaves.cs" />
     <Compile Include="ServiceFunctions.cs" />
     <Compile Include="TIle.cs" />

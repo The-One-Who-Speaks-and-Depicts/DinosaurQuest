@@ -17,7 +17,7 @@ namespace TrialGame
             
             RecordedSaves.Save_Game(character, 2);
             Tile nest = new Tile("noDir", "autumn", "nest", character);
-            Program.Exit_Game();
+            GameFunctions.Exit_Game();
         }
 
     }

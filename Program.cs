@@ -15,7 +15,7 @@ namespace TrialGame
             {                
                 Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exiWt");
                 click = ServiceFunctions.ChoosingRightKey();
-                if (click == 0) Program.Exit_Game();
+                if (click == 0) GameFunctions.Exit_Game();
                 else if (click == 9) character.PrintCharacterStats();
                 else if (click == 8)
                 {
@@ -26,13 +26,7 @@ namespace TrialGame
             return thisTile.m_creaturesList;
         }
         
-        public static void Exit_Game()
-        {
-            Console.WriteLine("For End press Enter");
-            Console.ReadLine();
-            Environment.Exit(0);
-
-        }
+        
 
         
 
@@ -84,7 +78,7 @@ namespace TrialGame
             string currDir = Directory.GetCurrentDirectory();
             Directory.CreateDirectory(Path.Combine(currDir, "Tech"));
             Directory.CreateDirectory(Path.Combine(currDir, "Saves"));
-            MainMenu menu = new MainMenu();
+            GameFunctions.MainMenu();
         }
 
 

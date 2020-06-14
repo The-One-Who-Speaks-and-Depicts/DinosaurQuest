@@ -18,5 +18,7 @@ namespace TrialGame
             m_decision -= 48;
             return m_decision;
         }
+
+        
     }
 }

@@ -135,7 +135,7 @@ namespace TrialGame
             }
             else
             {
-                Program.Exit_Game();
+                GameFunctions.Exit_Game();
             }
 
             Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
@@ -144,7 +144,7 @@ namespace TrialGame
 
             
             {
-                Program.Exit_Game();
+                GameFunctions.Exit_Game();
             }
 
             Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
@@ -181,7 +181,7 @@ namespace TrialGame
             Console.WriteLine("You are going to the tutorial level. Press 1  to do that, press any key to exit the game");
             decision = ServiceFunctions.ChoosingRightKey();
             RecordedSaves.Save_Game(character, 0);
-            if (decision != 1) Program.Exit_Game();
+            if (decision != 1) GameFunctions.Exit_Game();
             else Tutorial.Tutorial_Entrance(character);
         }
     }

@@ -62,7 +62,7 @@ namespace TrialGame
                 Tutorial_Final(character, mother, 0);
             }
 
-            Program.Exit_Game();
+            GameFunctions.Exit_Game();
         }
 
         public static void Tutorial_Final(YourCreature character, YourCreature mother, int result)
@@ -123,7 +123,7 @@ namespace TrialGame
                             {
                                 RecordedSaves.Auto_Load_Game();
                             }
-                            else Program.Exit_Game();
+                            else GameFunctions.Exit_Game();
                         }
                         break;
                     }
@@ -219,7 +219,7 @@ namespace TrialGame
                 Level1.Level1_Entrance(character);
             else if (decision == 2)
                 RecordedSaves.Auto_Load_Game();
-            else Program.Exit_Game();
+            else GameFunctions.Exit_Game();
         }
     }
 }

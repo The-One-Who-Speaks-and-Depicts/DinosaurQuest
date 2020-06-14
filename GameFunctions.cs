@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace TrialGame
 {
-    class MainMenu
+    static class GameFunctions
     {
-        public MainMenu()
+        public static void Exit_Game()
+        {
+            Console.WriteLine("For End press Enter");
+            Console.ReadLine();
+            Environment.Exit(0);
+
+        }
+
+        public static void MainMenu()
         {
             Console.WriteLine("Welcome to the Predators of the Antarctica: the Game! To start a new game, press 1, to continue, press 2, to load game, press 3, to exit game, press 0");
             int decision = ServiceFunctions.ChoosingRightKey();
@@ -25,7 +33,7 @@ namespace TrialGame
                     RecordedSaves.Load_Game();
                     break;
                 default:
-                    Program.Exit_Game();
+                    Exit_Game();
                     break;
             }
         }
