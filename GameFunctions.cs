@@ -24,7 +24,7 @@ namespace TrialGame
             {
                 case 1:
                     Character newCharacter = new Character();
-                    CharacterCreation new_game = new CharacterCreation();
+                    //CharacterCreation new_game = new CharacterCreation();
                     break;
                 case 2:
                     RecordedSaves.Auto_Load_Game();
