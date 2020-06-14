@@ -23,7 +23,7 @@ namespace TrialGame
 
             do
             {
-                character.name = Program.preGiving();
+                character.name = preGiving();
             }
             while (ServiceFunctions.ChoosingRightKey() != 1);
             while (Console.ReadLine() != "1");
@@ -66,32 +66,32 @@ namespace TrialGame
                         switch (number)
                         {
                             case 0:
-                                character.sprint += Program.ChooseStat(character.characterStats[i], statCharge);
+                                character.sprint += ChooseStat(character.characterStats[i], statCharge);
                                 statCharge = statCharge - character.sprint;
                                 statCharge++;
                                 break;
                             case 1:
-                                character.stayer += Program.ChooseStat(character.characterStats[i], statCharge);
+                                character.stayer += ChooseStat(character.characterStats[i], statCharge);
                                 statCharge = statCharge - character.stayer;
                                 statCharge++;
                                 break;
                             case 2:
-                                character.intelligence += Program.ChooseStat(character.characterStats[i], statCharge);
+                                character.intelligence += ChooseStat(character.characterStats[i], statCharge);
                                 statCharge = statCharge - character.intelligence;
                                 statCharge++;
                                 break;
                             case 3:
-                                character.progressivity += Program.ChooseStat(character.characterStats[i], statCharge);
+                                character.progressivity += ChooseStat(character.characterStats[i], statCharge);
                                 statCharge = statCharge - character.progressivity;
                                 statCharge++;
                                 break;
                             case 4:
-                                character.perception += Program.ChooseStat(character.characterStats[i], statCharge);
+                                character.perception += ChooseStat(character.characterStats[i], statCharge);
                                 statCharge = statCharge - character.perception;
                                 statCharge++;
                                 break;
                             case 5:
-                                character.luck += Program.ChooseStat(character.characterStats[i], statCharge);
+                                character.luck += ChooseStat(character.characterStats[i], statCharge);
                                 statCharge = statCharge - character.luck;
                                 statCharge++;
                                 break;
@@ -183,6 +183,48 @@ namespace TrialGame
             RecordedSaves.Save_Game(character, 0);
             if (decision != 1) GameFunctions.Exit_Game();
             else Tutorial.Tutorial_Entrance(character);
+        }
+
+        public static int ChooseStat(String S, int wholeAmount)
+        {
+            int decision;
+
+            Console.WriteLine("Choose your {0} stat now", S);
+            decision = ServiceFunctions.ChoosingRightKey();
+
+
+
+            while ((decision < 0) || (decision > 9))
+            {
+                Console.WriteLine("Please insert appropriate number, it should be more than 0 and less than 9");
+                decision = ServiceFunctions.ChoosingRightKey();
+
+            }
+
+            while (wholeAmount < decision)
+            {
+                Console.WriteLine("Please insert appropriate number, you have only {0} points to distribute", wholeAmount);
+                decision = ServiceFunctions.ChoosingRightKey();
+
+            }
+
+            int statOut = decision;
+            Console.WriteLine("Your {0}  equals {1}", S, ++statOut);
+            Console.WriteLine(" ");
+            return decision;
+        }
+        public static string givingNameToCharacter()
+        {
+            Console.WriteLine("Type the name of your creature");
+            String str = Console.ReadLine();
+            return str;
+        }
+        public static string preGiving()
+        {
+            String result = givingNameToCharacter();
+            var player = new YourCreature(result);
+            Console.WriteLine("Your name is {0}. If OK, enter 1, if not, enter anything else", player.name);
+            return player.name;
         }
     }
 }
