@@ -173,18 +173,18 @@ namespace TrialGame
                 }
                 creatureCounter = 0;
                 Console.WriteLine("To interact with the creatures, press 1, else, press any key");
-                int decision = Program.ChoosingRightKey();
+                int decision = ServiceFunctions.ChoosingRightKey();
                 if (decision == 1)
                 {
                     Console.WriteLine("Which one? Press key with appropriate number");
-                    decision = Program.ChoosingRightKey();
+                    decision = ServiceFunctions.ChoosingRightKey();
                     foreach (YourCreature.EnemyCreature beta in thisTile.m_creaturesList)
                     {
                         creatureCounter++;
                         if (decision == creatureCounter)
                         {
                             Console.WriteLine("How do you want to interact? Press 1 to attack, press 2 for stealth attack");
-                                decision = Program.ChoosingRightKey();
+                                decision = ServiceFunctions.ChoosingRightKey();
                             if (decision == 1)
                             {
                                 YourCreature.EnemyCreature.Attack(a, beta);
@@ -233,7 +233,7 @@ namespace TrialGame
             while (goingForward == false) 
             {
                 Console.WriteLine("To see main menu, press 1, to interact with environment, press 2, to move, press 3");
-                m_decision = Program.ChoosingRightKey();
+                m_decision = ServiceFunctions.ChoosingRightKey();
                 if (m_decision == 1)
                     this.m_creaturesList = Program.CharacterMenu(a, this);
                 else if (m_decision == 2)
@@ -272,7 +272,7 @@ namespace TrialGame
                 
                             Console.Write("To attack {0}, press 1, to stealth attack {0}, press 2. ", b.name);
                             Console.WriteLine("press 9 to get stats, press 0 to exit");
-                            m_decision = Program.ChoosingRightKey();
+                            m_decision = ServiceFunctions.ChoosingRightKey();
                             switch (m_decision)
                             {
                                 case 1:

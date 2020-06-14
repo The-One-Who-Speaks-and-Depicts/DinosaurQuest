@@ -45,11 +45,11 @@ namespace TrialGame
             
             Console.WriteLine("Mother is starving and thirsty. She is desperate of satisfying her needs, because she was warming her unborn children for weeks, or even months now. But she still needs to guard them. That is going to be a very hard choice for her. Does she want to go away for hunting (1) or is she going to stay here  and protect her children until her last dying breath(2)");
             ;
-            int decision = Program.ChoosingRightKey();
+            int decision = ServiceFunctions.ChoosingRightKey();
             while ((decision < 1) || (decision > 2))
             {
                 Console.WriteLine("Please press appropriate key");
-                decision = Program.ChoosingRightKey();
+                decision = ServiceFunctions.ChoosingRightKey();
             }
 
             if (decision == 1)
@@ -83,7 +83,7 @@ namespace TrialGame
                         Console.WriteLine("Putting mother's needs over child's ones is clever, but, at this point of history, not so progressive step. Mother is going into the woods.");
                         mother.intelligence++;
                         Console.WriteLine("You hear strange background noises. Maybe, after all, the more clever choice would be staying near the nest? Press 1 to do that, else press any other key");
-                        int decision = Program.ChoosingRightKey();
+                        int decision = ServiceFunctions.ChoosingRightKey();
                         if (decision == 1)
                         {
                             mother.sprint--;
@@ -108,7 +108,7 @@ namespace TrialGame
                         Console.WriteLine("You have satisfied your needs. Now it is time to come back");
                         Tile next1 = new Tile("northWest", "Fall", "Nest", mother, 0, 9);
                         Console.WriteLine("You sense that going away was, probably, not such a good decision. Your nest is now being destroyed by somebody. Would you protect the last of your children (1), or, maybe, bring in to life next year(any key)?");
-                        int decision = Program.ChoosingRightKey();
+                        int decision = ServiceFunctions.ChoosingRightKey();
                         if (decision == 1)
                         {
                             Console.WriteLine("It seems that you found the one who is guilty");
@@ -118,7 +118,7 @@ namespace TrialGame
                         else
                         {
                             Console.WriteLine("Well, young cryolophosaurus. Your life is ended by Adelobasileus. Maybe, in the next universe? Press 1 to try, press any key to go away.");
-                            decision = Program.ChoosingRightKey();
+                            decision = ServiceFunctions.ChoosingRightKey();
                             if (decision == 1)
                             {
                                 RecordedSaves.Auto_Load_Game();
@@ -142,7 +142,7 @@ namespace TrialGame
             Console.WriteLine("You have both satisfied your needs and defended your nest. But now you hear another strange noise. Somebody is coming");
             YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus = new YourCreature.EnemyCreature.Cryolophosaurus(1);
             Console.WriteLine("Would you like to sneak in the trees (1), or boldly face the danger (other key)?");
-            int decision = Program.ChoosingRightKey();
+            int decision = ServiceFunctions.ChoosingRightKey();
             if (decision == 1)
             {
                 Tutorial_Fight(character, mother, Enemy_Cryolophosaurus, 0);
@@ -173,7 +173,7 @@ namespace TrialGame
                 case 0: //trees
                     { 
                     Console.WriteLine("You have successfully sneaked in the trees. The male Cryolophosaurus is basically here. Would you like to stealth attack him (1), or suddenly appear before his eyes (other key)?");
-                    int decision = Program.ChoosingRightKey();
+                    int decision = ServiceFunctions.ChoosingRightKey();
                     if (decision == 1)
                     {
                         mother.m_luck++;
@@ -214,7 +214,7 @@ namespace TrialGame
         public static void Tutorial_Transfer (YourCreature character, YourCreature mother, YourCreature.EnemyCreature.Cryolophosaurus Enemy_Cryolophosaurus)
         {
             Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
-            int decision = Program.ChoosingRightKey();
+            int decision = ServiceFunctions.ChoosingRightKey();
             if (decision == 1)
                 Level1.Level1_Entrance(character);
             else if (decision == 2)

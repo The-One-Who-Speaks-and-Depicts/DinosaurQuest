@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Int32;
+using System.IO;
 
 
 
@@ -17,7 +14,7 @@ namespace TrialGame
             do
             {                
                 Console.WriteLine("Press 8 to quit main menu, press 9 to get stats, press 0 to exiWt");
-                click = Program.ChoosingRightKey();
+                click = ServiceFunctions.ChoosingRightKey();
                 if (click == 0) Program.Exit_Game();
                 else if (click == 9) character.PrintCharacterStats();
                 else if (click == 8)
@@ -38,37 +35,28 @@ namespace TrialGame
 
         }
 
-        public static int ChoosingRightKey()
-        {
-            int m_decision;
-            ConsoleKeyInfo m_readKey;
-            m_readKey = Console.ReadKey();
-            Console.WriteLine(" ");
-            m_decision = Convert.ToInt32(m_readKey.KeyChar);
-            m_decision -= 48;
-            return m_decision;
-        }
+        
 
         public static int ChooseStat(String S, int wholeAmount)
         {
             int decision;
 
             Console.WriteLine("Choose your {0} stat now", S);
-            decision = ChoosingRightKey();
+            decision = ServiceFunctions.ChoosingRightKey();
            
 
             
             while ((decision < 0) || (decision > 9)) 
                 {
                     Console.WriteLine("Please insert appropriate number, it should be more than 0 and less than 9");
-                    decision = ChoosingRightKey();
+                    decision = ServiceFunctions.ChoosingRightKey();
                     
             }
                        
             while (wholeAmount < decision)
                 {
                 Console.WriteLine("Please insert appropriate number, you have only {0} points to distribute", wholeAmount);
-                decision = ChoosingRightKey();
+                decision = ServiceFunctions.ChoosingRightKey();
                 
             }
             
@@ -91,33 +79,13 @@ namespace TrialGame
             return player.name;
         }
 
-        public static void MainMenu()
-        {
-            Console.WriteLine("Welcome to the Predators of the Antarctica: the Game! To start a new game, press 1, to continue, press 2, to load game, press 3, to exit game, press 0");
-            int decision = Program.ChoosingRightKey();
-            switch (decision)
-            {
-                case 1:
-                    Character newCharacter = new Character();
-                    CharacterCreation new_game = new CharacterCreation();
-                    break;
-                case 2:
-                    RecordedSaves.Auto_Load_Game();
-                    break;
-                case 3:
-                    RecordedSaves.Load_Game();
-                    break;
-                default:
-                    Program.Exit_Game();
-                    break;
-            }
-        }
-
+        
         static void Main(string[] args)
         {
-            System.IO.Directory.CreateDirectory(@"C:\DinosaurGame\");
-            System.IO.Directory.CreateDirectory(@"C:\DinosaurGame\Tech\");
-            MainMenu();
+            string currDir = Directory.GetCurrentDirectory();
+            Directory.CreateDirectory(Path.Combine(currDir, "Tech"));
+            Directory.CreateDirectory(Path.Combine(currDir, "Saves"));
+            MainMenu menu = new MainMenu();
         }
 
 

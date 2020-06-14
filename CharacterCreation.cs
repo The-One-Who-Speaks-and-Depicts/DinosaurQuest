@@ -25,19 +25,19 @@ namespace TrialGame
             {
                 character.name = Program.preGiving();
             }
-            while (Program.ChoosingRightKey() != 1);
+            while (ServiceFunctions.ChoosingRightKey() != 1);
             while (Console.ReadLine() != "1");
 
             Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", character.name);
             character.SetDefault(0, 100, 0);
             Console.WriteLine("Your level is {0}. Your health is {1}. You have {2} experience", character.level, character.health, character.exp);
             Console.WriteLine("Choose your master stats. You have 30 points to delegate into the following parameters, with minimum of 0 and maximum of 9: sprinter, stayer, intelligence, progressivity, perception, luck. To go to choosing stats press 1, to exit game press 2. Stat info is depicted while choosing");
-            int decision = Program.ChoosingRightKey();
+            int decision = ServiceFunctions.ChoosingRightKey();
 
             while (decision > 2)
             {
                 Console.WriteLine("Please press appropriate key");
-                decision = Program.ChoosingRightKey();
+                decision = ServiceFunctions.ChoosingRightKey();
             }
 
 
@@ -105,13 +105,13 @@ namespace TrialGame
 
 
                     Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
-                    decision = Program.ChoosingRightKey();
+                    decision = ServiceFunctions.ChoosingRightKey();
 
                     while ((decision < 1) || (decision > 2))
                     {
                         Console.WriteLine("Please press appropriate key");
                         Console.WriteLine("Your stats are: sprint {0}, stayer {1}, intelligence {2}, progressivity {3}, perception {4}, luck {5}. If you are satisfied, press 1; if not, press 2", character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
-                        decision = Program.ChoosingRightKey();
+                        decision = ServiceFunctions.ChoosingRightKey();
                     }
 
 
@@ -139,7 +139,7 @@ namespace TrialGame
             }
 
             Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
-            decision = Program.ChoosingRightKey();
+            decision = ServiceFunctions.ChoosingRightKey();
 
 
             
@@ -148,7 +148,7 @@ namespace TrialGame
             }
 
             Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 sprint, as they are stronger, and probably faster. Males get +1 stayer, as they are weaker, but more agile and sneaky. Press 1 for choosing female, press 2 for choosing male");
-            decision = Program.ChoosingRightKey();
+            decision = ServiceFunctions.ChoosingRightKey();
 
 
             do
@@ -156,7 +156,7 @@ namespace TrialGame
                 while ((decision < 1) || (decision > 2))
                 {
                     Console.WriteLine("Press 1 for feminine, 2 for masculine");
-                    decision = Program.ChoosingRightKey();
+                    decision = ServiceFunctions.ChoosingRightKey();
                 }
 
                 if (decision == 2)
@@ -171,7 +171,7 @@ namespace TrialGame
                 }
 
                 Console.WriteLine("If you are sure about your choice, press 1, in the other case, press any other key");
-                decision = Program.ChoosingRightKey();
+                decision = ServiceFunctions.ChoosingRightKey();
             }
             while (decision != 1);
             String bioSex = character.PrintSex();
@@ -179,7 +179,7 @@ namespace TrialGame
             else character.sprint++;
             Console.WriteLine("Your name is {0}, you are of {1} sex, you have level {2} and {3} health, your stats are {4} sprint, {5} stayer, {6} intelligence, {7} progressivity, {8} perception, {9} luck.", character.name, bioSex, character.level, character.health, character.sprint, character.stayer, character.intelligence, character.progressivity, character.perception, character.luck);
             Console.WriteLine("You are going to the tutorial level. Press 1  to do that, press any key to exit the game");
-            decision = Program.ChoosingRightKey();
+            decision = ServiceFunctions.ChoosingRightKey();
             RecordedSaves.Save_Game(character, 0);
             if (decision != 1) Program.Exit_Game();
             else Tutorial.Tutorial_Entrance(character);
