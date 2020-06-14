@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="Animal.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="CharacterCreation.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="GameFunctions.cs" />
     <Compile Include="Level1.cs" />
