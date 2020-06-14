@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace TrialGame
 {
@@ -179,6 +176,7 @@ namespace TrialGame
             stamina = 100;
         }
 
+
         #endregion
 
         #region CharacterCreation
@@ -233,8 +231,14 @@ namespace TrialGame
             Console.WriteLine(" ");
             return decision;
         }
+        #endregion
 
+        #region technicalFunctions
 
+        public string Jsonize()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
 
         #endregion
     }

@@ -2,6 +2,7 @@
 using System.Threading;
 using System.IO;
 
+
 namespace TrialGame
 {
     public abstract class Creature
