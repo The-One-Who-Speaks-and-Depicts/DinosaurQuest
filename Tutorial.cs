@@ -28,7 +28,7 @@ namespace TrialGame
         public static void Tutorial_Entrance(YourCreature character)
         {
 
-            RecordedSaves.Save_Game(character, 1);
+            //RecordedSaves.Save_Game(character, 1);
             Console.WriteLine("You are now an egg, so, everything you can do is exist, while other creatures decide, what your fate is going to be like. However, some divine bodyless sentient creature that governs you, is able to help you by telling your mother what is going to be the best for you. And she will help this divine creature as well, by showing how this cruel world works. It is not too long before your birth, however, for your mother these are going to be the truly hardest hours of her parenthood. And now they are to begin. Let the desperate Diviner brace themselves, Early Jurassic of Antarctica begins!");
             YourCreature mother = new YourCreature();
             mother.name = "Mother Cryolophosaurus";
@@ -121,7 +121,7 @@ namespace TrialGame
                             decision = ServiceFunctions.ChoosingRightKey();
                             if (decision == 1)
                             {
-                                RecordedSaves.Auto_Load_Game();
+                                //RecordedSaves.Auto_Load_Game();
                             }
                             else GameFunctions.Exit_Game();
                         }
@@ -130,7 +130,7 @@ namespace TrialGame
                 default:
                     { 
                     Console.WriteLine("Something went terribly wrong. Restarting level...");
-                    RecordedSaves.Auto_Load_Game();
+                    //RecordedSaves.Auto_Load_Game();
                     break;
                     }
             }
@@ -217,8 +217,8 @@ namespace TrialGame
             int decision = ServiceFunctions.ChoosingRightKey();
             if (decision == 1)
                 Level1.Level1_Entrance(character);
-            else if (decision == 2)
-                RecordedSaves.Auto_Load_Game();
+            //else if (decision == 2)
+                //RecordedSaves.Auto_Load_Game();
             else GameFunctions.Exit_Game();
         }
     }

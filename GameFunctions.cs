@@ -176,18 +176,17 @@ namespace TrialGame
                 case 1:
                     var currentCharacter = Start_Game();
                     Console.WriteLine("You are going to the tutorial level. Press 1 to do that, Press 2 to skip tutorial, press any key to exit the game");
-                    /*decision = ServiceFunctions.ChoosingRightKey();
-                    RecordedSaves.Save_Game(currentCharacter, 0);
-                    if (decision != 1) GameFunctions.Exit_Game();
-                    else Tutorial.Tutorial_Entrance(character);
-                    */
+                    decision = ServiceFunctions.ChoosingRightKey();
+                    Save.Save_Game(currentCharacter, 0);
+                    if (decision < 1 || decision > 2) Exit_Game();
+                    Console.WriteLine("Game is not finished");
                     Exit_Game();
                     break;
                 case 2:
-                    RecordedSaves.Auto_Load_Game();
+                    Save.Auto_Load_Game();
                     break;
                 case 3:
-                    RecordedSaves.Load_Game();
+                    Save.Load_Game();
                     break;
                 default:
                     Exit_Game();

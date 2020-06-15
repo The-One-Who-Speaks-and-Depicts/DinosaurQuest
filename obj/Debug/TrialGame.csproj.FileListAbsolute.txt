@@ -5,3 +5,6 @@ c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\TrialGame.csproj.Co
 c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 c:\users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
 C:\Users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\TrialGame.csprojAssemblyReference.cache
+C:\Users\user\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\TrialGame.csproj.CopyComplete

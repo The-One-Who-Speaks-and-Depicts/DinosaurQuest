@@ -15,7 +15,7 @@ namespace TrialGame
             //character.HealthChange += Tutorial.OnHealthChange;
             //character.HealthChange += Tutorial.OnCriticalHealth;
             
-            RecordedSaves.Save_Game(character, 2);
+            //RecordedSaves.Save_Game(character, 2);
             Tile nest = new Tile("noDir", "autumn", "nest", character);
             GameFunctions.Exit_Game();
         }

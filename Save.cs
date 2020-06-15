@@ -9,14 +9,13 @@ using System.Text.RegularExpressions;
 namespace TrialGame
 {
      
-    abstract class RecordedSaves
-    {
+    class Save {
 
         public static int Save_File_Check(string [] array_of_file_names)
         {
             int saves_predicted_amount = array_of_file_names.Length;
             int saves_real_amount = saves_predicted_amount;
-            String[] checking_massive = new string[saves_real_amount];
+            string[] checking_massive = new string[saves_real_amount];
             for (int save_number = 1; save_number <= saves_real_amount; save_number++)
             {
                 int saves_number_for_cycle = save_number;
@@ -40,44 +39,34 @@ namespace TrialGame
                     {
                             string returnable_string = s;                            
                     }
-                }
+                } 
+
             }
                 return ++saves_predicted_amount;
             }
         }
 
-        public static void Save_Game(YourCreature a, int stage)
+        public static void Save_Game(Character currCharacter, int stage)
         {
             List<string> filenames = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Saves")).ToList();
-            var shortFileNames = new string[](filenames.Count);
+            var shortFileNames = new string[filenames.Count];
             foreach (var filename in filenames)
             {
-                var shortFileName = Regex.Match(filename, @"[0-9]{1,}.json");
-                shortFileNames.Add(shortFileName.Value);
+                var shortFileName = Regex.Match(filename, @"[0-9]{1,}.dns");
+                shortFileNames.Append(shortFileName.Value);
             }
             Array.Sort(shortFileNames);
             int LastSaveFileNumber = Save_File_Check(shortFileNames);
-            /*string NewSaveName = FolderName + LastSaveFileNumber + ".dns";
+            string NewSaveName = Path.Combine(Directory.GetCurrentDirectory(), "Saves", LastSaveFileNumber.ToString() + ".dns");
             while (File.Exists(NewSaveName))
             {
                 LastSaveFileNumber++;
-                NewSaveName = FolderName + LastSaveFileNumber + ".dns";
+                NewSaveName = Path.Combine(Directory.GetCurrentDirectory(), "Saves", LastSaveFileNumber.ToString() + ".dns"); 
             }
             StreamWriter SaveRecording = new StreamWriter(NewSaveName);
             SaveRecording.WriteLine(stage.ToString());
-            SaveRecording.WriteLine(a.name);
-            SaveRecording.WriteLine(a.sex);
-            SaveRecording.WriteLine(a.level.ToString());
-            SaveRecording.WriteLine(a.exp.ToString());
-            SaveRecording.WriteLine(a.health.ToString());
-            SaveRecording.WriteLine(a.sprint.ToString());
-            SaveRecording.WriteLine(a.stayer.ToString());
-            SaveRecording.WriteLine(a.intelligence.ToString());
-            SaveRecording.WriteLine(a.progressivity.ToString());
-            SaveRecording.WriteLine(a.perception.ToString());
-            SaveRecording.WriteLine(a.luck.ToString());
+            SaveRecording.WriteLine(currCharacter.Jsonize());
             SaveRecording.Close();
-            */
         }
 
         public static void Auto_Load_Game()
