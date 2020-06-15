@@ -3,7 +3,7 @@
 namespace TrialGame
 {
     
-    class Character : ICreature
+    public class Character : ICreature
     {
         #region commonCharacteristics
         private string Name { get; set; }

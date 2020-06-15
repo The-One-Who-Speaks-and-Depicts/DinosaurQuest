@@ -8,7 +8,7 @@ using static System.Int32;
 
 namespace TrialGame
 {
-    class Tutorial
+    class Tutorial : Level
     {/*
     {
         public static void OnLevelChange(object sender, EventArgs e)
@@ -215,11 +215,16 @@ namespace TrialGame
         {
             Console.WriteLine("To go to the next stage, press 1, to repeat tutorial level, press 2. Press any other key to exit game");
             int decision = ServiceFunctions.ChoosingRightKey();
-            if (decision == 1)
-                Level1.Level1_Entrance(character);
+            //if (decision == 1)
+                //Level1.Level1_Entrance(character);
             //else if (decision == 2)
                 //RecordedSaves.Auto_Load_Game();
-            else GameFunctions.Exit_Game();
+            /*else*/ GameFunctions.Exit_Game();
+        }
+
+        public Tutorial(Character character)
+        {
+            Console.WriteLine(Season.Spring);
         }
     }
 }

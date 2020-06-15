@@ -107,7 +107,7 @@ namespace TrialGame
                     Tutorial.Tutorial_Entrance(gettableCharacter);
                     break;
                 case 2:
-                    Level1.Level1_Entrance(gettableCharacter);
+                    //Level1.Level1_Entrance(gettableCharacter);
                     break;
 
             }
@@ -177,7 +177,7 @@ namespace TrialGame
                         Tutorial.Tutorial_Entrance(gettableCharacter);
                         break;
                     case 2:
-                        Level1.Level1_Entrance(gettableCharacter);
+                        //Level1.Level1_Entrance(gettableCharacter);
                         break;
 
                 }
@@ -211,7 +211,7 @@ namespace TrialGame
                         Tutorial.Tutorial_Entrance(gettableCharacter);
                         break;
                     case 2:
-                        Level1.Level1_Entrance(gettableCharacter);
+                        //Level1.Level1_Entrance(gettableCharacter);
                         break;
 
                 }

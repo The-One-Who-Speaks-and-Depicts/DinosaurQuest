@@ -179,7 +179,7 @@ namespace TrialGame
                     decision = ServiceFunctions.ChoosingRightKey();
                     Save.Save_Game(currentCharacter, 0);
                     if (decision < 1 || decision > 2) Exit_Game();
-                    Console.WriteLine("Game is not finished");
+                    if (decision == 2) new Level1(5, 5, currentCharacter);
                     Exit_Game();
                     break;
                 case 2:
