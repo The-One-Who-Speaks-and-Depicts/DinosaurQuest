@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace TrialGame
 {
@@ -47,18 +48,16 @@ namespace TrialGame
 
         public static void Save_Game(YourCreature a, int stage)
         {
-            DirectoryInfo SaveGameDirectory = Directory.CreateDirectory(@"c:\DinosaurGame\");
-            string FolderName = @"c:\DinosaurGame\";
-            List<string> filesnames = Directory.GetFiles(FolderName).ToList<string>();
-            string[] filesnames2 = filesnames.ToArray();
-            for (int fileCounter = 0; fileCounter < filesnames2.Length; fileCounter++)
+            List<string> filenames = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Saves")).ToList();
+            var shortFileNames = new string[](filenames.Count);
+            foreach (var filename in filenames)
             {
-                filesnames2[fileCounter].Remove(0, 16);
-
+                var shortFileName = Regex.Match(filename, @"[0-9]{1,}.json");
+                shortFileNames.Add(shortFileName.Value);
             }
-            Array.Sort(filesnames2);            
-            int LastSaveFileNumber = Save_File_Check(filesnames2);            
-            string NewSaveName = FolderName + LastSaveFileNumber + ".dns";
+            Array.Sort(shortFileNames);
+            int LastSaveFileNumber = Save_File_Check(shortFileNames);
+            /*string NewSaveName = FolderName + LastSaveFileNumber + ".dns";
             while (File.Exists(NewSaveName))
             {
                 LastSaveFileNumber++;
@@ -78,7 +77,7 @@ namespace TrialGame
             SaveRecording.WriteLine(a.perception.ToString());
             SaveRecording.WriteLine(a.luck.ToString());
             SaveRecording.Close();
-
+            */
         }
 
         public static void Auto_Load_Game()
