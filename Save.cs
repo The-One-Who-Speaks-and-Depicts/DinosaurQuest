@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace TrialGame
 {
@@ -64,8 +65,7 @@ namespace TrialGame
                 NewSaveName = Path.Combine(Directory.GetCurrentDirectory(), "Saves", LastSaveFileNumber.ToString() + ".dns"); 
             }
             StreamWriter SaveRecording = new StreamWriter(NewSaveName);
-            SaveRecording.WriteLine(stage.ToString());
-            SaveRecording.WriteLine(currCharacter.Jsonize());
+            SaveRecording.WriteLine(JsonConvert.SerializeObject(new Save(stage, currCharacter)));
             SaveRecording.Close();
         }
 
@@ -224,8 +224,19 @@ namespace TrialGame
                 GameFunctions.MainMenu();
             } 
             }
+        #region values
+        [JsonProperty]
+        int savedStage { get; set; }
+        [JsonProperty]
+        Character savedCharacter { get; set; }
 
-
+        #endregion 
+        [JsonConstructor]
+        public Save(int _savedStage, Character _savedCharacter)
+        {
+            this.savedStage = _savedStage;
+            this.savedCharacter = _savedCharacter;
+        }
 
     }
 }

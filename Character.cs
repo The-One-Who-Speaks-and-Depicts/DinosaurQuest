@@ -1,5 +1,4 @@
 ﻿using System;
-using Newtonsoft.Json;
 
 namespace TrialGame
 {
@@ -235,10 +234,6 @@ namespace TrialGame
 
         #region technicalFunctions
 
-        public string Jsonize()
-        {
-            return JsonConvert.SerializeObject(this);
-        }
 
         #endregion
     }
