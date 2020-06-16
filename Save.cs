@@ -72,45 +72,35 @@ namespace TrialGame
         public static void Auto_Load_Game()
         {
             try
-            {
-            string FolderName = @"c:\DinosaurGame\";
-            List<string> filesnames = Directory.GetFiles(FolderName).ToList<string>();            
-            string[] filesnames2 = filesnames.ToArray();
-            for (int fileCounter = 0; fileCounter < filesnames2.Length; fileCounter++)
-            {
-                filesnames2[fileCounter].Remove(0, 16);
-
-            }
-            Array.Sort(filesnames2);
-            int LastSaveFileNumber = filesnames2.Length - 1;
-            string NewSaveName = FolderName + LastSaveFileNumber + ".dns";
-            StreamReader SaveGetting = new StreamReader(NewSaveName);
-            YourCreature gettableCharacter = new YourCreature();
-            int stage = 0;
-            stage = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.name = SaveGetting.ReadLine();
-            gettableCharacter.sex = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.m_level = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.health = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.exp = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.sprint = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.stayer = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.intelligence = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.progressivity = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.perception = Convert.ToInt32(SaveGetting.ReadLine());
-            gettableCharacter.luck = Convert.ToInt32(SaveGetting.ReadLine());
-            SaveGetting.Close();
-            switch(stage)
-            {
-                case 0:
-                case 1:
-                    Tutorial.Tutorial_Entrance(gettableCharacter);
-                    break;
-                case 2:
-                    //Level1.Level1_Entrance(gettableCharacter);
-                    break;
-
-            }
+            {                
+                string FolderName = Path.Combine(Directory.GetCurrentDirectory(), "Saves");
+                List<string> filesnames = Directory.GetFiles(FolderName).ToList();
+                var start = new DateTime(1970, 1, 1, 0, 0, 0);
+                var fileToLoad = "";
+                foreach (var filename in filesnames)
+                {
+                    if (File.GetCreationTime(filename) > start)
+                    {
+                        fileToLoad = filename;
+                        start = File.GetCreationTime(filename);
+                    }
+                }
+                if (String.IsNullOrEmpty(fileToLoad)) throw new Exception();
+                StreamReader saveGetting = new StreamReader(fileToLoad);
+                using (saveGetting)
+                {
+                    var loadedSave = JsonConvert.DeserializeObject<Save>(saveGetting.ReadToEnd());
+                    switch (loadedSave.savedStage)
+                    {
+                        case 0:
+                        case 1:
+                            new Tutorial(loadedSave.savedCharacter);
+                            break;
+                        case 2:
+                            new Level1(9, 9, loadedSave.savedCharacter);
+                            break;
+                    }
+                }                
             }
             catch
             {

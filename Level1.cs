@@ -28,6 +28,7 @@ namespace TrialGame
         public Level1(int x, int y, Character character)
         {
             Console.WriteLine(Season.Winter);
+            GameFunctions.Exit_Game();
         }
     }
 }
