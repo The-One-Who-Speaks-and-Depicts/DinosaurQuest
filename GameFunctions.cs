@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TrialGame
 {
@@ -181,7 +178,7 @@ namespace TrialGame
                     if (decision == 2)
                     {
                         Save.Save_Game(currentCharacter, 2);
-                        new Level1(5, 5, currentCharacter);
+                        new Level1(currentCharacter);
                     }
                     else
                     {

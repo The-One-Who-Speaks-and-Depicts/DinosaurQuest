@@ -1,9 +1,5 @@
 
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TrialGame
 {
@@ -25,7 +21,7 @@ namespace TrialGame
             GameFunctions.Exit_Game();
         }
         
-        public Level1(int x, int y, Character character)
+        public Level1 (Character character)
         {
             Console.WriteLine(Season.Winter);
             GameFunctions.Exit_Game();
