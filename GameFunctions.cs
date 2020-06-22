@@ -18,16 +18,12 @@ namespace TrialGame
             newCharacter.name = Character.preGiving();
             Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", newCharacter.name);
             Console.WriteLine("Your level is {0}. Your health is {1}, and your stamina is {2}. You have {3} experience", newCharacter.level, newCharacter.health, newCharacter.stamina, newCharacter.exp);
-            StreamReader stats = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "statsDialogue.txt"));
-            List<string> statLines = new List<string>();
-            using(stats)
+            string statLine = "";
+            using (StreamReader stats = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "statsDialogue.txt")))
             {
-               while (!stats.EndOfStream)
-                {
-                    statLines.Add(stats.ReadLine());
-                }
+                statLine += stats.ReadToEnd();
             }
-            Console.WriteLine(statLines[0]);
+            Console.WriteLine(statLine);
             int decision = ServiceFunctions.ChoosingRightKey();
             while (decision > 2)
             {
@@ -36,93 +32,27 @@ namespace TrialGame
             }
             if (decision == 1)
             {
-                int statCharge;
+                
                 do
                 {
-                    statCharge = 35;
-                    newCharacter.DoStats();
-                    for (int i = 1; i < 8; i++)
+                    newCharacter.Perks = new List<Perk>();
+                    // stat choice to implement
+                    Console.WriteLine("Your stats are. Are you satisfied? 1 for yes, 2 for no"); // right to end!
+                    decision = ServiceFunctions.ChoosingRightKey();
+                    while ((decision < 1) || (decision > 2))
                     {
-                        int number = i;
-                        Console.WriteLine(statLines[i]);
-                        switch (number)
-                        {
-                            case 1:                                
-                                newCharacter.strength += Character.ChooseStat("strength", statCharge);
-                                statCharge = statCharge - newCharacter.strength;
-                                statCharge++;
-                                break;
-                            case 2:
-                                newCharacter.speed += Character.ChooseStat("speed", statCharge);
-                                statCharge = statCharge - newCharacter.speed;
-                                statCharge++;
-                                break;
-                            case 3:
-                                newCharacter.agility += Character.ChooseStat("agility", statCharge);
-                                statCharge = statCharge - newCharacter.agility;
-                                statCharge++;
-                                break;
-                            case 4:
-                                newCharacter.perception += Character.ChooseStat("perception", statCharge);
-                                statCharge = statCharge - newCharacter.perception;
-                                statCharge++;
-                                break;
-                            case 5:
-                                newCharacter.luck += Character.ChooseStat("luck", statCharge);
-                                statCharge = statCharge - newCharacter.luck;
-                                statCharge++;
-                                break;
-                            case 6:
-                                newCharacter.appearance += Character.ChooseStat("appearance", statCharge);
-                                statCharge = statCharge - newCharacter.appearance;
-                                statCharge++;
-                                break;
-                            case 7:
-                                newCharacter.intelligence += Character.ChooseStat("intelligence", statCharge);
-                                statCharge = statCharge - newCharacter.intelligence;
-                                statCharge++;
-                                break; 
-                        }
-
-
-                        Console.WriteLine("You have {0} points to distribute", statCharge);
-
-                    }
-                    if (statCharge > 0)
-                    {
-                        Console.WriteLine("You should distribute all the stats. You have {0} stats left, redistribute your stats once again", statCharge);
-                        statCharge = 35;
-                        newCharacter.DoStats();
-                        decision = 0;
-                        continue;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Your stats are: strength {0}, speed {1}, agility {2}, perception {3}, luck {4}, appearance {5}, intelligence {6}. If you are satisfied, press 1; if not, press 2", newCharacter.strength, newCharacter.speed, newCharacter.agility, newCharacter.perception, newCharacter.luck, newCharacter.appearance, newCharacter.intelligence);
+                        Console.WriteLine("Please press appropriate key");
+                        Console.WriteLine("Your stats are. Are you satisfied? 1 for yes, 2 for no"); // right to end!
                         decision = ServiceFunctions.ChoosingRightKey();
-                        while ((decision < 1) || (decision > 2))
-                        {
-                            Console.WriteLine("Please press appropriate key");
-                            Console.WriteLine("Your stats are: strength {0}, speed {1}, agility {2}, perception {3}, luck {4}, appearance {5}, intelligence {6}. If you are satisfied, press 1; if not, press 2", newCharacter.strength, newCharacter.speed, newCharacter.agility, newCharacter.perception, newCharacter.luck, newCharacter.appearance, newCharacter.intelligence);
-                            decision = ServiceFunctions.ChoosingRightKey();
-                        }
-
-
-                        if (decision != 1)
-                        {
-                            decision = 0;
-                            newCharacter.DoStats();
-
-                        }
                     }
                 }
-                while ((decision != 2) && (statCharge > 0));                
+                while (decision != 1);                
             }
             else
             {
                 Exit_Game();
             }
-            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Females get +1 strength, as they are stronger. Males get +1 agility, as they are weaker, but more durable. Press 1 for choosing female, press 2 for choosing male");            
+            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Press 1 for choosing female + swap parameters, press 2 for choosing male + swap parameters, press 3 for choosing female + getting unique perk, press 4 for choosing male + getting unique perk"); //TELL'EM DIFFERENCE            
             do
             {
                 decision = 0;
@@ -141,6 +71,7 @@ namespace TrialGame
                     Console.WriteLine("You are female now");
                     newCharacter.sex = "feminine";
                 }
+                // AddChoices
 
                 Console.WriteLine("If you are sure about your choice, press 1, in the other case, press any other key");
                 decision = ServiceFunctions.ChoosingRightKey();
@@ -150,9 +81,15 @@ namespace TrialGame
                 }
             }
             while (decision != 1);
-            if (newCharacter.sex == "feminine") newCharacter.strength++;
-            else newCharacter.agility++;
-            Console.WriteLine("Your name is {0}, you are of {1} sex, you have {2} exp and thus are of level {3}, {4} health and {5} stamina, your stats are {6} strength, {7} speed, {8} agility, {9} perception, {10} luck, {11} appearance, {12} intelligence.", newCharacter.name, newCharacter.sex, newCharacter.exp, newCharacter.level, newCharacter.health, newCharacter.stamina, newCharacter.strength, newCharacter.speed, newCharacter.agility, newCharacter.perception, newCharacter.luck, newCharacter.appearance, newCharacter.intelligence);
+            if (newCharacter.sex == "feminine")
+            {
+                //do some thing
+            }
+            else
+            {
+                // do another thing
+            }
+            Console.WriteLine(""); //TELL'EM WHAT THEY DO
             return newCharacter;
 
         }

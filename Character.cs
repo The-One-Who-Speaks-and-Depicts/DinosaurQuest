@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TrialGame
 {
@@ -78,88 +79,17 @@ namespace TrialGame
                 Stamina = value;
             }
         }        
-        private int Strength { get; set; }
-        public int strength
+       
+        private List<Perk> perks { get; set; }
+        public List<Perk> Perks
         {
             get
             {
-                return Strength;
+                return perks;
             }
             set
             {
-                Strength = value;
-            }
-        }
-        private int Speed { get; set; }
-        public int speed
-        {
-            get
-            {
-                return Speed;
-            }
-            set
-            {
-                Speed = value;
-            }
-        }
-        private int Agility { get; set; }
-        public int agility
-        {
-            get
-            {
-                return Agility;
-            }
-            set
-            {
-                Agility = value;
-            }
-        }
-        private int Perception { get; set; }
-        public int perception
-        {
-            get
-            {
-                return Perception;
-            }
-            set
-            {
-                Perception = value;
-            }
-        }
-        private int Luck { get; set; }
-        public int luck
-        {
-            get
-            {
-                return Luck;
-            }
-            set
-            {
-                Luck = value;
-            }
-        }
-        private int Appearance { get; set; }
-        public int appearance
-        {
-            get
-            {
-                return Appearance;
-            }
-            set
-            {
-                Appearance = value;
-            }
-        }
-        private int Intelligence { get; set; }
-        public int intelligence
-        {
-            get
-            {
-                return Intelligence;
-            }
-            set
-            {
-                Intelligence = value;
+                perks = value;
             }
         }
 
@@ -191,44 +121,11 @@ namespace TrialGame
             while (ServiceFunctions.ChoosingRightKey() != 1);
             return result;
         }
-        public virtual void DoStats()
+        
+
+        public static void ChooseStat()
         {
-            this.strength = 1;
-            this.speed = 1;
-            this.agility = 1;
-            this.intelligence = 1;
-            this.appearance = 1;
-            this.perception = 1;
-            this.luck = 1;
-        }
-
-        public static int ChooseStat(string S, int wholeAmount)
-        {
-            int decision;
-
-            Console.WriteLine("Choose your {0} stat now", S);
-            decision = ServiceFunctions.ChoosingRightKey();
-
-
-
-            while ((decision < 0) || (decision > 9))
-            {
-                Console.WriteLine("Please insert appropriate number, it should be more than 0 and less than 9");
-                decision = ServiceFunctions.ChoosingRightKey();
-
-            }
-
-            while (wholeAmount < decision)
-            {
-                Console.WriteLine("Please insert appropriate number, you have only {0} points to distribute", wholeAmount);
-                decision = ServiceFunctions.ChoosingRightKey();
-
-            }
-
-            int statOut = decision;
-            Console.WriteLine("Your {0}  equals {1}", S, ++statOut);
-            Console.WriteLine(" ");
-            return decision;
+            
         }
         #endregion
 

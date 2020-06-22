@@ -67,6 +67,7 @@
     <Compile Include="GameFunctions.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Level1.cs" />
+    <Compile Include="Perk.cs" />
     <Compile Include="Save.cs" />
     <Compile Include="ServiceFunctions.cs" />
     <Compile Include="TIle.cs" />
