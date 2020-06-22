@@ -19,16 +19,16 @@ namespace TrialGame
                 Name = value;
             }
         }
-        private string Sex { get; set; }
-        public string sex
+        private string Gender { get; set; }
+        public string gender
         {
             get
             {
-                return Sex;
+                return Gender;
             }
             set
             {
-                Sex = value;
+                Gender = value;
             }
         }
         private int Level { get; set; }

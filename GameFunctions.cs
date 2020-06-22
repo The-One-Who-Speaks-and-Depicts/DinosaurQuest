@@ -7,9 +7,8 @@ namespace TrialGame
     static class GameFunctions
     {
         public static Character Start_Game()
-        {
-            StreamReader intro = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "intro.txt"));
-            using (intro)
+        {            
+            using (StreamReader intro = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "intro.txt")))
             {
                 string introText = intro.ReadToEnd();
                 Console.WriteLine(introText);
@@ -64,12 +63,12 @@ namespace TrialGame
                 if (decision == 2)
                 {
                     Console.WriteLine("You are male now");
-                    newCharacter.sex = "masculine";
+                    newCharacter.gender = "masculine";
                 }
                 else if (decision == 1)
                 {
                     Console.WriteLine("You are female now");
-                    newCharacter.sex = "feminine";
+                    newCharacter.gender = "feminine";
                 }
                 // AddChoices
 
@@ -81,7 +80,7 @@ namespace TrialGame
                 }
             }
             while (decision != 1);
-            if (newCharacter.sex == "feminine")
+            if (newCharacter.gender == "feminine")
             {
                 //do some thing
             }
