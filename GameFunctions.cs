@@ -5,7 +5,10 @@ using System.IO;
 namespace TrialGame
 {
     static class GameFunctions
-    {
+    {        
+
+
+
         public static Character Start_Game()
         {            
             using (StreamReader intro = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "intro.txt")))

@@ -131,6 +131,16 @@ namespace TrialGame
 
         #region technicalFunctions
 
+        public void CoolDownCount()
+        {
+            for (int i = 0; i < perks.Count; i++)
+            {
+                if (perks[i].CoolDown > 0)
+                {
+                    perks[i].CoolDown--;
+                }
+            }
+        }
 
         #endregion
     }

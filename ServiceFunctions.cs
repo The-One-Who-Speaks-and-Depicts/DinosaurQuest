@@ -13,8 +13,8 @@ namespace TrialGame
             m_decision = Convert.ToInt32(m_readKey.KeyChar);
             m_decision -= 48;
             return m_decision;
-        }
+        }       
 
-        
+
     }
 }

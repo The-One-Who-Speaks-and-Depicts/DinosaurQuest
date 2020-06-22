@@ -31,14 +31,25 @@ namespace TrialGame
             {
                 desc = value;
             }
+        }        
+        private int cooldownTime { get; set; }
+        public int CoolDownTime
+        {
+            get
+            {
+                return cooldownTime;
+            }
+            set
+            {
+                cooldownTime = value;
+            }
         }
         int cooldown { get; set; }
-        int cooldownDelta { get; set; }
         public int CoolDown
         {
             get
             {
-                return cooldown - cooldownDelta;
+                return cooldown;
             }
             set
             {
@@ -90,6 +101,11 @@ namespace TrialGame
         void OnEnemy()
         {
 
+        }
+
+        void coolDownSet()
+        {
+            CoolDown = CoolDownTime;
         }
     }
 
