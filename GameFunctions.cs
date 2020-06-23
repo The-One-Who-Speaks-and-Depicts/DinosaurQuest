@@ -20,12 +20,15 @@ namespace TrialGame
             newCharacter.name = Character.preGiving();
             Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", newCharacter.name);
             Console.WriteLine("Your level is {0}. Your health is {1}, and your stamina is {2}. You have {3} experience", newCharacter.level, newCharacter.health, newCharacter.stamina, newCharacter.exp);
-            string statLine = "";
+            List<string> statLines = new List<string>();
             using (StreamReader stats = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "statsDialogue.txt")))
             {
-                statLine += stats.ReadToEnd();
+                while(!stats.EndOfStream)
+                {
+                    statLines.Add(stats.ReadLine());
+                }
             }
-            Console.WriteLine(statLine);
+            Console.WriteLine(statLines[0]);
             int decision = ServiceFunctions.ChoosingRightKey();
             while (decision > 2)
             {
