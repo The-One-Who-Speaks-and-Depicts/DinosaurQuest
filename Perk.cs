@@ -103,6 +103,11 @@ namespace TrialGame
 
         }
 
+        void OnBreeding()
+        {
+
+        }
+
         void coolDownSet()
         {
             CoolDown = CoolDownTime;

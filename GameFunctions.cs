@@ -30,13 +30,17 @@ namespace TrialGame
             }
             Console.WriteLine(statLines[0]);
             int decision = ServiceFunctions.ChoosingRightKey();
-            while (decision > 2)
+            while ((decision < 0) || decision > 1)
             {
                 Console.WriteLine("Please press appropriate key");
                 decision = ServiceFunctions.ChoosingRightKey();
             }
-            if (decision == 1)
+            if (decision > 0)
             {
+                if (decision  > 1)
+                {
+
+                }
                 
                 do
                 {
@@ -52,7 +56,7 @@ namespace TrialGame
                     }
                 }
                 while (decision != 1);                
-            }
+            }            
             else
             {
                 Exit_Game();
