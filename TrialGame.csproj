@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Eoraptor.cs" />
     <Compile Include="ICreature.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Creature.cs" />
