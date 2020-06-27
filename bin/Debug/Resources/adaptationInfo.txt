@@ -3,6 +3,8 @@ The first option to choose is adaptation.
 Adaptation in Triassic style is a domain of Eoraptor. 
 Eoraptors were not exactly intelligent, so they lack more heuristic approaches to hunt, to fight, to help friends and enchant partners. 
 However, their breed usually increases their traits, becomes more effective and accustomed to the world around, and Eoraptors' bodies develop some very unusual traits, although these traits can do bad for them.
+Effects:
+On tile^
 
 The most bright way to adapt in Jurassic belongs to Eustreptospondylus. 
 Eustreptospondyli are more intelligent than Eoraptors, however, for them the insufficiency of strategical behaviour is still significantly seen.

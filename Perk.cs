@@ -6,112 +6,33 @@ using System.Threading.Tasks;
 
 namespace TrialGame
 {
-    public abstract class Perk
+    public interface IPerk
     {
-        private string name { get; set; }
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
-        }
-        public string desc { get; set; }
-        public string Desc
-        {
-            get
-            {
-                return desc;
-            }
-            set
-            {
-                desc = value;
-            }
-        }        
-        private int cooldownTime { get; set; }
-        public int CoolDownTime
-        {
-            get
-            {
-                return cooldownTime;
-            }
-            set
-            {
-                cooldownTime = value;
-            }
-        }
-        int cooldown { get; set; }
-        public int CoolDown
-        {
-            get
-            {
-                return cooldown;
-            }
-            set
-            {
-                cooldown = value;
-            }
-        }
-        private bool isGettable { get; set; }
-        public bool IsGettable
-        {
-            get
-            {
-                return isGettable;
-            }
-            set
-            {
-                isGettable = value;
-            }
-        }
-        void OnTile()
-        {
+        string name { get; }
+        string desc { get; }
+        int coolDownTime { get; }
+        int coolDown { get; set; }
+        bool isGettable { get; set; }
+        
+        void OnTile();
+        void OnMovement();
+        void OnPartner();
 
-        }
+        void OnFriend();
 
-        void OnMovement()
-        {
+        void OnRival();
 
-        }
+        void OnPrey();
 
-        void OnPartner()
-        {
+        void OnEnemy();
 
-        }
+        void OnBreeding();
 
-        void OnFriend()
-        {
+        void CoolDownSet();
 
-        }
+        void UnBlock();
 
-        void OnRival()
-        {
-
-        }
-
-        void OnPrey()
-        {
-
-        }
-
-        void OnEnemy()
-        {
-
-        }
-
-        void OnBreeding()
-        {
-
-        }
-
-        void coolDownSet()
-        {
-            CoolDown = CoolDownTime;
-        }
+        void Refresh();
     }
 
 }
