@@ -54,57 +54,76 @@ namespace TrialGame
 
         public void CoolDownSet()
         {
-            throw new NotImplementedException();
+            coolDown = coolDownTime;
         }
 
-        public void OnBreeding()
+        public void OnBreeding(Character character, ICreature partner, Character descendant)
         {
             throw new NotImplementedException();
         }
 
-        public void OnEnemy()
+        public void OnEnemy(Character character, ICreature enemy, Tile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnFriend()
+        public void OnFriend(Character character, ICreature friend, Tile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnMovement()
+        public void OnMovement(Character character, Tile departingTile, Tile destinationTile)
+        {
+            if (coolDown == 0)
+            {
+                Console.WriteLine("Accelerating...");
+                double staminaSpendingDelta = character.level / 10;
+                int staminaSpendingIncrease = 5 + Convert.ToInt32(Math.Floor(staminaSpendingDelta));
+                character.stamina = character.stamina - staminaSpendingIncrease;
+                CoolDownSet();
+            }
+            else
+            {
+                Console.WriteLine("Unable to accelerate...");
+            }
+        }
+
+        public void OnPartner(Character character, ICreature partner, Tile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnPartner()
+        public void OnPrey(Character character, ICreature prey, Tile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnPrey()
+        public void OnRival(Character character, ICreature rival, Tile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnRival()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnTile()
+        public void OnTile(Character character, Tile tile)
         {
             throw new NotImplementedException();
         }
 
         public void Refresh()
         {
-            throw new NotImplementedException();
+            if (coolDown > 0)
+            {
+                coolDown--;
+                if (coolDown == 0)
+                {
+                    Console.WriteLine(name + "is available to use!");
+                }
+            }            
         }
 
         public void UnBlock()
         {
-            throw new NotImplementedException();
+            isGettable = true;
+            Console.WriteLine(name + "is unlocked!");
         }
     }
 }
