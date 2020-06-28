@@ -1,4 +1,6 @@
-﻿
+﻿using System.Collections.Generic;
+
+
 namespace TrialGame
 {
     public abstract class Level
@@ -12,64 +14,9 @@ namespace TrialGame
         {
             return X * Y;
         }
-        public enum Season
-        {
-            Winter = 0,
-            Spring,
-            Summer,
-            Fall
-        }
-        public enum Weather
-        {
-            Sunny = 0,
-            PartlyCloudy,
-            Cloudy,
-            HeavyClouds,
-            Rain,
-            Thunderstorm,
-            Snow,
-            SNowstorm,
-            Hail,
-            AfterRain            
-        }
-        public enum Windy
-        {
-            Silence = 0,
-            Light,
-            Sensible,
-            Heavy,
-            TropicalStorm
-        }
-        public enum Disasters
-        {
-            Earthquake = 0,
-            Tsunami,
-            Hurricane,
-            VolcanoEruption,
-            MeteorShower
-        }
-        public enum Vegetation
-        {
-            Desert = 0,
-            Steppe,
-            BrinkRiver,
-            BrinkLake,
-            BrinkSea,
-            Bush,
-            Forest,
-            Swamp
-        }
-        public enum Landscape
-        {
-            Lowlands = 0,
-            Plain,
-            Highlands,
-            Mountain
-        }
-        public enum Creatures
-        {
+        List<ICreature> creatures { get; set; }
 
-        }
+        List<ILandscape> landscapes { get; set; }
         public Character currentCharacter { get; set; }
 
         public Character Entrance (Character _currentCharacter)

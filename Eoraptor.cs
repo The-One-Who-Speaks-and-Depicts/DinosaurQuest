@@ -62,17 +62,17 @@ namespace TrialGame
             throw new NotImplementedException();
         }
 
-        public void OnEnemy(Character character, ICreature enemy, Tile tile)
+        public void OnEnemy(Character character, ICreature enemy, ITile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnFriend(Character character, ICreature friend, Tile tile)
+        public void OnFriend(Character character, ICreature friend, ITile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnMovement(Character character, Tile departingTile, Tile destinationTile)
+        public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
         {
             if (coolDown == 0)
             {
@@ -88,22 +88,22 @@ namespace TrialGame
             }
         }
 
-        public void OnPartner(Character character, ICreature partner, Tile tile)
+        public void OnPartner(Character character, ICreature partner, ITile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnPrey(Character character, ICreature prey, Tile tile)
+        public void OnPrey(Character character, ICreature prey, ITile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnRival(Character character, ICreature rival, Tile tile)
+        public void OnRival(Character character, ICreature rival, ITile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void OnTile(Character character, Tile tile)
+        public void OnTile(Character character, ITile tile)
         {
             throw new NotImplementedException();
         }

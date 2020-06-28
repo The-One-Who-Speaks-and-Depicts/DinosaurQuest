@@ -44,7 +44,7 @@ namespace TrialGame
                 
                 do
                 {
-                    newCharacter.Perks = new List<Perk>();
+                    newCharacter.Perks = new List<IPerk>();
                     // stat choice to implement
                     Console.WriteLine("Your stats are. Are you satisfied? 1 for yes, 2 for no"); // right to end!
                     decision = ServiceFunctions.ChoosingRightKey();

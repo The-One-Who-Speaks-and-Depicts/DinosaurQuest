@@ -5,11 +5,7 @@ namespace TrialGame
 {
     class Level1 : Level
     {
-        new enum Season
-        {
-            Winter = 0,
-            Fall
-        }
+        
         
         public static void Level1_Entrance(Character character)
         {
@@ -22,8 +18,7 @@ namespace TrialGame
         }
         
         public Level1 (Character character)
-        {
-            Console.WriteLine(Season.Winter);
+        {            
             GameFunctions.Exit_Game();
         }
     }

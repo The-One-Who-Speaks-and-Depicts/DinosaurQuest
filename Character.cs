@@ -80,8 +80,8 @@ namespace TrialGame
             }
         }        
        
-        private List<Perk> perks { get; set; }
-        public List<Perk> Perks
+        private List<IPerk> perks { get; set; }
+        public List<IPerk> Perks
         {
             get
             {
@@ -135,9 +135,9 @@ namespace TrialGame
         {
             for (int i = 0; i < perks.Count; i++)
             {
-                if (perks[i].CoolDown > 0)
+                if (perks[i].coolDown > 0)
                 {
-                    perks[i].CoolDown--;
+                    perks[i].coolDown--;
                 }
             }
         }

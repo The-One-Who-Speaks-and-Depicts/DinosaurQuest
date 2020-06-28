@@ -14,17 +14,17 @@ namespace TrialGame
         int coolDown { get; set; }
         bool isGettable { get; set; }
         
-        void OnTile(Character character, Tile tile);
-        void OnMovement(Character character, Tile departingTile, Tile destinationTile);
-        void OnPartner(Character character, ICreature partner, Tile tile);
+        void OnTile(Character character, ITile tile);
+        void OnMovement(Character character, ITile departingTile, ITile destinationTile);
+        void OnPartner(Character character, ICreature partner, ITile tile);
 
-        void OnFriend(Character character, ICreature friend, Tile tile);
+        void OnFriend(Character character, ICreature friend, ITile tile);
 
-        void OnRival(Character character, ICreature rival, Tile tile);
+        void OnRival(Character character, ICreature rival, ITile tile);
 
-        void OnPrey(Character character, ICreature prey, Tile tile);
+        void OnPrey(Character character, ICreature prey, ITile tile);
 
-        void OnEnemy(Character character, ICreature enemy, Tile tile);
+        void OnEnemy(Character character, ICreature enemy, ITile tile);
 
         void OnBreeding(Character character, ICreature partner, Character descendant);
 

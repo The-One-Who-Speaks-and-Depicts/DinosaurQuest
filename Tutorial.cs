@@ -218,8 +218,7 @@ namespace TrialGame
         }
 
         public Tutorial(Character character)
-        {
-            Console.WriteLine(Season.Spring);
+        {            
             GameFunctions.Exit_Game();
         }
     }
