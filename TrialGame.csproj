@@ -66,6 +66,8 @@
     <Compile Include="Character.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="GameFunctions.cs" />
+    <Compile Include="ILandscape.cs" />
+    <Compile Include="ITile.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Level1.cs" />
     <Compile Include="IPerk.cs" />
