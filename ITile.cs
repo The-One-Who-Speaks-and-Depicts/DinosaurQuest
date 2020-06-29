@@ -17,5 +17,8 @@ namespace TrialGame
         ILandscape SetLandscape(Level level);
 
         List<ICreature> GenerateCreatures(Level level);
+
+        void OpenTerritory(Character character);
+        void CloseTerritory(Character character);
     }
 }

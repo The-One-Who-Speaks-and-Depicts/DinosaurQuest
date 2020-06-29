@@ -80,6 +80,7 @@ namespace TrialGame
                 double staminaSpendingDelta = character.level / 10;
                 int staminaSpendingIncrease = 5 + Convert.ToInt32(Math.Floor(staminaSpendingDelta));
                 character.stamina = character.stamina - staminaSpendingIncrease;
+                destinationTile.creaturesOnTile = new List<ICreature>();
                 CoolDownSet();
             }
             else
@@ -105,7 +106,20 @@ namespace TrialGame
 
         public void OnTile(Character character, ITile tile)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Developing aromorphosis...");
+            Random rnd = new Random();
+            int result = rnd.Next(1, 2);
+            if (result == 1)
+            {
+                Console.WriteLine("Positive aromorphosis developed.");
+                tile.OpenTerritory(character);
+            }
+            else
+            {
+                Console.WriteLine("Negative aromorphosis developed.");
+                tile.CloseTerritory(character);
+            }
+
         }
 
         public void Refresh()
