@@ -93,6 +93,11 @@ namespace TrialGame
             }
         }
 
+        public List<IPerk> HeritageAcquiring (Character parent, int branch)
+        {
+            return parent.Perks.FindAll(perk => perk.branch == branch);
+        }
+
         #endregion
 
         #region Constructors

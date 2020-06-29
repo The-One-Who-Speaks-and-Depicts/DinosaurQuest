@@ -10,6 +10,7 @@ namespace TrialGame
     {
         string name { get; }
         string desc { get; }
+        int branch { get; }
         int coolDownTime { get; }
         int coolDown { get; set; }
         bool isGettable { get; set; }
@@ -26,7 +27,7 @@ namespace TrialGame
 
         void OnEnemy(Character character, ICreature enemy, ITile tile);
 
-        void OnBreeding(Character character, ICreature partner, Character descendant);
+        void OnBreeding(Character character, Character partner, Character descendant);
 
         void CoolDownSet();
 

@@ -48,6 +48,7 @@ namespace TrialGame
 
         public string name { get { return "Eoraptor"; } }
         public string desc { get { return "Eoraptors were not exactly intelligent, so they lack more heuristic approaches to hunt, to fight, to help friends and enchant partners.However, their breed usually becomes more effective and accustomed to the world around, and Eoraptors' bodies develop some very unusual traits, although these traits can do bad for them."; } }
+        public int branch { get { return 3; } }
         public int coolDownTime { get { return 15; } }
         public int coolDown { get; set; }
         public bool isGettable { get; set; }
@@ -57,9 +58,26 @@ namespace TrialGame
             coolDown = coolDownTime;
         }
 
-        public void OnBreeding(Character character, ICreature partner, Character descendant)
+        public void OnBreeding(Character character, Character partner, Character descendant)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Which parent is going to transfer their perks to you? Press 1 to choose your character, press 2 to choose the partner.");
+            int decision;
+            do
+            {
+                decision = ServiceFunctions.ChoosingRightKey();
+            }
+            while (decision > 0 && decision < 3);
+            Character transferringParent;
+            transferringParent = decision == 1 ? character: partner;
+            Console.WriteLine("You may choose a branch of perks that your descendant will own. Press 1 to transfer skeleton, 2 to transfer appearance, 3 to transfer adaptation, 4 to transfer fortune, 5 to transfer orientation, 6 to transfer force");
+            decision = -1;
+            do
+            {
+                decision = ServiceFunctions.ChoosingRightKey();
+            }
+            while (decision > 0 && decision < 7);
+            Console.WriteLine("Evolution preserves useful skills!");
+            descendant.HeritageAcquiring(transferringParent, decision);
         }
 
         public void OnEnemy(Character character, ICreature enemy, ITile tile)
