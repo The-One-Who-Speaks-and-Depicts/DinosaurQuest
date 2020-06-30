@@ -27,6 +27,7 @@ namespace TrialGame
 
         public void OnBreeding(Character character, Character partner, Character descendant)
         {
+            // у Breeding нет cooldown'а, потому что он однократен
             Console.WriteLine("Which parent is going to transfer their perks to you? Press 1 to choose your character, press 2 to choose the partner.");
             int decision;
             do
@@ -49,17 +50,24 @@ namespace TrialGame
 
         public void OnEnemy(Character character, ICreature enemy, ITile tile)
         {
-            Console.WriteLine("Developing aromorphosis...");
-            Random rnd = new Random();
-            int aromorphosis = rnd.Next(1, 2);
-            if (aromorphosis == 1)
+            if (coolDown == 0)
             {
-                Console.WriteLine("Your feathers today grow bigger than feathers of your ancestors. The predator is not ready for this visible size of your body, so they are retreating... for now.");
-                tile.creaturesOnTile = tile.creaturesOnTile.Where(creature => creature != enemy).ToList();
+                Console.WriteLine("Developing aromorphosis...");
+                Random rnd = new Random();
+                int aromorphosis = rnd.Next(1, 2);
+                if (aromorphosis == 1)
+                {
+                    Console.WriteLine("Your feathers today grow bigger than feathers of your ancestors. The predator is not ready for this visible size of your body, so they are retreating... for now.");
+                    tile.creaturesOnTile = tile.creaturesOnTile.Where(creature => creature != enemy).ToList();
+                }
+                else
+                {
+                    Console.WriteLine("You started smelling as a more tasty food. The predator appetite is growing");
+                }
             }
             else
             {
-                Console.WriteLine("You started smelling as a more tasty food. The predator appetite is growing");
+                Console.WriteLine("Unable to develop aromorphosis...");
             }
             
         }
@@ -117,23 +125,49 @@ namespace TrialGame
 
         public void OnRival(Character character, ICreature rival, ITile tile)
         {
-            throw new NotImplementedException();
+            if (coolDown == 0)
+            {
+                Console.WriteLine("Developing aromorphosis...");
+                Random rnd = new Random();
+                int aromorphosis = rnd.Next(1, 2);
+                if (aromorphosis == 1)
+                {
+                    Console.WriteLine("Sight of you frightens the rival. They run away.");
+                    tile.creaturesOnTile = tile.creaturesOnTile.Where(creature => creature != rival).ToList();
+                }
+                else
+                {
+                    Console.WriteLine("Demonstration failed. Enemy attacked and wounded you.");
+                    character.health = character.health - (rival.attackCoefficient*2 - character.defenceCoefficient);
+                }
+            }
+            else
+            {
+                Console.WriteLine("You are not ready to use the advantages, that evolution provided you with. For now.");
+            }
         }
 
         public void OnTile(Character character, ITile tile)
         {
-            Console.WriteLine("Developing aromorphosis...");
-            Random rnd = new Random();
-            int result = rnd.Next(1, 2);
-            if (result == 1)
+            if (coolDown == 0)
             {
-                Console.WriteLine("Positive aromorphosis developed.");
-                tile.OpenTerritory(character);
+                Console.WriteLine("Developing aromorphosis...");
+                Random rnd = new Random();
+                int result = rnd.Next(1, 2);
+                if (result == 1)
+                {
+                    Console.WriteLine("Positive aromorphosis developed.");
+                    tile.OpenTerritory(character);
+                }
+                else
+                {
+                    Console.WriteLine("Negative aromorphosis developed.");
+                    tile.CloseTerritory(character);
+                }
             }
             else
             {
-                Console.WriteLine("Negative aromorphosis developed.");
-                tile.CloseTerritory(character);
+                Console.WriteLine("You are not ready to develop this aromorphosis, yet.");
             }
 
         }
