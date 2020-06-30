@@ -82,7 +82,8 @@ namespace TrialGame
 
         public void OnEnemy(Character character, ICreature enemy, ITile tile)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Your feathers today grow bigger than feathers of your ancestors. The predator is not ready for this visible size of your body, so they are retreating... for now.");
+            tile.creaturesOnTile = tile.creaturesOnTile.Where(creature => creature != enemy).ToList();
         }
 
         public void OnFriend(Character character, ICreature friend, ITile tile)
