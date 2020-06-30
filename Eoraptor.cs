@@ -96,7 +96,26 @@ namespace TrialGame
 
         public void OnPartner(Character character, ICreature partner, ITile tile)
         {
-            throw new NotImplementedException();
+            if (coolDown == 0)
+            {
+                Random rnd = new Random();
+                int aromorphosis = rnd.Next(1, 2);
+                if (aromorphosis == 1)
+                {
+                    Console.WriteLine("You developed a unique pattern of feather colors! Your partner is now more keen to mate.");
+                    Anchiornis matingPartner = (Anchiornis) partner;
+                    matingPartner.IncreaseFriendliness(40);
+                }
+                else
+                {
+                    Console.WriteLine("Your partner do not like the feather pattern your ancestors left for you");
+                    tile.creaturesOnTile = tile.creaturesOnTile.Where(creature => creature != partner).ToList();
+                }
+            }
+            else
+            {
+                Console.WriteLine("There is no way a partner will like you because of your evolution path. Yet.");
+            }
         }
 
         public void OnPrey(Character character, ICreature prey, ITile tile)
