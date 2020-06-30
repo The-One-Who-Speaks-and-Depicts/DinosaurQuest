@@ -92,11 +92,32 @@ namespace TrialGame
                 perks = value;
             }
         }
-
-        public List<IPerk> HeritageAcquiring (Character parent, int branch)
+        private int AttackCoefficient { get; set; }
+        private int DefenceCoefficient { get; set; }
+        public int attackCoefficient
         {
-            return parent.Perks.FindAll(perk => perk.branch == branch);
+            get
+            {
+                return AttackCoefficient;
+            }
+            set
+            {
+                attackCoefficient = value;
+            }
         }
+        public int defenceCoefficient
+        {
+            get
+            {
+                return DefenceCoefficient;
+            }
+            set
+            {
+                DefenceCoefficient = value;
+            }
+        }
+
+
 
         #endregion
 
@@ -145,6 +166,16 @@ namespace TrialGame
                     perks[i].coolDown--;
                 }
             }
+        }
+
+        public List<IPerk> HeritageAcquiring(Character parent, int branch)
+        {
+            return parent.Perks.FindAll(perk => perk.branch == branch);
+        }
+
+        public void Fight(ICreature attacker, ICreature defender, int effectCoefficient = 0)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

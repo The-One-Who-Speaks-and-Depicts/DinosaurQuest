@@ -8,40 +8,7 @@ namespace TrialGame
 {
     class Eoraptor : IPerk
     {
-        /*
-        new int CoolDownTime { get { return 15; } }
         
-
-        public Eoraptor()
-        {
-            Name = "Eoraptor";
-            Desc = "Eoraptors were not exactly intelligent, so they lack more heuristic approaches to hunt, to fight, to help friends and enchant partners. However, their breed usually becomes more effective and accustomed to the world around, and Eoraptors' bodies develop some very unusual traits, although these traits can do bad for them.";
-            CoolDown = 0;
-        }
-
-        void CoolDownSet()
-        {
-            this.CoolDown = CoolDownTime;
-        }
-
-        public void 
-
-        public void OnMovement(Character character)
-        {
-            if (CoolDown ==.0)
-            {
-                Console.WriteLine("Accelerating...");
-                double staminaSpendingDelta = character.level / 10;
-                int staminaSpendingIncrease = 5 + Convert.ToInt32(Math.Floor(staminaSpendingDelta));
-                character.stamina = character.stamina - staminaSpendingIncrease;
-                CoolDownSet();
-            }
-            else
-            {
-                Console.WriteLine("Unable to accelerate...");
-            }
-        }
-        */
         public Eoraptor()
         {
         }
@@ -82,8 +49,19 @@ namespace TrialGame
 
         public void OnEnemy(Character character, ICreature enemy, ITile tile)
         {
-            Console.WriteLine("Your feathers today grow bigger than feathers of your ancestors. The predator is not ready for this visible size of your body, so they are retreating... for now.");
-            tile.creaturesOnTile = tile.creaturesOnTile.Where(creature => creature != enemy).ToList();
+            Console.WriteLine("Developing aromorphosis...");
+            Random rnd = new Random();
+            int aromorphosis = rnd.Next(1, 2);
+            if (aromorphosis == 1)
+            {
+                Console.WriteLine("Your feathers today grow bigger than feathers of your ancestors. The predator is not ready for this visible size of your body, so they are retreating... for now.");
+                tile.creaturesOnTile = tile.creaturesOnTile.Where(creature => creature != enemy).ToList();
+            }
+            else
+            {
+                Console.WriteLine("You started smelling as a more tasty food. The predator appetite is growing");
+            }
+            
         }
 
         public void OnFriend(Character character, ICreature friend, ITile tile)
@@ -115,7 +93,26 @@ namespace TrialGame
 
         public void OnPrey(Character character, ICreature prey, ITile tile)
         {
-            throw new NotImplementedException();
+            if (coolDown == 0)
+            {
+                Console.WriteLine("Developing aromorphosis...");
+                Random rnd = new Random();
+                int aromorphosis = rnd.Next(1, 2);
+                if (aromorphosis == 1)
+                {
+                    Console.WriteLine("Your claws and teeth are now sharper than they used to be. Your attacks are much deadlier.");
+                    character.Fight(character, prey, 5);
+                }
+                else
+                {
+                    Console.WriteLine("Unfortunately, your ancestors were practicing heterophagia. So, your ability to attack something moving is significantly weaker.");
+                    character.Fight(character, prey, -5);
+                }
+            }
+            else
+            {
+                Console.WriteLine("You are not ready to develop this aromorphosis... yet.");
+            }
         }
 
         public void OnRival(Character character, ICreature rival, ITile tile)
