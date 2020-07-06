@@ -28,6 +28,7 @@ namespace TrialGame
         public void OnBreeding(Character character, Character partner, Character descendant)
         {
             // у Breeding нет cooldown'а, потому что он однократен
+            // также, поскольку игрок здесь де-факто контролирует эволюционный поток, сраабатывание навыка не рандомизировано, а гарантированно
             Console.WriteLine("Which parent is going to transfer their perks to you? Press 1 to choose your character, press 2 to choose the partner.");
             int decision;
             do
@@ -74,7 +75,7 @@ namespace TrialGame
 
         public void OnFriend(Character character, ICreature friend, ITile tile)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("There is no aromorphosis that can help friends of Eoraptors, unfortunately.");
         }
 
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
