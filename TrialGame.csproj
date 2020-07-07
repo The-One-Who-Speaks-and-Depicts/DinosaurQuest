@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Anchiornis.cs" />
-    <Compile Include="Eoraptor.cs" />
+    <Compile Include="Perks\Adaptation\Eoraptor.cs" />
     <Compile Include="ICreature.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Creature.cs" />
@@ -71,7 +71,8 @@
     <Compile Include="ITile.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Level1.cs" />
-    <Compile Include="IPerk.cs" />
+    <Compile Include="Perks\Adaptation\Eustreptospondylus.cs" />
+    <Compile Include="Perks\IPerk.cs" />
     <Compile Include="Save.cs" />
     <Compile Include="ServiceFunctions.cs" />
     <Compile Include="TIle.cs" />

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TrialGame
 {
@@ -13,10 +11,10 @@ namespace TrialGame
         {
         }
 
-        public string name { get { return "Eoraptor"; } }
-        public string desc { get { return "Eoraptors were not exactly intelligent, so they lack more heuristic approaches to hunt, to fight, to help friends and enchant partners.However, their breed usually becomes more effective and accustomed to the world around, and Eoraptors' bodies develop some very unusual traits, although these traits can do bad for them."; } }
-        public int branch { get { return 3; } }
-        public int coolDownTime { get { return 15; } }
+        public string name => "Eoraptor";
+        public string desc => "Eoraptors were not exactly intelligent, so they lack more heuristic approaches to hunt, to fight, to help friends and enchant partners.However, their breed usually becomes more effective and accustomed to the world around, and Eoraptors' bodies develop some very unusual traits, although these traits can do bad for them.";
+        public int branch => 3;
+        public int coolDownTime => 15;
         public int coolDown { get; set; }
         public bool isGettable { get; set; }
 
