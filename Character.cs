@@ -117,6 +117,19 @@ namespace TrialGame
             }
         }
 
+        private Pack<Anchiornis> Pack { get; set; } = new Pack<Anchiornis>();
+        public Pack<Anchiornis> pack
+        {
+            get
+            {
+                return Pack;
+            }
+            set
+            {
+                Pack = value;
+            }
+        }
+
 
 
         #endregion
