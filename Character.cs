@@ -4,11 +4,11 @@ using System.Collections.Generic;
 namespace TrialGame
 {
     
-    public class Character : ICreature
+    public class Character : Anchiornis, ICreature
     {
         #region commonCharacteristics
         private string Name { get; set; }
-        public string name
+        public new string name
         {
             get
             {
@@ -56,7 +56,7 @@ namespace TrialGame
             }
         }
         private int Health { get; set; }
-        public int health
+        public new int health
         {
             get
             {
@@ -68,7 +68,7 @@ namespace TrialGame
             }
         }
         private int Stamina { get; set; }
-        public int stamina
+        public new int stamina
         {
             get
             {
@@ -94,7 +94,7 @@ namespace TrialGame
         }
         private int AttackCoefficient { get; set; }
         private int DefenceCoefficient { get; set; }
-        public int attackCoefficient
+        public new int attackCoefficient
         {
             get
             {
@@ -105,7 +105,7 @@ namespace TrialGame
                 attackCoefficient = value;
             }
         }
-        public int defenceCoefficient
+        public new int defenceCoefficient
         {
             get
             {
@@ -186,7 +186,7 @@ namespace TrialGame
             return parent.Perks.FindAll(perk => perk.branch == branch);
         }
 
-        public void Fight(ICreature attacker, ICreature defender, int effectCoefficient = 0)
+        public new void Fight(ICreature attacker, ICreature defender, int effectCoefficient = 0)
         {
             throw new NotImplementedException();
         }

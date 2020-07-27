@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Anchiornis.cs" />
+    <Compile Include="Pack.cs" />
     <Compile Include="Perks\Adaptation\Eoraptor.cs" />
     <Compile Include="ICreature.cs" />
     <Compile Include="Character.cs" />
