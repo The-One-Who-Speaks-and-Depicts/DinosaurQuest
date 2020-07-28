@@ -67,6 +67,18 @@ namespace TrialGame
                 Health = value;
             }
         }
+        private int MaxHealth { get; set; }
+        public new int maxHealth
+        {
+            get
+            {
+                return MaxHealth;
+            }
+            set
+            {
+                maxHealth = value;
+            }
+        }
         private int Stamina { get; set; }
         public new int stamina
         {

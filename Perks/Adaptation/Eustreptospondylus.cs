@@ -42,7 +42,45 @@ namespace TrialGame.Perks.Adaptation
 
         public void OnFriend(Character character, ICreature friend, ITile tile)
         {
-            throw new NotImplementedException();
+            if (coolDown == 0)
+            {
+                Console.WriteLine("Trying to heal...");
+                Random rnd = new Random();
+                int result = rnd.Next(1, 2);
+                if (result == 1)
+                {                    
+                    int addedHealth = 5 * character.level;
+                    if (friend.health + addedHealth < friend.maxHealth)
+                    {
+                        friend.health += addedHealth;
+                        Console.WriteLine("You have healed the wounds of your friend by {0}!", addedHealth);
+                    }
+                    else
+                    {
+                        friend.health += friend.maxHealth;
+                        Console.WriteLine("You have healed the wounds of your friend completely!");
+                    }
+                }
+                else
+                {
+                    int removedHealth = 5 * character.level;
+                    if (friend.health - removedHealth > 0)
+                    {
+                        friend.health -= removedHealth;
+                        Console.WriteLine("You poisoned the wounds of your friend by {0}!", removedHealth);
+                    }
+                    else
+                    {
+                        character.pack.Remove(friend as Anchiornis);
+                        Console.WriteLine("You have killed your friend!");
+                    }
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine("You are not ready to use this, yet.");
+            }
         }
 
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile)

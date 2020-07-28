@@ -4,6 +4,7 @@
     {
         string name { get; set; }
         int health { get; set; }
+        int maxHealth { get; }
         int stamina { get; set; }
         int attackCoefficient { get; set; }
         int defenceCoefficient { get; set; }
