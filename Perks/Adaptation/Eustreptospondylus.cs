@@ -90,7 +90,7 @@ namespace TrialGame.Perks.Adaptation
 
         public void OnPartner(Character character, ICreature partner, ITile tile)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("It is a pity that there is no additional way of how an Eustreptospondylus is able to attract a partner.");
         }
 
         public void OnPrey(Character character, ICreature prey, ITile tile)
