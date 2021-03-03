@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using DinosaurAction.GameFunctions;
 
 namespace DinosaurAction
 {
@@ -6,7 +8,10 @@ namespace DinosaurAction
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string currDir = Directory.GetCurrentDirectory();
+            Directory.CreateDirectory(Path.Combine(currDir, "Tech"));
+            Directory.CreateDirectory(Path.Combine(currDir, "Saves"));
+            MainFunctions.MainMenu();
         }
     }
 }
