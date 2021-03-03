@@ -1,21 +1,12 @@
-﻿using System.IO;
+﻿using System;
 
-
-
-namespace TrialGame
+namespace DinosaurAction
 {
     class Program
-    {         
-               
+    {
         static void Main(string[] args)
         {
-            string currDir = Directory.GetCurrentDirectory();
-            Directory.CreateDirectory(Path.Combine(currDir, "Tech"));
-            Directory.CreateDirectory(Path.Combine(currDir, "Saves"));
-            GameFunctions.MainMenu();
+            Console.WriteLine("Hello World!");
         }
-
-
-        
     }
 }
