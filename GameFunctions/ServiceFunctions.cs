@@ -1,6 +1,6 @@
 using System;
 
-namespace DinosaurAction.GameFunctions
+namespace DinosaurQuest.GameFunctions
 {
     static class ServiceFunctions
     {

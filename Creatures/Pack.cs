@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DinosaurAction.Creatures
+namespace DinosaurQuest.Creatures
 {
     public class Pack<T> : List<T> where T : ICreature
     {

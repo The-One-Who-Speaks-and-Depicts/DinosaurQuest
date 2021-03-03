@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DinosaurAction.Creatures;
-using DinosaurAction.Landscapes;
+using DinosaurQuest.Creatures;
+using DinosaurQuest.Landscapes;
 
-namespace DinosaurAction.Tiles
+namespace DinosaurQuest.Tiles
 {
     public interface ITile
     {

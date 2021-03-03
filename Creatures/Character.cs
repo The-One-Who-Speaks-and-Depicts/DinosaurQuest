@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using DinosaurAction.Perks;
-using DinosaurAction.GameFunctions;
+using DinosaurQuest.Perks;
+using DinosaurQuest.GameFunctions;
 
-namespace DinosaurAction.Creatures
+namespace DinosaurQuest.Creatures
 {
     
     public class Character : Anchiornis, ICreature

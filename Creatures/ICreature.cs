@@ -1,4 +1,4 @@
-﻿namespace DinosaurAction.Creatures
+﻿namespace DinosaurQuest.Creatures
 {
     public interface ICreature
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using DinosaurAction.Creatures;
-using DinosaurAction.GameFunctions;
-using DinosaurAction.Perks;
+using DinosaurQuest.Creatures;
+using DinosaurQuest.GameFunctions;
+using DinosaurQuest.Perks;
 
-namespace DinosaurAction.Stages
+namespace DinosaurQuest.Stages
 {
     static class Start
     {        

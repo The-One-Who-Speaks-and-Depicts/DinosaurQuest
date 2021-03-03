@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DinosaurAction.Landscapes
+namespace DinosaurQuest.Landscapes
 {
     public interface ILandscape
     {

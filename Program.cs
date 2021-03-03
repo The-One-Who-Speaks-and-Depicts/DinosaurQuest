@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using DinosaurAction.GameFunctions;
+using DinosaurQuest.GameFunctions;
 
-namespace DinosaurAction
+namespace DinosaurQuest
 {
     class Program
     {

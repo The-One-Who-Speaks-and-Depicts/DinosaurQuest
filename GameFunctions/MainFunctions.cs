@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using DinosaurAction.Stages;
+using DinosaurQuest.Stages;
+using DinosaurQuest.Creatures;
 
-namespace DinosaurAction.GameFunctions
+namespace DinosaurQuest.GameFunctions
 {
     static class MainFunctions
     {
@@ -22,7 +23,7 @@ namespace DinosaurAction.GameFunctions
             switch (decision)
             {
                 case 1:
-                    var currentCharacter = Start.Start_Game();
+                    Character currentCharacter = Start.Start_Game();
                     /* Console.WriteLine("You are going to the tutorial level. Press 1 to do that, Press 2 to skip tutorial, press any key to exit the game");
                     decision = ServiceFunctions.ChoosingRightKey();                    
                     if (decision < 1 || decision > 2) Save.Save_Game(currentCharacter, 0);

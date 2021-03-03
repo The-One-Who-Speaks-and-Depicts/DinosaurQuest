@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DinosaurAction.Tiles;
-using DinosaurAction.Creatures;
+using DinosaurQuest.Tiles;
+using DinosaurQuest.Creatures;
 
-namespace DinosaurAction.Perks
+namespace DinosaurQuest.Perks
 {
     public interface IPerk
     {
