@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using DinosaurAction.Stages;
 
 namespace DinosaurAction.GameFunctions
 {
@@ -20,9 +21,9 @@ namespace DinosaurAction.GameFunctions
             int decision = ServiceFunctions.ChoosingRightKey();
             switch (decision)
             {
-                /*case 1:
-                    var currentCharacter = Start_Game();
-                    Console.WriteLine("You are going to the tutorial level. Press 1 to do that, Press 2 to skip tutorial, press any key to exit the game");
+                case 1:
+                    var currentCharacter = Start.Start_Game();
+                    /* Console.WriteLine("You are going to the tutorial level. Press 1 to do that, Press 2 to skip tutorial, press any key to exit the game");
                     decision = ServiceFunctions.ChoosingRightKey();                    
                     if (decision < 1 || decision > 2) Save.Save_Game(currentCharacter, 0);
                     if (decision == 2)
@@ -34,10 +35,10 @@ namespace DinosaurAction.GameFunctions
                     {
                         Save.Save_Game(currentCharacter, 0);
                         new Tutorial(currentCharacter);                        
-                    }
+                    }*/
                     Exit_Game();
                     break;
-                case 2:
+                /* case 2:
                     Save.Auto_Load_Game();
                     break;
                 case 3:
