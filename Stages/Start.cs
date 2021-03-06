@@ -64,43 +64,7 @@ namespace DinosaurQuest.Stages
             {
                 MainFunctions.Exit_Game();
             }
-            Console.WriteLine("Now you have to choose your creature biological sex, for this kind of creatures masculine either feminine. Press 1 for choosing female + swap parameters, press 2 for choosing male + swap parameters, press 3 for choosing female + getting unique perk, press 4 for choosing male + getting unique perk"); //TELL'EM DIFFERENCE            
-            do
-            {
-                decision = 0;
-                while ((decision < 1) || (decision > 2))
-                {                    
-                    decision = ServiceFunctions.ChoosingRightKey();
-                }
-
-                if (decision == 2)
-                {
-                    Console.WriteLine("You are male now");
-                    newCharacter.gender = "masculine";
-                }
-                else if (decision == 1)
-                {
-                    Console.WriteLine("You are female now");
-                    newCharacter.gender = "feminine";
-                }
-                // AddChoices
-
-                Console.WriteLine("If you are sure about your choice, press 1, in the other case, press any other key");
-                decision = ServiceFunctions.ChoosingRightKey();
-                if (decision != 1)
-                {
-                    Console.WriteLine("Press 1 for feminine, 2 for masculine");
-                }
-            }
-            while (decision != 1);
-            if (newCharacter.gender == "feminine")
-            {
-                //do some thing
-            }
-            else
-            {
-                // do another thing
-            }
+            newCharacter.gender = "feminine";
             Console.WriteLine(""); //TELL'EM WHAT THEY DO
             return newCharacter;
 
