@@ -16,6 +16,7 @@ namespace DinosaurQuest.Perks
         int coolDownTime { get; }
         int coolDown { get; set; }
         bool isGettable { get; set; }
+        bool isAcquired { get; set; }
         
         void OnTile(Character character, ITile tile);
         void OnMovement(Character character, ITile departingTile, ITile destinationTile);
