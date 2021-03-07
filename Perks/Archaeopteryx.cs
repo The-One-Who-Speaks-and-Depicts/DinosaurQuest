@@ -63,9 +63,6 @@ namespace DinosaurQuest.Perks
         {
 			this.coolDown = coolDownTime;
 		}
-        public void UnBlock()
-        {
-			isGettable = true;
-		}
+        public void UnBlock() { }
 	}
 }
