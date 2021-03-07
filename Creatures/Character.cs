@@ -162,7 +162,7 @@ namespace DinosaurQuest.Creatures
         }
         
 
-        public static void ChooseStats()
+        public void ChooseStats()
         {
             
         }

@@ -14,8 +14,7 @@ namespace DinosaurQuest.Stages
         {            
             using (StreamReader intro = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "intro.txt")))
             {
-                string introText = intro.ReadToEnd();
-                Console.WriteLine(introText);
+                Console.WriteLine(intro.ReadToEnd());
             }
             Character newCharacter = new Character();
             newCharacter.preGiving();
