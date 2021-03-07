@@ -155,7 +155,7 @@ namespace DinosaurQuest.Creatures
             {
                 Console.WriteLine("Type the name of your creature");
                 result = Console.ReadLine();
-                Console.WriteLine("Your name is {0}. If OK, enter 1, if not, enter anything else", result);
+                Console.WriteLine("Your name is {0}. If you agree, enter 1, if not, enter anything else.", result);
             }
             while (ServiceFunctions.ChoosingRightKey() != 1);
             this.name = result;
@@ -164,7 +164,19 @@ namespace DinosaurQuest.Creatures
 
         public void ChooseStats()
         {
-            
+            int _attackCoefficient;
+            int _defenceCoefficient;
+            do 
+            {
+                Console.WriteLine("To make your attacks more effective, press 1, to make your evasive manoeuvres more effective, press any other key");
+                int result = ServiceFunctions.ChoosingRightKey();
+                _attackCoefficient = result == 1 ? 1 : 0;
+                _defenceCoefficient = result == 1 ? 0 : 1;
+                Console.WriteLine("Your defence skill is {0}, your attack skill is {1}. If you agree, enter 1, if not, enter anything else. ", _defenceCoefficient, _attackCoefficient);
+            }
+            while (ServiceFunctions.ChoosingRightKey() != 1);
+            this.attackCoefficient = _attackCoefficient;
+            this.defenceCoefficient = _defenceCoefficient;
         }
         #endregion
 
