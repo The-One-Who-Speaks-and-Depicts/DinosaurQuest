@@ -2,8 +2,8 @@ namespace DinosaurQuest.Perks
 {
 	public class Archaeopteryx//: IPerk
 	{
-		/*
-		public string name 
+		
+		/*public string name 
 		{
 			get
 			{
@@ -23,7 +23,17 @@ namespace DinosaurQuest.Perks
 			{
 				return 0;
 			}
-		}*/
+		}
+		public int coolDownTime
+		{
+			get
+			{
+				return 1;
+			}
+		}
+		public int coolDown {get; set;}
+		bool isGettable = false;
+		bool isAcquired = true;*/
 
 	}
 }
