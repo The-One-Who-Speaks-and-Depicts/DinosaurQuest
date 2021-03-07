@@ -55,10 +55,6 @@ namespace DinosaurQuest.Perks
         {
 			throw new NotImplementedException();
 		}
-        public void OnPrey(Character character, ICreature prey, ITile tile)
-        {
-			throw new NotImplementedException();
-		}
         public void OnEnemy(Character character, ICreature enemy, ITile tile)
         {
 			throw new NotImplementedException();
