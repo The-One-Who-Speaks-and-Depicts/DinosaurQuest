@@ -21,15 +21,15 @@ namespace DinosaurQuest.Stages
         List<ICreature> accessibleCreatures { get; set; }
         List<ILandscape> landscapes { get; set; }
         public Character currentCharacter { get; set; }
-        
+
         public void Entrance (Character _currentCharacter)
         {
             
         } 
         
-        public Character Transfer (Character _currentCharacter)
+        public void Transfer (Character _currentCharacter)
         {
-            return _currentCharacter;
+            
         }
     }
 }
