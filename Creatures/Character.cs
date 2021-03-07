@@ -78,7 +78,7 @@ namespace DinosaurQuest.Creatures
             }
             set
             {
-                MaxHealth = value;
+                MaxStamina = value;
             }
         }        
        
