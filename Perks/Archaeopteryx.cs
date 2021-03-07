@@ -77,7 +77,7 @@ namespace DinosaurQuest.Perks
 		}
         public void UnBlock()
         {
-			throw new NotImplementedException();
+			isGettable = true;
 		}
 	}
 }
