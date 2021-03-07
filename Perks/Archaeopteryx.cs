@@ -79,10 +79,5 @@ namespace DinosaurQuest.Perks
         {
 			throw new NotImplementedException();
 		}
-        public void Refresh()
-        {
-			throw new NotImplementedException();
-		}
-
 	}
 }

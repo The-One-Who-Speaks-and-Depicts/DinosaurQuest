@@ -28,7 +28,6 @@ namespace DinosaurQuest.Perks
         void OnBreeding(Character character, Character partner, Character descendant);
         void CoolDownSet();
         void UnBlock();
-        void Refresh();
     }
 
 }
