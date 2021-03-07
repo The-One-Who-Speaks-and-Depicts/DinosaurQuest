@@ -41,7 +41,7 @@ namespace DinosaurQuest.Perks
 
 		public void OnTile(Character character, ITile tile)
 		{
-			throw new NotImplementedException();
+			tile.OpenTerritory(character);
 		}
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
         {
