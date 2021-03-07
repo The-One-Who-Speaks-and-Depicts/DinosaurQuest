@@ -47,10 +47,6 @@ namespace DinosaurQuest.Perks
         {
 			throw new NotImplementedException();
 		}
-        public void OnPartner(Character character, ICreature partner, ITile tile)
-        {
-			throw new NotImplementedException();
-		}
         public void OnFriend(Character character, ICreature friend, ITile tile)
         {
 			throw new NotImplementedException();
@@ -64,10 +60,6 @@ namespace DinosaurQuest.Perks
 			throw new NotImplementedException();
 		}
         public void OnEnemy(Character character, ICreature enemy, ITile tile)
-        {
-			throw new NotImplementedException();
-		}
-        public void OnBreeding(Character character, Character partner, Character descendant)
         {
 			throw new NotImplementedException();
 		}
