@@ -33,25 +33,8 @@ namespace DinosaurQuest.Stages
             }
             if (decision > 0)
             {
-                if (decision  > 1)
-                {
-
-                }
-                
-                do
-                {
-                    newCharacter.Perks = new List<IPerk>();
-                    // stat choice to implement
-                    Console.WriteLine("Your stats are. Are you satisfied? 1 for yes, 2 for no"); // right to end!
-                    decision = ServiceFunctions.ChoosingRightKey();
-                    while ((decision < 1) || (decision > 2))
-                    {
-                        Console.WriteLine("Please press appropriate key");
-                        Console.WriteLine("Your stats are. Are you satisfied? 1 for yes, 2 for no"); // right to end!
-                        decision = ServiceFunctions.ChoosingRightKey();
-                    }
-                }
-                while (decision != 1);                
+                newCharacter.ChooseStats();
+                newCharacter.Perks = new List<IPerk>();           
             }            
             else
             {
