@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DinosaurQuest.Tiles;
 
 namespace DinosaurQuest.Creatures
 {
@@ -30,6 +31,12 @@ namespace DinosaurQuest.Creatures
         public int attackCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int defenceCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
+        public void Move (ITile tileSource, ITile tileTarget)
+        {
+            tileSource.creaturesOnTile.Remove(this);
+            tileTarget.creaturesOnTile.Add(this);
+        }
+
         public void IncreaseFriendliness (int coefficient)
         {
             if (friendliness < maxFriendliness)

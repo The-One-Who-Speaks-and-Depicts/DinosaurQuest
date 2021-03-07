@@ -18,13 +18,10 @@ namespace DinosaurQuest.Stages
                 return X_length * Y_length;
             }
         }
-
-
         List<ICreature> accessibleCreatures { get; set; }
-
         List<ILandscape> landscapes { get; set; }
         public Character currentCharacter { get; set; }
-
+        
         public void Entrance (Character _currentCharacter)
         {
             

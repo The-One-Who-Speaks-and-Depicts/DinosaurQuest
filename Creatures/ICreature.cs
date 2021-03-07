@@ -1,4 +1,6 @@
-﻿namespace DinosaurQuest.Creatures
+﻿using DinosaurQuest.Tiles;
+
+namespace DinosaurQuest.Creatures
 {
     public interface ICreature
     {
@@ -9,6 +11,8 @@
         int maxStamina {get; }
         int attackCoefficient { get; set; }
         int defenceCoefficient { get; set; }
+
+        void Move (ITile tile1, ITile tile2) ;
 
     }
 }

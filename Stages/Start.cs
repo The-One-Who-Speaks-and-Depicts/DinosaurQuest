@@ -8,9 +8,7 @@ using DinosaurQuest.Perks;
 namespace DinosaurQuest.Stages
 {
     static class Start
-    {        
-
-
+    {
 
         public static Character Start_Game()
         {            
