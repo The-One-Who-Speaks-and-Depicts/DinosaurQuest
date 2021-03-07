@@ -73,7 +73,7 @@ namespace DinosaurQuest.Perks
 		}
         public void CoolDownSet()
         {
-			throw new NotImplementedException();
+			this.coolDown = coolDownTime;
 		}
         public void UnBlock()
         {
