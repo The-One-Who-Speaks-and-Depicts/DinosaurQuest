@@ -18,18 +18,13 @@ namespace DinosaurQuest.Stages
                 Console.WriteLine(introText);
             }
             Character newCharacter = new Character();
-            newCharacter.name = Character.preGiving();
+            newCharacter.preGiving();
             Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", newCharacter.name);
             Console.WriteLine("Your health is {0}, and your stamina is {1}. ", newCharacter.health, newCharacter.stamina);
-            List<string> statLines = new List<string>();
             using (StreamReader stats = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "statsDialogue.txt")))
             {
-                while(!stats.EndOfStream)
-                {
-                    statLines.Add(stats.ReadLine());
-                }
+                Console.WriteLine(stats.ReadToEnd());
             }
-            Console.WriteLine(statLines[0]);
             int decision = ServiceFunctions.ChoosingRightKey();
             while ((decision < 0) || decision > 1)
             {

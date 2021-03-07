@@ -148,7 +148,7 @@ namespace DinosaurQuest.Creatures
         #endregion
 
         #region CharacterCreation
-        public static string preGiving()
+        public void preGiving()
         {
             string result;
             do
@@ -158,7 +158,7 @@ namespace DinosaurQuest.Creatures
                 Console.WriteLine("Your name is {0}. If OK, enter 1, if not, enter anything else", result);
             }
             while (ServiceFunctions.ChoosingRightKey() != 1);
-            return result;
+            this.name = result;
         }
         
 
