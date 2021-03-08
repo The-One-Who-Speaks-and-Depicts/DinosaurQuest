@@ -45,67 +45,35 @@ namespace DinosaurQuest.Perks
 		}
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
         {
-        	/*
+        	
 			ITile newDestinationTile = destinationTile;
-			// vertical
-			if (destinationTile.X == departingTile.X)
+			if (destinationTile.Y < departingTile.Y)
 			{
-				// south
-				if (destinationTile.Y < departingTile.Y)
-				{
-					newDestinationTile.X++;
-				}
-				// north
-				else
-				{
-
-				}
+				newDestinationTile.Y = newDestinationTile.Y - 1;					
+			}				
+			else if (destinationTile.Y > departingTile.Y)
+			{
+				newDestinationTile.Y = newDestinationTile.Y + 1;
 			}
-			// horizontal
-			else if (destinationTile.Y == departingTile.Y)
+			if (destinationTile.X < departingTile.X)
 			{
-				// west
-				if (destinationTile.X < departingTile.X)
-				{
-
-				}
-				// east
-				else
-				{
-					
-				}
+				newDestinationTile.X = newDestinationTile.X - 1;					
+			}				
+			else if (destinationTile.Y > departingTile.X)
+			{
+				newDestinationTile.X = newDestinationTile.X + 1;
 			}
-			// diagonal
-			else
+			if (newDestinationTile.isAccessible())
 			{
-				//south
-				if (destinationTile.Y < departingTile.Y)
-				{
-					// south-west
-					if (destinationTile.X < departingTile.X)
-					{
-
-					}
-					// south-east
-					else
-					{
-
-					}
-				}
-				//north
-				else
-				{
-					// north-west
-					if (destinationTile.X < departingTile.X)
-					{
-
-					}
-					//north-east
-					{
-
-					}
-				}
-			}*/
+				newDestinationTile.Generate();
+				character.Move(departingTile, newDestinationTile);
+				Console.WriteLine("Longer feathers make your flight longer.");
+			}
+			else 
+			{
+				Console.WriteLine("There is no way to move there, long flight is interrupted.");
+			}
+			this.CoolDownSet();
 		}
         public void OnFriend(Character character, ICreature friend, ITile tile)
         {
