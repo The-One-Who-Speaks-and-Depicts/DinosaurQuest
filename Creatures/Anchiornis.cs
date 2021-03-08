@@ -39,11 +39,12 @@ namespace DinosaurQuest.Creatures
 
         public void IncreaseFriendliness (int coefficient)
         {
+            int increase = 10 + 2 * coefficient;
             if (friendliness < maxFriendliness)
             {
-                if ((maxFriendliness - friendliness) > coefficient)
+                if ((maxFriendliness - friendliness) > increase)
                 {
-                    friendliness += coefficient;
+                    friendliness += increase;
                 }
                 else
                 {
