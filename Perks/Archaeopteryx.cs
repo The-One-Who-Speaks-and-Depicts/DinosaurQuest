@@ -41,6 +41,7 @@ namespace DinosaurQuest.Perks
 
 		public void OnTile(Character character, ITile tile)
 		{
+			// add description
 			tile.OpenTerritory(character);
 		}
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
@@ -77,15 +78,18 @@ namespace DinosaurQuest.Perks
 		}
         public void OnUs(Character character, Anchiornis us, ITile tile)
         {
+        	// add description
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
 		}
         public void OnThem(Character character, ICreature them, ITile tile) // implement
         {
+        	// add description
 			them.Frighten();
 		}
         public void CoolDownSet()
         {
 			this.coolDown = coolDownTime;
+			// add message
 		}
         public void UnBlock() { }
 	}
