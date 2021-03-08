@@ -75,9 +75,9 @@ namespace DinosaurQuest.Perks
 			}
 			this.CoolDownSet();
 		}
-        public void OnUs(Character character, Anchiornis us, ITile tile) // implement
+        public void OnUs(Character character, Anchiornis us, ITile tile)
         {
-			throw new NotImplementedException();
+			us.IncreaseFriendliness(character.socialCoefficient + 1);
 		}
         public void OnThem(Character character, ICreature them, ITile tile) // implement
         {
