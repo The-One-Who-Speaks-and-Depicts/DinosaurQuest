@@ -45,7 +45,67 @@ namespace DinosaurQuest.Perks
 		}
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
         {
-			throw new NotImplementedException();
+        	/*
+			ITile newDestinationTile = destinationTile;
+			// vertical
+			if (destinationTile.X == departingTile.X)
+			{
+				// south
+				if (destinationTile.Y < departingTile.Y)
+				{
+					newDestinationTile.X++;
+				}
+				// north
+				else
+				{
+
+				}
+			}
+			// horizontal
+			else if (destinationTile.Y == departingTile.Y)
+			{
+				// west
+				if (destinationTile.X < departingTile.X)
+				{
+
+				}
+				// east
+				else
+				{
+					
+				}
+			}
+			// diagonal
+			else
+			{
+				//south
+				if (destinationTile.Y < departingTile.Y)
+				{
+					// south-west
+					if (destinationTile.X < departingTile.X)
+					{
+
+					}
+					// south-east
+					else
+					{
+
+					}
+				}
+				//north
+				else
+				{
+					// north-west
+					if (destinationTile.X < departingTile.X)
+					{
+
+					}
+					//north-east
+					{
+
+					}
+				}
+			}*/
 		}
         public void OnFriend(Character character, ICreature friend, ITile tile)
         {

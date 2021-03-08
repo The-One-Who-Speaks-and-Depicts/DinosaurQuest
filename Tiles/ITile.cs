@@ -23,6 +23,7 @@ namespace DinosaurQuest.Tiles
 
         List<ICreature> creaturesOnTile { get; set; }
 
+        void Generate();
         void OpenTerritory(Character character);
         void CloseTerritory(Character character);
         bool isAccessible (ILevel level)
