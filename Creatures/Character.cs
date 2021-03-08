@@ -118,6 +118,18 @@ namespace DinosaurQuest.Creatures
                 DefenceCoefficient = value;
             }
         }
+        private int SocialCoefficient { get; set;}
+        public int socialCoefficient
+        {
+            get
+            {
+                return SocialCoefficient;
+            }
+            set
+            {
+                SocialCoefficient = value;
+            }
+        }
 
         private Pack<Anchiornis> Pack { get; set; } = new Pack<Anchiornis>();
         public Pack<Anchiornis> pack
