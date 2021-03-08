@@ -37,6 +37,11 @@ namespace DinosaurQuest.Creatures
             tileTarget.creaturesOnTile.Add(this);
         }
 
+        public void Frighten ()
+        {
+            
+        }
+
         public void IncreaseFriendliness (int coefficient)
         {
             int increase = 10 + 2 * coefficient;

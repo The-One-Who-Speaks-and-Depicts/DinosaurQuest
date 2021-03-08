@@ -81,7 +81,7 @@ namespace DinosaurQuest.Perks
 		}
         public void OnThem(Character character, ICreature them, ITile tile) // implement
         {
-			throw new NotImplementedException();
+			them.Frighten();
 		}
         public void CoolDownSet()
         {

@@ -12,7 +12,8 @@ namespace DinosaurQuest.Creatures
         int attackCoefficient { get; set; }
         int defenceCoefficient { get; set; }
 
-        void Move (ITile tile1, ITile tile2) ;
+        void Move (ITile tile1, ITile tile2);
+        void Frighten();
 
     }
 }
