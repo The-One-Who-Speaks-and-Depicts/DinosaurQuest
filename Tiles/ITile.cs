@@ -5,22 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using DinosaurQuest.Creatures;
 using DinosaurQuest.Landscapes;
+using DinosaurQuest.Stages;
 
 namespace DinosaurQuest.Tiles
 {
     public interface ITile
     {
 
-    	struct TileCoordinates 
-    	{
-    		int X {get; set;}
-    		int Y {get; set;}
-
-    		public (int, int) GetCoordinates()
-    		{
-    			return (X, Y);
-    		}
-    	}
+        int X { get; set; }
+        int Y { get; set; }
 
         Character character { get; set; }
 
@@ -32,5 +25,16 @@ namespace DinosaurQuest.Tiles
 
         void OpenTerritory(Character character);
         void CloseTerritory(Character character);
+        bool isAccessible (ILevel level)
+        {
+            if (this.X > level.X_length || this.X < 0 || this.Y > level.Y_length || this.Y < 0)
+            {
+                return false;
+            }
+            else 
+            {
+                return true;
+            }
+        }
     }
 }
