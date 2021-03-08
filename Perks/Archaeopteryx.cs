@@ -59,7 +59,7 @@ namespace DinosaurQuest.Perks
 			{
 				newDestinationTile.X = newDestinationTile.X - 1;					
 			}				
-			else if (destinationTile.Y > departingTile.X)
+			else if (destinationTile.X > departingTile.X)
 			{
 				newDestinationTile.X = newDestinationTile.X + 1;
 			}
