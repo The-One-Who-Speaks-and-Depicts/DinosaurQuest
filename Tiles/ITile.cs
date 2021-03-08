@@ -11,6 +11,7 @@ namespace DinosaurQuest.Tiles
 {
     public interface ITile
     {
+        ILevel level { get; set; }
 
         int X { get; set; }
         int Y { get; set; }
@@ -26,9 +27,9 @@ namespace DinosaurQuest.Tiles
         void Generate();
         void OpenTerritory(Character character);
         void CloseTerritory(Character character);
-        bool isAccessible (ILevel level)
+        bool isAccessible ()
         {
-            if (this.X > level.X_length || this.X < 0 || this.Y > level.Y_length || this.Y < 0)
+            if (this.X > this.level.X_length || this.X < 0 || this.Y > this.level.Y_length || this.Y < 0)
             {
                 return false;
             }
