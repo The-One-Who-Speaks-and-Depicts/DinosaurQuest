@@ -20,9 +20,8 @@ namespace DinosaurQuest.Perks
         
         void OnTile(Character character, ITile tile);
         void OnMovement(Character character, ITile departingTile, ITile destinationTile);
-        void OnFriend(Character character, ICreature friend, ITile tile);
-        void OnRival(Character character, ICreature rival, ITile tile);
-        void OnEnemy(Character character, ICreature enemy, ITile tile);
+        void OnUs(Character character, ICreature us, ITile tile);
+        void OnThem(Character character, ICreature them, ITile tile);
         void CoolDownSet();
         void UnBlock();
     }

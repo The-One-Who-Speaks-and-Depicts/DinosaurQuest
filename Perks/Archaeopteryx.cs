@@ -75,15 +75,11 @@ namespace DinosaurQuest.Perks
 			}
 			this.CoolDownSet();
 		}
-        public void OnFriend(Character character, ICreature friend, ITile tile)
+        public void OnUs(Character character, ICreature us, ITile tile) // implement
         {
 			throw new NotImplementedException();
 		}
-        public void OnRival(Character character, ICreature rival, ITile tile)
-        {
-			throw new NotImplementedException();
-		}
-        public void OnEnemy(Character character, ICreature enemy, ITile tile)
+        public void OnThem(Character character, ICreature them, ITile tile) // implement
         {
 			throw new NotImplementedException();
 		}
