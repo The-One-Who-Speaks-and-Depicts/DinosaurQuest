@@ -46,7 +46,7 @@ namespace DinosaurQuest.Perks
 		}
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
         {
-        	
+        	/*
 			ITile newDestinationTile = destinationTile;
 			if (destinationTile.Y < departingTile.Y)
 			{
@@ -74,7 +74,7 @@ namespace DinosaurQuest.Perks
 			{
 				Console.WriteLine("There is no way to move there, long flight is interrupted.");
 			}
-			this.CoolDownSet();
+			this.CoolDownSet();*/
 		}
         public void OnUs(Character character, Anchiornis us, ITile tile)
         {

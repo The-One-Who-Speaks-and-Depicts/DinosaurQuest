@@ -11,8 +11,9 @@ namespace DinosaurQuest.Creatures
         int maxStamina {get; }
         int attackCoefficient { get; set; }
         int defenceCoefficient { get; set; }
+        enum direction { N = 0, NE, E, SE, S, SW, W, NW}
 
-        void Move (ITile tile1, ITile tile2); // It should not get tile, but direction
+        void Move (ITile tile1, int direction); // It should not get tile, but direction
         void Frighten();
 
     }
