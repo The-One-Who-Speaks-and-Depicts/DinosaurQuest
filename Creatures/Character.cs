@@ -195,7 +195,7 @@ namespace DinosaurQuest.Creatures
 
         #region creatureFunctions
 
-        public void Move(ITile tileSource, ICreature.direction direction)
+        public bool Move(ITile tileSource, ICreature.direction direction)
         {
             ITile tileTarget = tileSource;
             string movementDirection = "";
@@ -271,10 +271,12 @@ namespace DinosaurQuest.Creatures
                     }
                 }
                 Console.WriteLine("{0} is moving {1}", this.name, movementDirection);
+                return true;
             }
             else 
             {
-                Console.WriteLine("There is no way to move there.");
+                Console.WriteLine("You are going too far away from your territory!");
+                return false;
             }
         }
         #endregion

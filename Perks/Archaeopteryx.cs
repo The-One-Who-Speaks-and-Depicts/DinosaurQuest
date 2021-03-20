@@ -45,37 +45,17 @@ namespace DinosaurQuest.Perks
 			tile.OpenTerritory(character);
 			this.CoolDownSet;
 		}
-        public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
-        {
-        	/*
-			ITile newDestinationTile = destinationTile;
-			if (destinationTile.Y < departingTile.Y)
-			{
-				newDestinationTile.Y = newDestinationTile.Y - 1;					
-			}				
-			else if (destinationTile.Y > departingTile.Y)
-			{
-				newDestinationTile.Y = newDestinationTile.Y + 1;
-			}
-			if (destinationTile.X < departingTile.X)
-			{
-				newDestinationTile.X = newDestinationTile.X - 1;					
-			}				
-			else if (destinationTile.X > departingTile.X)
-			{
-				newDestinationTile.X = newDestinationTile.X + 1;
-			}
-			if (newDestinationTile.isAccessible())
-			{
-				newDestinationTile.Generate();
-				character.Move(departingTile, newDestinationTile);
-				Console.WriteLine("Longer feathers make your flight longer.");
-			}
-			else 
-			{
-				Console.WriteLine("There is no way to move there, long flight is interrupted.");
-			}
-			this.CoolDownSet();*/
+        public void OnMovement(Character character, ITile departingTile, ITile destinationTile, ICreature.direction direction)
+        {        	
+        	if (character.Move(destinationTile, direction))
+        	{
+        		Console.WriteLine("Longer feathers make your flight longer.");
+        	}
+        	else
+        	{
+        		character.Move(departingTile, direction);
+        	}
+			this.CoolDownSet();
 		}
         public void OnUs(Character character, Anchiornis us, ITile tile)
         {
@@ -83,7 +63,7 @@ namespace DinosaurQuest.Perks
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
 			this.CoolDownSet;
 		}
-        public void OnThem(Character character, ICreature them, ITile tile) // implement
+        public void OnThem(Character character, ICreature them, ITile tile)
         {
         	// add description
 			them.Frighten();
