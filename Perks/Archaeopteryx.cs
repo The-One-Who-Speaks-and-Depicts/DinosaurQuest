@@ -32,7 +32,7 @@ namespace DinosaurQuest.Perks
 		{
 			get
 			{
-				return 1;
+				return 5;
 			}
 		}
 		public int coolDown {get; set;}
@@ -43,6 +43,7 @@ namespace DinosaurQuest.Perks
 		{
 			// add description
 			tile.OpenTerritory(character);
+			this.CoolDownSet;
 		}
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile)
         {
@@ -80,16 +81,18 @@ namespace DinosaurQuest.Perks
         {
         	// add description
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
+			this.CoolDownSet;
 		}
         public void OnThem(Character character, ICreature them, ITile tile) // implement
         {
         	// add description
 			them.Frighten();
+			this.CoolDownSet;
 		}
         public void CoolDownSet()
         {
 			this.coolDown = coolDownTime;
-			// add message
+			Console.WriteLine("Till Archaeopteryx charge remain {0} ticks", coolDownTime)
 		}
         public void UnBlock() { }
 	}
