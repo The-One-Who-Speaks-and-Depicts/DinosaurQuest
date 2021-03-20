@@ -31,7 +31,7 @@ namespace DinosaurQuest.Creatures
         public int attackCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int defenceCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void Frighten ()
+        public void Frighten (int coefficient)
         {
             
         }

@@ -14,7 +14,7 @@ namespace DinosaurQuest.Creatures
         enum direction { N , NE, E, SE, S, SW, W, NW}
 
         void Move (ITile tileSource, ITile tileTarget, bool directed = false);
-        void Frighten();
+        void Frighten(int coefficient);
 
     }
 }

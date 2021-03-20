@@ -43,7 +43,7 @@ namespace DinosaurQuest.Perks
 		{
 			// add description
 			tile.OpenTerritory(character);
-			this.CoolDownSet;
+			this.CoolDownSet();
 		}
         public void OnMovement(Character character, ITile departingTile, ITile destinationTile, ICreature.direction direction)
         {        	
@@ -61,18 +61,18 @@ namespace DinosaurQuest.Perks
         {
         	// add description
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
-			this.CoolDownSet;
+			this.CoolDownSet();
 		}
         public void OnThem(Character character, ICreature them, ITile tile)
         {
-        	// add description
-			them.Frighten();
-			this.CoolDownSet;
+        	Console.WriteLine("You are trying to scare {0}.", them.name);
+			them.Frighten(20 + (character.attackCoefficient + character.socialCoefficient) * 2);
+			this.CoolDownSet();
 		}
         public void CoolDownSet()
         {
 			this.coolDown = coolDownTime;
-			Console.WriteLine("Till Archaeopteryx charge remain {0} ticks", coolDownTime)
+			Console.WriteLine("Till Archaeopteryx charge remain {0} ticks", coolDownTime);
 		}
         public void UnBlock() { }
 	}

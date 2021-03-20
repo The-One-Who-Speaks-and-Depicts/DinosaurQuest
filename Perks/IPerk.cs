@@ -19,7 +19,7 @@ namespace DinosaurQuest.Perks
         bool isAcquired { get; set; }
         
         void OnTile(Character character, ITile tile);
-        void OnMovement(Character character, ITile departingTile, ITile destinationTile);
+        void OnMovement(Character character, ITile departingTile, ITile destinationTile, ICreature.direction direction);
         void OnUs(Character character, Anchiornis us, ITile tile);
         void OnThem(Character character, ICreature them, ITile tile);
         void CoolDownSet();
