@@ -31,16 +31,18 @@ namespace DinosaurQuest.Creatures
         public int attackCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int defenceCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void Move (ITile tileSource, int direction)
-        {
-            direction = (int) ICreature.direction.NE;
-            /*tileSource.creaturesOnTile.Remove(this);
-            tileTarget.creaturesOnTile.Add(this);*/
-        }
-
         public void Frighten ()
         {
             
+        }
+
+        public void Move(ITile tileSource, ITile tileTarget, bool directed = false)
+        {
+            tileSource.creaturesOnTile.Remove(this);
+            if (directed)
+            {
+                tileTarget.creaturesOnTile.Add(this);
+            }
         }
 
         public void IncreaseFriendliness (int coefficient)
