@@ -24,6 +24,8 @@ namespace DinosaurQuest.Perks
         void OnThem(Character character, ICreature them, ITile tile);
         void CoolDownSet();
         void UnBlock();
+
+        void OutputInfo();
     }
 
 }

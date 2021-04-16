@@ -1,6 +1,7 @@
 using DinosaurQuest.Tiles;
 using DinosaurQuest.Creatures;
 using System;
+using System.Text;
 
 namespace DinosaurQuest.Perks
 {
@@ -18,7 +19,7 @@ namespace DinosaurQuest.Perks
 		{
 			get
 			{
-				return "Archaeopteryx description"; // implement
+				return "Summoning the force of Archaeopteryx, you make your feathers much longer, which may give you access to the new territories, increase your chances to scare enemy by (attack coefficient + defence coefficient) * 2, increase your chances to attract friend by (social coefficient + 1).";
 			}
 		}
 		public int branch
@@ -41,7 +42,7 @@ namespace DinosaurQuest.Perks
 
 		public void OnTile(Character character, ITile tile)
 		{
-			// add description
+			Console.WriteLine("Longer feathers help you to reach new territories");
 			tile.OpenTerritory(character);
 			this.CoolDownSet();
 		}
@@ -59,7 +60,7 @@ namespace DinosaurQuest.Perks
 		}
         public void OnUs(Character character, Anchiornis us, ITile tile)
         {
-        	// add description
+        	Console.WriteLine("You are spreading your feathers, trying to attract the attention of {0}", us.name);
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
 			this.CoolDownSet();
 		}
@@ -75,5 +76,9 @@ namespace DinosaurQuest.Perks
 			Console.WriteLine("Till Archaeopteryx charge remain {0} ticks", coolDownTime);
 		}
         public void UnBlock() { }
+        public void OutputInfo()
+        {
+        	Console.WriteLine("{0}.\nBranch: {1}.\n{2}\n Cool down time is {3}\n.", this.name, this.branch, this.desc, this.coolDownTime);
+        }
 	}
 }
