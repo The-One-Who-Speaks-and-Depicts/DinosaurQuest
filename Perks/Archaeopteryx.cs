@@ -7,6 +7,10 @@ namespace DinosaurQuest.Perks
 {
 	public class Archaeopteryx: IPerk
 	{
+
+		public Archaeopteryx() {
+			
+		}
 		
 		public string name 
 		{
@@ -82,7 +86,7 @@ namespace DinosaurQuest.Perks
         }
         public void Call()
         {
-        	
+
         }
 	}
 }
