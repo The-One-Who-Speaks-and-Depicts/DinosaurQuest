@@ -33,7 +33,7 @@ namespace DinosaurQuest.Stages
             if (decision > 0)
             {
                 newCharacter.ChooseStats();
-                newCharacter.Perks = new List<IPerk>();           
+                newCharacter.Perks = new List<IPerk>();          
             }            
             else
             {

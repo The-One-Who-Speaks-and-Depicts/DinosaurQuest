@@ -22,6 +22,8 @@ namespace DinosaurQuest.Perks
         void OnMovement(Character character, ITile departingTile, ITile destinationTile, ICreature.direction direction);
         void OnUs(Character character, Anchiornis us, ITile tile);
         void OnThem(Character character, ICreature them, ITile tile);
+
+        void Call();
         void CoolDownSet();
         void UnBlock();
 
