@@ -1,35 +1,42 @@
+using DinosaurQuest.Creatures;
+using DinosaurQuest.Landscapes;
+using DinosaurQuest.GameFunctions;
+using System.Collections.Generic;
+
 namespace DinosaurQuest.Stages
 {
-	class Tutorial : ILevel
+	public class Tutorial : ILevel
 	{
-		Tutorial()
-		{
-			string name { get; set; }
-	        string levelDesc { get; set; }
-	        int X_length { get; set; }
-	        int Y_length { get; set; }
-	        int Area 
+		public string name { get; set; }
+	    public string levelDesc { get; set; }
+	    public int X_length { get; set; }
+	    public int Y_length { get; set; }
+	    public int Area 
+	    {
+	    	get 
 	        {
-	            get 
-	            {
-	                return X_length * Y_length;
-	            }
+	            return X_length * Y_length;
 	        }
-	        List<ICreature> accessibleCreatures { get; set; }
-	        List<ILandscape> landscapes { get; set; }
-	        List<Objective> objectives {get; set;}
-	        public Character currentCharacter { get; set; }
+	    }
+	    public List<ICreature> accessibleCreatures { get; set; }
+	    public List<ILandscape> landscapes { get; set; }
+	    public List<Objective> objectives {get; set;}
+	    public Character currentCharacter { get; set; }
 
-	        public void Entrance (Character _currentCharacter)
-	        {
+	    public void Entrance (Character _currentCharacter)
+	    {
 	            
-	        } 
+	    } 
 	        
-	        public void Transfer (Character _currentCharacter)
-	        {
+	    public void Transfer (Character _currentCharacter)
+	    {
 	            
-	        }
-		}
+	    }
+
+	    public Tutorial(Character _currentCharacter)
+	    {
+
+	    }
 
 	}
 }

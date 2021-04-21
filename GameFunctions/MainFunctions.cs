@@ -24,27 +24,22 @@ namespace DinosaurQuest.GameFunctions
             {
                 case 1:
                     Character currentCharacter = Start.Start_Game();
-                    /* Console.WriteLine("You are going to the tutorial level. Press 1 to do that, Press 2 to skip tutorial, press any key to exit the game");
+                    Console.WriteLine("You are going to the tutorial level. Press 1 to do that, press any other key to exit the game");
                     decision = ServiceFunctions.ChoosingRightKey();                    
                     if (decision < 1 || decision > 2) Save.Save_Game(currentCharacter, 0);
-                    if (decision == 2)
-                    {
-                        Save.Save_Game(currentCharacter, 2);
-                        new Level1(currentCharacter);
-                    }
                     else
                     {
                         Save.Save_Game(currentCharacter, 0);
                         new Tutorial(currentCharacter);                        
-                    }*/
+                    }
                     Exit_Game();
                     break;
-                /* case 2:
+                case 2:
                     Save.Auto_Load_Game();
                     break;
                 case 3:
                     Save.Load_Game();
-                    break;*/
+                    break;
                 default:
                     Exit_Game();
                     break;

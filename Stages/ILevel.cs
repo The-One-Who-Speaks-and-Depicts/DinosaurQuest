@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DinosaurQuest.Landscapes;
 using DinosaurQuest.Creatures;
+using DinosaurQuest.GameFunctions;
 
 
 namespace DinosaurQuest.Stages
