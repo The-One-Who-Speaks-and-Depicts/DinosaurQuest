@@ -44,7 +44,7 @@ namespace DinosaurQuest.Stages
                 MainFunctions.Exit_Game();
             }
             newCharacter.gender = "feminine";
-            Console.WriteLine("{0} is preparing to become a parent. Their first target is to watch for their not yet born children. Or... is it?");
+            Console.WriteLine("{0} is preparing to become a parent. Their first target is to watch for their not yet born children. Or... is it?", newCharacter.name);
             return newCharacter;
 
         }
