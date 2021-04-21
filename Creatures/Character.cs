@@ -177,16 +177,28 @@ namespace DinosaurQuest.Creatures
 
         public void ChooseStats()
         {
-            int _attackCoefficient;
-            int _defenceCoefficient;
-            int _socialCoefficient;
+            int _attackCoefficient = 0;
+            int _defenceCoefficient = 0;
+            int _socialCoefficient = 0;
             do 
             {
+                _attackCoefficient = 0;
+                _defenceCoefficient = 0;
+                _socialCoefficient = 0;
                 Console.WriteLine("To make your attacks more effective, press 1, to make your evasive manoeuvres more effective, press 2, to make your social interactions more effective, any other key");
                 int result = ServiceFunctions.ChoosingRightKey();
-                _attackCoefficient = result == 1 ? 1 : 0;
-                _defenceCoefficient = result == 2 ? 0 : 1;
-                _socialCoefficient = ((result != 1) && (result != 2)) ? 1 : 0;
+                switch (result)
+                {
+                    case 1:
+                        _attackCoefficient = 1;
+                        break;
+                    case 2:
+                        _defenceCoefficient = 1;
+                        break;
+                    default:
+                        _socialCoefficient = 1;
+                        break;
+                }
                 Console.WriteLine("Your defence skill is {0}, your attack skill is {1}, your social skill is {2}. If you agree, enter 1, if not, enter anything else. ", _defenceCoefficient, _attackCoefficient, _socialCoefficient);
             }
             while (ServiceFunctions.ChoosingRightKey() != 1);
