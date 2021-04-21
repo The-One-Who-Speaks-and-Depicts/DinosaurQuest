@@ -82,7 +82,7 @@ namespace DinosaurQuest.Perks
         public void UnBlock() { }
         public void OutputInfo()
         {
-        	Console.WriteLine("{0}.\nBranch: {1}.\n{2}\n Cool down time is {3}\n.", this.name, this.branch, this.desc, this.coolDownTime);
+        	Console.WriteLine("{0}.\nBranch: {1}.\n{2}\n Cool down time is {3}.\n", this.name, this.branch, this.desc, this.coolDownTime);
         }
         public void Call()
         {

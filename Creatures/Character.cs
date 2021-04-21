@@ -166,7 +166,7 @@ namespace DinosaurQuest.Creatures
             string result;
             do
             {
-                Console.WriteLine("Type the name of your creature");
+                Console.WriteLine("\nType the name of your creature");
                 result = Console.ReadLine();
                 Console.WriteLine("Your name is {0}. If you agree, enter 1, if not, enter anything else.", result);
             }
@@ -185,7 +185,7 @@ namespace DinosaurQuest.Creatures
                 _attackCoefficient = 0;
                 _defenceCoefficient = 0;
                 _socialCoefficient = 0;
-                Console.WriteLine("To make your attacks more effective, press 1, to make your evasive manoeuvres more effective, press 2, to make your social interactions more effective, any other key");
+                Console.WriteLine("\nTo make your attacks more effective, press 1, to make your evasive manoeuvres more effective, press 2, to make your social interactions more effective, any other key");
                 int result = ServiceFunctions.ChoosingRightKey();
                 switch (result)
                 {
