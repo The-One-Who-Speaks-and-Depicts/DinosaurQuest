@@ -65,7 +65,7 @@ namespace DinosaurQuest.GameFunctions
                 NewSaveName = Path.Combine(Directory.GetCurrentDirectory(), "Saves", LastSaveFileNumber.ToString() + ".dns"); 
             }
             StreamWriter SaveRecording = new StreamWriter(NewSaveName);
-            SaveRecording.WriteLine(JsonConvert.SerializeObject(new Save(stage, currCharacter)));
+            SaveRecording.WriteLine(JsonConvert.SerializeObject(new Save(stage, currCharacter), new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto }));
             SaveRecording.Close();
         }
 
@@ -89,7 +89,7 @@ namespace DinosaurQuest.GameFunctions
                 StreamReader saveGetting = new StreamReader(fileToLoad);
                 using (saveGetting)
                 {
-                    var loadedSave = JsonConvert.DeserializeObject<Save>(saveGetting.ReadToEnd());
+                    var loadedSave = JsonConvert.DeserializeObject<Save>(saveGetting.ReadToEnd(), new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto });
                     switch (loadedSave.savedStage)
                     {
                         case 0:
@@ -119,7 +119,7 @@ namespace DinosaurQuest.GameFunctions
                     {
                         var shortFileName = Regex.Match(name, @"[0-9]{1,}.dns");
                         shortFileName = Regex.Match(name, @"[0-9]{1,}");
-                        var loadedSave = JsonConvert.DeserializeObject<Save>(SaveGetting.ReadToEnd());
+                        var loadedSave = JsonConvert.DeserializeObject<Save>(SaveGetting.ReadToEnd(), new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto });
                         Console.WriteLine("Number: {0}", shortFileName);
                         Console.WriteLine("Stage: {0}", loadedSave.savedStage);
                         Console.WriteLine("Character: {0}", loadedSave.savedCharacter.name);
@@ -134,7 +134,7 @@ namespace DinosaurQuest.GameFunctions
                     StreamReader SaveGetting = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Saves", ReadableSave + ".dns"));
                     using (SaveGetting)
                     {
-                        var loadedSave = JsonConvert.DeserializeObject<Save>(SaveGetting.ReadToEnd());
+                        var loadedSave = JsonConvert.DeserializeObject<Save>(SaveGetting.ReadToEnd(), new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto });
                         switch (loadedSave.savedStage)
                         {
                             case 0:
@@ -155,7 +155,7 @@ namespace DinosaurQuest.GameFunctions
                     StreamReader SaveGetting = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Saves", ReadableSave + ".dns"));
                     using (SaveGetting)
                     {
-                        var loadedSave = JsonConvert.DeserializeObject<Save>(SaveGetting.ReadToEnd());
+                        var loadedSave = JsonConvert.DeserializeObject<Save>(SaveGetting.ReadToEnd(), new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto });
                         switch (loadedSave.savedStage)
                         {
                             case 0:
