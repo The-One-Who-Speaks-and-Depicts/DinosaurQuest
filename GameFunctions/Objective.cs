@@ -38,7 +38,7 @@ namespace DinosaurQuest.GameFunctions
 			}
 		}
 
-		public string Print()
+		public override string ToString()
 		{
 			string toPerform = isObligatory ? "Primary" : "Secondary";
 			return ("Objective: " + name + ";\nType: " + toPerform + ";\nStatus: " + currentStatus + ";\nDescription: " + description + "\n");
