@@ -18,11 +18,11 @@ namespace DinosaurQuest.GameFunctions
 		{
 			name = _name;
 			description = _description;
-			currentStatus = setStatus(0);
+			currentStatus = SetStatus(0);
 			isObligatory = _isObligatory;
 		}
 
-		public Status setStatus(int _status)
+		public Status SetStatus(int _status)
 		{
 			switch (_status) 
 			{
@@ -36,6 +36,12 @@ namespace DinosaurQuest.GameFunctions
 				default:
 					return Status.Active;
 			}
+		}
+
+		public string Print()
+		{
+			string toPerform = isObligatory ? "Primary" : "Secondary";
+			return ("Objective: " + name + ";\nType: " + toPerform + ";\nStatus: " + currentStatus + ";\nDescription: " + description + "\n");
 		}
 	}
 }
