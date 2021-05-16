@@ -27,7 +27,7 @@ namespace DinosaurQuest.Perks
         void CoolDownSet();
         void UnBlock();
 
-        void OutputInfo();
+        string ToString();
     }
 
 }

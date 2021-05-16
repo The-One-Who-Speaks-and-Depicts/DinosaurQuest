@@ -80,9 +80,10 @@ namespace DinosaurQuest.Perks
 			Console.WriteLine("Till Archaeopteryx charge remain {0} ticks", coolDownTime);
 		}
         public void UnBlock() { }
-        public void OutputInfo()
+
+        public override string ToString()
         {
-        	Console.WriteLine("{0}.\nBranch: {1}.\n{2}\n Cool down time is {3}.\n", this.name, this.branch, this.desc, this.coolDownTime);
+        	return (name + ".\nBranch: " + branch + ".\n" + desc + "\n Cool down time is " + coolDownTime + ".");
         }
         public void Call()
         {

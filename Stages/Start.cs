@@ -37,7 +37,7 @@ namespace DinosaurQuest.Stages
                 Archaeopteryx perk = new Archaeopteryx(); 
                 newCharacter.Perks.Add(perk);
                 Console.WriteLine("\nYour character may develop a certain set of skills during the game. The first one is Archaeopteryx:\n");
-                perk.OutputInfo();
+                Console.WriteLine(perk.ToString());
             }            
             else
             {
