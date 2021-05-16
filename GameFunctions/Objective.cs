@@ -4,6 +4,7 @@ namespace DinosaurQuest.GameFunctions
 	{
 		public string name {get ; set;}
 		public string description {get; set;}
+		private bool isObligatory {get; set;}
 		public enum Status
 		{
 			Hidden = 0,
@@ -13,11 +14,12 @@ namespace DinosaurQuest.GameFunctions
 		}
 		private Status currentStatus {get; set;}
 
-		public Objective (string _name, string _description)
+		public Objective (string _name, string _description, bool _isObligatory)
 		{
 			name = _name;
 			description = _description;
 			currentStatus = setStatus(0);
+			isObligatory = _isObligatory;
 		}
 
 		public Status setStatus(int _status)
