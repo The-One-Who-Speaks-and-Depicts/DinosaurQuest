@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DinosaurQuest.Landscapes;
+using DinosaurQuest.Territories;
 using DinosaurQuest.Creatures;
 using DinosaurQuest.GameFunctions;
 
@@ -20,7 +20,7 @@ namespace DinosaurQuest.Stages
             }
         }
         List<ICreature> accessibleCreatures { get; set; }
-        List<ILandscape> landscapes { get; set; }
+        List<ITerritory> territories { get; set; }
         List<Objective> objectives {get; set;}
         public Character currentCharacter { get; set; }
 

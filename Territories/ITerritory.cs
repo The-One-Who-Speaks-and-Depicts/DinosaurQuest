@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DinosaurQuest.Landscapes
+namespace DinosaurQuest.Territories
 {
-    public interface ILandscape
+    public interface ITerritory
     {
     }
 }

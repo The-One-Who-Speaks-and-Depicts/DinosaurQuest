@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DinosaurQuest.Creatures;
-using DinosaurQuest.Landscapes;
+using DinosaurQuest.Territories;
 using DinosaurQuest.Stages;
 
 namespace DinosaurQuest.Tiles
@@ -18,7 +18,7 @@ namespace DinosaurQuest.Tiles
 
         Character character { get; set; }
 
-        ILandscape landscape { get; set; }
+        ITerritory territory { get; set; }
 
         List <ITile> connectedTiles {get; set;}
 
