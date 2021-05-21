@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DinosaurQuest.Tiles;
+using DinosaurQuest.Territories;
 
 namespace DinosaurQuest.Creatures
 {
@@ -36,12 +36,12 @@ namespace DinosaurQuest.Creatures
             
         }
 
-        public void Move(ITile tileSource, ITile tileTarget, bool directed = false)
+        public void Move(ITerritory source, ITerritory target, bool directed = false)
         {
-            tileSource.creaturesOnTile.Remove(this);
+            source.creatures.Remove(this);
             if (directed)
             {
-                tileTarget.creaturesOnTile.Add(this);
+                target.creatures.Add(this);
             }
         }
 

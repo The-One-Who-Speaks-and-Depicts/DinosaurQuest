@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DinosaurQuest.Tiles;
+using DinosaurQuest.Territories;
 using DinosaurQuest.Creatures;
 
 namespace DinosaurQuest.Perks
@@ -18,10 +18,10 @@ namespace DinosaurQuest.Perks
         bool isGettable { get; set; }
         bool isAcquired { get; set; }
         
-        void OnTile(Character character, ITile tile);
-        void OnMovement(Character character, ITile departingTile, ITile destinationTile, ICreature.direction direction);
-        void OnUs(Character character, Anchiornis us, ITile tile);
-        void OnThem(Character character, ICreature them, ITile tile);
+        void OnTile(Character character, ITerritory territory);
+        void OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction);
+        void OnUs(Character character, Anchiornis us, ITerritory territory);
+        void OnThem(Character character, ICreature them, ITerritory territory);
 
         void Call();
         void CoolDownSet();

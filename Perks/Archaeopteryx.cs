@@ -1,4 +1,4 @@
-using DinosaurQuest.Tiles;
+using DinosaurQuest.Territories;
 using DinosaurQuest.Creatures;
 using System;
 using System.Text;
@@ -44,31 +44,31 @@ namespace DinosaurQuest.Perks
 		public bool isGettable {get; set; } =  false;
 		public bool isAcquired {get; set; } = true;
 
-		public void OnTile(Character character, ITile tile)
+		public void OnTile(Character character, ITerritory territory)
 		{
 			Console.WriteLine("Longer feathers help you to reach new territories");
-			tile.OpenTerritory(character);
+			territory.OpenTerritory(character);
 			this.CoolDownSet();
 		}
-        public void OnMovement(Character character, ITile departingTile, ITile destinationTile, ICreature.direction direction)
+        public void OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)
         {        	
-        	if (character.Move(destinationTile, direction))
+        	if (character.Move(destination, direction))
         	{
         		Console.WriteLine("Longer feathers make your flight longer.");
         	}
         	else
         	{
-        		character.Move(departingTile, direction);
+        		character.Move(department, direction);
         	}
 			this.CoolDownSet();
 		}
-        public void OnUs(Character character, Anchiornis us, ITile tile)
+        public void OnUs(Character character, Anchiornis us, ITerritory territory)
         {
         	Console.WriteLine("You are spreading your feathers, trying to attract the attention of {0}", us.name);
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
 			this.CoolDownSet();
 		}
-        public void OnThem(Character character, ICreature them, ITile tile)
+        public void OnThem(Character character, ICreature them, ITerritory territory)
         {
         	Console.WriteLine("You are trying to scare {0}.", them.name);
 			them.Frighten(20 + (character.attackCoefficient + character.socialCoefficient) * 2);

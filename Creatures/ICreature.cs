@@ -1,4 +1,4 @@
-﻿using DinosaurQuest.Tiles;
+﻿using DinosaurQuest.Territories;
 
 namespace DinosaurQuest.Creatures
 {
@@ -13,7 +13,7 @@ namespace DinosaurQuest.Creatures
         int defenceCoefficient { get; set; }
         enum direction { N , NE, E, SE, S, SW, W, NW}
 
-        void Move (ITile tileSource, ITile tileTarget, bool directed = false);
+        void Move (ITerritory source, ITerritory target, bool directed = false);
         void Frighten(int coefficient);
 
     }

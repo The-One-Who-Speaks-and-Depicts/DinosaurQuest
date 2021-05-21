@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using DinosaurQuest.Perks;
 using DinosaurQuest.GameFunctions;
-using DinosaurQuest.Tiles;
+using DinosaurQuest.Territories;
 
 namespace DinosaurQuest.Creatures
 {
@@ -210,61 +210,61 @@ namespace DinosaurQuest.Creatures
 
         #region creatureFunctions
 
-        public bool Move(ITile tileSource, ICreature.direction direction)
+        public bool Move(ITerritory source, ICreature.direction direction)
         {
-            ITile tileTarget = tileSource;
+            ITerritory target = source;
             string movementDirection = "";
             switch (direction)
             {
                 case ICreature.direction.N:
                 {
-                    tileTarget.Y++;
+                    target.Y++;
                     movementDirection = "northwards";
                     break;
                 }
                 case ICreature.direction.NE:
                 {
-                    tileTarget.Y++;
-                    tileTarget.X++;
+                    target.Y++;
+                    target.X++;
                     movementDirection = "northeastwards";
                     break;
                 }
                 case ICreature.direction.E: 
                 {
-                    tileTarget.X++;
+                    target.X++;
                     movementDirection = "eastwards";
                     break;
                 }
                 case ICreature.direction.SE:
                 {
-                    tileTarget.Y--;
-                    tileTarget.X++;
+                    target.Y--;
+                    target.X++;
                     movementDirection = "southeastwards";
                     break;
                 }
                 case ICreature.direction.S:
                 {
-                    tileTarget.Y--;
+                    target.Y--;
                     movementDirection = "southwards";
                     break;
                 }
                 case ICreature.direction.SW:
                 {
-                    tileTarget.Y--;
-                    tileTarget.X--;
+                    target.Y--;
+                    target.X--;
                     movementDirection = "southwestwards";
                     break;
                 }
                 case ICreature.direction.W:
                 {
-                    tileTarget.X--;
+                    target.X--;
                     movementDirection = "westwards";
                     break;
                 }
                 case ICreature.direction.NW:
                 {
-                    tileTarget.Y++;
-                    tileTarget.X--;
+                    target.Y++;
+                    target.X--;
                     movementDirection = "northwestwards";
                     break;
                 }
@@ -273,16 +273,16 @@ namespace DinosaurQuest.Creatures
                     break;
                 }                
             }                
-            if (tileTarget.isAccessible())
+            if (target.isAccessible())
             {
-                tileTarget.Generate();
-                tileSource.creaturesOnTile.Remove(this);
-                tileTarget.creaturesOnTile.Add(this);
+                target.Generate();
+                source.creatures.Remove(this);
+                target.creatures.Add(this);
                 if (this.Pack.Count != 0)
                 {
                     foreach (var creature in this.Pack)
                     {
-                        creature.Move(tileSource, tileTarget, true);
+                        creature.Move(source, target, true);
                     }
                 }
                 Console.WriteLine("{0} is moving {1}", this.name, movementDirection);
