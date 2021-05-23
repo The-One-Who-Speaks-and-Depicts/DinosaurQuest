@@ -23,19 +23,29 @@ namespace DinosaurQuest.Stages
 	    public List<Objective> objectives {get; set;}
 	    public Character currentCharacter { get; set; }
 
-	    public void Entrance (Character _currentCharacter)
+	    public void Entrance ()
 	    {
-	            
+	    	Console.WriteLine(levelDesc);	            
 	    } 
 	        
-	    public void Transfer (Character _currentCharacter)
+	    public void Transfer ()
 	    {
 	            
 	    }
 
 	    public Tutorial(Character _currentCharacter)
 	    {
-
+	    	name = "Tutorial";
+	    	Console.WriteLine("Entering {0}...", name);
+	    	levelDesc = ""; // implement
+	    	X_length = 3;
+	    	Y_length = 3;
+	    	// generate accessible creatures
+	    	// generate territories
+	    	// generate objectives
+	    	currentCharacter = _currentCharacter;
+	    	Console.WriteLine("{0} level generated!", name);
+	    	Entrance();
 	    }
 
 	}
