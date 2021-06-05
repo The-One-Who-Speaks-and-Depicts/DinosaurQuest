@@ -52,7 +52,7 @@ namespace DinosaurQuest.Perks
 		}
         public void CoolDownSet()
         {
-			this.coolDown = coolDownTime;
+			coolDown = coolDownTime;
 			Console.WriteLine("Till Archaeopteryx charge remain {0} ticks", coolDownTime);
 		}
         public void UnBlock() { }

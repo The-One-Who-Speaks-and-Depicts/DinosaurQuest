@@ -46,7 +46,7 @@ namespace DinosaurQuest.Creatures
                 Console.WriteLine("Your name is {0}. If you agree, enter 1, if not, enter anything else.", result);
             }
             while (ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar) != 1);
-            this.name = result;
+            name = result;
         }
         
 
@@ -77,9 +77,9 @@ namespace DinosaurQuest.Creatures
                 Console.WriteLine("Your defence skill is {0}, your attack skill is {1}, your social skill is {2}. If you agree, enter 1, if not, enter anything else. ", _defenceCoefficient, _attackCoefficient, _socialCoefficient);
             }
             while (ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar) != 1);
-            this.attackCoefficient = _attackCoefficient;
-            this.defenceCoefficient = _defenceCoefficient;
-            this.socialCoefficient = _socialCoefficient;
+            attackCoefficient = _attackCoefficient;
+            defenceCoefficient = _defenceCoefficient;
+            socialCoefficient = _socialCoefficient;
         }
         #endregion
 
@@ -153,14 +153,14 @@ namespace DinosaurQuest.Creatures
                 target.Generate();
                 source.creatures.Remove(this);
                 target.creatures.Add(this);
-                if (this.pack.Count != 0)
+                if (pack.Count != 0)
                 {
-                    foreach (var creature in this.pack)
+                    foreach (var creature in pack)
                     {
                         creature.Move(source, target, true);
                     }
                 }
-                Console.WriteLine("{0} is moving {1}", this.name, movementDirection);
+                Console.WriteLine("{0} is moving {1}", name, movementDirection);
                 return true;
             }
             else 
