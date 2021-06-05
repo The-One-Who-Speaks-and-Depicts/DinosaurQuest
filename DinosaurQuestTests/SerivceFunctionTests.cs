@@ -4,12 +4,12 @@ using DinosaurQuest.GameFunctions;
 
 namespace DinosaurQuestTests
 {
-    public class UnitTest1
+    public class ServiceFunctionsTests
     {
         [Fact]
-        public void Test1()
+        public void keyChoice_rightKeyReturned_True()
         {
-
+        	
         }
     }
 }
