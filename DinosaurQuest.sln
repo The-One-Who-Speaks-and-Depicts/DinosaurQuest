@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinosaurQuest", "DinosaurQuest.csproj", "{75FB232D-53C8-45EC-8DF4-807EC934799C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinosaurQuestTests", "DinosaurQuestTests\DinosaurQuestTests.csproj", "{782697A0-CE72-43D9-AEC9-871D3E15923D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{75FB232D-53C8-45EC-8DF4-807EC934799C}.Release|x64.Build.0 = Release|Any CPU
 		{75FB232D-53C8-45EC-8DF4-807EC934799C}.Release|x86.ActiveCfg = Release|Any CPU
 		{75FB232D-53C8-45EC-8DF4-807EC934799C}.Release|x86.Build.0 = Release|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Debug|x64.Build.0 = Debug|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Debug|x86.Build.0 = Debug|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Release|x64.ActiveCfg = Release|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Release|x64.Build.0 = Release|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Release|x86.ActiveCfg = Release|Any CPU
+		{782697A0-CE72-43D9-AEC9-871D3E15923D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
