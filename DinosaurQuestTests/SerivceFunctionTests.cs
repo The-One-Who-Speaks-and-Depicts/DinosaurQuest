@@ -9,7 +9,9 @@ namespace DinosaurQuestTests
         [Fact]
         public void keyChoice_rightKeyReturned_True()
         {
-        	
+        	int decision = ServiceFunctions.ChoosingRightKey((char) 93);
+
+        	Assert.Equal(93 - 48, decision);
         }
     }
 }

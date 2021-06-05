@@ -2,7 +2,7 @@ using System;
 
 namespace DinosaurQuest.GameFunctions
 {
-    static class ServiceFunctions
+    public static class ServiceFunctions
     {
         public static int ChoosingRightKey(char m_readKey)
         {
