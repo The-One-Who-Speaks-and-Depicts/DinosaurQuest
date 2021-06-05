@@ -12,34 +12,10 @@ namespace DinosaurQuest.Perks
 			
 		}
 		
-		public string name 
-		{
-			get
-			{
-				return "Archaeopteryx";
-			}
-		}
-		public string desc
-		{
-			get
-			{
-				return "Summoning the force of Archaeopteryx, you make your feathers much longer, which may give you access to the new territories, increase your chances to scare enemy by (attack coefficient + defence coefficient) * 2, increase your chances to attract friend by (social coefficient + 1).";
-			}
-		}
-		public int branch
-		{
-			get
-			{
-				return 0;
-			}
-		}
-		public int coolDownTime
-		{
-			get
-			{
-				return 5;
-			}
-		}
+		public string name => "Archaeopteryx";
+		public string desc => "Summoning the force of Archaeopteryx, you make your feathers much longer, which may give you access to the new territories, increase your chances to scare enemy by (attack coefficient + defence coefficient) * 2, increase your chances to attract friend by (social coefficient + 1).";
+		public int branch => 0;
+		public int coolDownTime => 5;
 		public int coolDown {get; set;}
 		public bool isGettable {get; set; } =  false;
 		public bool isAcquired {get; set; } = true;

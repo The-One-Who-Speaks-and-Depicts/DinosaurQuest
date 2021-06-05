@@ -12,13 +12,7 @@ namespace DinosaurQuest.Stages
 	    public string levelDesc { get; set; }
 	    public int X_length { get; set; }
 	    public int Y_length { get; set; }
-	    public int Area 
-	    {
-	    	get 
-	        {
-	            return X_length * Y_length;
-	        }
-	    }
+	    public int Area => X_length * Y_length;
 	    public List<ICreature> accessibleCreatures { get; set; }
 	    public List<ITerritory> territories { get; set; }
 	    public List<Objective> objectives {get; set;}

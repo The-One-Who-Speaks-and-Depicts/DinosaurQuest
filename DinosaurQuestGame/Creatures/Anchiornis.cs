@@ -11,23 +11,11 @@ namespace DinosaurQuest.Creatures
     {
         public string name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int maxHealth
-        {
-            get
-            {
-                return new Random().Next(200, 400);
-            }
-        }
+        public int maxHealth => new Random().Next(200, 400);
         public int stamina { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int maxStamina 
-        {
-            get 
-            {
-                return new Random().Next(200, 400);
-            }
-        }
+        public int maxStamina => new Random().Next(200, 400);
         public int friendliness { get; set; }
-        public int maxFriendliness { get => 100; }
+        public int maxFriendliness => 100;
         public int attackCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int defenceCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
