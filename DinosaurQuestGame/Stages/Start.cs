@@ -24,11 +24,11 @@ namespace DinosaurQuest.Stages
             {
                 Console.WriteLine(stats.ReadToEnd());
             }
-            int decision = ServiceFunctions.ChoosingRightKey();
+            int decision = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);
             while ((decision < 0) || decision > 1)
             {
                 Console.WriteLine("Please press appropriate key");
-                decision = ServiceFunctions.ChoosingRightKey();
+                decision = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);
             }
             if (decision > 0)
             {

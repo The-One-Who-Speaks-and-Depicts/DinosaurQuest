@@ -19,13 +19,13 @@ namespace DinosaurQuest.GameFunctions
         public static void MainMenu()
         {
             Console.WriteLine("Welcome to the game! To start a new game, press 1, to continue, press 2, to load game, press 3, to exit game, press any other key");
-            int decision = ServiceFunctions.ChoosingRightKey();
+            int decision = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);
             switch (decision)
             {
                 case 1:
                     Character currentCharacter = Start.Start_Game();
                     Console.WriteLine("You are going to the tutorial level. Press 1 to do that, press any other key to exit the game");
-                    decision = ServiceFunctions.ChoosingRightKey();                    
+                    decision = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);                    
                     if (decision < 1 || decision > 2) Save.Save_Game(currentCharacter, 0);
                     else
                     {

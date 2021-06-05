@@ -170,7 +170,7 @@ namespace DinosaurQuest.Creatures
                 result = Console.ReadLine();
                 Console.WriteLine("Your name is {0}. If you agree, enter 1, if not, enter anything else.", result);
             }
-            while (ServiceFunctions.ChoosingRightKey() != 1);
+            while (ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar) != 1);
             this.name = result;
         }
         
@@ -186,7 +186,7 @@ namespace DinosaurQuest.Creatures
                 _defenceCoefficient = 0;
                 _socialCoefficient = 0;
                 Console.WriteLine("\nTo make your attacks more effective, press 1, to make your evasive manoeuvres more effective, press 2, to make your social interactions more effective, any other key");
-                int result = ServiceFunctions.ChoosingRightKey();
+                int result = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);
                 switch (result)
                 {
                     case 1:
@@ -201,7 +201,7 @@ namespace DinosaurQuest.Creatures
                 }
                 Console.WriteLine("Your defence skill is {0}, your attack skill is {1}, your social skill is {2}. If you agree, enter 1, if not, enter anything else. ", _defenceCoefficient, _attackCoefficient, _socialCoefficient);
             }
-            while (ServiceFunctions.ChoosingRightKey() != 1);
+            while (ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar) != 1);
             this.attackCoefficient = _attackCoefficient;
             this.defenceCoefficient = _defenceCoefficient;
             this.socialCoefficient = _socialCoefficient;
