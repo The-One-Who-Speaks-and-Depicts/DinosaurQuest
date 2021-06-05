@@ -40,20 +40,20 @@ namespace DinosaurQuest.Perks
 		}
         public void OnUs(Character character, Anchiornis us, ITerritory territory)
         {
-        	Console.WriteLine("You are spreading your feathers, trying to attract the attention of {0}", us.name);
+        	Console.WriteLine($"You are spreading your feathers, trying to attract the attention of {us.name}");
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
 			this.CoolDownSet();
 		}
         public void OnThem(Character character, ICreature them, ITerritory territory)
         {
-        	Console.WriteLine("You are trying to scare {0}.", them.name);
+        	Console.WriteLine($"You are trying to scare {them.name}.");
 			them.Frighten(20 + (character.attackCoefficient + character.socialCoefficient) * 2);
 			this.CoolDownSet();
 		}
         public void CoolDownSet()
         {
 			coolDown = coolDownTime;
-			Console.WriteLine("Till Archaeopteryx charge remain {0} ticks", coolDownTime);
+			Console.WriteLine($"Till Archaeopteryx charge remain {coolDownTime} ticks.");
 		}
         public void UnBlock() { }
 

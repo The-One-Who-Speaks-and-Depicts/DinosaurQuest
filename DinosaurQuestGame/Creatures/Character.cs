@@ -43,7 +43,7 @@ namespace DinosaurQuest.Creatures
             {
                 Console.WriteLine("\nType the name of your creature");
                 result = Console.ReadLine();
-                Console.WriteLine("Your name is {0}. If you agree, enter 1, if not, enter anything else.", result);
+                Console.WriteLine($"Your name is {result}. If you agree, enter 1, if not, enter anything else.");
             }
             while (ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar) != 1);
             name = result;
@@ -74,7 +74,7 @@ namespace DinosaurQuest.Creatures
                         _socialCoefficient = 1;
                         break;
                 }
-                Console.WriteLine("Your defence skill is {0}, your attack skill is {1}, your social skill is {2}. If you agree, enter 1, if not, enter anything else. ", _defenceCoefficient, _attackCoefficient, _socialCoefficient);
+                Console.WriteLine($"Your defence skill is {_defenceCoefficient}, your attack skill is {_attackCoefficient}, your social skill is {_socialCoefficient}. If you agree, enter 1, if not, enter anything else. ");
             }
             while (ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar) != 1);
             attackCoefficient = _attackCoefficient;
@@ -160,7 +160,7 @@ namespace DinosaurQuest.Creatures
                         creature.Move(source, target, true);
                     }
                 }
-                Console.WriteLine("{0} is moving {1}", name, movementDirection);
+                Console.WriteLine($"{name} is moving {movementDirection}.");
                 return true;
             }
             else 

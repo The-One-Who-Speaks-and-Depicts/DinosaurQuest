@@ -18,8 +18,8 @@ namespace DinosaurQuest.Stages
             }
             Character newCharacter = new Character();
             newCharacter.preGiving();
-            Console.WriteLine("Congratulations! You've chosen your name. Now you are called {0}", newCharacter.name);
-            Console.WriteLine("\nYour health is {0}, and your stamina is {1}.\n", newCharacter.health, newCharacter.stamina);
+            Console.WriteLine($"Congratulations! You've chosen your name. Now you are called {newCharacter.name}.");
+            Console.WriteLine($"\nYour health is {newCharacter.health}, and your stamina is {newCharacter.stamina}.\n");
             using (StreamReader stats = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "statsDialogue.txt")))
             {
                 Console.WriteLine(stats.ReadToEnd());
@@ -44,7 +44,7 @@ namespace DinosaurQuest.Stages
                 MainFunctions.Exit_Game();
             }
             newCharacter.gender = "feminine";
-            Console.WriteLine("{0} is preparing to become a parent. Their first target is to watch for their not yet born children. Or... is it?\n", newCharacter.name);
+            Console.WriteLine($"{newCharacter.name} is preparing to become a parent. Their first target is to watch for their not yet born children. Or... is it?\n");
             return newCharacter;
 
         }
