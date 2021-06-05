@@ -26,7 +26,7 @@ namespace DinosaurQuest.GameFunctions
                     Character currentCharacter = Start.Start_Game();
                     Console.WriteLine("You are going to the tutorial level. Press 1 to do that, press any other key to exit the game");
                     decision = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);                    
-                    if (decision < 1 || decision > 2) Save.Save_Game(currentCharacter, 0);
+                    if (decision != 1) Save.Save_Game(currentCharacter, 0);
                     else
                     {
                         Save.Save_Game(currentCharacter, 0);
