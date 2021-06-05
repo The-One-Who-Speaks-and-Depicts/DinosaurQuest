@@ -6,12 +6,18 @@ namespace DinosaurQuestTests
 {
     public class ServiceFunctionsTests
     {
-        [Fact]
-        public void keyChoice_rightKeyReturned_True()
+    	[Theory]
+        [InlineData('A')]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData('\n')]
+        public void keyChoice_rightKeyReturned_True(char value)
         {
-        	int decision = ServiceFunctions.ChoosingRightKey((char) 93);
+        	int decision = ServiceFunctions.ChoosingRightKey(value);
 
-        	Assert.Equal(93 - 48, decision);
+        	Assert.Equal(value - 48, decision);        	
         }
     }
 }
