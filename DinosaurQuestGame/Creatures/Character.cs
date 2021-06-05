@@ -10,142 +10,17 @@ namespace DinosaurQuest.Creatures
     public class Character : Anchiornis, ICreature
     {
         #region commonCharacteristics
-        private string Name { get; set; }
-        public new string name
-        {
-            get
-            {
-                return Name;
-            }
-            set
-            {
-                Name = value;
-            }
-        }
-        private string Gender { get; set; }
-        public string gender
-        {
-            get
-            {
-                return Gender;
-            }
-            set
-            {
-                Gender = value;
-            }
-        }
-        private int Health { get; set; }
-        public new int health
-        {
-            get
-            {
-                return Health;
-            }
-            set
-            {
-                Health = value;
-            }
-        }
-        private int MaxHealth { get; set; }
-        public new int maxHealth
-        {
-            get
-            {
-                return MaxHealth;
-            }
-            set
-            {
-                MaxHealth = value;
-            }
-        }
-        private int Stamina { get; set; }
-        public new int stamina
-        {
-            get
-            {
-                return Stamina;
-            }
-            set
-            {
-                Stamina = value;
-            }
-        }
-        private int MaxStamina { get; set; }
-        public new int maxStamina
-        {
-            get
-            {
-                return MaxStamina;
-            }
-            set
-            {
-                MaxStamina = value;
-            }
-        }        
-       
-        private List<IPerk> perks { get; set; }
-        public List<IPerk> Perks
-        {
-            get
-            {
-                return perks;
-            }
-            set
-            {
-                perks = value;
-            }
-        }
-        private int AttackCoefficient { get; set; }
-        private int DefenceCoefficient { get; set; }
-        public new int attackCoefficient
-        {
-            get
-            {
-                return AttackCoefficient;
-            }
-            set
-            {
-                AttackCoefficient = value;
-            }
-        }
-        public new int defenceCoefficient
-        {
-            get
-            {
-                return DefenceCoefficient;
-            }
-            set
-            {
-                DefenceCoefficient = value;
-            }
-        }
-        private int SocialCoefficient { get; set;}
-        public int socialCoefficient
-        {
-            get
-            {
-                return SocialCoefficient;
-            }
-            set
-            {
-                SocialCoefficient = value;
-            }
-        }
-
-        private Pack<Anchiornis> Pack { get; set; } = new Pack<Anchiornis>();
-        public Pack<Anchiornis> pack
-        {
-            get
-            {
-                return Pack;
-            }
-            set
-            {
-                Pack = value;
-            }
-        }
-
-
+        public new string name {get; set;}
+        public string gender {get; set;}
+        public new int health {get; set;}
+        public new int maxHealth {get; set;}
+        public new int stamina {get; set;}
+        public new int maxStamina {get; set;}
+        public List<IPerk> perks {get; set;}
+        public new int attackCoefficient {get; set;}
+        public new int defenceCoefficient {get; set;}
+        public int socialCoefficient {get; set;}
+        public Pack<Anchiornis> pack {get; set;}
 
         #endregion
 
@@ -278,9 +153,9 @@ namespace DinosaurQuest.Creatures
                 target.Generate();
                 source.creatures.Remove(this);
                 target.creatures.Add(this);
-                if (this.Pack.Count != 0)
+                if (this.pack.Count != 0)
                 {
-                    foreach (var creature in this.Pack)
+                    foreach (var creature in this.pack)
                     {
                         creature.Move(source, target, true);
                     }
