@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DinosaurQuest.csproj" />
+    <ProjectReference Include="..\DinosaurQuestGame\DinosaurQuest.csproj" />
   </ItemGroup>
 
 </Project>
