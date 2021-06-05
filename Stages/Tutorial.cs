@@ -1,3 +1,4 @@
+using System;
 using DinosaurQuest.Creatures;
 using DinosaurQuest.Territories;
 using DinosaurQuest.GameFunctions;
@@ -25,7 +26,8 @@ namespace DinosaurQuest.Stages
 
 	    public void Entrance ()
 	    {
-	    	Console.WriteLine(levelDesc);	            
+	    	Console.WriteLine(levelDesc);
+	    	// place character on start tile	            
 	    } 
 	        
 	    public void Transfer ()
@@ -41,7 +43,7 @@ namespace DinosaurQuest.Stages
 	    	X_length = 3;
 	    	Y_length = 3;
 	    	// generate accessible creatures
-	    	// generate territories
+	    	// generate tiles
 	    	// generate objectives
 	    	currentCharacter = _currentCharacter;
 	    	Console.WriteLine("{0} level generated!", name);
