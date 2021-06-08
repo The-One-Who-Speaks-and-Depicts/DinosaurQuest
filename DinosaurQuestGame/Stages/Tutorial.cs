@@ -21,7 +21,7 @@ namespace DinosaurQuest.Stages
 	    public void Entrance ()
 	    {
 	    	Console.WriteLine(levelDesc);
-	    	// place character on start tile	            
+	    	// place character on the start tile	            
 	    } 
 	        
 	    public void Transfer ()
