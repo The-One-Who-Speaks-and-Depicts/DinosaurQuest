@@ -122,7 +122,7 @@ namespace DinosaurQuest.Creatures
         // test this a lot!
         public bool Move(ITerritory source, ICreature.direction direction)
         {
-            var target = new Tile();
+            var target = source;
             string movementDirection = "";
             switch (direction)
             {

@@ -1,27 +1,19 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DinosaurQuest.Creatures;
 using DinosaurQuest.Stages;
-using DinosaurQuest.Landscapes;
+using DinosaurQuest.Creatures;
 
 namespace DinosaurQuest.Territories
 {
-    public class Tile : ITerritory
-    {
-        public Character character {get; private set;}
-        public List<ICreature> creatures {get; private set;}
+	public class MockTerritory : ITerritory
+	{
+        public Character character { get; private set;}
+        
+        public int X {get; private set;}
+        public int Y {get; private set;}
 
+        public List <ITerritory> connectedTerritories {get;}
 
-        public ILevel currentLevel {get; private set;}
-
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public List <ITerritory> connectedTerritories {get; private set;}
-
-        public Landscape landscape { get; private set; }
+        public List<ICreature> creatures { get; }
 
         public void OpenTerritory(Character character)
         {
@@ -34,7 +26,7 @@ namespace DinosaurQuest.Territories
 
         public void Generate()
         {
-
+            
         }
 
         public void SetX(int previousX, int step)
@@ -58,5 +50,13 @@ namespace DinosaurQuest.Territories
                 return true;
             }
         }
-    }
+        public ILevel currentLevel {get; set;}
+
+        public MockTerritory(int _level_X_length, int _level_Y_length, int _X, int _Y)
+        {
+            SetX(_X, 0);
+            SetY(_Y, 0);
+        	currentLevel = new MockLevel(_level_X_length, _level_Y_length);
+        }
+	}
 }

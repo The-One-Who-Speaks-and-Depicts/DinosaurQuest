@@ -6,9 +6,18 @@ namespace DinosaurQuest.Territories
 {
 	public class HiddenTerritory : ITerritory
 	{
-		public int X { get; set; }
-        public int Y { get; set; }
+		public int X { get; private set; }
+        public int Y { get; private set; }
 
+        public void SetX(int previousX, int step)
+        {
+
+        }
+
+        public void SetY(int previousY, int step)
+        {
+            
+        }
 		
 		public Character character { get; set; }
         

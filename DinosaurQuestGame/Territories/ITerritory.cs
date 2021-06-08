@@ -24,5 +24,8 @@ namespace DinosaurQuest.Territories
 
         void Generate();        
         bool isAccessible ();
+
+        void SetX(int _X, int step);
+        void SetY(int _Y, int step);
     }
 }
