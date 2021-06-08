@@ -49,7 +49,7 @@ namespace DinosaurQuest.Territories
 
         public bool isAccessible() 
         {
-            if (X > currentLevel.X_length || X < 0 || Y > currentLevel.Y_length || Y < 0)
+            if (X > currentLevel.X_length || X < 1 || Y > currentLevel.Y_length || Y < 1)
             {
                 return false;
             }

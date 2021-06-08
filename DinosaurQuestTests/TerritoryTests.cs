@@ -12,7 +12,7 @@ namespace DinosaurQuestTests
         public void movementOutOfPositiveBounds_accessNotGranted_False()
         {
         	var mockCharacter = new Character();
-            var mockTile = new MockTerritory(3, 3, 3, 3);
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 3, 3);
 
             var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
 
@@ -23,11 +23,22 @@ namespace DinosaurQuestTests
         public void movementOutOfNegativeBounds_accessNotGranted_False()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(3, 3, 0, 0);
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 1, 1);
 
             var movement = mockCharacter.Move(mockTile, ICreature.direction.S);
 
             Assert.False(movement);
+        }
+
+        [Fact]
+        public void movementWithinPositiveBoundsNorthwards_accessGranted_True()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+
+            Assert.True(movement);
         }
     }
 }

@@ -188,7 +188,7 @@ namespace DinosaurQuest.Creatures
                 target.Generate();
                 source.creatures.Remove(this);
                 target.creatures.Add(this);
-                if (pack.Count != 0)
+                if (pack != null)
                 {
                     foreach (var creature in pack)
                     {
