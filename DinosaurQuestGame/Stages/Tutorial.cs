@@ -37,7 +37,7 @@ namespace DinosaurQuest.Stages
 	    	X_length = 3;
 	    	Y_length = 3;
 	    	// generate accessible creatures
-	    	// generate tiles
+	    	// generate center tile
 	    	// generate objectives
 	    	currentCharacter = _currentCharacter;
 	    	Console.WriteLine($"{name} level generated!");
