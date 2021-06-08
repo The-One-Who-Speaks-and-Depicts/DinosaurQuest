@@ -11,17 +11,17 @@ namespace DinosaurQuest.Territories
 {
     public class Tile : ITerritory
     {
-        public Character character {get; set;}
-        public List<ICreature> creatures {get; set;}
+        public Character character {get; private set;}
+        public List<ICreature> creatures {get; private set;}
 
 
-        public ILevel currentLevel {get; set;}
+        public ILevel currentLevel {get; private set;}
 
-        public int X { get; set; }
-        public int Y { get; set; }
-        public List <ITerritory> connectedTerritories {get; set;}
+        public int X { get; private set; }
+        public int Y { get; private set; }
+        public List <ITerritory> connectedTerritories {get; private set;}
 
-        Landscape landscape { get; set; }
+        public Landscape landscape { get; private set; }
 
         public void OpenTerritory(Character character)
         {

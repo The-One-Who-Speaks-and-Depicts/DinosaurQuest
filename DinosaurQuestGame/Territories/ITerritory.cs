@@ -10,14 +10,14 @@ namespace DinosaurQuest.Territories
     public interface ITerritory
     {    	
 
-        Character character { get; set; }
+        Character character { get; }
         
-        int X {get; set;}
-        int Y {get; set;}
+        int X {get; }
+        int Y {get; }
 
-        List <ITerritory> connectedTerritories {get; set;}
+        List <ITerritory> connectedTerritories {get;}
 
-        List<ICreature> creatures { get; set; }
+        List<ICreature> creatures { get; }
 
         void OpenTerritory(Character character);
         void CloseTerritory(Character character);
