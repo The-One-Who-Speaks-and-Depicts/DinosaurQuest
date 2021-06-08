@@ -86,5 +86,25 @@ namespace DinosaurQuestTests
 
             Assert.False(enemyMoved);
         }
+
+        [Fact]
+        public void PackMovingFromEnemy_enemyFailedPackMoved_False()
+        {
+
+            var mockCharacter = new Character();
+            var mockAnchiornis = new Anchiornis();
+            var enemyAnchiornis = new Anchiornis();
+            mockCharacter.addToPack(mockAnchiornis);
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, enemyAnchiornis};
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
+            enemyAnchiornis.Move(mockTile, movement, false);
+            bool packMoved = movement.creatures.Contains(mockAnchiornis) ? true : false;
+            bool enemyMoved = movement.creatures.Contains(enemyAnchiornis) ? true : false;
+
+            Assert.True(packMoved);
+            Assert.False(enemyMoved);
+        }
     }
 }

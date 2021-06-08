@@ -22,7 +22,9 @@ namespace DinosaurQuest.Territories
         void OpenTerritory(Character character);
         void CloseTerritory(Character character);
 
-        void Generate();        
+        void Generate()
+        {
+        }       
         bool isAccessible ();
 
         void SetX(int _X, int step);

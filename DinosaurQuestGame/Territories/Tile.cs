@@ -34,7 +34,6 @@ namespace DinosaurQuest.Territories
 
         public void Generate()
         {
-            
         }
 
         public void SetX(int previousX, int step)
@@ -58,5 +57,11 @@ namespace DinosaurQuest.Territories
                 return true;
             }
         }
+
+        public Tile CloneTile(Tile tile)
+        {
+            return tile;
+        }
+
     }
 }
