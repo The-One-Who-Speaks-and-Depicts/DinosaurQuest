@@ -10,17 +10,17 @@ namespace DinosaurQuest.Creatures
     public class Character : Anchiornis, ICreature
     {
         #region commonCharacteristics
-        public new string name {get; set;}
-        public string gender {get; set;}
-        public new int health {get; set;}
-        public new int maxHealth {get; set;}
-        public new int stamina {get; set;}
-        public new int maxStamina {get; set;}
-        public List<IPerk> perks {get; set;}
-        public new int attackCoefficient {get; set;}
-        public new int defenceCoefficient {get; set;}
-        public int socialCoefficient {get; set;}
-        public Pack<Anchiornis> pack {get; set;}
+        public new string name {get; private set;}
+        public string gender {get; private set;}
+        public new int health {get; private set;}
+        public new int maxHealth {get; private set;}
+        public new int stamina {get; private set;}
+        public new int maxStamina {get; private set;}
+        public List<IPerk> perks {get; private set;}
+        public new int attackCoefficient {get; private set;}
+        public new int defenceCoefficient {get; private set;}
+        public int socialCoefficient {get; private set;}
+        public Pack<Anchiornis> pack {get; private set;}
 
         #endregion
 
@@ -29,13 +29,16 @@ namespace DinosaurQuest.Creatures
         public Character()
         {
             health = 100;
+            maxHealth = health;
             stamina = 100;
+            maxStamina = stamina;
         }
 
 
         #endregion
 
         #region CharacterCreation
+        // write unit test for all the functions in region
         public void preGiving()
         {
             string result;
@@ -50,7 +53,7 @@ namespace DinosaurQuest.Creatures
         }
         
 
-        // write unit test for that
+        
         public void ChooseStats()
         {            
             int _attackCoefficient = 0;
@@ -83,7 +86,6 @@ namespace DinosaurQuest.Creatures
             socialCoefficient += _socialCoefficient;
         }
 
-        // test that
         public void CreditPerk(IPerk perk)
         {
             Console.WriteLine("You have acquired a new perk!");            
@@ -96,6 +98,22 @@ namespace DinosaurQuest.Creatures
             perks = new List<IPerk>();
             perks.Add(archaeopteryx);            
             Console.WriteLine(archaeopteryx.ToString());
+        }
+
+
+        public void SetGender(int option)
+        {
+            switch (option) 
+            {
+                case 0:
+                    gender = "feminine";
+                    break;
+                case 1:
+                default:
+                    gender = "masculine";
+                    break;
+            }
+            
         }
         #endregion
 
