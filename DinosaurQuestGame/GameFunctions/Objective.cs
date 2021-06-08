@@ -2,8 +2,8 @@ namespace DinosaurQuest.GameFunctions
 {
 	public class Objective
 	{
-		public string name {get ; set;}
-		public string description {get; set;}
+		public string name {get ; private set;}
+		public string description {get; private set;}
 		private bool isObligatory {get; set;}
 		public enum Status
 		{
