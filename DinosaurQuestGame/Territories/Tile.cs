@@ -57,11 +57,5 @@ namespace DinosaurQuest.Territories
                 return true;
             }
         }
-
-        public Tile CloneTile(Tile tile)
-        {
-            return tile;
-        }
-
     }
 }

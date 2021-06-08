@@ -53,11 +53,5 @@ namespace DinosaurQuest.Territories
         {
             return false;
         }
-        
-
-        public object Clone()
-        {
-            return this;
-        }
 	}
 }
