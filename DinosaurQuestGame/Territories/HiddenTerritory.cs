@@ -47,7 +47,7 @@ namespace DinosaurQuest.Territories
 
         public void Generate()
         {
-
+            creatures = new List<ICreature>();
         }        
         public bool isAccessible ()
         {

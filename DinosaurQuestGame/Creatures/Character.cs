@@ -203,6 +203,16 @@ namespace DinosaurQuest.Creatures
                 return source;
             }
         }
+
+        public void addToPack(ICreature candidate)
+        {
+            if (pack == null)
+            {
+                pack = new Pack<Anchiornis>();
+            }
+            pack.Join(candidate as Anchiornis);
+        }
+
         #endregion
 
         #region technicalFunctions

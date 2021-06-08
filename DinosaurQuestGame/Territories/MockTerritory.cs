@@ -26,7 +26,7 @@ namespace DinosaurQuest.Territories
 
         public void Generate()
         {
-
+            
         }
 
         public void SetX(int previousX, int step)

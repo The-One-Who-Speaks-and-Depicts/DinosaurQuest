@@ -49,5 +49,10 @@ namespace DinosaurQuest.Creatures
             }
             
         }
+
+        public Anchiornis()
+        {
+
+        }
     }
 }
