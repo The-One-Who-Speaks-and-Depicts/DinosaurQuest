@@ -4,13 +4,13 @@ namespace DinosaurQuest.Creatures
 {
     public interface ICreature
     {
-        string name { get; set; }
-        int health { get; set; }
+        string name { get;}
+        int health { get; }
         int maxHealth { get; }
-        int stamina { get; set; }
+        int stamina { get; }
         int maxStamina {get; }
-        int attackCoefficient { get; set; }
-        int defenceCoefficient { get; set; }
+        int attackCoefficient { get; }
+        int defenceCoefficient { get; }
         enum direction { N , NE, E, SE, S, SW, W, NW}
 
         void Move (ITerritory source, ITerritory target, bool directed = false);

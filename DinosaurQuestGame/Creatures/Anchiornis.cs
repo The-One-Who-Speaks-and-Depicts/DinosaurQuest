@@ -9,15 +9,15 @@ namespace DinosaurQuest.Creatures
 {
     public class Anchiornis : ICreature
     {
-        public string name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string name { get; private set; }
+        public int health { get; private set; }
         public int maxHealth => new Random().Next(200, 400);
-        public int stamina { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int stamina { get; private set; }
         public int maxStamina => new Random().Next(200, 400);
-        public int friendliness { get; set; }
+        public int friendliness { get; private set; }
         public int maxFriendliness => 100;
-        public int attackCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int defenceCoefficient { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int attackCoefficient => new Random().Next(7, 14);
+        public int defenceCoefficient => new Random().Next(7,14);
 
         public void Frighten (int coefficient)
         {
