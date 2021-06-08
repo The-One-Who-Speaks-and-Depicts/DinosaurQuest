@@ -32,7 +32,7 @@ namespace DinosaurQuest.Stages
 	    public Tutorial(Character _currentCharacter)
 	    {
 	    	name = "Tutorial";
-	    	Console.WriteLine("Entering {0}...", name);
+	    	Console.WriteLine($"Entering {name}...");
 	    	levelDesc = ""; // implement
 	    	X_length = 3;
 	    	Y_length = 3;
@@ -40,7 +40,7 @@ namespace DinosaurQuest.Stages
 	    	// generate tiles
 	    	// generate objectives
 	    	currentCharacter = _currentCharacter;
-	    	Console.WriteLine("{0} level generated!", name);
+	    	Console.WriteLine($"{name} level generated!");
 	    	Entrance();
 	    }
 
