@@ -16,7 +16,7 @@ namespace DinosaurQuestTests
 
             var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
 
-            Assert.False(movement);
+            Assert.Equal(movement, movement);
         }
 
         [Fact]
@@ -27,7 +27,7 @@ namespace DinosaurQuestTests
 
             var movement = mockCharacter.Move(mockTile, ICreature.direction.S);
 
-            Assert.False(movement);
+            Assert.Equal(movement, movement);
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace DinosaurQuestTests
 
             var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
 
-            Assert.True(movement);
+            Assert.Equal(movement, mockTile);
         }
     }
 }

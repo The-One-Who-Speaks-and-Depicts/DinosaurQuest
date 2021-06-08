@@ -119,8 +119,7 @@ namespace DinosaurQuest.Creatures
 
         #region creatureFunctions
 
-        // test this a lot!
-        public bool Move(ITerritory source, ICreature.direction direction)
+        public ITerritory Move(ITerritory source, ICreature.direction direction)
         {
             var target = source;
             string movementDirection = "";
@@ -196,12 +195,12 @@ namespace DinosaurQuest.Creatures
                     }
                 }
                 Console.WriteLine($"{name} is moving {movementDirection}.");
-                return true;
+                return target;
             }
             else 
             {
                 Console.WriteLine("You are going too far away from your territory!");
-                return false;
+                return source;
             }
         }
         #endregion
