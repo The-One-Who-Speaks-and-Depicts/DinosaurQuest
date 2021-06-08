@@ -8,15 +8,15 @@ namespace DinosaurQuest.Stages
 {
 	public class Tutorial : ILevel
 	{
-		public string name { get; set; }
-	    public string levelDesc { get; set; }
-	    public int X_length { get; set; }
-	    public int Y_length { get; set; }
+		public string name => "Tutorial";
+	    public string levelDesc => "Description"; // implement
+	    public int X_length => 3;
+	    public int Y_length => 3;
 	    public int Area => X_length * Y_length;
-	    public List<ICreature> accessibleCreatures { get; set; }
-	    public List<ITerritory> territories { get; set; }
-	    public List<Objective> objectives {get; set;}
-	    public Character currentCharacter { get; set; }
+	    public List<ICreature> accessibleCreatures { get; private set; }
+	    public List<ITerritory> territories { get; private set; }
+	    public List<Objective> objectives {get; private set;}
+	    public Character currentCharacter { get; private set; }
 
 	    public void Entrance ()
 	    {
@@ -31,16 +31,13 @@ namespace DinosaurQuest.Stages
 
 	    public Tutorial(Character _currentCharacter)
 	    {
-	    	name = "Tutorial";
 	    	Console.WriteLine($"Entering {name}...");
-	    	levelDesc = ""; // implement
-	    	X_length = 3;
-	    	Y_length = 3;
 	    	// generate accessible creatures
 	    	// generate center tile
 	    	// generate objectives
 	    	currentCharacter = _currentCharacter;
 	    	Console.WriteLine($"{name} level generated!");
+	    	Console.WriteLine(levelDesc);
 	    	Entrance();
 	    }
 

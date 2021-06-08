@@ -8,15 +8,15 @@ namespace DinosaurQuest.Stages
 {
     public interface ILevel
     {
-        string name { get; set; }
-        string levelDesc { get; set; }
-        int X_length { get; set; }
-        int Y_length { get; set; }
+        string name { get;}
+        string levelDesc { get;}
+        int X_length { get; }
+        int Y_length { get; }
         int Area => X_length * Y_length;
-        List<ICreature> accessibleCreatures { get; set; }
-        List<ITerritory> territories { get; set; }
-        List<Objective> objectives {get; set;}
-        public Character currentCharacter { get; set; }
+        List<ICreature> accessibleCreatures { get; }
+        List<ITerritory> territories { get; }
+        List<Objective> objectives {get;}
+        public Character currentCharacter { get; }
 
         public void Entrance (Character _currentCharacter)
         {
