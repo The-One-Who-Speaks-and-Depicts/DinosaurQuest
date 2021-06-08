@@ -50,8 +50,9 @@ namespace DinosaurQuest.Creatures
         }
         
 
+        // write unit test for that
         public void ChooseStats()
-        {
+        {            
             int _attackCoefficient = 0;
             int _defenceCoefficient = 0;
             int _socialCoefficient = 0;
@@ -77,9 +78,24 @@ namespace DinosaurQuest.Creatures
                 Console.WriteLine($"Your defence skill is {_defenceCoefficient}, your attack skill is {_attackCoefficient}, your social skill is {_socialCoefficient}. If you agree, enter 1, if not, enter anything else. ");
             }
             while (ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar) != 1);
-            attackCoefficient = _attackCoefficient;
-            defenceCoefficient = _defenceCoefficient;
-            socialCoefficient = _socialCoefficient;
+            attackCoefficient += _attackCoefficient;
+            defenceCoefficient += _defenceCoefficient;
+            socialCoefficient += _socialCoefficient;
+        }
+
+        // test that
+        public void CreditPerk(IPerk perk)
+        {
+            Console.WriteLine("You have acquired a new perk!");            
+            perks.Add(perk);            
+            Console.WriteLine(perk.ToString());
+        }
+
+        public void CreditArchaeopteryx(Archaeopteryx archaeopteryx)
+        {
+            perks = new List<IPerk>();
+            perks.Add(archaeopteryx);            
+            Console.WriteLine(archaeopteryx.ToString());
         }
         #endregion
 

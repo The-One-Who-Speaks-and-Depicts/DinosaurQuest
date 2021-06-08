@@ -33,11 +33,8 @@ namespace DinosaurQuest.Stages
             if (decision > 0)
             {
                 newCharacter.ChooseStats();
-                newCharacter.perks = new List<IPerk>();
-                Archaeopteryx perk = new Archaeopteryx(); 
-                newCharacter.perks.Add(perk);
-                Console.WriteLine("\nYour character may develop a certain set of skills during the game. The first one is Archaeopteryx:\n");
-                Console.WriteLine(perk.ToString());
+                Console.WriteLine($"\nYour character may develop a certain set of skills during the game. The first one is Archaeopteryx:\n");
+                newCharacter.CreditArchaeopteryx(new Archaeopteryx());                
             }            
             else
             {
