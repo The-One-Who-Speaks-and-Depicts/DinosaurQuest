@@ -18,5 +18,16 @@ namespace DinosaurQuestTests
 
             Assert.False(movement);
         }
+
+        [Fact]
+        public void movementOutOfNegativeBounds_accessNotGranted_False()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(3, 3, 0, 0);
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.S);
+
+            Assert.False(movement);
+        }
     }
 }
