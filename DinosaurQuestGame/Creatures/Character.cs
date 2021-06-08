@@ -119,6 +119,7 @@ namespace DinosaurQuest.Creatures
 
         #region creatureFunctions
 
+        // test this a lot!
         public bool Move(ITerritory source, ICreature.direction direction)
         {
             var target = new Tile();
@@ -127,53 +128,53 @@ namespace DinosaurQuest.Creatures
             {
                 case ICreature.direction.N:
                 {
-                    target.Y++;
+                    target.SetY(source.Y, 1);
                     movementDirection = "northwards";
                     break;
                 }
                 case ICreature.direction.NE:
                 {
-                    target.Y++;
-                    target.X++;
+                    target.SetY(source.Y, 1);
+                    target.SetX(source.X, 1);
                     movementDirection = "northeastwards";
                     break;
                 }
                 case ICreature.direction.E: 
                 {
-                    target.X++;
+                    target.SetX(source.X, 1);
                     movementDirection = "eastwards";
                     break;
                 }
                 case ICreature.direction.SE:
                 {
-                    target.Y--;
-                    target.X++;
+                    target.SetY(source.Y, -1);
+                    target.SetX(source.X, 1);
                     movementDirection = "southeastwards";
                     break;
                 }
                 case ICreature.direction.S:
                 {
-                    target.Y--;
+                    target.SetY(source.Y, -1);
                     movementDirection = "southwards";
                     break;
                 }
                 case ICreature.direction.SW:
                 {
-                    target.Y--;
-                    target.X--;
+                    target.SetY(source.Y, -1);
+                    target.SetX(source.X, -1);
                     movementDirection = "southwestwards";
                     break;
                 }
                 case ICreature.direction.W:
                 {
-                    target.X--;
+                    target.SetX(source.X, -1);
                     movementDirection = "westwards";
                     break;
                 }
                 case ICreature.direction.NW:
                 {
-                    target.Y++;
-                    target.X--;
+                    target.SetY(source.Y, 1);
+                    target.SetX(source.X, -1);
                     movementDirection = "northwestwards";
                     break;
                 }

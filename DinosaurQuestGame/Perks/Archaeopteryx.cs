@@ -27,14 +27,13 @@ namespace DinosaurQuest.Perks
 			this.CoolDownSet();
 		}
         public void OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)
-        {        	
-        	if (character.Move(destination, direction))
+        {
+        	if (character.Move(department, direction))
         	{
-        		Console.WriteLine("Longer feathers make your flight longer.");
-        	}
-        	else
-        	{
-        		character.Move(department, direction);
+        		if (character.Move(destination, direction))
+	        	{
+	        		Console.WriteLine("Longer feathers make your flight longer.");
+	        	}
         	}
 			this.CoolDownSet();
 		}

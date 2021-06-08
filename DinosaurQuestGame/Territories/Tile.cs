@@ -37,6 +37,16 @@ namespace DinosaurQuest.Territories
 
         }
 
+        public void SetX(int previousX, int step)
+        {
+            X = previousX + step;
+        }
+
+        public void SetY(int previousY, int step)
+        {
+            Y = previousY + step;
+        }
+
         public bool isAccessible() 
         {
             if (this.X > this.currentLevel.X_length || this.X < 0 || this.Y > this.currentLevel.Y_length || this.Y < 0)
