@@ -39,6 +39,7 @@ namespace DinosaurQuest.Territories
             Y = previousY + step;
         }
 
+        // test that
         public bool isAccessible() 
         {
             if (X > currentLevel.X_length || X < 1 || Y > currentLevel.Y_length || Y < 1)

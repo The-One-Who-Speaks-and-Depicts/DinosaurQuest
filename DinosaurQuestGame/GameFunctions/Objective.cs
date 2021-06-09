@@ -22,6 +22,7 @@ namespace DinosaurQuest.GameFunctions
 			isObligatory = _isObligatory;
 		}
 
+		// SetStatus needs testing
 		public Status SetStatus(int _status)
 		{
 			switch (_status) 

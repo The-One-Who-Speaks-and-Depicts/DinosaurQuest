@@ -20,6 +20,7 @@ namespace DinosaurQuest.Perks
 		public bool isGettable {get; set; } =  false;
 		public bool isAcquired {get; set; } = true;
 
+		// unit test all this
 		public void OnTile(Character character, ITerritory territory)
 		{
 			Console.WriteLine("Longer feathers help you to reach new territories");
