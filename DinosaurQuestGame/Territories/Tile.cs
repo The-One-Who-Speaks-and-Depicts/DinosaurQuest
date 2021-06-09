@@ -15,7 +15,7 @@ namespace DinosaurQuest.Territories
         public List<ICreature> creatures {get; private set;}
 
 
-        public ILevel currentLevel {get; private set;}
+        public ILevel currentLevel {get; set;}
 
         public int X { get; private set; }
         public int Y { get; private set; }
@@ -56,6 +56,11 @@ namespace DinosaurQuest.Territories
             {
                 return true;
             }
+        }
+
+        public Tile()
+        {
+
         }
     }
 }

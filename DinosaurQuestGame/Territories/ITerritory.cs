@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DinosaurQuest.Creatures;
+using DinosaurQuest.Stages;
 
 namespace DinosaurQuest.Territories
 {
@@ -18,6 +19,8 @@ namespace DinosaurQuest.Territories
         List <ITerritory> connectedTerritories {get;}
 
         List<ICreature> creatures { get; }
+
+        ILevel currentLevel {get; set;}
 
         void OpenTerritory(Character character);
         void CloseTerritory(Character character);

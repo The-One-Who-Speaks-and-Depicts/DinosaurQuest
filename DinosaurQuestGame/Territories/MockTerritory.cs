@@ -60,5 +60,10 @@ namespace DinosaurQuest.Territories
             SetY(_Y, 0);
         	currentLevel = new MockLevel(_level_X_length, _level_Y_length);
         }
+
+        public MockTerritory()
+        {
+            creatures = new List<ICreature>();            
+        }
 	}
 }

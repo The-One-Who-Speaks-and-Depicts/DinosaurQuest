@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using DinosaurQuest.Perks;
 using DinosaurQuest.GameFunctions;
 using DinosaurQuest.Territories;
@@ -121,7 +122,8 @@ namespace DinosaurQuest.Creatures
 
         public ITerritory Move(ITerritory source, ICreature.direction direction)
         {
-            var target = source;
+            var target = (ITerritory) Activator.CreateInstance(source.GetType());
+            target.currentLevel = source.currentLevel;
             string movementDirection = "";
             switch (direction)
             {

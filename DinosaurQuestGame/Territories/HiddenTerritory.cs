@@ -1,4 +1,5 @@
 using DinosaurQuest.Creatures;
+using DinosaurQuest.Stages;
 using System.Collections.Generic;
 
 
@@ -20,6 +21,8 @@ namespace DinosaurQuest.Territories
         }
 		
 		public Character character { get; set; }
+
+        public ILevel currentLevel {get; set;}
         
 
         public List <ITerritory> connectedTerritories {get; set;}
@@ -52,6 +55,11 @@ namespace DinosaurQuest.Territories
         public bool isAccessible ()
         {
             return false;
+        }
+
+        public HiddenTerritory()
+        {
+
         }
 	}
 }
