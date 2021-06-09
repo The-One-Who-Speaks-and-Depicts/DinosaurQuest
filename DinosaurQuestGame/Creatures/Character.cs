@@ -86,6 +86,7 @@ namespace DinosaurQuest.Creatures
             socialCoefficient += _socialCoefficient;
         }
 
+        // test for existance of this perk, later
         public void CreditPerk(IPerk perk)
         {
             Console.WriteLine("You have acquired a new perk!");            
@@ -209,6 +210,7 @@ namespace DinosaurQuest.Creatures
             }
         }
 
+        // test for non-Anchiornis
         public void AddToPack(ICreature candidate)
         {
             if (pack == null)

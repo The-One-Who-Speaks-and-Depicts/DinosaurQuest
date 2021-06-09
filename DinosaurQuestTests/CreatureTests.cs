@@ -29,6 +29,62 @@ public class CreatureTests
 		Assert.True(packCount > 0);
 	}
 
+	[Fact]
+	public void JoinNeutralAnchiornis_AnchiornisRefuses_True()
+	{
+		var mockCharacter = new Character();
+		var mockAnchiornis = new Anchiornis();
+		mockCharacter.AddToPack(mockAnchiornis);
+
+		var packCount = mockCharacter.pack.Count;
+
+		Assert.Equal(0, packCount);
+	}
+
+	[Fact]
+	public void JoinFriendlyAnchiornis_AnchiornisAgrees_True()
+	{
+		var mockCharacter = new Character();
+		var mockAnchiornis = new Anchiornis();
+		mockAnchiornis.IncreaseFriendliness(25);
+		mockCharacter.AddToPack(mockAnchiornis);
+
+		var packCount = mockCharacter.pack.Count;
+
+		Assert.Equal(1, packCount);
+	}
+
+	[Fact]
+	public void JoinNeutralAnchiornisToPack_AnchiornisRefuses_True()
+	{
+		var mockCharacter = new Character();
+		var mockAnchiornis = new Anchiornis();
+		mockAnchiornis.IncreaseFriendliness(25);
+		mockCharacter.AddToPack(mockAnchiornis);
+		var neutralAnchiornis = new Anchiornis();
+		mockCharacter.AddToPack(neutralAnchiornis);
+
+		var packCount = mockCharacter.pack.Count;
+
+		Assert.Equal(1, packCount);
+	}
+
+	[Fact]
+	public void JoinFriendlyAnchiornisToPack_AnchiornisAgrees_True()
+	{
+		var mockCharacter = new Character();
+		var mockAnchiornis = new Anchiornis();
+		mockAnchiornis.IncreaseFriendliness(25);
+		mockCharacter.AddToPack(mockAnchiornis);
+		var friendlyAnchiornis = new Anchiornis();
+		friendlyAnchiornis.IncreaseFriendliness(21);
+		mockCharacter.AddToPack(friendlyAnchiornis);
+
+		var packCount = mockCharacter.pack.Count;
+
+		Assert.Equal(2, packCount);
+	}
+
 	[Theory]
 	[InlineData(0)]
 	[InlineData(1)]
