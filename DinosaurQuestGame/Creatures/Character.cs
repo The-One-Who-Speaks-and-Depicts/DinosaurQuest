@@ -186,7 +186,7 @@ namespace DinosaurQuest.Creatures
             }                
             if (target.isAccessible())
             {
-                target.Generate();
+                target.Generate(); 
                 source.creatures.Remove(this);
                 target.creatures.Add(this);
                 if (pack != null)
@@ -206,7 +206,7 @@ namespace DinosaurQuest.Creatures
             }
         }
 
-        public void addToPack(ICreature candidate)
+        public void AddToPack(ICreature candidate)
         {
             if (pack == null)
             {

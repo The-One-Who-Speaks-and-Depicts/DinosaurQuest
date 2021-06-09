@@ -17,8 +17,7 @@ namespace DinosaurQuestTests
 
             var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
 
-            Assert.True(mockTile.X == movement.X);
-            Assert.True(mockTile.Y == movement.Y);
+            Assert.True(mockTile.X == movement.X && mockTile.Y == movement.Y);
         }
 
         [Fact]
@@ -29,10 +28,10 @@ namespace DinosaurQuestTests
 
             var movement = mockCharacter.Move(mockTile, ICreature.direction.S);
 
-            Assert.True(mockTile.X == movement.X);
-            Assert.True(mockTile.Y == movement.Y);
+            Assert.True(mockTile.X == movement.X && mockTile.Y == movement.Y);
         }
 
+        // test for different directions
         [Fact]
         public void movementWithinPositiveBoundsNorthwards_accessGranted_True()
         {
@@ -49,7 +48,8 @@ namespace DinosaurQuestTests
         {
             var mockCharacter = new Character();
             var mockAnchiornis = new Anchiornis();
-            mockCharacter.addToPack(mockAnchiornis);
+            mockAnchiornis.IncreaseFriendliness(25);
+            mockCharacter.AddToPack(mockAnchiornis);
             var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis};
 
@@ -96,7 +96,8 @@ namespace DinosaurQuestTests
             var mockCharacter = new Character();
             var mockAnchiornis = new Anchiornis();
             var enemyAnchiornis = new Anchiornis();
-            mockCharacter.addToPack(mockAnchiornis);
+            mockAnchiornis.IncreaseFriendliness(25);
+            mockCharacter.AddToPack(mockAnchiornis);
             var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, enemyAnchiornis};
 
@@ -107,6 +108,59 @@ namespace DinosaurQuestTests
 
             Assert.True(packMoved);
             Assert.False(enemyMoved);
+        }
+
+        [Fact]
+        public void OnlyPackMoved_CharacterOnNextTile_True()
+        {
+            var mockCharacter = new Character();
+            var mockAnchiornis = new Anchiornis();
+            var neutralAnchiornis = new Anchiornis();
+            mockAnchiornis.IncreaseFriendliness(25);
+            mockCharacter.AddToPack(mockAnchiornis);
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, neutralAnchiornis};
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+            bool characterMoved = movement.creatures.Contains(mockCharacter) ? true : false;
+
+            Assert.True(characterMoved);
+        }            
+            
+        [Fact]
+        public void OnlyPackMoved_PackOnNextTile_True()
+        {
+            var mockCharacter = new Character();
+            var mockAnchiornis = new Anchiornis();
+            mockAnchiornis.IncreaseFriendliness(25);
+            var neutralAnchiornis = new Anchiornis();
+            mockCharacter.AddToPack(mockAnchiornis);
+            
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, neutralAnchiornis};
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+            bool packMoved = movement.creatures.Contains(mockAnchiornis) ? true : false;
+
+            Assert.True(packMoved);
+        }
+
+
+        [Fact]
+        public void OnlyPackMoved_NoNeutralsOnNextTile_True()
+        {
+            var mockCharacter = new Character();
+            var mockAnchiornis = new Anchiornis();
+            mockAnchiornis.IncreaseFriendliness(25);
+            var neutralAnchiornis = new Anchiornis();
+            mockCharacter.AddToPack(mockAnchiornis);
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, neutralAnchiornis};
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+            bool neutralMoved = movement.creatures.Contains(neutralAnchiornis) ? true : false;
+
+            Assert.False(neutralMoved);
         }
     }
 }
