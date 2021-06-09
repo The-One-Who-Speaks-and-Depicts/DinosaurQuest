@@ -138,4 +138,24 @@ public class CreatureTests
 
 		Assert.False(perksReduced);
 	}
+
+	[Fact]
+	public void FriendlinessIncrease_Increased_UpTo50()
+	{
+		var mockAnchiornis = new Anchiornis();
+		mockAnchiornis.IncreaseFriendliness(20);
+
+		int mockAnchiornisFriendliness = 50; 
+
+		Assert.Equal(mockAnchiornis.friendliness, mockAnchiornisFriendliness);
+	}
+
+	[Fact]
+	public void FriendlinessIncreasesOver100_BlockFromTop_Equals100()
+	{
+		var mockAnchiornis = new Anchiornis();
+		mockAnchiornis.IncreaseFriendliness(100);
+
+		Assert.Equal(mockAnchiornis.friendliness, mockAnchiornis.maxFriendliness);
+	}
 }
