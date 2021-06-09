@@ -28,4 +28,18 @@ public class CreatureTests
 
 		Assert.True(packCount > 0);
 	}
+
+	[Theory]
+	[InlineData(0)]
+	[InlineData(1)]
+	[InlineData(2)]
+	public void SettingGender_GenderFeminine_True(int gender)
+	{
+		var mockCharacter = new Character();
+		mockCharacter.SetGender(gender);
+
+		int genderType = mockCharacter.gender == "feminine" ? 0 : gender;
+
+		Assert.Equal(genderType, gender); 
+	}
 }

@@ -39,7 +39,6 @@ namespace DinosaurQuest.Creatures
         #endregion
 
         #region CharacterCreation
-        // write unit test for all the functions in region
         public void preGiving()
         {
             string result;
