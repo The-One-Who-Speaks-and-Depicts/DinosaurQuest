@@ -16,11 +16,23 @@ namespace DinosaurQuest.Territories
 
         public List<ICreature> creatures { get; set; }
 
+         // test each one of these methods
+
         public void OpenTerritory(Character character)
         {
 
         }
         public void CloseTerritory(Character character)
+        {
+
+        }
+
+        public void EnterTerritory(Character character)
+        {
+
+        }
+
+        public void LeaveTerritory(Character character)
         {
 
         }
@@ -39,7 +51,7 @@ namespace DinosaurQuest.Territories
             Y = previousY + step;
         }
 
-        // test that
+       
         public bool isAccessible() 
         {
             if (X > currentLevel.X_length || X < 1 || Y > currentLevel.Y_length || Y < 1)
