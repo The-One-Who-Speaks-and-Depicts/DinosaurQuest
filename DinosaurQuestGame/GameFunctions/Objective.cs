@@ -12,7 +12,7 @@ namespace DinosaurQuest.GameFunctions
 			Achieved,
 			Failed
 		}
-		private Status currentStatus {get; set;}
+		public Status currentStatus {get; private set;}
 
 		public Objective (string _name, string _description, bool _isObligatory)
 		{
