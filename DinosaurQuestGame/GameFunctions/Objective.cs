@@ -18,24 +18,28 @@ namespace DinosaurQuest.GameFunctions
 		{
 			name = _name;
 			description = _description;
-			currentStatus = SetStatus(0);
+			SetStatus(0);
 			isObligatory = _isObligatory;
 		}
 
 		// SetStatus needs testing
-		public Status SetStatus(int _status)
+		public void SetStatus(int _status)
 		{
 			switch (_status) 
 			{
 				case 0:
-					return Status.Hidden;
+					currentStatus = Status.Hidden;
+					break;
 				case 2:
-					return Status.Achieved;
+					currentStatus = Status.Achieved;
+					break;
 				case 3: 
-					return Status.Failed;
+					currentStatus = Status.Failed;
+					break;
 				case 1:
 				default:
-					return Status.Active;
+					currentStatus = Status.Active;
+					break;
 			}
 		}
 
