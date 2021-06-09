@@ -31,14 +31,90 @@ namespace DinosaurQuestTests
             Assert.True(mockTile.X == movement.X && mockTile.Y == movement.Y);
         }
 
-        // test for different directions
         [Fact]
         public void movementWithinPositiveBoundsNorthwards_accessGranted_True()
         {
             var mockCharacter = new Character();
             var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
 
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
+
+            Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
+        }
+
+        [Fact]
+        public void movementWithinPositiveBoundsNorthwestwards_accessGranted_True()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+
             var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+
+            Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
+        }
+
+        [Fact]
+        public void movementWithinPositiveBoundsWestwards_accessGranted_True()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.W);
+
+            Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
+        }
+
+        [Fact]
+        public void movementWithinPositiveBoundsSouthwestwards_accessGranted_True()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.SW);
+
+            Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
+        }
+
+        [Fact]
+        public void movementWithinPositiveBoundsSouthwwards_accessGranted_True()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.S);
+
+            Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
+        }
+
+        [Fact]
+        public void movementWithinPositiveBoundsSoutheastwards_accessGranted_True()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.SE);
+
+            Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
+        }
+
+        [Fact]
+        public void movementWithinPositiveBoundsEastwards_accessGranted_True()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.E);
+
+            Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
+        }
+
+        [Fact]
+        public void movementWithinPositiveBoundsNortheastwards_accessGranted_True()
+        {
+            var mockCharacter = new Character();
+            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NE);
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }

@@ -129,6 +129,7 @@ namespace DinosaurQuest.Creatures
             {
                 case ICreature.direction.N:
                 {
+                    target.SetX(source.X, 0);
                     target.SetY(source.Y, 1);
                     movementDirection = "northwards";
                     break;
@@ -143,6 +144,7 @@ namespace DinosaurQuest.Creatures
                 case ICreature.direction.E: 
                 {
                     target.SetX(source.X, 1);
+                    target.SetY(source.Y, 0);
                     movementDirection = "eastwards";
                     break;
                 }
@@ -155,6 +157,7 @@ namespace DinosaurQuest.Creatures
                 }
                 case ICreature.direction.S:
                 {
+                    target.SetX(source.X, 0);
                     target.SetY(source.Y, -1);
                     movementDirection = "southwards";
                     break;
@@ -169,6 +172,7 @@ namespace DinosaurQuest.Creatures
                 case ICreature.direction.W:
                 {
                     target.SetX(source.X, -1);
+                    target.SetY(source.Y, 0);
                     movementDirection = "westwards";
                     break;
                 }
