@@ -34,7 +34,7 @@ namespace DinosaurQuest.Creatures
             throw new NotImplementedException();
         }
 
-        // unit test that
+        // unit test that for non-Anchiornis
         public void Join (T candidate)
         {
             if (candidate is Anchiornis)

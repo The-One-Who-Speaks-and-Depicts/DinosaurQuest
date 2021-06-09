@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using Xunit;
 using DinosaurQuest.Creatures;
+using DinosaurQuest.Perks;
 
 public class CreatureTests
 {
@@ -97,5 +99,43 @@ public class CreatureTests
 		int genderType = mockCharacter.gender == "feminine" ? 0 : gender;
 
 		Assert.Equal(genderType, gender); 
+	}
+
+	[Fact]
+	public void CoolDownDecrease_ReducedToZero_ReadyToUse()
+	{
+		var mockCharacter = new Character();
+		mockCharacter.CreditArchaeopteryx(new Archaeopteryx());
+		for (int i = 0; i < mockCharacter.perks.Count; i++)
+		{
+			mockCharacter.perks[i].CoolDownSet();
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			mockCharacter.CoolDownCount();
+		}
+
+		bool perksReduced = mockCharacter.perks.Any(p => p.coolDown == 0);
+
+		Assert.True(perksReduced);
+	}
+
+	[Fact]
+	public void CoolDownDecrease_HalfReduced_Recharging()
+	{
+		var mockCharacter = new Character();
+		mockCharacter.CreditArchaeopteryx(new Archaeopteryx());
+		for (int i = 0; i < mockCharacter.perks.Count; i++)
+		{
+			mockCharacter.perks[i].CoolDownSet();
+		}
+		for (int i = 0; i < 3; i++)
+		{
+			mockCharacter.CoolDownCount();
+		}
+
+		bool perksReduced = mockCharacter.perks.Any(p => p.coolDown == 0);
+
+		Assert.False(perksReduced);
 	}
 }
