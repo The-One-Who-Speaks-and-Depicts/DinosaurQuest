@@ -249,14 +249,14 @@ namespace DinosaurQuestTests
             var mockTerritory = new MockHiddenTerritory(mockCharacter, new Archaeopteryx(), mockTile);
 
             mockTerritory.OpenTerritory(mockCharacter);
+            var territoryIsAccessible = mockTerritory.isAccessible;
 
-            Assert.True(mockTerritory.isAccessible);
+            Assert.True(territoryIsAccessible);
         }
 
         [Fact]
         public void ClosingTerritory_TerritoryIsNotAccessibleAnymore_False()
         {
-
             var mockCharacter = new Character();
             mockCharacter.CreditArchaeopteryx(new Archaeopteryx());
             var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
@@ -264,8 +264,25 @@ namespace DinosaurQuestTests
 
             mockTerritory.OpenTerritory(mockCharacter);
             mockTerritory.CloseTerritory(mockCharacter);
+            var territoryIsAccessible = mockTerritory.isAccessible;
 
-            Assert.False(mockTerritory.isAccessible);
+            Assert.False(territoryIsAccessible);
+        }
+
+        [Fact]
+        public void ArchaeopteryxOpened_CharacterEntersTerritory_CharacterInCreatures()
+        {
+            var mockCharacter = new Character();
+            mockCharacter.CreditArchaeopteryx(new Archaeopteryx());
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+            var mockTerritory = new MockHiddenTerritory(mockCharacter, new Archaeopteryx(), mockTile);
+
+            mockTerritory.OpenTerritory(mockCharacter);
+            mockTerritory.EnterTerritory(mockCharacter);
+            var characterMoved = mockTerritory.creatures.Contains(mockCharacter);
+
+            Assert.True(characterMoved);
+
         }
     }
 }

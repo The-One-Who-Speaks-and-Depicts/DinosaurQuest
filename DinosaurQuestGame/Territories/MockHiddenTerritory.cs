@@ -85,6 +85,7 @@ namespace DinosaurQuest.Territories
 			character = _character;
 			requiredPerk = _requiredPerk;
 			connectedTerritories = new List<ITerritory>() { startTile };
+			creatures = new List<ICreature>();
 
 		}
 	}
