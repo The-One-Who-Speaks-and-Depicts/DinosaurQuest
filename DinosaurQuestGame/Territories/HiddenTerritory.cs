@@ -1,6 +1,8 @@
 using DinosaurQuest.Creatures;
 using DinosaurQuest.Stages;
+using DinosaurQuest.Perks;
 using System;
+using System.Reflection;
 using System.Collections.Generic;
 
 
@@ -12,6 +14,7 @@ namespace DinosaurQuest.Territories
 
         public ILevel currentLevel {get; set;}
         
+        public IPerk requiredPerk {get;}
 
         public List <ITerritory> connectedTerritories {get; set;}
 
@@ -19,8 +22,21 @@ namespace DinosaurQuest.Territories
 
         public void OpenTerritory(Character character)
         {
-            isAccessible = true;
-            Console.WriteLine($"Access to territory is no longer restricted for {character.name}");
+            bool territoryOpened = false;
+            for (int i = 0; i < character.perks.Count; i++)
+            {
+                if (character.perks[i].GetType() == requiredPerk.GetType())
+                {
+                    isAccessible = true;
+                    Console.WriteLine($"Access to territory is no longer restricted for {character.name}");
+                    territoryOpened = true;
+                }
+            }
+            if (!territoryOpened)
+            {
+                Console.WriteLine($"Access to territory is yet restricted for {character.name}");
+            }
+            
         }
         public void CloseTerritory(Character character)
         {

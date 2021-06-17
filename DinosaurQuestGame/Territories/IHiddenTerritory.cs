@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using DinosaurQuest.Creatures;
 using DinosaurQuest.Stages;
+using DinosaurQuest.Perks;
 
 namespace DinosaurQuest.Territories
 {
     public interface IHiddenTerritory: ITerritory
     {
+        IPerk requiredPerk {get;}
+
         // unit test these
         void OpenTerritory(Character character);
         void CloseTerritory(Character character);
