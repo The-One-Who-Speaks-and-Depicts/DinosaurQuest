@@ -122,64 +122,65 @@ namespace DinosaurQuest.Creatures
 
         public ITerritory Move(ITerritory source, ICreature.direction direction)
         {
-            var target = (ITerritory) Activator.CreateInstance(source.GetType());
+            var tileSource = source as ITile;
+            var target = (ITile) Activator.CreateInstance(source.GetType());
             target.currentLevel = source.currentLevel;
             string movementDirection = "";
             switch (direction)
             {
                 case ICreature.direction.N:
                 {
-                    target.SetX(source.X, 0);
-                    target.SetY(source.Y, 1);
+                    target.SetX(tileSource.X, 0);
+                    target.SetY(tileSource.Y, 1);
                     movementDirection = "northwards";
                     break;
                 }
                 case ICreature.direction.NE:
                 {
-                    target.SetY(source.Y, 1);
-                    target.SetX(source.X, 1);
+                    target.SetY(tileSource.Y, 1);
+                    target.SetX(tileSource.X, 1);
                     movementDirection = "northeastwards";
                     break;
                 }
                 case ICreature.direction.E: 
                 {
-                    target.SetX(source.X, 1);
-                    target.SetY(source.Y, 0);
+                    target.SetX(tileSource.X, 1);
+                    target.SetY(tileSource.Y, 0);
                     movementDirection = "eastwards";
                     break;
                 }
                 case ICreature.direction.SE:
                 {
-                    target.SetY(source.Y, -1);
-                    target.SetX(source.X, 1);
+                    target.SetY(tileSource.Y, -1);
+                    target.SetX(tileSource.X, 1);
                     movementDirection = "southeastwards";
                     break;
                 }
                 case ICreature.direction.S:
                 {
-                    target.SetX(source.X, 0);
-                    target.SetY(source.Y, -1);
+                    target.SetX(tileSource.X, 0);
+                    target.SetY(tileSource.Y, -1);
                     movementDirection = "southwards";
                     break;
                 }
                 case ICreature.direction.SW:
                 {
-                    target.SetY(source.Y, -1);
-                    target.SetX(source.X, -1);
+                    target.SetY(tileSource.Y, -1);
+                    target.SetX(tileSource.X, -1);
                     movementDirection = "southwestwards";
                     break;
                 }
                 case ICreature.direction.W:
                 {
-                    target.SetX(source.X, -1);
-                    target.SetY(source.Y, 0);
+                    target.SetX(tileSource.X, -1);
+                    target.SetY(tileSource.Y, 0);
                     movementDirection = "westwards";
                     break;
                 }
                 case ICreature.direction.NW:
                 {
-                    target.SetY(source.Y, 1);
-                    target.SetX(source.X, -1);
+                    target.SetY(tileSource.Y, 1);
+                    target.SetX(tileSource.X, -1);
                     movementDirection = "northwestwards";
                     break;
                 }
@@ -188,7 +189,7 @@ namespace DinosaurQuest.Creatures
                     break;
                 }                
             }                
-            if (target.isAccessible())
+            if (target.isAccessible)
             {
                 target.Generate(); 
                 source.creatures.Remove(this);

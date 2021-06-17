@@ -11,26 +11,18 @@ namespace DinosaurQuest.Territories
     public interface ITerritory
     {    	
 
-        Character character { get; }
-        
-        int X {get; }
-        int Y {get; }
+        Character character { get; }       
 
         List <ITerritory> connectedTerritories {get;}
 
         List<ICreature> creatures { get; }
 
         ILevel currentLevel {get; set;}
-
-        void OpenTerritory(Character character);
-        void CloseTerritory(Character character);
+       
 
         void Generate()
         {
         }       
-        bool isAccessible ();
-
-        void SetX(int _X, int step);
-        void SetY(int _Y, int step);
+        bool isAccessible { get; }
     }
 }

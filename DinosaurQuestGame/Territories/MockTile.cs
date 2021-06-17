@@ -5,7 +5,7 @@ using DinosaurQuest.Creatures;
 
 namespace DinosaurQuest.Territories
 {
-	public class MockTerritory : ITerritory
+	public class MockTile : ITile
 	{
         public Character character { get; private set;}
         
@@ -16,27 +16,7 @@ namespace DinosaurQuest.Territories
 
         public List<ICreature> creatures { get; set; }
 
-         // test each one of these methods
-
-        public void OpenTerritory(Character character)
-        {
-
-        }
-        public void CloseTerritory(Character character)
-        {
-
-        }
-
-        public void EnterTerritory(Character character)
-        {
-
-        }
-
-        public void LeaveTerritory(Character character)
-        {
-
-        }
-
+         
         public void Generate()
         {
         }
@@ -52,20 +32,25 @@ namespace DinosaurQuest.Territories
         }
 
        
-        public bool isAccessible() 
+        public bool isAccessible 
         {
-            if (X > currentLevel.X_length || X < 1 || Y > currentLevel.Y_length || Y < 1)
+            get 
             {
-                return false;
-            }
-            else 
-            {
-                return true;
-            }
+                if (X > currentLevel.X_length || X < 1 || Y > currentLevel.Y_length || Y < 1)
+                {
+                    return false;
+                }
+                else 
+                {
+                    return true;
+                }
+            }            
         }
+
+
         public ILevel currentLevel {get; set;}
 
-        public MockTerritory(Character _character, int _level_X_length, int _level_Y_length, int _X, int _Y)
+        public MockTile(Character _character, int _level_X_length, int _level_Y_length, int _X, int _Y)
         {
             character = _character;
             creatures = new List<ICreature>();
@@ -75,7 +60,7 @@ namespace DinosaurQuest.Territories
         	currentLevel = new MockLevel(_level_X_length, _level_Y_length);
         }
 
-        public MockTerritory()
+        public MockTile()
         {
             creatures = new List<ICreature>();          
         }

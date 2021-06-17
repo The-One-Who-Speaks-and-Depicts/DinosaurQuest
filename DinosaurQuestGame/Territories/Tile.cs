@@ -9,7 +9,7 @@ using DinosaurQuest.Landscapes;
 
 namespace DinosaurQuest.Territories
 {
-    public class Tile : ITerritory
+    public class Tile : ITile
     {
         public Character character {get; private set;}
         public List<ICreature> creatures {get; private set;}
@@ -22,15 +22,6 @@ namespace DinosaurQuest.Territories
         public List <ITerritory> connectedTerritories {get; private set;}
 
         public Landscape landscape { get; private set; }
-
-        public void OpenTerritory(Character character)
-        {
-
-        }
-        public void CloseTerritory(Character character)
-        {
-
-        }
 
         public void Generate()
         {
@@ -46,16 +37,19 @@ namespace DinosaurQuest.Territories
             Y = previousY + step;
         }
 
-        public bool isAccessible() 
+        public bool isAccessible 
         {
-            if (X > currentLevel.X_length || X < 1 || Y > currentLevel.Y_length || Y < 1)
+            get 
             {
-                return false;
-            }
-            else 
-            {
-                return true;
-            }
+                if (X > currentLevel.X_length || X < 1 || Y > currentLevel.Y_length || Y < 1)
+                {
+                    return false;
+                }
+                else 
+                {
+                    return true;
+                }
+            }            
         }
 
         public Tile()

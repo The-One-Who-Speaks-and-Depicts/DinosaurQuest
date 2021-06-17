@@ -24,7 +24,11 @@ namespace DinosaurQuest.Perks
 		public void OnTile(Character character, ITerritory territory)
 		{
 			Console.WriteLine("Longer feathers help you to reach new territories");
-			territory.OpenTerritory(character);
+			if (territory is IHiddenTerritory)
+			{
+				var openedTerritory = territory as IHiddenTerritory;
+				openedTerritory.OpenTerritory(character);
+			}			
 			this.CoolDownSet();
 		}
         public void OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)

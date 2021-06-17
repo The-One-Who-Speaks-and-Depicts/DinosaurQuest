@@ -13,9 +13,9 @@ namespace DinosaurQuestTests
         public void movementOutOfPositiveBounds_accessNotGranted_False()
         {
         	var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 3, 3);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 3, 3);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.N) as ITile;
 
             Assert.True(mockTile.X == movement.X && mockTile.Y == movement.Y);
         }
@@ -24,9 +24,9 @@ namespace DinosaurQuestTests
         public void movementOutOfNegativeBounds_accessNotGranted_False()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 1, 1);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 1, 1);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.S);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.S) as ITile;
 
             Assert.True(mockTile.X == movement.X && mockTile.Y == movement.Y);
         }
@@ -35,9 +35,9 @@ namespace DinosaurQuestTests
         public void movementWithinPositiveBoundsNorthwards_accessGranted_True()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.N) as ITile;
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }
@@ -46,9 +46,9 @@ namespace DinosaurQuestTests
         public void movementWithinPositiveBoundsNorthwestwards_accessGranted_True()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW) as ITile;
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }
@@ -57,9 +57,9 @@ namespace DinosaurQuestTests
         public void movementWithinPositiveBoundsWestwards_accessGranted_True()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.W);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.W) as ITile;
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }
@@ -68,9 +68,9 @@ namespace DinosaurQuestTests
         public void movementWithinPositiveBoundsSouthwestwards_accessGranted_True()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.SW);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.SW) as ITile;
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }
@@ -79,9 +79,9 @@ namespace DinosaurQuestTests
         public void movementWithinPositiveBoundsSouthwwards_accessGranted_True()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.S);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.S) as ITile;
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }
@@ -90,9 +90,9 @@ namespace DinosaurQuestTests
         public void movementWithinPositiveBoundsSoutheastwards_accessGranted_True()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.SE);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.SE) as ITile;
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }
@@ -101,9 +101,9 @@ namespace DinosaurQuestTests
         public void movementWithinPositiveBoundsEastwards_accessGranted_True()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.E);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.E) as ITile;
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }
@@ -112,9 +112,9 @@ namespace DinosaurQuestTests
         public void movementWithinPositiveBoundsNortheastwards_accessGranted_True()
         {
             var mockCharacter = new Character();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.NE);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NE) as ITile;
 
             Assert.True(movement.X != mockTile.X || movement.Y != mockTile.Y);
         }
@@ -126,10 +126,10 @@ namespace DinosaurQuestTests
             var mockAnchiornis = new Anchiornis();
             mockAnchiornis.IncreaseFriendliness(25);
             mockCharacter.AddToPack(mockAnchiornis);
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis};
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.N) as ITile;
             bool packMoved = movement.creatures.Contains(mockAnchiornis) ? true : false;
 
             Assert.True(packMoved);
@@ -140,10 +140,10 @@ namespace DinosaurQuestTests
         {
             var mockCharacter = new Character();
             var mockAnchiornis = new Anchiornis();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis};
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.N) as ITile;
             mockAnchiornis.Move(mockTile, movement, true);
             bool enemyMoved = movement.creatures.Contains(mockAnchiornis) ? true : false;
 
@@ -155,10 +155,10 @@ namespace DinosaurQuestTests
         {
             var mockCharacter = new Character();
             var mockAnchiornis = new Anchiornis();
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis};
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.N) as ITile;
             mockAnchiornis.Move(mockTile, movement, false);
             bool enemyMoved = movement.creatures.Contains(mockAnchiornis) ? true : false;
 
@@ -174,10 +174,10 @@ namespace DinosaurQuestTests
             var enemyAnchiornis = new Anchiornis();
             mockAnchiornis.IncreaseFriendliness(25);
             mockCharacter.AddToPack(mockAnchiornis);
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, enemyAnchiornis};
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.N);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.N) as ITile;
             enemyAnchiornis.Move(mockTile, movement, false);
             bool packMoved = movement.creatures.Contains(mockAnchiornis) ? true : false;
             bool enemyMoved = movement.creatures.Contains(enemyAnchiornis) ? true : false;
@@ -194,10 +194,10 @@ namespace DinosaurQuestTests
             var neutralAnchiornis = new Anchiornis();
             mockAnchiornis.IncreaseFriendliness(25);
             mockCharacter.AddToPack(mockAnchiornis);
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, neutralAnchiornis};
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW) as ITile;
             bool characterMoved = movement.creatures.Contains(mockCharacter) ? true : false;
 
             Assert.True(characterMoved);
@@ -212,10 +212,10 @@ namespace DinosaurQuestTests
             var neutralAnchiornis = new Anchiornis();
             mockCharacter.AddToPack(mockAnchiornis);
             
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, neutralAnchiornis};
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW) as ITile;
             bool packMoved = movement.creatures.Contains(mockAnchiornis) ? true : false;
 
             Assert.True(packMoved);
@@ -230,10 +230,10 @@ namespace DinosaurQuestTests
             mockAnchiornis.IncreaseFriendliness(25);
             var neutralAnchiornis = new Anchiornis();
             mockCharacter.AddToPack(mockAnchiornis);
-            var mockTile = new MockTerritory(mockCharacter, 3, 3, 2, 2);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
             mockTile.creatures = new List<ICreature>() {mockCharacter, mockAnchiornis, neutralAnchiornis};
 
-            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW);
+            var movement = mockCharacter.Move(mockTile, ICreature.direction.NW) as ITile;
             bool neutralMoved = movement.creatures.Contains(neutralAnchiornis) ? true : false;
 
             Assert.False(neutralMoved);

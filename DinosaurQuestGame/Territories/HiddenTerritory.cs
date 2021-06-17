@@ -5,21 +5,8 @@ using System.Collections.Generic;
 
 namespace DinosaurQuest.Territories
 {
-	public class HiddenTerritory : ITerritory
+	public class HiddenTerritory : IHiddenTerritory
 	{
-		public int X { get; private set; }
-        public int Y { get; private set; }
-
-        public void SetX(int previousX, int step)
-        {
-
-        }
-
-        public void SetY(int previousY, int step)
-        {
-            
-        }
-		
 		public Character character { get; set; }
 
         public ILevel currentLevel {get; set;}
@@ -52,10 +39,7 @@ namespace DinosaurQuest.Territories
         {
         }
 
-        public bool isAccessible ()
-        {
-            return false;
-        }
+        public bool isAccessible {get; private set;}
 
         public HiddenTerritory()
         {
