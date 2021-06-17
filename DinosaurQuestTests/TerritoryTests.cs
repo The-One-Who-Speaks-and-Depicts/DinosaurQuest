@@ -252,5 +252,20 @@ namespace DinosaurQuestTests
 
             Assert.True(mockTerritory.isAccessible);
         }
+
+        [Fact]
+        public void ClosingTerritory_TerritoryIsNotAccessibleAnymore_False()
+        {
+
+            var mockCharacter = new Character();
+            mockCharacter.CreditArchaeopteryx(new Archaeopteryx());
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+            var mockTerritory = new MockHiddenTerritory(mockCharacter, new Archaeopteryx(), mockTile);
+
+            mockTerritory.OpenTerritory(mockCharacter);
+            mockTerritory.CloseTerritory(mockCharacter);
+
+            Assert.False(mockTerritory.isAccessible);
+        }
     }
 }
