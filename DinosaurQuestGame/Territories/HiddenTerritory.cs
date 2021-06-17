@@ -19,25 +19,33 @@ namespace DinosaurQuest.Territories
         public void OpenTerritory(Character character)
         {
             isAccessible = true;
+            Console.WriteLine($"Access to territory is no longer restricted for {character.name}");
         }
         public void CloseTerritory(Character character)
         {
             isAccessible = false;
+            Console.WriteLine($"Access to territory is now restricted for {character.name}");
         }
 
         public void EnterTerritory(Character character)
         {
-            connectedTerritories[0].creatures.Remove(character);
-            creatures.Add(character);
-            if (character.pack != null)
+            if (isAccessible)
             {
-                for (int i = 0; i < character.pack.Count; i++)
+                connectedTerritories[0].creatures.Remove(character);
+                creatures.Add(character);
+                if (character.pack != null)
                 {
-                    connectedTerritories[0].creatures.Remove(character.pack[i]);
-                    creatures.Add(character.pack[i]);
+                    for (int i = 0; i < character.pack.Count; i++)
+                    {
+                        connectedTerritories[0].creatures.Remove(character.pack[i]);
+                        creatures.Add(character.pack[i]);
+                    }
                 }
+            }           
+            else
+            {
+                Console.WriteLine($"This territory is not accessible for {character.name}");
             }
-            
         }
 
         public void LeaveTerritory(Character character)
