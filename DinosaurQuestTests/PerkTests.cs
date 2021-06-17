@@ -23,7 +23,21 @@ namespace DinosaurQuestTests
 		}
 
 		[Fact]
-		public void ArchaeopteryxUs_SocialCoefficientIncreased_AnchiornisAttracted()
+		public void ArchaeopteryxUs_FriendlinessIncreased_AnchiornisMoreAttracted()
+		{
+			var mockCharacter = new Character();
+			var mockArchaeopteryx = new Archaeopteryx();
+			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+			var mockFriendlyAnchiornis = new Anchiornis();
+			var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+
+			mockArchaeopteryx.OnUs(mockCharacter, mockFriendlyAnchiornis, mockTile);
+
+			Assert.Equal(12, mockFriendlyAnchiornis.friendliness);
+		}
+
+		[Fact]
+		public void ArchaeopteryxUs_SocialCoefficientIncreased_AnchiornisMoreAttractedThanOther()
 		{
 			var mockCharacter = new Character();
 			var mockArchaeopteryx = new Archaeopteryx();
@@ -40,6 +54,7 @@ namespace DinosaurQuestTests
 
 			Assert.False(friendlinessIsNotEqual);
 		}
+		
 
 		[Fact]
 		public void ArchaeopteryxUsed_coolDownIncreased_coolDownEqualsCoolDownLimit()
