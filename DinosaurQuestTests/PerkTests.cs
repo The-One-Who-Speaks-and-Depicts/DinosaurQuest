@@ -54,5 +54,16 @@ namespace DinosaurQuestTests
 
 			Assert.Equal(mockArchaeopteryx.coolDown, mockArchaeopteryx.coolDownTime);
 		}
+
+		[Fact]
+		public void ArchaeopteryxNotUsed_coolDownRemained_coolDownEqualsZero()
+		{
+			var mockCharacter = new Character();
+			var mockArchaeopteryx = new Archaeopteryx(); 			
+
+			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+
+			Assert.Equal(0, mockArchaeopteryx.coolDown);
+		}
 	}
 }
