@@ -14,6 +14,7 @@ namespace DinosaurQuest.Territories
         IPerk requiredPerk {get;}
 
         // unit test these
+        // negarive tests when more perks are ready
         void OpenTerritory(Character character);
         void CloseTerritory(Character character);
         void EnterTerritory(Character character);

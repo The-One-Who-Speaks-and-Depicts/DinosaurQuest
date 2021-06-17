@@ -4,6 +4,7 @@ using Xunit;
 using DinosaurQuest.GameFunctions;
 using DinosaurQuest.Creatures;
 using DinosaurQuest.Territories;
+using DinosaurQuest.Perks;
 
 namespace DinosaurQuestTests
 {
@@ -237,6 +238,13 @@ namespace DinosaurQuestTests
             bool neutralMoved = movement.creatures.Contains(neutralAnchiornis) ? true : false;
 
             Assert.False(neutralMoved);
+        }
+
+        [Fact]
+        public void ArchaeopteryxOpened_TerritoryIsAccessible_True()
+        {
+            var mockCharacter = new Character();
+            mockCharacter.CreditArchaeopteryx(new Archaeopteryx());
         }
     }
 }

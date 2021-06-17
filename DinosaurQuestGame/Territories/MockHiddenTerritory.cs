@@ -1,26 +1,20 @@
-using DinosaurQuest.Creatures;
 using DinosaurQuest.Stages;
+using DinosaurQuest.Creatures;
 using DinosaurQuest.Perks;
 using System;
-using System.Reflection;
 using System.Collections.Generic;
-
 
 namespace DinosaurQuest.Territories
 {
-	public class HiddenTerritory : IHiddenTerritory
+	public class MockHiddenTerritory : IHiddenTerritory
 	{
-		public Character character { get; set; }
+		public Character character {get; set;}
+		public ILevel currentLevel {get; set;}
+		public IPerk requiredPerk {get; private set;}
+		public List<ITerritory> connectedTerritories {get; set;}
+		public List<ICreature> creatures {get; set;}
 
-        public ILevel currentLevel {get; set;}
-        
-        public IPerk requiredPerk {get; private set;}
-
-        public List <ITerritory> connectedTerritories {get; set;}
-
-        public List<ICreature> creatures { get; set; }
-
-        public void OpenTerritory(Character character)
+		public void OpenTerritory(Character character)
         {
             bool territoryOpened = false;
             for (int i = 0; i < character.perks.Count; i++)
@@ -79,17 +73,19 @@ namespace DinosaurQuest.Territories
             }
         }
 
-        public void Generate()
-        {
-        }
+		public void Generate()
+		{
 
-        public bool isAccessible {get; private set;}
+		}
 
-        public HiddenTerritory()
-        {
-            creatures = new List<ICreature>();
-            Generate();
-            isAccessible = false;
-        }
+		public bool isAccessible {get; private set;}
+
+		public MockHiddenTerritory(Character _character, IPerk _requiredPerk, ITile startTile)
+		{
+			character = _character;
+			requiredPerk = _requiredPerk;
+			connectedTerritories = new List<ITerritory>() { startTile };
+
+		}
 	}
 }
