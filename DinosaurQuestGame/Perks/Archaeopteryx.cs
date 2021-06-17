@@ -8,7 +8,8 @@ namespace DinosaurQuest.Perks
 	public class Archaeopteryx: IPerk
 	{
 
-		public Archaeopteryx() {
+		public Archaeopteryx() 
+		{
 			
 		}
 		
