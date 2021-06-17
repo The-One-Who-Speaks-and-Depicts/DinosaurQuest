@@ -29,7 +29,7 @@ namespace DinosaurQuest.Perks
 				var openedTerritory = territory as IHiddenTerritory;
 				openedTerritory.OpenTerritory(character);
 			}			
-			this.CoolDownSet();
+			CoolDownSet();
 		}
         public void OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)
         {
@@ -42,19 +42,19 @@ namespace DinosaurQuest.Perks
 	        		Console.WriteLine("Longer feathers made your flight longer.");
 	        	}
         	}
-			this.CoolDownSet();
+			CoolDownSet();
 		}
         public void OnUs(Character character, Anchiornis us, ITerritory territory)
         {
         	Console.WriteLine($"You are spreading your feathers, trying to attract the attention of {us.name}");
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
-			this.CoolDownSet();
+			CoolDownSet();
 		}
         public void OnThem(Character character, ICreature them, ITerritory territory)
         {
         	Console.WriteLine($"You are trying to scare {them.name}.");
 			them.Frighten(20 + (character.attackCoefficient + character.socialCoefficient) * 2);
-			this.CoolDownSet();
+			CoolDownSet();
 		}
         public void CoolDownSet()
         {
