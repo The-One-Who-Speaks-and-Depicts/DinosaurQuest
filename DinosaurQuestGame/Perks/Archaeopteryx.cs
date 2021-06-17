@@ -21,6 +21,8 @@ namespace DinosaurQuest.Perks
 		public bool isAcquired {get; set; } = true;
 
 		// unit test all this
+
+		// negative test when there are more perks
 		public void OnTile(Character character, ITerritory territory)
 		{
 			Console.WriteLine("Longer feathers help you to reach new territories");
@@ -28,6 +30,8 @@ namespace DinosaurQuest.Perks
 			openedTerritory.OpenTerritory(character);			
 			CoolDownSet();
 		}
+
+		// fix output type
         public void OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)
         {
         	var midway = character.Move(department, direction);
@@ -47,12 +51,15 @@ namespace DinosaurQuest.Perks
 			us.IncreaseFriendliness(character.socialCoefficient + 1);
 			CoolDownSet();
 		}
+
+		// test when Frighten is ready at least for Anchiornis
         public void OnThem(Character character, ICreature them, ITerritory territory)
         {
         	Console.WriteLine($"You are trying to scare {them.name}.");
 			them.Frighten(20 + (character.attackCoefficient + character.socialCoefficient) * 2);
 			CoolDownSet();
 		}
+		// test when there are more than two perks
         public void CoolDownSet()
         {
 			coolDown = coolDownTime;
@@ -64,6 +71,8 @@ namespace DinosaurQuest.Perks
         {
         	return (name + ".\nBranch: " + branch + ".\n" + desc + "\n Cool down time is " + coolDownTime + ".");
         }
+
+        // test when implemented
         public void Call()
         {
 

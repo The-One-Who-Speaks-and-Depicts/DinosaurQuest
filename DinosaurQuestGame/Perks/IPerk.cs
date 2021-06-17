@@ -25,6 +25,7 @@ namespace DinosaurQuest.Perks
 
         void Call();
         void CoolDownSet();
+        // test when not only Archaeopteryx is implemented
         void UnBlock();
 
         string ToString();
