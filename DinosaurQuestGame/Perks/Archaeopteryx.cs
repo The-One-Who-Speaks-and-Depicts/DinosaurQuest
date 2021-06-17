@@ -8,8 +8,7 @@ namespace DinosaurQuest.Perks
 	public class Archaeopteryx: IPerk
 	{
 
-		public Archaeopteryx() 
-		{
+		public Archaeopteryx() {
 			
 		}
 		
@@ -25,11 +24,8 @@ namespace DinosaurQuest.Perks
 		public void OnTile(Character character, ITerritory territory)
 		{
 			Console.WriteLine("Longer feathers help you to reach new territories");
-			if (territory is IHiddenTerritory)
-			{
-				var openedTerritory = territory as IHiddenTerritory;
-				openedTerritory.OpenTerritory(character);
-			}			
+			var openedTerritory = territory as IHiddenTerritory;
+			openedTerritory.OpenTerritory(character);			
 			CoolDownSet();
 		}
         public void OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)
