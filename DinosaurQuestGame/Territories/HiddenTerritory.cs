@@ -18,21 +18,40 @@ namespace DinosaurQuest.Territories
 
         public void OpenTerritory(Character character)
         {
-
+            isAccessible = true;
         }
         public void CloseTerritory(Character character)
         {
-
+            isAccessible = false;
         }
 
         public void EnterTerritory(Character character)
         {
-
+            connectedTerritories[0].creatures.Remove(character);
+            creatures.Add(character);
+            if (character.pack != null)
+            {
+                for (int i = 0; i < character.pack.Count; i++)
+                {
+                    connectedTerritories[0].creatures.Remove(character.pack[i]);
+                    creatures.Add(character.pack[i]);
+                }
+            }
+            
         }
 
         public void LeaveTerritory(Character character)
         {
-            
+            connectedTerritories[0].creatures.Add(character);
+            creatures.Remove(character);
+            if (character.pack != null)
+            {
+                for (int i = 0; i < character.pack.Count; i++)
+                {
+                    connectedTerritories[0].creatures.Add(character.pack[i]);
+                    creatures.Remove(character.pack[i]);
+                }
+            }
         }
 
         public void Generate()
@@ -43,7 +62,9 @@ namespace DinosaurQuest.Territories
 
         public HiddenTerritory()
         {
-
+            creatures = new List<ICreature>();
+            Generate();
+            isAccessible = false;
         }
 	}
 }
