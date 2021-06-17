@@ -40,5 +40,19 @@ namespace DinosaurQuestTests
 
 			Assert.False(friendlinessIsNotEqual);
 		}
+
+		[Fact]
+		public void ArchaeopteryxUsed_coolDownIncreased_coolDownEqualsCoolDownLimit()
+		{
+			var mockCharacter = new Character();
+			var mockArchaeopteryx = new Archaeopteryx(); 
+			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+			var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+			var mockTerritory = new MockHiddenTerritory(mockCharacter, mockArchaeopteryx, mockTile);
+
+			mockArchaeopteryx.OnTile(mockCharacter, mockTerritory);
+
+			Assert.Equal(mockArchaeopteryx.coolDown, mockArchaeopteryx.coolDownTime);
+		}
 	}
 }
