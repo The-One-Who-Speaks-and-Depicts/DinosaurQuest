@@ -245,6 +245,12 @@ namespace DinosaurQuestTests
         {
             var mockCharacter = new Character();
             mockCharacter.CreditArchaeopteryx(new Archaeopteryx());
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+            var mockTerritory = new MockHiddenTerritory(mockCharacter, new Archaeopteryx(), mockTile);
+
+            mockTerritory.OpenTerritory(mockCharacter);
+
+            Assert.True(mockTerritory.isAccessible);
         }
     }
 }
