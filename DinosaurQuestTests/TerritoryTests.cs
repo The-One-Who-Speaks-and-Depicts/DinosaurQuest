@@ -318,5 +318,24 @@ namespace DinosaurQuestTests
 
             Assert.True(packMoved);
         }
+
+        [Fact]
+        public void ArchaeopteryxOpened_PackEntersAndLeavesTerritory_PackInTileCreatures()
+        {
+            var mockCharacter = new Character();
+            mockCharacter.CreditArchaeopteryx(new Archaeopteryx());
+            var mockAnchiornis = new Anchiornis();
+            mockAnchiornis.IncreaseFriendliness(25);
+            mockCharacter.AddToPack(mockAnchiornis);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+            var mockTerritory = new MockHiddenTerritory(mockCharacter, new Archaeopteryx(), mockTile);
+
+            mockTerritory.OpenTerritory(mockCharacter);
+            mockTerritory.EnterTerritory(mockCharacter);
+            mockTerritory.LeaveTerritory(mockCharacter);
+            var packMoved = mockTile.creatures.Contains(mockAnchiornis);
+
+            Assert.True(packMoved);
+        }
     }
 }
