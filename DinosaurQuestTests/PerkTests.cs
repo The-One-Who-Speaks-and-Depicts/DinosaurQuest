@@ -9,6 +9,19 @@ namespace DinosaurQuestTests
 	public class PerkTests
 	{
 		[Fact]
+		public void ArchaeopteryxMove_edgeOfLevelAchieved_returnsTheSameTile()
+		{
+			var mockCharacter = new Character();
+			var mockArchaeopteryx = new Archaeopteryx();
+			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+			var mockTile = new MockTile(mockCharacter, 3, 3, 3, 3);
+
+			var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NW);
+
+			Assert.Equal(mockTile, destination);
+		}
+
+		[Fact]
 		public void ArchaeopteryxTiles_territoryUnlocked_returnsAccessible()
 		{
 			var mockCharacter = new Character();
