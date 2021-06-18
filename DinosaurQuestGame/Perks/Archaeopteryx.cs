@@ -32,18 +32,21 @@ namespace DinosaurQuest.Perks
 		}
 
 		// fix output type
-        public void OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)
+        public ITerritory OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)
         {
         	var midway = character.Move(department, direction);
         	if (midway != department)
         	{
+        		CoolDownSet();
         		var finalDestination = character.Move(midway, direction);
         		if (finalDestination != midway)
 	        	{
 	        		Console.WriteLine("Longer feathers made your flight longer.");
+	        		return finalDestination;
 	        	}
+	        	return midway;
         	}
-			CoolDownSet();
+			return department;
 		}
         public void OnUs(Character character, Anchiornis us, ITerritory territory)
         {
