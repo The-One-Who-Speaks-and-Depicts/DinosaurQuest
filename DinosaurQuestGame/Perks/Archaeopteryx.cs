@@ -34,10 +34,10 @@ namespace DinosaurQuest.Perks
 		// fix output type
         public ITerritory OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction)
         {
+        	CoolDownSet();
         	var midway = character.Move(department, direction);
         	if (midway != department)
-        	{
-        		CoolDownSet();
+        	{        		
         		var finalDestination = character.Move(midway, direction);
         		if (finalDestination != midway)
 	        	{
