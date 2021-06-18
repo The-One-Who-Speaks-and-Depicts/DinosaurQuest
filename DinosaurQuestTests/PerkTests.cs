@@ -22,6 +22,39 @@ namespace DinosaurQuestTests
 		}
 
 		[Fact]
+		public void ArchaeopteryxMove_edgeOfLevelIsMidway_returnsMidway()
+		{
+			var mockCharacter = new Character();
+			var mockArchaeopteryx = new Archaeopteryx();
+			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+			var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+
+			var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NE) as ITile;
+			var xRaised = destination.X == 3;
+			var yRaised = destination.Y == 3;
+			var movementPerformed = xRaised && yRaised;
+
+			Assert.True(movementPerformed);
+		}
+
+		[Fact]
+		public void ArchaeopteryxMove_successfulStart_returnsFinalDestination()
+		{
+			var mockCharacter = new Character();
+			var mockArchaeopteryx = new Archaeopteryx();
+			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+			var mockTile = new MockTile(mockCharacter, 3, 3, 1, 1);
+
+			var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NE) as ITile;
+			var xRaised = destination.X == 3;
+			var yRaised = destination.Y == 3;
+			var movementPerformed = xRaised && yRaised;
+
+			Assert.True(movementPerformed);
+
+		}
+
+		[Fact]
 		public void ArchaeopteryxTiles_territoryUnlocked_returnsAccessible()
 		{
 			var mockCharacter = new Character();
