@@ -1,1 +1,1 @@
-StatsDialogue
+There are three possible ways for Anchiornis to deal with the problems that it faces on its way. It may attack its opponents as powerful as it is possible, may evade their attacks with better and better maneuverability, and may just have other Anchiornises do the dirty work for them. To make the first step in the direction  you prefer, press 1, or, to stop with the life of this creature and exit the game, press 0.

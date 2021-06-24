@@ -32,9 +32,9 @@ namespace DinosaurQuest.Stages
 	    public Tutorial(Character _currentCharacter)
 	    {
 	    	Console.WriteLine($"Entering {name}...");
+	    	// generate objectives
 	    	// generate accessible creatures
 	    	// generate center tile
-	    	// generate objectives
 	    	currentCharacter = _currentCharacter;
 	    	Console.WriteLine($"{name} level generated!");
 	    	Console.WriteLine(levelDesc);
