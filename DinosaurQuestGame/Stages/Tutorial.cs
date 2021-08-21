@@ -15,7 +15,13 @@ namespace DinosaurQuest.Stages
 	    public int Area => X_length * Y_length;
 	    public List<Type> accessibleCreatures { get; private set; }
 	    public List<ITerritory> territories { get; private set; }
-	    public List<Objective> objectives {get; private set;}
+	    public List<Objective> objectives => new List<Objective>()
+		{
+			new Objective("Stay alive!", "With death of this one the journey of its watcher ends.", true),
+			new Objective("Find something to eat", "Staying alive is possible only when one has enough energy to move. So, one should search for something that moves to eat it", true),
+			new Objective("Guard the nest", "One is caring not only for oneself, but for their children as well. Thought, sometimes exact priorities may shift a bit", false)
+		};
+
 	    public Character currentCharacter { get; private set; }
 
 	    public void Entrance ()
