@@ -18,11 +18,6 @@ namespace DinosaurQuest.Territories
         List<ICreature> creatures { get; }
 
         ILevel currentLevel {get; set;}
-       
-
-        void Generate()
-        {
-        }       
         bool isAccessible { get; }
     }
 }

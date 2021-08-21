@@ -191,7 +191,7 @@ namespace DinosaurQuest.Creatures
             }                
             if (target.isAccessible)
             {
-                target.Generate(); 
+                // Generate with ITileFactory 
                 source.creatures.Remove(this);
                 target.creatures.Add(this);
                 if (pack != null)
