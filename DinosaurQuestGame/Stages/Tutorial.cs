@@ -10,8 +10,8 @@ namespace DinosaurQuest.Stages
 	{
 		public string name => "Tutorial";
 	    public string levelDesc => "Description"; // implement
-	    public int X_length => 3;
-	    public int Y_length => 3;
+	    public int X_length => 2;
+	    public int Y_length => 2;
 	    public int Area => X_length * Y_length;
 	    public List<Type> accessibleCreatures { get; private set; }
 	    public List<ITerritory> territories { get; private set; }
