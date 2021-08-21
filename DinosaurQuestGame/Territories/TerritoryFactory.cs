@@ -6,6 +6,12 @@ namespace DinosaurQuest.Territories
 {
     public static class TerritoryFactory
     {
+        public static Tile GenerateTutorialStart()
+        {
+            return new Tile();
+        }
+
+
         public static ITerritory GenerateStart (ILevel level)
         {
             return new Tile();
