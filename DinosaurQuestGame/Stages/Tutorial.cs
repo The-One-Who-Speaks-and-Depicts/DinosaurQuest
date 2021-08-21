@@ -13,7 +13,7 @@ namespace DinosaurQuest.Stages
 	    public int X_length => 3;
 	    public int Y_length => 3;
 	    public int Area => X_length * Y_length;
-	    public List<ICreature> accessibleCreatures { get; private set; }
+	    public List<Type> accessibleCreatures { get; private set; }
 	    public List<ITerritory> territories { get; private set; }
 	    public List<Objective> objectives {get; private set;}
 	    public Character currentCharacter { get; private set; }

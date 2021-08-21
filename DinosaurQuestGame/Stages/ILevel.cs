@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DinosaurQuest.Territories;
 using DinosaurQuest.Creatures;
 using DinosaurQuest.GameFunctions;
@@ -13,7 +14,7 @@ namespace DinosaurQuest.Stages
         int X_length { get; }
         int Y_length { get; }
         int Area => X_length * Y_length;
-        List<ICreature> accessibleCreatures { get; }
+        List<Type> accessibleCreatures { get; }
         List<ITerritory> territories { get; }
         List<Objective> objectives {get;}
         public Character currentCharacter { get; }
