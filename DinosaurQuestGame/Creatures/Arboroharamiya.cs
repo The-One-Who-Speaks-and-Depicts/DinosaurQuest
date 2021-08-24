@@ -22,14 +22,21 @@ namespace DinosaurQuest.Creatures
             }
         }
 
-        public void Frighten (int coefficient)
+        public void Frighten (ITerritory currentTerritory, int coefficient)
         {
-            
+            int arboroharamiyaThreshold = 27;
+            if (coefficient > arboroharamiyaThreshold)
+            {
+                Console.WriteLine($"{name} is running in fear!");
+                currentTerritory.creatures.Remove(this);
+                return;
+            }
+            Console.WriteLine($"{name} is not going to retreat.");
         }
 
         public Arboroharamiya()
         {
-            
+
         }
 
 
