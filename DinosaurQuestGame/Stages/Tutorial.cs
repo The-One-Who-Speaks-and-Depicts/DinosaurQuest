@@ -46,7 +46,7 @@ namespace DinosaurQuest.Stages
 			{
 				Console.WriteLine(objectives[i].ToString());
 			}
-	    	// generate accessible creatures
+	    	accessibleCreatures = new List<Type>() {typeof(Arboroharamiya), typeof(ShortLeggedLizard), typeof(Ahirmoneura)}; 
 	    	// generate center tile
 	    	currentCharacter = _currentCharacter;
 	    	Console.WriteLine($"{name} level generated!");
