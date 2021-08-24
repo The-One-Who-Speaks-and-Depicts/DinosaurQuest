@@ -34,6 +34,11 @@ namespace DinosaurQuest.Territories
             Y = previousY + step;
         }
 
+        public void PlaceCharacter(Character _character)
+        {
+            character = _character;
+        }
+
         public bool isAccessible 
         {
             get 
