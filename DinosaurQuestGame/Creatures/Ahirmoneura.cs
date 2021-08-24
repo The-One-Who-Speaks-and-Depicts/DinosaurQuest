@@ -24,8 +24,8 @@ namespace DinosaurQuest.Creatures
 
         public void Frighten (ITerritory currentTerritory, int coefficient)
         {
-            int arboroharamiyaThreshold = 5;
-            if (coefficient > arboroharamiyaThreshold)
+            int ahimoneuraThreshold = 5;
+            if (coefficient > ahimoneuraThreshold)
             {
                 Console.WriteLine($"{name} is running in fear!");
                 currentTerritory.creatures.Remove(this);
