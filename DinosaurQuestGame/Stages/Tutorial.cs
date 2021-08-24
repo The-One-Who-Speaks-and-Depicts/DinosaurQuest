@@ -49,7 +49,7 @@ namespace DinosaurQuest.Stages
 				Console.WriteLine(objectives[i].ToString());
 			}
 	    	accessibleCreatures = new List<Type>() {typeof(Arboroharamiya), typeof(ShortLeggedLizard), typeof(Ahirmoneura)}; 
-	    	territories.Add(TerritoryFactory.GenerateStart(this, 1, 1, Landscape.Option.YourNest));
+	    	territories = new List<ITerritory>() {TerritoryFactory.GenerateStart(this, 1, 1, Landscape.Option.YourNest)};
 	    	currentCharacter = _currentCharacter;
 	    	Console.WriteLine($"{name} level generated!");
 			Console.WriteLine(levelDesc);
