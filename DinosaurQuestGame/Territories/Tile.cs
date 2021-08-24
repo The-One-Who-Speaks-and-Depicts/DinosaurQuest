@@ -52,6 +52,16 @@ namespace DinosaurQuest.Territories
             }            
         }
 
+        public Tile(ILevel _currentLevel, int _X, int _Y, Landscape _landscape)
+        {
+            currentLevel = _currentLevel;
+            X = _X;
+            Y = _Y;
+            connectedTerritories = new List<ITerritory>();
+            creatures = new List<ICreature>();
+            landscape = _landscape;
+        }
+
         public Tile()
         {
 
