@@ -11,8 +11,8 @@ namespace DinosaurQuest.Creatures
         public int maxHealth => new Random().Next(40, 60);
         public int stamina {get; private set;}
         public int maxStamina => new Random().Next(20, 30);
-        public int attackCoefficient => 0;
-        public int defenceCoefficient => 0;
+        public int attackCoefficient => 1;
+        public int defenceCoefficient => 2;
         public void Move(ITerritory source, ITerritory target, bool directed = false)
         {
             source.creatures.Remove(this);
