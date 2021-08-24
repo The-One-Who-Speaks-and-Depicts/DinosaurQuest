@@ -22,10 +22,7 @@ namespace DinosaurQuest.Territories
         public List <ITerritory> connectedTerritories {get; private set;}
 
         public Landscape landscape { get; private set; }
-
-        public void Generate()
-        {
-        }
+        
 
         public void SetX(int previousX, int step)
         {
