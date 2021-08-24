@@ -10,7 +10,7 @@ namespace DinosaurQuest.Stages
 	public class Tutorial : ILevel
 	{
 		public string name => "Tutorial";
-	    public string levelDesc => "Description"; // implement
+	    public string levelDesc => "This part of life of Anchiornis is dedicated to re-evaluating of the world they live in. They know a lot about what is going on, they are able to do a lot, and this is time to try all of it, to master their skills.";
 	    public int X_length => 2;
 	    public int Y_length => 2;
 	    public int Area => X_length * Y_length;
