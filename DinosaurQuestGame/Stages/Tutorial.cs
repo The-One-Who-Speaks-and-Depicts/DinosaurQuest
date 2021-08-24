@@ -21,7 +21,9 @@ namespace DinosaurQuest.Stages
 
 	    public void Entrance ()
 	    {	    	
-	    	// place the character on the start tile	            
+	    	Tile startTile = (Tile) territories[0];
+			startTile.PlaceCharacter(currentCharacter);
+			Console.WriteLine(startTile.landscape.ToString());	            
 	    } 
 	        
 	    public void Transfer ()
