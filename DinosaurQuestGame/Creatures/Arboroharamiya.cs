@@ -27,6 +27,11 @@ namespace DinosaurQuest.Creatures
             
         }
 
+        public Arboroharamiya()
+        {
+            
+        }
+
 
     }
 }
