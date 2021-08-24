@@ -14,7 +14,7 @@ namespace DinosaurQuest.Creatures
         enum direction { N , NE, E, SE, S, SW, W, NW}
 
         void Move (ITerritory source, ITerritory target, bool directed = false);
-        void Frighten(int coefficient);
+        void Frighten(ITerritory currentTerritory, int coefficient = 20);
 
     }
 }

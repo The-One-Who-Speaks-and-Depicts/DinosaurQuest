@@ -59,7 +59,7 @@ namespace DinosaurQuest.Perks
         public void OnThem(Character character, ICreature them, ITerritory territory)
         {
         	Console.WriteLine($"You are trying to scare {them.name}.");
-			them.Frighten(20 + (character.attackCoefficient + character.socialCoefficient) * 2);
+			them.Frighten(territory, 20 + (character.attackCoefficient + character.socialCoefficient) * 2);
 			CoolDownSet();
 		}
 		// test when there are more than two perks

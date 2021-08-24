@@ -19,7 +19,7 @@ namespace DinosaurQuest.Creatures
         public int attackCoefficient => new Random().Next(7, 14);
         public int defenceCoefficient => new Random().Next(7,14);
 
-        public void Frighten (int coefficient)
+        public void Frighten (ITerritory currentTerritory, int coefficient)
         {
             
         }
