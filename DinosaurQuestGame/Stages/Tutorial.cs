@@ -3,6 +3,7 @@ using DinosaurQuest.Creatures;
 using DinosaurQuest.Territories;
 using DinosaurQuest.GameFunctions;
 using System.Collections.Generic;
+using DinosaurQuest.Landscapes;
 
 namespace DinosaurQuest.Stages
 {
@@ -19,8 +20,7 @@ namespace DinosaurQuest.Stages
 	    public Character currentCharacter { get; private set; }
 
 	    public void Entrance ()
-	    {
-	    	Console.WriteLine(levelDesc);
+	    {	    	
 	    	// place the character on the start tile	            
 	    } 
 	        
@@ -47,10 +47,10 @@ namespace DinosaurQuest.Stages
 				Console.WriteLine(objectives[i].ToString());
 			}
 	    	accessibleCreatures = new List<Type>() {typeof(Arboroharamiya), typeof(ShortLeggedLizard), typeof(Ahirmoneura)}; 
-	    	// generate center tile
+	    	territories.Add(TerritoryFactory.GenerateStart(this, 1, 1, Landscape.Option.YourNest));
 	    	currentCharacter = _currentCharacter;
 	    	Console.WriteLine($"{name} level generated!");
-	    	Console.WriteLine(levelDesc);
+			Console.WriteLine(levelDesc);
 	    	Entrance();
 	    }
 
