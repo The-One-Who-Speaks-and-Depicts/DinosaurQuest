@@ -20,15 +20,15 @@ namespace DinosaurQuest.Stages
 	    public Character currentCharacter { get; private set; }
 
 	    public void Entrance ()
-	    {	    	
+	    {
 	    	Tile startTile = (Tile) territories[0];
 			startTile.PlaceCharacter(currentCharacter);
-			Console.WriteLine(startTile.landscape.ToString());	            
-	    } 
-	        
+            Console.WriteLine(startTile.ToString());
+	    }
+
 	    public void Transfer ()
 	    {
-	            
+
 	    }
 
 	    public Tutorial(Character _currentCharacter)
@@ -48,7 +48,7 @@ namespace DinosaurQuest.Stages
 			{
 				Console.WriteLine(objectives[i].ToString());
 			}
-	    	accessibleCreatures = new List<Type>() {typeof(Arboroharamiya), typeof(ShortLeggedLizard), typeof(Ahirmoneura)}; 
+	    	accessibleCreatures = new List<Type>() {typeof(Arboroharamiya), typeof(ShortLeggedLizard), typeof(Ahirmoneura)};
 	    	territories = new List<ITerritory>() {TerritoryFactory.GenerateStart(this, 1, 1, Landscape.Option.YourNest)};
 	    	currentCharacter = _currentCharacter;
 	    	Console.WriteLine($"{name} level generated!");
