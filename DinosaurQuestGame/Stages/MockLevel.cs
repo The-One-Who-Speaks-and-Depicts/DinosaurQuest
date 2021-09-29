@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DinosaurQuest.Territories;
 using DinosaurQuest.Creatures;
 using DinosaurQuest.GameFunctions;
+using Moq;
 
 namespace DinosaurQuest.Stages
 {
@@ -20,12 +21,17 @@ namespace DinosaurQuest.Stages
 
         public void Entrance (Character _currentCharacter)
         {
-            
-        } 
-        
+
+        }
+
         public void Transfer (Character _currentCharacter)
         {
-            
+
+        }
+
+        public void LevelLoop()
+        {
+
         }
 
         public MockLevel(int max_X, int max_Y)

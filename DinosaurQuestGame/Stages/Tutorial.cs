@@ -26,6 +26,11 @@ namespace DinosaurQuest.Stages
             Console.WriteLine(startTile.ToString());
 	    }
 
+		public void LevelLoop()
+		{
+
+		}
+
 	    public void Transfer ()
 	    {
 

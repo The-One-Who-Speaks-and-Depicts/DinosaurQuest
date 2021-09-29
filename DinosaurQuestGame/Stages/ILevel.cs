@@ -21,12 +21,14 @@ namespace DinosaurQuest.Stages
 
         public void Entrance (Character _currentCharacter)
         {
-            
-        } 
-        
+
+        }
+
         public void Transfer (Character _currentCharacter)
         {
-            
+
         }
+
+        void LevelLoop();
     }
 }
