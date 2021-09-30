@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using DinosaurQuest.Territories;
 using DinosaurQuest.Creatures;
 using DinosaurQuest.GameFunctions;
-using Moq;
 
 namespace DinosaurQuest.Stages
 {
