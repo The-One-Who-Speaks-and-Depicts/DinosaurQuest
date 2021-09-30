@@ -24,12 +24,28 @@ namespace DinosaurQuest.Stages
 	    	Tile startTile = (Tile) territories[0];
 			startTile.PlaceCharacter(currentCharacter);
             Console.WriteLine(startTile.ToString());
-	    }
+            LevelLoop();
+        }
 
 		public void LevelLoop()
 		{
-
-		}
+			while (true)
+			{
+				Console.WriteLine("To go to main menu, press 9. To exit game, press 0.");
+                int key = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);
+				switch (key)
+				{
+					case 9:
+                        MainFunctions.MainMenu();
+                        break;
+                    case 0:
+                        MainFunctions.Exit_Game();
+                        break;
+					default:
+                        break;
+                }
+            }
+        }
 
 	    public void Transfer ()
 	    {
