@@ -4,23 +4,35 @@ using System.Reflection;
 using DinosaurQuest.Perks;
 using DinosaurQuest.GameFunctions;
 using DinosaurQuest.Territories;
+using Newtonsoft.Json;
 
 namespace DinosaurQuest.Creatures
 {
-    
+
     public class Character : Anchiornis, ICreature
     {
         #region commonCharacteristics
+        [JsonProperty]
         public new string name {get; private set;}
+        [JsonProperty]
         public string gender {get; private set;}
+        [JsonProperty]
         public new int health {get; private set;}
+        [JsonProperty]
         public new int maxHealth {get; private set;}
+        [JsonProperty]
         public new int stamina {get; private set;}
+        [JsonProperty]
         public new int maxStamina {get; private set;}
+        [JsonProperty]
         public List<IPerk> perks {get; private set;}
+        [JsonProperty]
         public new int attackCoefficient {get; private set;}
+        [JsonProperty]
         public new int defenceCoefficient {get; private set;}
+        [JsonProperty]
         public int socialCoefficient {get; private set;}
+        [JsonProperty]
         public Pack<Anchiornis> pack {get; private set;}
 
         #endregion
@@ -51,15 +63,15 @@ namespace DinosaurQuest.Creatures
             while (ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar) != 1);
             name = result;
         }
-        
 
-        
+
+
         public void ChooseStats()
-        {            
+        {
             int _attackCoefficient = 0;
             int _defenceCoefficient = 0;
             int _socialCoefficient = 0;
-            do 
+            do
             {
                 _attackCoefficient = 0;
                 _defenceCoefficient = 0;
@@ -89,22 +101,22 @@ namespace DinosaurQuest.Creatures
         // test for existance of this perk, later
         public void CreditPerk(IPerk perk)
         {
-            Console.WriteLine("You have acquired a new perk!");            
-            perks.Add(perk);            
+            Console.WriteLine("You have acquired a new perk!");
+            perks.Add(perk);
             Console.WriteLine(perk.ToString());
         }
 
         public void CreditArchaeopteryx(Archaeopteryx archaeopteryx)
         {
             perks = new List<IPerk>();
-            perks.Add(archaeopteryx);            
+            perks.Add(archaeopteryx);
             Console.WriteLine(archaeopteryx.ToString());
         }
 
 
         public void SetGender(int option)
         {
-            switch (option) 
+            switch (option)
             {
                 case 0:
                     gender = "feminine";
@@ -114,7 +126,7 @@ namespace DinosaurQuest.Creatures
                     gender = "masculine";
                     break;
             }
-            
+
         }
         #endregion
 
@@ -142,7 +154,7 @@ namespace DinosaurQuest.Creatures
                     movementDirection = "northeastwards";
                     break;
                 }
-                case ICreature.direction.E: 
+                case ICreature.direction.E:
                 {
                     target.SetX(tileSource.X, 1);
                     target.SetY(tileSource.Y, 0);
@@ -187,11 +199,11 @@ namespace DinosaurQuest.Creatures
                 default:
                 {
                     break;
-                }                
-            }                
+                }
+            }
             if (target.isAccessible)
             {
-                // Generate with ITileFactory 
+                // Generate with ITileFactory
                 source.creatures.Remove(this);
                 target.creatures.Add(this);
                 if (pack != null)
@@ -204,7 +216,7 @@ namespace DinosaurQuest.Creatures
                 Console.WriteLine($"{name} is moving {movementDirection}.");
                 return target;
             }
-            else 
+            else
             {
                 Console.WriteLine("You are going too far away from your territory!");
                 return source;
