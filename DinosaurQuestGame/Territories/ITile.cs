@@ -8,12 +8,12 @@ using DinosaurQuest.Stages;
 
 namespace DinosaurQuest.Territories
 {
-	public interface ITile : ITerritory
-	{
-		int X {get; }
-        int Y {get; }
+    public interface ITile : ITerritory
+    {
+        int X { get; }
+        int Y { get; }
 
         void SetX(int _X, int step);
         void SetY(int _Y, int step);
-	}
+    }
 }

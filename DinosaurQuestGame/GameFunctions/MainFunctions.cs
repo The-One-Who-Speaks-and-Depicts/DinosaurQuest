@@ -26,12 +26,12 @@ namespace DinosaurQuest.GameFunctions
                 case 1:
                     Character currentCharacter = Start_Game();
                     Console.WriteLine("You are going to the tutorial level. Press 1 to do that, press any other key to exit the game");
-                    decision = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);                    
+                    decision = ServiceFunctions.ChoosingRightKey(Console.ReadKey().KeyChar);
                     if (decision != 1) Save.Save_Game(currentCharacter, 0);
                     else
                     {
                         Save.Save_Game(currentCharacter, 0);
-                        new Tutorial(currentCharacter);                        
+                        new Tutorial(currentCharacter);
                     }
                     Exit_Game();
                     break;
@@ -48,7 +48,7 @@ namespace DinosaurQuest.GameFunctions
         }
 
         public static Character Start_Game()
-        {            
+        {
             using (StreamReader intro = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "intro.txt")))
             {
                 Console.WriteLine(intro.ReadToEnd());
@@ -71,8 +71,8 @@ namespace DinosaurQuest.GameFunctions
             {
                 newCharacter.ChooseStats();
                 Console.WriteLine($"\nYour character may develop a certain set of skills during the game. The first one is Archaeopteryx:\n");
-                newCharacter.CreditArchaeopteryx(new Archaeopteryx());                
-            }            
+                newCharacter.CreditArchaeopteryx(new Archaeopteryx());
+            }
             else
             {
                 MainFunctions.Exit_Game();

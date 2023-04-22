@@ -9,15 +9,15 @@ using DinosaurQuest.Stages;
 namespace DinosaurQuest.Territories
 {
     public interface ITerritory
-    {    	
+    {
 
-        Character character { get; }       
+        Character character { get; }
 
-        List <ITerritory> connectedTerritories {get;}
+        List<ITerritory> connectedTerritories { get; }
 
         List<ICreature> creatures { get; }
 
-        ILevel currentLevel {get; set;}
+        ILevel currentLevel { get; set; }
         bool isAccessible { get; }
     }
 }

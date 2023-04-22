@@ -9,10 +9,11 @@ using DinosaurQuest.Stages;
 
 namespace DinosaurQuest.GameFunctions
 {
-     
-    class Save {
 
-        public static int Save_File_Check(string [] array_of_file_names)
+    class Save
+    {
+
+        public static int Save_File_Check(string[] array_of_file_names)
         {
             int saves_predicted_amount = array_of_file_names.Length;
             int saves_real_amount = saves_predicted_amount;
@@ -27,22 +28,22 @@ namespace DinosaurQuest.GameFunctions
                 return Convert.ToInt32(array_of_file_names[++saves_predicted_amount]);
             }
             else
-            {            
-            foreach (string s in array_of_file_names)
             {
-                foreach (string s1 in checking_massive)
+                foreach (string s in array_of_file_names)
                 {
-                    if (s != s1)
+                    foreach (string s1 in checking_massive)
                     {
+                        if (s != s1)
+                        {
                             return Convert.ToInt32(s1);
+                        }
+                        else
+                        {
+                            string returnable_string = s;
+                        }
                     }
-                    else
-                    {
-                            string returnable_string = s;                            
-                    }
-                } 
 
-            }
+                }
                 return ++saves_predicted_amount;
             }
         }
@@ -62,7 +63,7 @@ namespace DinosaurQuest.GameFunctions
             while (File.Exists(NewSaveName))
             {
                 LastSaveFileNumber++;
-                NewSaveName = Path.Combine(Directory.GetCurrentDirectory(), "Saves", LastSaveFileNumber.ToString() + ".dns"); 
+                NewSaveName = Path.Combine(Directory.GetCurrentDirectory(), "Saves", LastSaveFileNumber.ToString() + ".dns");
             }
             StreamWriter SaveRecording = new StreamWriter(NewSaveName);
             SaveRecording.WriteLine(JsonConvert.SerializeObject(new Save(stage, currCharacter), new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto }));
@@ -72,7 +73,7 @@ namespace DinosaurQuest.GameFunctions
         public static void Auto_Load_Game()
         {
             try
-            {                
+            {
                 string FolderName = Path.Combine(Directory.GetCurrentDirectory(), "Saves");
                 List<string> filesnames = Directory.GetFiles(FolderName).ToList();
                 var start = new DateTime(1970, 1, 1, 0, 0, 0);
@@ -97,7 +98,7 @@ namespace DinosaurQuest.GameFunctions
                             new Tutorial(loadedSave.savedCharacter);
                             break;
                     }
-                }                
+                }
             }
             catch
             {
@@ -105,10 +106,10 @@ namespace DinosaurQuest.GameFunctions
                 MainFunctions.MainMenu();
             }
         }
-        
+
         public static void Load_Game()
-        {           
-            
+        {
+
             List<string> filesnames = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Saves")).ToList();
             if (filesnames.Count > 0)
             {
@@ -143,7 +144,7 @@ namespace DinosaurQuest.GameFunctions
                                 break;
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -170,8 +171,8 @@ namespace DinosaurQuest.GameFunctions
             {
                 Console.WriteLine("There are no saves in the directory");
                 MainFunctions.MainMenu();
-            } 
             }
+        }
         [JsonProperty]
         int savedStage { get; set; }
         [JsonProperty]

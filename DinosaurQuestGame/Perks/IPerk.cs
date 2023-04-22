@@ -17,7 +17,7 @@ namespace DinosaurQuest.Perks
         int coolDown { get; set; }
         bool isGettable { get; set; }
         bool isAcquired { get; set; }
-        
+
         void OnTile(Character character, ITerritory territory);
         ITerritory OnMovement(Character character, ITerritory department, ITerritory destination, ICreature.direction direction);
         void OnUs(Character character, Anchiornis us, ITerritory territory);

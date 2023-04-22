@@ -5,18 +5,18 @@ using DinosaurQuest.Creatures;
 
 namespace DinosaurQuest.Territories
 {
-	public class MockTile : ITile
-	{
-        public Character character { get; private set;}
-        
-        public int X {get; private set;}
-        public int Y {get; private set;}
+    public class MockTile : ITile
+    {
+        public Character character { get; private set; }
 
-        public List <ITerritory> connectedTerritories {get;}
+        public int X { get; private set; }
+        public int Y { get; private set; }
+
+        public List<ITerritory> connectedTerritories { get; }
 
         public List<ICreature> creatures { get; set; }
 
-         
+
         public void Generate()
         {
         }
@@ -31,24 +31,24 @@ namespace DinosaurQuest.Territories
             Y = previousY + step;
         }
 
-       
-        public bool isAccessible 
+
+        public bool isAccessible
         {
-            get 
+            get
             {
                 if (X > currentLevel.X_length || X < 1 || Y > currentLevel.Y_length || Y < 1)
                 {
                     return false;
                 }
-                else 
+                else
                 {
                     return true;
                 }
-            }            
+            }
         }
 
 
-        public ILevel currentLevel {get; set;}
+        public ILevel currentLevel { get; set; }
 
         public MockTile(Character _character, int _level_X_length, int _level_Y_length, int _X, int _Y)
         {
@@ -57,12 +57,12 @@ namespace DinosaurQuest.Territories
             creatures.Add(character);
             SetX(_X, 0);
             SetY(_Y, 0);
-        	currentLevel = new MockLevel(_level_X_length, _level_Y_length);
+            currentLevel = new MockLevel(_level_X_length, _level_Y_length);
         }
 
         public MockTile()
         {
-            creatures = new List<ICreature>();          
+            creatures = new List<ICreature>();
         }
-	}
+    }
 }
