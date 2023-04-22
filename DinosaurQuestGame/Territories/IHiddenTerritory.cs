@@ -9,9 +9,9 @@ using DinosaurQuest.Perks;
 
 namespace DinosaurQuest.Territories
 {
-    public interface IHiddenTerritory: ITerritory
+    public interface IHiddenTerritory : ITerritory
     {
-        IPerk requiredPerk {get;}
+        IPerk requiredPerk { get; }
 
         // negative tests when more perks are ready
         void OpenTerritory(Character character);

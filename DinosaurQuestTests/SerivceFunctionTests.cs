@@ -6,7 +6,7 @@ namespace DinosaurQuestTests
 {
     public class ServiceFunctionsTests
     {
-    	[Theory]
+        [Theory]
         [InlineData('A')]
         [InlineData(0)]
         [InlineData(1)]
@@ -15,10 +15,10 @@ namespace DinosaurQuestTests
         [InlineData('\n')]
         public void keyChoice_rightKeyReturned_True(char value)
         {
-        	int decision = ServiceFunctions.ChoosingRightKey(value);
-        	int supposedResult = value - 48;
+            int decision = ServiceFunctions.ChoosingRightKey(value);
+            int supposedResult = value - 48;
 
-        	Assert.Equal(supposedResult, decision);        	
+            Assert.Equal(supposedResult, decision);
         }
     }
 }

@@ -6,9 +6,9 @@ namespace DinosaurQuest.Creatures
     public class ShortLeggedLizard : ICreature
     {
         public string name => "Short-legged lizard";
-        public int health {get; private set;}
+        public int health { get; private set; }
         public int maxHealth => new Random().Next(20, 30);
-        public int stamina {get; private set;}
+        public int stamina { get; private set; }
         public int maxStamina => new Random().Next(30, 45);
         public int attackCoefficient => 1;
         public int defenceCoefficient => 0;
@@ -22,7 +22,7 @@ namespace DinosaurQuest.Creatures
             }
         }
 
-        public void Frighten (ITerritory currentTerritory, int coefficient)
+        public void Frighten(ITerritory currentTerritory, int coefficient)
         {
             int shortLeggedLizardThreshold = 15;
             if (coefficient > shortLeggedLizardThreshold)

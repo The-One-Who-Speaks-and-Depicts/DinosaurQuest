@@ -1,4 +1,4 @@
-name: Xunit
+name: Checks for basic working
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
   workflow_dispatch:
   
 jobs:
+
   test:
     runs-on: ubuntu-latest
     steps:

@@ -10,15 +10,15 @@ namespace DinosaurQuest.Territories
 {
     public class Tile : ITile
     {
-        public Character character {get; private set;}
-        public List<ICreature> creatures {get; private set;}
+        public Character character { get; private set; }
+        public List<ICreature> creatures { get; private set; }
 
 
-        public ILevel currentLevel {get; set;}
+        public ILevel currentLevel { get; set; }
 
         public int X { get; private set; }
         public int Y { get; private set; }
-        public List <ITerritory> connectedTerritories {get; private set;}
+        public List<ITerritory> connectedTerritories { get; private set; }
 
         public Landscape landscape { get; private set; }
 
@@ -68,7 +68,8 @@ namespace DinosaurQuest.Territories
 
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             var finalDesc = new StringBuilder();
             finalDesc.Append($"{character.name}");
             finalDesc.Append($" is in tile({X}, {Y}).");
@@ -108,9 +109,9 @@ namespace DinosaurQuest.Territories
                 finalDesc.AppendJoin(", ", terrs);
                 finalDesc.Append(".");
             }
-			if (this.GetType() == typeof(Tile))
-			{
-				var thisTile = (Tile) this;
+            if (this.GetType() == typeof(Tile))
+            {
+                var thisTile = (Tile)this;
                 finalDesc.Append(thisTile.landscape.ToString());
             }
             return finalDesc.ToString();

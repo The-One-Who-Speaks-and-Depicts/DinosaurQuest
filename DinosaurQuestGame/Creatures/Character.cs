@@ -13,27 +13,27 @@ namespace DinosaurQuest.Creatures
     {
         #region commonCharacteristics
         [JsonProperty]
-        public new string name {get; private set;}
+        public new string name { get; private set; }
         [JsonProperty]
-        public string gender {get; private set;}
+        public string gender { get; private set; }
         [JsonProperty]
-        public new int health {get; private set;}
+        public new int health { get; private set; }
         [JsonProperty]
-        public new int maxHealth {get; private set;}
+        public new int maxHealth { get; private set; }
         [JsonProperty]
-        public new int stamina {get; private set;}
+        public new int stamina { get; private set; }
         [JsonProperty]
-        public new int maxStamina {get; private set;}
+        public new int maxStamina { get; private set; }
         [JsonProperty]
-        public List<IPerk> perks {get; private set;}
+        public List<IPerk> perks { get; private set; }
         [JsonProperty]
-        public new int attackCoefficient {get; private set;}
+        public new int attackCoefficient { get; private set; }
         [JsonProperty]
-        public new int defenceCoefficient {get; private set;}
+        public new int defenceCoefficient { get; private set; }
         [JsonProperty]
-        public int socialCoefficient {get; private set;}
+        public int socialCoefficient { get; private set; }
         [JsonProperty]
-        public Pack<Anchiornis> pack {get; private set;}
+        public Pack<Anchiornis> pack { get; private set; }
 
         #endregion
 
@@ -135,71 +135,71 @@ namespace DinosaurQuest.Creatures
         public ITerritory Move(ITerritory source, ICreature.direction direction)
         {
             var tileSource = source as ITile;
-            var target = (ITile) Activator.CreateInstance(source.GetType());
+            var target = (ITile)Activator.CreateInstance(source.GetType());
             target.currentLevel = source.currentLevel;
             string movementDirection = "";
             switch (direction)
             {
                 case ICreature.direction.N:
-                {
-                    target.SetX(tileSource.X, 0);
-                    target.SetY(tileSource.Y, 1);
-                    movementDirection = "northwards";
-                    break;
-                }
+                    {
+                        target.SetX(tileSource.X, 0);
+                        target.SetY(tileSource.Y, 1);
+                        movementDirection = "northwards";
+                        break;
+                    }
                 case ICreature.direction.NE:
-                {
-                    target.SetY(tileSource.Y, 1);
-                    target.SetX(tileSource.X, 1);
-                    movementDirection = "northeastwards";
-                    break;
-                }
+                    {
+                        target.SetY(tileSource.Y, 1);
+                        target.SetX(tileSource.X, 1);
+                        movementDirection = "northeastwards";
+                        break;
+                    }
                 case ICreature.direction.E:
-                {
-                    target.SetX(tileSource.X, 1);
-                    target.SetY(tileSource.Y, 0);
-                    movementDirection = "eastwards";
-                    break;
-                }
+                    {
+                        target.SetX(tileSource.X, 1);
+                        target.SetY(tileSource.Y, 0);
+                        movementDirection = "eastwards";
+                        break;
+                    }
                 case ICreature.direction.SE:
-                {
-                    target.SetY(tileSource.Y, -1);
-                    target.SetX(tileSource.X, 1);
-                    movementDirection = "southeastwards";
-                    break;
-                }
+                    {
+                        target.SetY(tileSource.Y, -1);
+                        target.SetX(tileSource.X, 1);
+                        movementDirection = "southeastwards";
+                        break;
+                    }
                 case ICreature.direction.S:
-                {
-                    target.SetX(tileSource.X, 0);
-                    target.SetY(tileSource.Y, -1);
-                    movementDirection = "southwards";
-                    break;
-                }
+                    {
+                        target.SetX(tileSource.X, 0);
+                        target.SetY(tileSource.Y, -1);
+                        movementDirection = "southwards";
+                        break;
+                    }
                 case ICreature.direction.SW:
-                {
-                    target.SetY(tileSource.Y, -1);
-                    target.SetX(tileSource.X, -1);
-                    movementDirection = "southwestwards";
-                    break;
-                }
+                    {
+                        target.SetY(tileSource.Y, -1);
+                        target.SetX(tileSource.X, -1);
+                        movementDirection = "southwestwards";
+                        break;
+                    }
                 case ICreature.direction.W:
-                {
-                    target.SetX(tileSource.X, -1);
-                    target.SetY(tileSource.Y, 0);
-                    movementDirection = "westwards";
-                    break;
-                }
+                    {
+                        target.SetX(tileSource.X, -1);
+                        target.SetY(tileSource.Y, 0);
+                        movementDirection = "westwards";
+                        break;
+                    }
                 case ICreature.direction.NW:
-                {
-                    target.SetY(tileSource.Y, 1);
-                    target.SetX(tileSource.X, -1);
-                    movementDirection = "northwestwards";
-                    break;
-                }
+                    {
+                        target.SetY(tileSource.Y, 1);
+                        target.SetX(tileSource.X, -1);
+                        movementDirection = "northwestwards";
+                        break;
+                    }
                 default:
-                {
-                    break;
-                }
+                    {
+                        break;
+                    }
             }
             if (target.isAccessible)
             {

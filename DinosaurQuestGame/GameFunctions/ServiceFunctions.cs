@@ -8,7 +8,7 @@ namespace DinosaurQuest.GameFunctions
         {
             Console.WriteLine(" ");
             return Convert.ToInt32(m_readKey) - 48;
-        }       
+        }
 
 
     }

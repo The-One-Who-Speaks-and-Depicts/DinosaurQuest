@@ -11,7 +11,7 @@ namespace DinosaurQuest.Creatures
     {
         public Pack()
         {
-            
+
         }
 
         public void Attack(ICreature attackedCreature)
@@ -29,13 +29,13 @@ namespace DinosaurQuest.Creatures
             throw new NotImplementedException();
         }
 
-        public void Sacrifice (T sacrifice)
+        public void Sacrifice(T sacrifice)
         {
             throw new NotImplementedException();
         }
 
         // unit test that for non-Anchiornis
-        public void Join (T candidate)
+        public void Join(T candidate)
         {
             if (candidate is Anchiornis)
             {
@@ -46,7 +46,7 @@ namespace DinosaurQuest.Creatures
                 }
             }
         }
-        
+
     }
 
 }

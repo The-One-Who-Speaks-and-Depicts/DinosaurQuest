@@ -17,11 +17,11 @@ namespace DinosaurQuest.Creatures
         public int friendliness { get; private set; }
         public int maxFriendliness => 100;
         public int attackCoefficient => new Random().Next(7, 14);
-        public int defenceCoefficient => new Random().Next(7,14);
+        public int defenceCoefficient => new Random().Next(7, 14);
 
-        public void Frighten (ITerritory currentTerritory, int coefficient)
+        public void Frighten(ITerritory currentTerritory, int coefficient)
         {
-            
+
         }
 
         public void Move(ITerritory source, ITerritory target, bool directed = false)
@@ -33,7 +33,7 @@ namespace DinosaurQuest.Creatures
             }
         }
 
-        public void IncreaseFriendliness (int coefficient)
+        public void IncreaseFriendliness(int coefficient)
         {
             int increase = 10 + 2 * coefficient;
             if (friendliness < maxFriendliness)
@@ -47,7 +47,7 @@ namespace DinosaurQuest.Creatures
                     friendliness = maxFriendliness;
                 }
             }
-            
+
         }
 
         public Anchiornis()

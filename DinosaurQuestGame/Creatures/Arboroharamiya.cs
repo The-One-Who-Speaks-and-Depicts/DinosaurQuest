@@ -7,9 +7,9 @@ namespace DinosaurQuest.Creatures
     public class Arboroharamiya : ICreature
     {
         public string name => "Arboroharamiya";
-        public int health {get; private set;}
+        public int health { get; private set; }
         public int maxHealth => new Random().Next(40, 60);
-        public int stamina {get; private set;}
+        public int stamina { get; private set; }
         public int maxStamina => new Random().Next(20, 30);
         public int attackCoefficient => 1;
         public int defenceCoefficient => 2;
@@ -22,7 +22,7 @@ namespace DinosaurQuest.Creatures
             }
         }
 
-        public void Frighten (ITerritory currentTerritory, int coefficient)
+        public void Frighten(ITerritory currentTerritory, int coefficient)
         {
             int arboroharamiyaThreshold = 27;
             if (coefficient > arboroharamiyaThreshold)

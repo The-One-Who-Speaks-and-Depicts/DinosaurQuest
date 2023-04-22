@@ -6,15 +6,15 @@ using System.Collections.Generic;
 
 namespace DinosaurQuest.Territories
 {
-	public class MockHiddenTerritory : IHiddenTerritory
-	{
-		public Character character {get; set;}
-		public ILevel currentLevel {get; set;}
-		public IPerk requiredPerk {get; private set;}
-		public List<ITerritory> connectedTerritories {get; set;}
-		public List<ICreature> creatures {get; set;}
+    public class MockHiddenTerritory : IHiddenTerritory
+    {
+        public Character character { get; set; }
+        public ILevel currentLevel { get; set; }
+        public IPerk requiredPerk { get; private set; }
+        public List<ITerritory> connectedTerritories { get; set; }
+        public List<ICreature> creatures { get; set; }
 
-		public void OpenTerritory(Character character)
+        public void OpenTerritory(Character character)
         {
             bool territoryOpened = false;
             for (int i = 0; i < character.perks.Count; i++)
@@ -30,7 +30,7 @@ namespace DinosaurQuest.Territories
             {
                 Console.WriteLine($"Access to territory is yet restricted for {character.name}");
             }
-            
+
         }
         public void CloseTerritory(Character character)
         {
@@ -52,7 +52,7 @@ namespace DinosaurQuest.Territories
                         creatures.Add(character.pack[i]);
                     }
                 }
-            }           
+            }
             else
             {
                 Console.WriteLine($"This territory is not accessible for {character.name}");
@@ -73,20 +73,20 @@ namespace DinosaurQuest.Territories
             }
         }
 
-		public void Generate()
-		{
+        public void Generate()
+        {
 
-		}
+        }
 
-		public bool isAccessible {get; private set;}
+        public bool isAccessible { get; private set; }
 
-		public MockHiddenTerritory(Character _character, IPerk _requiredPerk, ITile startTile)
-		{
-			character = _character;
-			requiredPerk = _requiredPerk;
-			connectedTerritories = new List<ITerritory>() { startTile };
-			creatures = new List<ICreature>();
+        public MockHiddenTerritory(Character _character, IPerk _requiredPerk, ITile startTile)
+        {
+            character = _character;
+            requiredPerk = _requiredPerk;
+            connectedTerritories = new List<ITerritory>() { startTile };
+            creatures = new List<ICreature>();
 
-		}
-	}
+        }
+    }
 }

@@ -8,15 +8,15 @@ using System.Collections.Generic;
 
 namespace DinosaurQuest.Territories
 {
-	public class HiddenTerritory : IHiddenTerritory
-	{
-		public Character character { get; set; }
+    public class HiddenTerritory : IHiddenTerritory
+    {
+        public Character character { get; set; }
 
-        public ILevel currentLevel {get; set;}
-        
-        public IPerk requiredPerk {get; private set;}
+        public ILevel currentLevel { get; set; }
 
-        public List <ITerritory> connectedTerritories {get; set;}
+        public IPerk requiredPerk { get; private set; }
+
+        public List<ITerritory> connectedTerritories { get; set; }
 
         public List<ICreature> creatures { get; set; }
 
@@ -36,7 +36,7 @@ namespace DinosaurQuest.Territories
             {
                 Console.WriteLine($"Access to territory is yet restricted for {character.name}");
             }
-            
+
         }
         public void CloseTerritory(Character character)
         {
@@ -58,7 +58,7 @@ namespace DinosaurQuest.Territories
                         creatures.Add(character.pack[i]);
                     }
                 }
-            }           
+            }
             else
             {
                 Console.WriteLine($"This territory is not accessible for {character.name}");
@@ -83,7 +83,7 @@ namespace DinosaurQuest.Territories
         {
         }
 
-        public bool isAccessible {get; private set;}
+        public bool isAccessible { get; private set; }
 
         public HiddenTerritory()
         {
@@ -91,5 +91,5 @@ namespace DinosaurQuest.Territories
             Generate();
             isAccessible = false;
         }
-	}
+    }
 }

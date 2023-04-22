@@ -6,125 +6,125 @@ using DinosaurQuest.Territories;
 
 namespace DinosaurQuestTests
 {
-	public class PerkTests
-	{
-		[Fact]
-		public void ArchaeopteryxMove_edgeOfLevelAchieved_returnsTheSameTile()
-		{
-			var mockCharacter = new Character();
-			var mockArchaeopteryx = new Archaeopteryx();
-			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
-			var mockTile = new MockTile(mockCharacter, 3, 3, 3, 3);
+    public class PerkTests
+    {
+        [Fact]
+        public void ArchaeopteryxMove_edgeOfLevelAchieved_returnsTheSameTile()
+        {
+            var mockCharacter = new Character();
+            var mockArchaeopteryx = new Archaeopteryx();
+            mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 3, 3);
 
-			var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NW);
+            var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NW);
 
-			Assert.Equal(mockTile, destination);
-		}
+            Assert.Equal(mockTile, destination);
+        }
 
-		[Fact]
-		public void ArchaeopteryxMove_edgeOfLevelIsMidway_returnsMidway()
-		{
-			var mockCharacter = new Character();
-			var mockArchaeopteryx = new Archaeopteryx();
-			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
-			var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+        [Fact]
+        public void ArchaeopteryxMove_edgeOfLevelIsMidway_returnsMidway()
+        {
+            var mockCharacter = new Character();
+            var mockArchaeopteryx = new Archaeopteryx();
+            mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-			var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NE) as ITile;
-			var xRaised = destination.X == 3;
-			var yRaised = destination.Y == 3;
-			var movementPerformed = xRaised && yRaised;
+            var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NE) as ITile;
+            var xRaised = destination.X == 3;
+            var yRaised = destination.Y == 3;
+            var movementPerformed = xRaised && yRaised;
 
-			Assert.True(movementPerformed);
-		}
+            Assert.True(movementPerformed);
+        }
 
-		[Fact]
-		public void ArchaeopteryxMove_successfulStart_returnsFinalDestination()
-		{
-			var mockCharacter = new Character();
-			var mockArchaeopteryx = new Archaeopteryx();
-			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
-			var mockTile = new MockTile(mockCharacter, 3, 3, 1, 1);
+        [Fact]
+        public void ArchaeopteryxMove_successfulStart_returnsFinalDestination()
+        {
+            var mockCharacter = new Character();
+            var mockArchaeopteryx = new Archaeopteryx();
+            mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 1, 1);
 
-			var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NE) as ITile;
-			var xRaised = destination.X == 3;
-			var yRaised = destination.Y == 3;
-			var movementPerformed = xRaised && yRaised;
+            var destination = mockArchaeopteryx.OnMovement(mockCharacter, mockTile, null, ICreature.direction.NE) as ITile;
+            var xRaised = destination.X == 3;
+            var yRaised = destination.Y == 3;
+            var movementPerformed = xRaised && yRaised;
 
-			Assert.True(movementPerformed);
+            Assert.True(movementPerformed);
 
-		}
+        }
 
-		[Fact]
-		public void ArchaeopteryxTiles_territoryUnlocked_returnsAccessible()
-		{
-			var mockCharacter = new Character();
-			var mockArchaeopteryx = new Archaeopteryx(); 
-			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
-			var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
-			var mockTerritory = new MockHiddenTerritory(mockCharacter, mockArchaeopteryx, mockTile);
+        [Fact]
+        public void ArchaeopteryxTiles_territoryUnlocked_returnsAccessible()
+        {
+            var mockCharacter = new Character();
+            var mockArchaeopteryx = new Archaeopteryx();
+            mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+            var mockTerritory = new MockHiddenTerritory(mockCharacter, mockArchaeopteryx, mockTile);
 
-			mockArchaeopteryx.OnTile(mockCharacter, mockTerritory);
+            mockArchaeopteryx.OnTile(mockCharacter, mockTerritory);
 
-			Assert.True(mockTerritory.isAccessible);
-		}
+            Assert.True(mockTerritory.isAccessible);
+        }
 
-		[Fact]
-		public void ArchaeopteryxUs_FriendlinessIncreased_AnchiornisMoreAttracted()
-		{
-			var mockCharacter = new Character();
-			var mockArchaeopteryx = new Archaeopteryx();
-			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
-			var mockFriendlyAnchiornis = new Anchiornis();
-			var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+        [Fact]
+        public void ArchaeopteryxUs_FriendlinessIncreased_AnchiornisMoreAttracted()
+        {
+            var mockCharacter = new Character();
+            var mockArchaeopteryx = new Archaeopteryx();
+            mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+            var mockFriendlyAnchiornis = new Anchiornis();
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-			mockArchaeopteryx.OnUs(mockCharacter, mockFriendlyAnchiornis, mockTile);
+            mockArchaeopteryx.OnUs(mockCharacter, mockFriendlyAnchiornis, mockTile);
 
-			Assert.Equal(12, mockFriendlyAnchiornis.friendliness);
-		}
+            Assert.Equal(12, mockFriendlyAnchiornis.friendliness);
+        }
 
-		[Fact]
-		public void ArchaeopteryxUs_SocialCoefficientIncreased_AnchiornisMoreAttractedThanOther()
-		{
-			var mockCharacter = new Character();
-			var mockArchaeopteryx = new Archaeopteryx();
-			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
-			var mockFriendlyAnchiornis = new Anchiornis();
-			var mockUnfriendlyAnchiornis = new Anchiornis();
-			mockFriendlyAnchiornis.IncreaseFriendliness(15);
-			mockUnfriendlyAnchiornis.IncreaseFriendliness(15);
-			var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+        [Fact]
+        public void ArchaeopteryxUs_SocialCoefficientIncreased_AnchiornisMoreAttractedThanOther()
+        {
+            var mockCharacter = new Character();
+            var mockArchaeopteryx = new Archaeopteryx();
+            mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+            var mockFriendlyAnchiornis = new Anchiornis();
+            var mockUnfriendlyAnchiornis = new Anchiornis();
+            mockFriendlyAnchiornis.IncreaseFriendliness(15);
+            mockUnfriendlyAnchiornis.IncreaseFriendliness(15);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
 
-			mockArchaeopteryx.OnUs(mockCharacter, mockFriendlyAnchiornis, mockTile);
-			mockUnfriendlyAnchiornis.IncreaseFriendliness(mockCharacter.socialCoefficient);
-			var friendlinessIsNotEqual = mockFriendlyAnchiornis.friendliness == mockUnfriendlyAnchiornis.friendliness;
+            mockArchaeopteryx.OnUs(mockCharacter, mockFriendlyAnchiornis, mockTile);
+            mockUnfriendlyAnchiornis.IncreaseFriendliness(mockCharacter.socialCoefficient);
+            var friendlinessIsNotEqual = mockFriendlyAnchiornis.friendliness == mockUnfriendlyAnchiornis.friendliness;
 
-			Assert.False(friendlinessIsNotEqual);
-		}
-		
+            Assert.False(friendlinessIsNotEqual);
+        }
 
-		[Fact]
-		public void ArchaeopteryxUsed_coolDownIncreased_coolDownEqualsCoolDownLimit()
-		{
-			var mockCharacter = new Character();
-			var mockArchaeopteryx = new Archaeopteryx(); 
-			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
-			var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
-			var mockTerritory = new MockHiddenTerritory(mockCharacter, mockArchaeopteryx, mockTile);
 
-			mockArchaeopteryx.OnTile(mockCharacter, mockTerritory);
+        [Fact]
+        public void ArchaeopteryxUsed_coolDownIncreased_coolDownEqualsCoolDownLimit()
+        {
+            var mockCharacter = new Character();
+            var mockArchaeopteryx = new Archaeopteryx();
+            mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+            var mockTile = new MockTile(mockCharacter, 3, 3, 2, 2);
+            var mockTerritory = new MockHiddenTerritory(mockCharacter, mockArchaeopteryx, mockTile);
 
-			Assert.Equal(mockArchaeopteryx.coolDown, mockArchaeopteryx.coolDownTime);
-		}
+            mockArchaeopteryx.OnTile(mockCharacter, mockTerritory);
 
-		[Fact]
-		public void ArchaeopteryxNotUsed_coolDownRemained_coolDownEqualsZero()
-		{
-			var mockCharacter = new Character();
-			var mockArchaeopteryx = new Archaeopteryx(); 			
+            Assert.Equal(mockArchaeopteryx.coolDown, mockArchaeopteryx.coolDownTime);
+        }
 
-			mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+        [Fact]
+        public void ArchaeopteryxNotUsed_coolDownRemained_coolDownEqualsZero()
+        {
+            var mockCharacter = new Character();
+            var mockArchaeopteryx = new Archaeopteryx();
 
-			Assert.Equal(0, mockArchaeopteryx.coolDown);
-		}
-	}
+            mockCharacter.CreditArchaeopteryx(mockArchaeopteryx);
+
+            Assert.Equal(0, mockArchaeopteryx.coolDown);
+        }
+    }
 }
