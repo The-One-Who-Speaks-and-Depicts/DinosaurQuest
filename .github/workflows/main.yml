@@ -9,19 +9,14 @@ on:
   workflow_dispatch:
   
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Restoring and building...
-        run: |
-          dotnet restore
-          dotnet build --no-restore
-
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v2
-      - name: Testing...
+      - uses: actions/checkout@v2
+      - name: Restore and build
+        run: |
+          dotnet restore
+          dotnet build --no-restore
+      - name: Test
         run: dotnet test --no-build --verbosity normal
+      
